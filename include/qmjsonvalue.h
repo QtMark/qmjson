@@ -61,31 +61,31 @@ class QM_JSON_EXPORT QMJsonValue : public QObject
 public:
 
     QMJsonValue();
-    QMJsonValue(bool value);
-    QMJsonValue(double value);
-    QMJsonValue(const QString &value);
-    QMJsonValue(const QMPointer<QMJsonArray> &value);
-    QMJsonValue(const QMPointer<QMJsonObject> &value);
-    template<class T> QMJsonValue(const T &value);
+    explicit QMJsonValue(bool value);
+    explicit QMJsonValue(double value);
+    explicit QMJsonValue(const QString &value);
+    explicit QMJsonValue(const QMPointer<QMJsonArray> &value);
+    explicit QMJsonValue(const QMPointer<QMJsonObject> &value);
+    template<class T> explicit QMJsonValue(const T &value);
 
 #ifdef QM_GUI_ENABLED
 
-    QMJsonValue(const QRect &value);
-    QMJsonValue(const QSize &value);
-    QMJsonValue(const QPoint &value);
-    QMJsonValue(const QColor &value);
+    explicit QMJsonValue(const QRect &value);
+    explicit QMJsonValue(const QSize &value);
+    explicit QMJsonValue(const QPoint &value);
+    explicit QMJsonValue(const QColor &value);
 
 #endif
 
-    QMJsonValue(const char *value);
-    QMJsonValue(short value);
-    QMJsonValue(unsigned short value);
-    QMJsonValue(int value);
-    QMJsonValue(unsigned int value);
-    QMJsonValue(long value);
-    QMJsonValue(unsigned long value);
-    QMJsonValue(long long value);
-    QMJsonValue(unsigned long long value);
+    explicit QMJsonValue(const char *value);
+    explicit QMJsonValue(short value);
+    explicit QMJsonValue(unsigned short value);
+    explicit QMJsonValue(int value);
+    explicit QMJsonValue(unsigned int value);
+    explicit QMJsonValue(long value);
+    explicit QMJsonValue(unsigned long value);
+    explicit QMJsonValue(long long value);
+    explicit QMJsonValue(unsigned long long value);
 
     virtual ~QMJsonValue();
 
