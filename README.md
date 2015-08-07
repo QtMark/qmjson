@@ -16,6 +16,12 @@ a more developer friendly API.
 
 ## Building Instructions
 
+```
+qmake
+make
+make install
+```
+
 ## Installation Instructions
 
 ## Usage
