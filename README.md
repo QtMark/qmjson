@@ -14,7 +14,10 @@ including QRect, QSize, QPoint and QColor.
 - Several convience functions for JSON values, arrays and objects providing
 a more developer friendly API.
 
-## Building Instructions
+## Building / Installation Instructions
+
+To build the QtMark JSON Library, first make sure that Qt is installed in your
+development environment. Once installed, execute the following:
 
 ```
 qmake
@@ -22,6 +25,27 @@ make
 make install
 ```
 
-## Installation Instructions
-
 ## Usage
+
+To use this library, simply include the following:
+
+```c
+#include <qmjson.h>
+```
+
+The QtMark JSON Library uses C++11, and thus you must add this to your project
+file. You will also need to add the library itself.
+
+```
+CONFIG += c++11
+LIBS += -lqmjson
+```
+
+For a more complete example, see the test application that is included with
+this source code. To run this test code, execute the following
+
+```
+qmake
+make
+./test
+```
