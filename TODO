@@ -1,0 +1,8 @@
+Version 1.0 Todo:
+
+- Add doxygen API comments
+- Add policy enum for the QMJsonArray and QMJsonObject unite functions
+- Add to<>, from<> and is<> functions to QMJsonArray and QMJsonObject
+- Add key function to QMJsonObject that does a reverse lookup based on a value
+- Add index based contains function to QMJsonArray
+- Convert QMJsonValue's type to an enum and provide typeString() function
