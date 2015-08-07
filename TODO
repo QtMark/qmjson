@@ -6,3 +6,5 @@ Version 1.0 Todo:
 - Add key function to QMJsonObject that does a reverse lookup based on a value
 - Add index based contains function to QMJsonArray
 - Convert QMJsonValue's type to an enum and provide typeString() function
+- Add convenince functions for QMJsonArray and QMJsonObject to provide the
+  ability to save an object or array to file.

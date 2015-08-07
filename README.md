@@ -11,6 +11,8 @@ a simple means to externally maintain a reference to portions of a JSON tree
 unmarshal JSON trees into complex C++ Classes.
 - Native support for some custom types (providing convience and example)
 including QRect, QSize, QPoint and QColor.
+- Singal / Slot support for JSON values, arrays and objects to detect when
+changes occur to specific portions of the tree.
 - Several convience functions for JSON values, arrays and objects providing
 a more developer friendly API.
 
