@@ -30,11 +30,11 @@ int main(int argc, char const *argv[])
     // Setup
     //--------------------------------------------------------------------------
 
-    QMPointer<QMJsonValue> value1 = QMPointer<QMJsonValue>(new QMJsonValue(5.5));
-    QMPointer<QMJsonValue> value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello"));
-    QMPointer<QMJsonValue> value3 = QMPointer<QMJsonValue>(new QMJsonValue(true));
-    QMPointer<QMJsonArray> array = QMPointer<QMJsonArray>(new QMJsonArray());
-    QMPointer<QMJsonObject> object = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(5.5));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello"));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto array = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto object = QMPointer<QMJsonObject>(new QMJsonObject());
 
     array->append(value1);
     array->append(value2);
@@ -116,6 +116,15 @@ int main(int argc, char const *argv[])
     qDebug() << "Tree:";
     qDebug() << "  " << object;
     qDebug() << "";
+
+    //--------------------------------------------------------------------------
+    // Tree Example
+    //--------------------------------------------------------------------------
+
+    auto ok = false;
+    auto valueTree = QMPointer<QMJsonValue>(new QMJsonValue(object));
+
+    valueTree->toJsonFile("test.json", &ok, QMJSONVALUE_PRETTY);
 
     return 0;
 }

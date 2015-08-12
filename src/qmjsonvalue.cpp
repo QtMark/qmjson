@@ -781,7 +781,12 @@ QString QMJsonValue::toJson(int32_t prettyPrint) const
 
 QString QMJsonValue::toJsonFile(const QString &filename, int32_t prettyPrint) const
 {
-    QFile file(filename);
+    return this->toJsonFile(filename, NULL, prettyPrint);
+}
+
+QString QMJsonValue::toJsonFile(const QString &filename, bool *ok, int32_t prettyPrint) const
+{
+    QSaveFile file(filename);
     QTextStream stream(&file);
 
     auto json = this->toJson(prettyPrint);
@@ -791,8 +796,10 @@ QString QMJsonValue::toJsonFile(const QString &filename, int32_t prettyPrint) co
 
     stream << json << "\r\n";
 
-    file.flush();
-    file.close();
+    auto result = file.commit();
+
+    if(ok != NULL)
+        *ok = result;
 
     return json;
 }

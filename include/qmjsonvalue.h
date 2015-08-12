@@ -193,11 +193,13 @@ public:
 
     virtual QString toJson(int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
     virtual QString toJsonFile(const QString &filename, int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
+    virtual QString toJsonFile(const QString &filename, bool *ok, int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
     static QMPointer<QMJsonValue> fromJson(const QString &json);
     static QMPointer<QMJsonValue> fromJsonFile(const QString &filename);
 
     template<class T> static QString toJson(const T &value, int32_t prettyPrint = QMJSONVALUE_PRETTY);
     template<class T> static QString toJsonFile(const T &value, const QString &filename, int32_t prettyPrint = QMJSONVALUE_PRETTY);
+    template<class T> static QString toJsonFile(const T &value, const QString &filename, bool *ok, int32_t prettyPrint = QMJSONVALUE_PRETTY);
 
     static void registerFromComplexJson(const QString &qmjsontype, FromComplexJsonFunc func);
 
@@ -289,6 +291,12 @@ template<class T>
 QString QMJsonValue::toJsonFile(const T &value, const QString &filename, int32_t prettyPrint)
 {
     return (QMPointer<QMJsonValue>(new QMJsonValue(value)))->toJsonFile(filename, prettyPrint);
+}
+
+template<class T>
+QString QMJsonValue::toJsonFile(const T &value, const QString &filename, bool *ok, int32_t prettyPrint)
+{
+    return (QMPointer<QMJsonValue>(new QMJsonValue(value)))->toJsonFile(filename, ok, prettyPrint);
 }
 
 #endif // QMJSONVALUE_H
