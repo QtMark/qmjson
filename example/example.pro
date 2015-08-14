@@ -23,7 +23,7 @@
 #-------------------------------------------------------------------------------
 
 TEMPLATE = app
-TARGET = test
+TARGET = example
 INCLUDEPATH += .
 
 SOURCES += main.cpp
@@ -39,5 +39,5 @@ LIBS += -lqmjson -lqmjsongui
 # Clean
 #-------------------------------------------------------------------------------
 
-QMAKE_DISTCLEAN += test.json
+QMAKE_DISTCLEAN += example.json
 

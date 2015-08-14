@@ -45,13 +45,14 @@ CONFIG += c++11
 LIBS += -lqmjson -lqmjsongui
 ```
 
-For a more complete example, see the test application that is included with
-this source code. To run this test code, execute the following
+For a more complete example, see the example application that is included with
+this source code. To run this example code, execute the following
 
 ```
+cd example
 qmake
 make
-./test
+./example
 ```
 
 ## Cleanup

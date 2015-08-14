@@ -33,11 +33,18 @@ int main(int argc, char const *argv[])
     // Setup
     //--------------------------------------------------------------------------
 
+    QMJsonValue::registerFromComplexJson("QColor", &QMJsonType<QColor>::fromComplexJson);
+    QMJsonValue::registerFromComplexJson("QPoint", &QMJsonType<QPoint>::fromComplexJson);
+    QMJsonValue::registerFromComplexJson("QRect", &QMJsonType<QRect>::fromComplexJson);
+    QMJsonValue::registerFromComplexJson("QSize", &QMJsonType<QSize>::fromComplexJson);
+
     auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(5.5));
     auto value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello"));
     auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(true));
     auto array = QMPointer<QMJsonArray>(new QMJsonArray());
     auto object = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto tree = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto document = QMPointer<QMJsonValue>(new QMJsonValue(tree));
 
     array->append(value1);
     array->append(value2);
@@ -46,6 +53,14 @@ int main(int argc, char const *argv[])
     object->insert("key1", value1);
     object->insert("key2", value2);
     object->insert("key3", value3);
+
+    tree->insert("array", array);
+    tree->insert("object", object);
+
+    auto complexValue1 = QMPointer<QMJsonValue>(new QMJsonValue(QColor("red")));
+    auto complexValue2 = QMPointer<QMJsonValue>(new QMJsonValue(QPoint(2, 2)));
+    auto complexValue3 = QMPointer<QMJsonValue>(new QMJsonValue(QRect(5, 5, 3, 3)));
+    auto complexValue4 = QMPointer<QMJsonValue>(new QMJsonValue(QSize(10, 10)));
 
     //--------------------------------------------------------------------------
     // Valid
@@ -129,10 +144,8 @@ int main(int argc, char const *argv[])
     // Tree Example
     //--------------------------------------------------------------------------
 
-    object->insert("key4", array);
-
     qDebug() << "Tree:";
-    qDebug() << "  " << object;
+    qDebug() << "  " << tree;
     qDebug() << "";
 
     //--------------------------------------------------------------------------
@@ -140,50 +153,54 @@ int main(int argc, char const *argv[])
     //--------------------------------------------------------------------------
 
     auto ok = false;
-    auto valueTree = QMPointer<QMJsonValue>(new QMJsonValue(object));
-
-    valueTree->toJsonFile("test.json", &ok, QMJSONVALUE_PRETTY);
+    document->toJsonFile("example.json", &ok, QMJSONVALUE_PRETTY);
 
     //--------------------------------------------------------------------------
     // Complex Types
     //--------------------------------------------------------------------------
 
-    qDebug() << "Complex:";
 
-    QMJsonValue::registerFromComplexJson("QColor", &QMJsonType<QColor>::fromComplexJson);
-    QMJsonValue::registerFromComplexJson("QPoint", &QMJsonType<QPoint>::fromComplexJson);
-    QMJsonValue::registerFromComplexJson("QRect", &QMJsonType<QRect>::fromComplexJson);
-    QMJsonValue::registerFromComplexJson("QSize", &QMJsonType<QSize>::fromComplexJson);
+    qDebug() << "Complex Values:";
+    qDebug() << complexValue1;
+    qDebug() << complexValue2;
+    qDebug() << complexValue3;
+    qDebug() << complexValue4;
+    qDebug() << "";
 
-    auto complexValue1 = QMPointer<QMJsonValue>(new QMJsonValue(QColor("red")));
-    auto complexValue2 = QMPointer<QMJsonValue>(new QMJsonValue(QPoint(2, 2)));
-    auto complexValue3 = QMPointer<QMJsonValue>(new QMJsonValue(QRect(5, 5, 3, 3)));
-    auto complexValue4 = QMPointer<QMJsonValue>(new QMJsonValue(QSize(10, 10)));
-
-    auto complexJson1 = complexValue1->toJson();
-    auto complexJson2 = complexValue2->toJson();
-    auto complexJson3 = complexValue3->toJson();
-    auto complexJson4 = complexValue4->toJson();
-
-    qDebug() << complexJson1;
-    qDebug() << complexJson2;
-    qDebug() << complexJson3;
-    qDebug() << complexJson4;
-
+    qDebug() << "Is:";
     qDebug() << complexValue1->is<QColor>();
     qDebug() << complexValue2->is<QPoint>();
     qDebug() << complexValue3->is<QRect>();
     qDebug() << complexValue4->is<QSize>();
+    qDebug() << "";
 
+    qDebug() << "To:";
     qDebug() << complexValue1->to<QColor>();
     qDebug() << complexValue2->to<QPoint>();
     qDebug() << complexValue3->to<QRect>();
     qDebug() << complexValue4->to<QSize>();
+    qDebug() << "";
 
-    qDebug() << QMJsonValue::fromJson(complexJson1);
-    qDebug() << QMJsonValue::fromJson(complexJson2);
-    qDebug() << QMJsonValue::fromJson(complexJson3);
-    qDebug() << QMJsonValue::fromJson(complexJson4);
+    qDebug() << "From:";
+    qDebug() << complexValue1->from<QColor>(QColor("blue"));
+    qDebug() << complexValue2->from<QPoint>(QPoint(4, 8));
+    qDebug() << complexValue3->from<QRect>(QRect(15, 16, 23, 42));
+    qDebug() << complexValue4->from<QSize>(QSize(21, 12));
+    qDebug() << "";
+
+    qDebug() << "Complex to JSON:";
+    qDebug() << complexValue1->toJson();
+    qDebug() << complexValue2->toJson();
+    qDebug() << complexValue3->toJson();
+    qDebug() << complexValue4->toJson();
+    qDebug() << "";
+
+    qDebug() << "Complex from JSON:";
+    qDebug() << QMJsonValue::fromJson(complexValue1->toJson());
+    qDebug() << QMJsonValue::fromJson(complexValue2->toJson());
+    qDebug() << QMJsonValue::fromJson(complexValue3->toJson());
+    qDebug() << QMJsonValue::fromJson(complexValue4->toJson());
+    qDebug() << "";
 
     return 0;
 }
