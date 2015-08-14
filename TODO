@@ -17,3 +17,4 @@ Version 1.0 Todo:
 - Create typeString() function
 - Provide type conversions for the basic types
 - Remove the GUI functions from value, object and array
+- Add Windows support

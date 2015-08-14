@@ -30,10 +30,6 @@
 
 #include <QtCore>
 
-#ifdef QM_GUI_ENABLED
-#include <QtGui>
-#endif
-
 #if defined(QM_JSON_LIBRARY)
 #define QM_JSON_EXPORT Q_DECL_EXPORT
 #else
@@ -60,7 +56,7 @@ public:
     QMJsonTypeBase() {}
     virtual ~QMJsonTypeBase() {}
 
-    virtual QDebug print(QDebug &dbg) = 0;
+    virtual QDebug print(QDebug dbg) = 0;
     virtual bool isBaseType(void) = 0;
 
     virtual QString toJson(int32_t tab) = 0;
@@ -83,13 +79,13 @@ public:
     virtual void set(const T &value);
     virtual T &get(void);
 
-    virtual QDebug print(QDebug &dbg);
-    virtual bool isBaseType(void);
+    virtual QDebug print(QDebug dbg) override;
+    virtual bool isBaseType(void) override;
 
-    virtual QString toJson(int32_t tab);
+    virtual QString toJson(int32_t tab) override;
     static QMPointer<QMJsonValue> fromJson(const QString &json, int32_t &index);
 
-    virtual void toComplexJson(const QMPointer<QMJsonObject> &obj);
+    virtual void toComplexJson(const QMPointer<QMJsonObject> &obj) override;
     static QMPointer<QMJsonValue> fromComplexJson(const QMPointer<QMJsonObject> &obj);
 
 private:
@@ -125,7 +121,7 @@ T &QMJsonType<T>::get(void)
 }
 
 template <class T>
-QDebug QMJsonType<T>::print(QDebug &dbg)
+QDebug QMJsonType<T>::print(QDebug dbg)
 {
     return dbg << mValue;
 }

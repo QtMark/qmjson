@@ -452,13 +452,10 @@ bool QMJsonArray::fromULongLong(int32_t index, unsigned long long value)
 
 QDebug operator<<(QDebug dbg, const QMJsonArray &array)
 {
+    QDebugStateSaver saver(dbg);
     auto started = false;
 
-    auto space = dbg.autoInsertSpaces();
-    dbg.setAutoInsertSpaces(false);
-
-    dbg << "QMJsonArray";
-    dbg << "[";
+    dbg.nospace() << "QMJsonArray[";
 
     for(const auto &value : array.values())
     {
@@ -469,23 +466,18 @@ QDebug operator<<(QDebug dbg, const QMJsonArray &array)
         started = true;
     }
 
-    dbg << "]";
-
-    dbg.setAutoInsertSpaces(space);
-    return dbg;
+    return dbg << "]";
 }
 
 QDebug operator<<(QDebug dbg, const QMPointer<QMJsonArray> &value)
 {
     if (value.isNull() == true)
     {
-        auto space = dbg.autoInsertSpaces();
-        dbg.setAutoInsertSpaces(false);
+        QDebugStateSaver saver(dbg);
 
-        dbg << "QMPointer<";
+        dbg.nospace() << "QMPointer<";
         dbg << "QMJsonArray" << ">: NULL";
 
-        dbg.setAutoInsertSpaces(space);
         return dbg;
     }
     else

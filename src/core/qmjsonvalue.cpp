@@ -618,7 +618,10 @@ QString QMJsonValue::toJson(int32_t prettyPrint) const
         // custom, but we do care that at minimum, we have the type information.
         // Otherwise, bad things are going to happen.
         if(obj->contains("qmjsontype") == false)
+        {
+            qDebug() << "fdads";
             return QString();
+        }
 
         // Now all that is left, is to convert the class to the base types.
         // Note that the object might have complex types embedded in it, which
@@ -692,7 +695,10 @@ QMPointer<QMJsonValue> QMJsonValue::fromComplexJson(const QMPointer<QMJsonValue>
             auto func = mFromFuncs[obj->value("qmjsontype")->toString()];
 
             if(func == NULL)
+            {
+                qDebug() << "Crap";
                 return QMPointer<QMJsonValue>(new QMJsonValue());
+            }
 
             auto result = func(obj);
 
@@ -840,10 +846,8 @@ void QMJsonValue::throwError(const QString &json, int32_t index, QString error)
 
 QDebug operator<<(QDebug dbg, const QMJsonValue &value)
 {
-    auto space = dbg.autoInsertSpaces();
-    dbg.setAutoInsertSpaces(false);
-
-    dbg << "QMJsonValue(";
+    QDebugStateSaver saver(dbg);
+    dbg.nospace() << "QMJsonValue(";
 
     if(value.mValue != NULL)
     {
@@ -855,7 +859,6 @@ QDebug operator<<(QDebug dbg, const QMJsonValue &value)
         dbg << "NULL" << ")";
     }
 
-    dbg.setAutoInsertSpaces(space);
     return dbg;
 }
 
@@ -863,13 +866,11 @@ QDebug operator<<(QDebug dbg, const QMPointer<QMJsonValue> &value)
 {
     if (value.isNull() == true)
     {
-        auto space = dbg.autoInsertSpaces();
-        dbg.setAutoInsertSpaces(false);
+        QDebugStateSaver saver(dbg);
 
-        dbg << "QMPointer<";
+        dbg.nospace() << "QMPointer<";
         dbg << "QMJsonValue" << ">: NULL";
 
-        dbg.setAutoInsertSpaces(space);
         return dbg;
     }
     else

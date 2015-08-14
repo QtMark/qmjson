@@ -26,11 +26,8 @@
 // Libraries
 // ============================================================================
 
-#include <qmjsontype_bool.h>
-#include <qmjsontype_double.h>
-#include <qmjsontype_qstring.h>
-#include <qmjsontype_qmjsonarray.h>
-#include <qmjsontype_qmjsonobject.h>
+#include <qsize.h>
+#include <qmjson.h>
 
 // ============================================================================
 // Class Specialization Prototypes

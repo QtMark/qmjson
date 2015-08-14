@@ -411,13 +411,10 @@ bool QMJsonObject::fromULongLong(const QString &key, unsigned long long value)
 
 QDebug operator<<(QDebug dbg, const QMJsonObject &object)
 {
+    QDebugStateSaver saver(dbg);
     auto started = false;
 
-    auto space = dbg.autoInsertSpaces();
-    dbg.setAutoInsertSpaces(false);
-
-    dbg << "QMJsonObject";
-    dbg << "{";
+    dbg.nospace() << "QMJsonObject{";
 
     for(const auto &key : object.keys())
     {
@@ -428,23 +425,18 @@ QDebug operator<<(QDebug dbg, const QMJsonObject &object)
         started = true;
     }
 
-    dbg << "}";
-
-    dbg.setAutoInsertSpaces(space);
-    return dbg;
+    return dbg << "}";
 }
 
 QDebug operator<<(QDebug dbg, const QMPointer<QMJsonObject> &value)
 {
     if (value.isNull() == true)
     {
-        auto space = dbg.autoInsertSpaces();
-        dbg.setAutoInsertSpaces(false);
+        QDebugStateSaver saver(dbg);
 
-        dbg << "QMPointer<";
+        dbg.nospace() << "QMPointer<";
         dbg << "QMJsonObject" << ">: NULL";
 
-        dbg.setAutoInsertSpaces(space);
         return dbg;
     }
     else

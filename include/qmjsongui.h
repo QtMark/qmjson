@@ -19,21 +19,12 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
-#ifndef QMJSONTYPE_POINT_H
-#define QMJSONTYPE_POINT_H
+#ifndef QMJSONGUI_H
+#define QMJSONGUI_H
 
-// ============================================================================
-// Libraries
-// ============================================================================
+#include <qmjsontype_qcolor.h>
+#include <qmjsontype_qpoint.h>
+#include <qmjsontype_qrect.h>
+#include <qmjsontype_qsize.h>
 
-#include <qpoint.h>
-#include <qmjson.h>
-
-// ============================================================================
-// Class Specialization Prototypes
-// ============================================================================
-
-template <> void QM_JSON_EXPORT QMJsonType<QPoint>::toComplexJson(const QMPointer<QMJsonObject> &obj);
-template <> QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QPoint>::fromComplexJson(const QMPointer<QMJsonObject> &obj);
-
-#endif // QMJSONTYPE_POINT_H
+#endif
