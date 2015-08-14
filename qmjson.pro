@@ -25,6 +25,7 @@ cache()
 # Setup
 #-------------------------------------------------------------------------------
 
+CONFIG += ordered
 TEMPLATE = subdirs
 
 SUBDIRS += src
