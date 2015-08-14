@@ -199,60 +199,6 @@ bool QMJsonObject::isObject(const QString &key) const
     return iter.value()->isObject();
 }
 
-bool QMJsonObject::isJsonObject(const QString &key) const
-{
-    auto iter = mHash.find(key);
-
-    if(iter == mHash.end())
-        return false;
-
-    return iter.value()->isJsonObject();
-}
-
-#ifdef QM_GUI_ENABLED
-
-bool QMJsonObject::isRect(const QString &key) const
-{
-    auto iter = mHash.find(key);
-
-    if(iter == mHash.end())
-        return false;
-
-    return iter.value()->isRect();
-}
-
-bool QMJsonObject::isSize(const QString &key) const
-{
-    auto iter = mHash.find(key);
-
-    if(iter == mHash.end())
-        return false;
-
-    return iter.value()->isSize();
-}
-
-bool QMJsonObject::isPoint(const QString &key) const
-{
-    auto iter = mHash.find(key);
-
-    if(iter == mHash.end())
-        return false;
-
-    return iter.value()->isPoint();
-}
-
-bool QMJsonObject::isColor(const QString &key) const
-{
-    auto iter = mHash.find(key);
-
-    if(iter == mHash.end())
-        return false;
-
-    return iter.value()->isColor();
-}
-
-#endif
-
 bool QMJsonObject::toBool(const QString &key) const
 {
     return this->value(key)->toBool();
@@ -302,50 +248,6 @@ QMPointer<QMJsonObject> QMJsonObject::toObject(const QString &key, const QMPoint
 {
     return this->value(key)->toObject(defaultValue);
 }
-
-#ifdef QM_GUI_ENABLED
-
-QRect QMJsonObject::toRect(const QString &key) const
-{
-    return this->value(key)->toRect();
-}
-
-QSize QMJsonObject::toSize(const QString &key) const
-{
-    return this->value(key)->toSize();
-}
-
-QPoint QMJsonObject::toPoint(const QString &key) const
-{
-    return this->value(key)->toPoint();
-}
-
-QColor QMJsonObject::toColor(const QString &key) const
-{
-    return this->value(key)->toColor();
-}
-
-QRect QMJsonObject::toRect(const QString &key, const QRect &defaultValue) const
-{
-    return this->value(key)->toRect(defaultValue);
-}
-
-QSize QMJsonObject::toSize(const QString &key, const QSize &defaultValue) const
-{
-    return this->value(key)->toSize(defaultValue);
-}
-
-QPoint QMJsonObject::toPoint(const QString &key, const QPoint &defaultValue) const
-{
-    return this->value(key)->toPoint(defaultValue);
-}
-
-QColor QMJsonObject::toColor(const QString &key, const QColor &defaultValue) const
-{
-    return this->value(key)->toColor(defaultValue);
-}
-
-#endif
 
 const char *QMJsonObject::toChar(const QString &key) const
 {
@@ -461,30 +363,6 @@ bool QMJsonObject::fromObject(const QString &key, const QMPointer<QMJsonObject> 
 {
     return this->value(key)->fromObject(value);
 }
-
-#ifdef QM_GUI_ENABLED
-
-bool QMJsonObject::fromRect(const QString &key, const QRect &value)
-{
-    return this->value(key)->fromRect(value);
-}
-
-bool QMJsonObject::fromSize(const QString &key, const QSize &value)
-{
-    return this->value(key)->fromSize(value);
-}
-
-bool QMJsonObject::fromPoint(const QString &key, const QPoint &value)
-{
-    return this->value(key)->fromPoint(value);
-}
-
-bool QMJsonObject::fromColor(const QString &key, const QColor &value)
-{
-    return this->value(key)->fromColor(value);
-}
-
-#endif
 
 bool QMJsonObject::fromChar(const QString &key, const char *value)
 {

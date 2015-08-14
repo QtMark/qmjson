@@ -240,50 +240,6 @@ bool QMJsonArray::isObject(int32_t index) const
     return mList[index]->isObject();
 }
 
-bool QMJsonArray::isJsonObject(int32_t index) const
-{
-    if(index < 0 || index >= this->count())
-        return false;
-
-    return mList[index]->isJsonObject();
-}
-
-#ifdef QM_GUI_ENABLED
-
-bool QMJsonArray::isRect(int32_t index) const
-{
-    if(index < 0 || index >= this->count())
-        return false;
-
-    return mList[index]->isRect();
-}
-
-bool QMJsonArray::isSize(int32_t index) const
-{
-    if(index < 0 || index >= this->count())
-        return false;
-
-    return mList[index]->isSize();
-}
-
-bool QMJsonArray::isPoint(int32_t index) const
-{
-    if(index < 0 || index >= this->count())
-        return false;
-
-    return mList[index]->isPoint();
-}
-
-bool QMJsonArray::isColor(int32_t index) const
-{
-    if(index < 0 || index >= this->count())
-        return false;
-
-    return mList[index]->isColor();
-}
-
-#endif
-
 bool QMJsonArray::toBool(int32_t index) const
 {
     return this->value(index)->toBool();
@@ -333,50 +289,6 @@ QMPointer<QMJsonObject> QMJsonArray::toObject(int32_t index, const QMPointer<QMJ
 {
     return this->value(index)->toObject(defaultValue);
 }
-
-#ifdef QM_GUI_ENABLED
-
-QRect QMJsonArray::toRect(int32_t index) const
-{
-    return this->value(index)->toRect();
-}
-
-QSize QMJsonArray::toSize(int32_t index) const
-{
-    return this->value(index)->toSize();
-}
-
-QPoint QMJsonArray::toPoint(int32_t index) const
-{
-    return this->value(index)->toPoint();
-}
-
-QColor QMJsonArray::toColor(int32_t index) const
-{
-    return this->value(index)->toColor();
-}
-
-QRect QMJsonArray::toRect(int32_t index, const QRect &defaultValue) const
-{
-    return this->value(index)->toRect(defaultValue);
-}
-
-QSize QMJsonArray::toSize(int32_t index, const QSize &defaultValue) const
-{
-    return this->value(index)->toSize(defaultValue);
-}
-
-QPoint QMJsonArray::toPoint(int32_t index, const QPoint &defaultValue) const
-{
-    return this->value(index)->toPoint(defaultValue);
-}
-
-QColor QMJsonArray::toColor(int32_t index, const QColor &defaultValue) const
-{
-    return this->value(index)->toColor(defaultValue);
-}
-
-#endif
 
 const char *QMJsonArray::toChar(int32_t index) const
 {
@@ -492,30 +404,6 @@ bool QMJsonArray::fromObject(int32_t index, const QMPointer<QMJsonObject> &value
 {
     return this->value(index)->fromObject(value);
 }
-
-#ifdef QM_GUI_ENABLED
-
-bool QMJsonArray::fromRect(int32_t index, const QRect &value)
-{
-    return this->value(index)->fromRect(value);
-}
-
-bool QMJsonArray::fromSize(int32_t index, const QSize &value)
-{
-    return this->value(index)->fromSize(value);
-}
-
-bool QMJsonArray::fromPoint(int32_t index, const QPoint &value)
-{
-    return this->value(index)->fromPoint(value);
-}
-
-bool QMJsonArray::fromColor(int32_t index, const QColor &value)
-{
-    return this->value(index)->fromColor(value);
-}
-
-#endif
 
 bool QMJsonArray::fromChar(int32_t index, const char *value)
 {

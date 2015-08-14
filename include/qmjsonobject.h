@@ -64,16 +64,6 @@ public:
     virtual bool isString(const QString &key) const;
     virtual bool isArray(const QString &key) const;
     virtual bool isObject(const QString &key) const;
-    virtual bool isJsonObject(const QString &key) const;
-
-#ifdef QM_GUI_ENABLED
-
-    virtual bool isRect(const QString &key) const;
-    virtual bool isSize(const QString &key) const;
-    virtual bool isPoint(const QString &key) const;
-    virtual bool isColor(const QString &key) const;
-
-#endif
 
     virtual bool toBool(const QString &key) const;
     virtual double toDouble(const QString &key) const;
@@ -87,19 +77,6 @@ public:
     virtual QMPointer<QMJsonArray> toArray(const QString &key, const QMPointer<QMJsonArray> &defaultValue) const;
     virtual QMPointer<QMJsonObject> toObject(const QString &key, const QMPointer<QMJsonObject> &defaultValue) const;
 
-#ifdef QM_GUI_ENABLED
-
-    virtual QRect toRect(const QString &key) const;
-    virtual QSize toSize(const QString &key) const;
-    virtual QPoint toPoint(const QString &key) const;
-    virtual QColor toColor(const QString &key) const;
-
-    virtual QRect toRect(const QString &key, const QRect &defaultValue) const;
-    virtual QSize toSize(const QString &key, const QSize &defaultValue) const;
-    virtual QPoint toPoint(const QString &key, const QPoint &defaultValue) const;
-    virtual QColor toColor(const QString &key, const QColor &defaultValue) const;
-
-#endif
     virtual const char *toChar(const QString &key) const;
     virtual short toShort(const QString &key) const;
     virtual unsigned short toUShort(const QString &key) const;
@@ -125,15 +102,6 @@ public:
     virtual bool fromString(const QString &key, const QString &value);
     virtual bool fromArray(const QString &key, const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(const QString &key, const QMPointer<QMJsonObject> &value);
-
-#ifdef QM_GUI_ENABLED
-
-    virtual bool fromRect(const QString &key, const QRect &value);
-    virtual bool fromSize(const QString &key, const QSize &value);
-    virtual bool fromPoint(const QString &key, const QPoint &value);
-    virtual bool fromColor(const QString &key, const QColor &value);
-
-#endif
 
     virtual bool fromChar(const QString &key, const char *value);
     virtual bool fromShort(const QString &key, short value);

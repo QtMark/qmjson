@@ -91,41 +91,6 @@ QMJsonValue::QMJsonValue(const QMPointer<QMJsonObject> &value)
     mValue = type.dynamicCast<QMJsonTypeBase>();
 }
 
-#ifdef QM_GUI_ENABLED
-
-QMJsonValue::QMJsonValue(const QRect &value)
-{
-    auto type = QSharedPointer<QMJsonType<QRect> >(new QMJsonType<QRect>(value));
-
-    mType = "QRect";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
-}
-
-QMJsonValue::QMJsonValue(const QSize &value)
-{
-    auto type = QSharedPointer<QMJsonType<QSize> >(new QMJsonType<QSize>(value));
-
-    mType = "QSize";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
-}
-
-QMJsonValue::QMJsonValue(const QPoint &value)
-{
-    auto type = QSharedPointer<QMJsonType<QPoint> >(new QMJsonType<QPoint>(value));
-
-    mType = "QPoint";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
-}
-
-QMJsonValue::QMJsonValue(const QColor &value)
-{
-    auto type = QSharedPointer<QMJsonType<QColor> >(new QMJsonType<QColor>(value));
-
-    mType = "QColor";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
-}
-#endif
-
 QMJsonValue::QMJsonValue(const char *value)
 {
     auto type = QSharedPointer<QMJsonType<QString> >(new QMJsonType<QString>(value));
@@ -242,37 +207,6 @@ bool QMJsonValue::isObject(void) const
     return this->is<QMPointer<QMJsonObject> >();
 }
 
-bool QMJsonValue::isJsonObject(void) const
-{
-    if(mValue.isNull() == true)
-        return false;
-
-    return this->is<QMPointer<QMJsonObject> >() || (mValue->isBaseType() == false);
-}
-
-#ifdef QM_GUI_ENABLED
-
-bool QMJsonValue::isRect(void) const
-{
-    return this->is<QRect>();
-}
-
-bool QMJsonValue::isSize(void) const
-{
-    return this->is<QSize>();
-}
-
-bool QMJsonValue::isPoint(void) const
-{
-    return this->is<QPoint>();
-}
-
-bool QMJsonValue::isColor(void) const
-{
-    return this->is<QColor>();
-}
-#endif
-
 bool QMJsonValue::toBool(void) const
 {
     return this->to<bool>(false);
@@ -344,49 +278,6 @@ QMPointer<QMJsonObject> QMJsonValue::toObject(const QMPointer<QMJsonObject> &def
 
     return this->to<QMPointer<QMJsonObject> >();
 }
-
-#ifdef QM_GUI_ENABLED
-
-QRect QMJsonValue::toRect(void) const
-{
-    return this->to<QRect>(QRect());
-}
-
-QSize QMJsonValue::toSize(void) const
-{
-    return this->to<QSize>(QSize());
-}
-
-QPoint QMJsonValue::toPoint(void) const
-{
-    return this->to<QPoint>(QPoint());
-}
-
-QColor QMJsonValue::toColor(void) const
-{
-    return this->to<QColor>(QColor());
-}
-
-QRect QMJsonValue::toRect(const QRect &defaultValue) const
-{
-    return this->to<QRect>(defaultValue);
-}
-
-QSize QMJsonValue::toSize(const QSize &defaultValue) const
-{
-    return this->to<QSize>(defaultValue);
-}
-
-QPoint QMJsonValue::toPoint(const QPoint &defaultValue) const
-{
-    return this->to<QPoint>(defaultValue);
-}
-
-QColor QMJsonValue::toColor(const QColor &defaultValue) const
-{
-    return this->to<QColor>(defaultValue);
-}
-#endif
 
 const char *QMJsonValue::toChar(void) const
 {
@@ -503,29 +394,6 @@ bool QMJsonValue::fromObject(const QMPointer<QMJsonObject> &value)
     return this->from<QMPointer<QMJsonObject> >(value);
 }
 
-#ifdef QM_GUI_ENABLED
-
-bool QMJsonValue::fromRect(const QRect &value)
-{
-    return this->from<QRect>(value);
-}
-
-bool QMJsonValue::fromSize(const QSize &value)
-{
-    return this->from<QSize>(value);
-}
-
-bool QMJsonValue::fromPoint(const QPoint &value)
-{
-    return this->from<QPoint>(value);
-}
-
-bool QMJsonValue::fromColor(const QColor &value)
-{
-    return this->from<QColor>(value);
-}
-#endif
-
 bool QMJsonValue::fromChar(const char *value)
 {
     return this->fromString(QString(value));
@@ -606,22 +474,6 @@ QVariant QMJsonValue::toVariant(void)
         return QVariant::fromValue(hash);
     }
 
-#ifdef QM_GUI_ENABLED
-
-    if(this->isRect() == true)
-        return QVariant(this->toRect());
-
-    if(this->isSize() == true)
-        return QVariant(this->toSize());
-
-    if(this->isPoint() == true)
-        return QVariant(this->toPoint());
-
-    if(this->isColor() == true)
-        return QVariant(this->toColor());
-
-#endif
-
     return QVariant();
 }
 
@@ -653,36 +505,32 @@ QMPointer<QMJsonValue> QMJsonValue::fromVariant(const QVariant &value)
             return QMPointer<QMJsonValue>(new QMJsonValue(array));
         }
 
+        // case QMetaType::Void:
+        //     return QMPointer<QMJsonValue>(new QMJsonValue());
+
         case QMetaType::Bool:
             return QMPointer<QMJsonValue>(new QMJsonValue(value.value<bool>()));
 
-        case QMetaType::Double:
-        case QMetaType::UInt:
         case QMetaType::Int:
+        case QMetaType::UInt:
+        // case QMetaType::Float:
+        case QMetaType::Double:
+        // case QMetaType::Long:
         case QMetaType::LongLong:
+        // case QMetaType::ULong:
         case QMetaType::ULongLong:
+        // case QMetaType::Short:
+        // case QMetaType::UShort:
+        // case QMetaType::Char:
+        // case QMetaType::SChar:
+        // case QMetaType::UChar:
             return QMPointer<QMJsonValue>(new QMJsonValue(value.value<double>()));
 
         case QMetaType::QChar:
-        case QMetaType::QByteArray:
         case QMetaType::QString:
+        case QMetaType::QByteArray:
             return QMPointer<QMJsonValue>(new QMJsonValue(value.value<QString>()));
 
-#ifdef QM_GUI_ENABLED
-
-        case QMetaType::QRect:
-            return QMPointer<QMJsonValue>(new QMJsonValue(value.value<QRect>()));
-
-        case QMetaType::QSize:
-            return QMPointer<QMJsonValue>(new QMJsonValue(value.value<QSize>()));
-
-        case QMetaType::QPoint:
-            return QMPointer<QMJsonValue>(new QMJsonValue(value.value<QPoint>()));
-
-        case QMetaType::QColor:
-            return QMPointer<QMJsonValue>(new QMJsonValue(value.value<QColor>()));
-
-#endif
         case QMetaType::User:
         {
 

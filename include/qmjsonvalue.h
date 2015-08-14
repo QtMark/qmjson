@@ -69,15 +69,6 @@ public:
     explicit QMJsonValue(const QMPointer<QMJsonObject> &value);
     template<class T> explicit QMJsonValue(const T &value);
 
-#ifdef QM_GUI_ENABLED
-
-    explicit QMJsonValue(const QRect &value);
-    explicit QMJsonValue(const QSize &value);
-    explicit QMJsonValue(const QPoint &value);
-    explicit QMJsonValue(const QColor &value);
-
-#endif
-
     explicit QMJsonValue(const char *value);
     explicit QMJsonValue(short value);
     explicit QMJsonValue(unsigned short value);
@@ -99,17 +90,7 @@ public:
     virtual bool isString(void) const;
     virtual bool isArray(void) const;
     virtual bool isObject(void) const;
-    virtual bool isJsonObject(void) const;
     template<class T> bool is(void) const;
-
-#ifdef QM_GUI_ENABLED
-
-    virtual bool isRect(void) const;
-    virtual bool isSize(void) const;
-    virtual bool isPoint(void) const;
-    virtual bool isColor(void) const;
-
-#endif
 
     virtual bool toBool(void) const;
     virtual double toDouble(void) const;
@@ -125,20 +106,6 @@ public:
 
     template<class T> T to(void) const;
     template<class T> T to(const T &defaultValue) const;
-
-#ifdef QM_GUI_ENABLED
-
-    virtual QRect toRect(void) const;
-    virtual QSize toSize(void) const;
-    virtual QPoint toPoint(void) const;
-    virtual QColor toColor(void) const;
-
-    virtual QRect toRect(const QRect &defaultValue) const;
-    virtual QSize toSize(const QSize &defaultValue) const;
-    virtual QPoint toPoint(const QPoint &defaultValue) const;
-    virtual QColor toColor(const QColor &defaultValue) const;
-
-#endif
 
     virtual const char *toChar(void) const;
     virtual short toShort(void) const;
@@ -166,15 +133,6 @@ public:
     virtual bool fromArray(const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(const QMPointer<QMJsonObject> &value);
     template <class T> bool from(const T &value);
-
-#ifdef QM_GUI_ENABLED
-
-    virtual bool fromRect(const QRect &value);
-    virtual bool fromSize(const QSize &value);
-    virtual bool fromPoint(const QPoint &value);
-    virtual bool fromColor(const QColor &value);
-
-#endif
 
     virtual bool fromChar(const char *value);
     virtual bool fromShort(short value);
@@ -239,10 +197,10 @@ QDebug QM_JSON_EXPORT operator<<(QDebug dbg, const QMPointer<QMJsonValue> &value
 template<class T>
 QMJsonValue::QMJsonValue(const T &value)
 {
-    QSharedPointer<QMJsonType<T> > type = QSharedPointer<QMJsonType<T> >(new QMJsonType<T>(value));
+    auto type = QSharedPointer<QMJsonType<T> >(new QMJsonType<T>(value));
 
     mType = "custom";
-    mValue = type.dynamicCast();
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 template<class T>

@@ -76,16 +76,6 @@ public:
     virtual bool isString(int32_t index) const;
     virtual bool isArray(int32_t index) const;
     virtual bool isObject(int32_t index) const;
-    virtual bool isJsonObject(int32_t index) const;
-
-#ifdef QM_GUI_ENABLED
-
-    virtual bool isRect(int32_t index) const;
-    virtual bool isSize(int32_t index) const;
-    virtual bool isPoint(int32_t index) const;
-    virtual bool isColor(int32_t index) const;
-
-#endif
 
     virtual bool toBool(int32_t index) const;
     virtual double toDouble(int32_t index) const;
@@ -99,19 +89,6 @@ public:
     virtual QMPointer<QMJsonArray> toArray(int32_t index, const QMPointer<QMJsonArray> &defaultValue) const;
     virtual QMPointer<QMJsonObject> toObject(int32_t index, const QMPointer<QMJsonObject> &defaultValue) const;
 
-#ifdef QM_GUI_ENABLED
-
-    virtual QRect toRect(int32_t index) const;
-    virtual QSize toSize(int32_t index) const;
-    virtual QPoint toPoint(int32_t index) const;
-    virtual QColor toColor(int32_t index) const;
-
-    virtual QRect toRect(int32_t index, const QRect &defaultValue) const;
-    virtual QSize toSize(int32_t index, const QSize &defaultValue) const;
-    virtual QPoint toPoint(int32_t index, const QPoint &defaultValue) const;
-    virtual QColor toColor(int32_t index, const QColor &defaultValue) const;
-
-#endif
     virtual const char *toChar(int32_t index) const;
     virtual short toShort(int32_t index) const;
     virtual unsigned short toUShort(int32_t index) const;
@@ -137,15 +114,6 @@ public:
     virtual bool fromString(int32_t index, const QString &value);
     virtual bool fromArray(int32_t index, const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(int32_t index, const QMPointer<QMJsonObject> &value);
-
-#ifdef QM_GUI_ENABLED
-
-    virtual bool fromRect(int32_t index, const QRect &value);
-    virtual bool fromSize(int32_t index, const QSize &value);
-    virtual bool fromPoint(int32_t index, const QPoint &value);
-    virtual bool fromColor(int32_t index, const QColor &value);
-
-#endif
 
     virtual bool fromChar(int32_t index, const char *value);
     virtual bool fromShort(int32_t index, short value);
