@@ -111,6 +111,21 @@ int main(int argc, char const *argv[])
     qDebug() << "";
 
     //--------------------------------------------------------------------------
+    // From (Setting)
+    //--------------------------------------------------------------------------
+
+    qDebug() << "From:";
+
+    value1->fromDouble(10.3);
+    value2->fromString("World");
+    value3->fromBool(false);
+
+    qDebug() << "  " << value1;
+    qDebug() << "  " << value2;
+    qDebug() << "  " << value3;
+    qDebug() << "";
+
+    //--------------------------------------------------------------------------
     // Tree Example
     //--------------------------------------------------------------------------
 
@@ -132,6 +147,8 @@ int main(int argc, char const *argv[])
     //--------------------------------------------------------------------------
     // Complex Types
     //--------------------------------------------------------------------------
+
+    qDebug() << "Complex:";
 
     QMJsonValue::registerFromComplexJson("QColor", &QMJsonType<QColor>::fromComplexJson);
     QMJsonValue::registerFromComplexJson("QPoint", &QMJsonType<QPoint>::fromComplexJson);

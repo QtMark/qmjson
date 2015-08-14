@@ -1,20 +1,21 @@
 Version 1.0 Todo:
 
-- Add doxygen API comments
+High Priority:
 - Add policy enum for the QMJsonArray and QMJsonObject unite functions
-- Add to<>, from<> and is<> functions to QMJsonArray and QMJsonObject
-- Add key function to QMJsonObject that does a reverse lookup based on a value
-- Add index based contains function to QMJsonArray
-- Convert QMJsonValue's type to an enum and provide typeString() function
-- Add convenince functions for QMJsonArray and QMJsonObject to provide the
-  ability to save an object or array to file.
 - Provide ability to sort on toJson functions
 - Remove the QString return on toJsonFile
-- Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
 - Provide default value for value() fucntions
 - Remove new QMJsonValue from Object and Array for defaults
 - Change type() funciton to enum
 - Create typeString() function
 - Provide type conversions for the basic types
-- Remove the GUI functions from value, object and array
+- Add isEmpty to Array and Object
+
+Low Priority:
+- Add doxygen API comments
+- Add key function to QMJsonObject that does a reverse lookup based on a value
+- Add index based contains function to QMJsonArray
+- Add convenince functions for QMJsonArray and QMJsonObject to provide the
+  ability to save an object or array to file.
+- Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
 - Add Windows support

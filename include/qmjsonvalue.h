@@ -206,34 +206,40 @@ QMJsonValue::QMJsonValue(const T &value)
 template<class T>
 bool QMJsonValue::is(void) const
 {
-    return mValue.dynamicCast<QMJsonType<T> >() != NULL;
+    return qSharedPointerDynamicCast<QMJsonType<T> >(mValue) != NULL;
 }
 
 template<class T>
 T QMJsonValue::to(void) const
 {
-    if(is<T>() == false)
+    auto type = qSharedPointerDynamicCast<QMJsonType<T> >(mValue);
+
+    if(type == NULL)
         return T();
 
-    return mValue.dynamicCast<QMJsonType<T> >()->get();
+    return type->get();
 }
 
 template<class T>
 T QMJsonValue::to(const T &defaultValue) const
 {
-    if(is<T>() == false)
+    auto type = qSharedPointerDynamicCast<QMJsonType<T> >(mValue);
+
+    if(type == NULL)
         return defaultValue;
 
-    return mValue.dynamicCast<QMJsonType<T> >()->get();
+    return type->get();
 }
 
 template<class T>
 bool QMJsonValue::from(const T &value)
 {
-    if(is<T>() == false)
+    auto type = qSharedPointerDynamicCast<QMJsonType<T> >(mValue);
+
+    if(type == NULL)
         return false;
 
-    dynamic_cast<QMJsonType<T>*>(mValue.data())->set(value);
+    type->set(value);
 
     emit valueChanged();
     return true;

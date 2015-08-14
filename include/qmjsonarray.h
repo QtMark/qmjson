@@ -76,6 +76,7 @@ public:
     virtual bool isString(int32_t index) const;
     virtual bool isArray(int32_t index) const;
     virtual bool isObject(int32_t index) const;
+    template<class T> bool is(int32_t index) const;
 
     virtual bool toBool(int32_t index) const;
     virtual double toDouble(int32_t index) const;
@@ -88,6 +89,9 @@ public:
     virtual QString toString(int32_t index, const QString &defaultValue) const;
     virtual QMPointer<QMJsonArray> toArray(int32_t index, const QMPointer<QMJsonArray> &defaultValue) const;
     virtual QMPointer<QMJsonObject> toObject(int32_t index, const QMPointer<QMJsonObject> &defaultValue) const;
+
+    template<class T> T to(int32_t index) const;
+    template<class T> T to(int32_t index, const T &defaultValue) const;
 
     virtual const char *toChar(int32_t index) const;
     virtual short toShort(int32_t index) const;
@@ -114,6 +118,7 @@ public:
     virtual bool fromString(int32_t index, const QString &value);
     virtual bool fromArray(int32_t index, const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(int32_t index, const QMPointer<QMJsonObject> &value);
+    template <class T> bool from(int32_t index, const T &value);
 
     virtual bool fromChar(int32_t index, const char *value);
     virtual bool fromShort(int32_t index, short value);
@@ -201,6 +206,33 @@ template<class T>
 void QMJsonArray::insert(int32_t index, const T *value)
 {
     this->insert(index, QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))));
+}
+
+template<class T>
+bool QMJsonArray::is(int32_t index) const
+{
+    if(index < 0 || index >= this->count())
+        return false;
+
+    return mList[index]->is<T>();
+}
+
+template<class T>
+T QMJsonArray::to(int32_t index) const
+{
+    return this->value(index)->to<T>();
+}
+
+template<class T>
+T QMJsonArray::to(int32_t index, const T &defaultValue) const
+{
+    return this->value(index)->to<T>(defaultValue);
+}
+
+template<class T>
+bool QMJsonArray::from(int32_t index, const T &value)
+{
+    return this->value(index)->from<T>(value);
 }
 
 #endif // QMJSONARRAY_H

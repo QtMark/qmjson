@@ -64,6 +64,7 @@ public:
     virtual bool isString(const QString &key) const;
     virtual bool isArray(const QString &key) const;
     virtual bool isObject(const QString &key) const;
+    template<class T> bool is(const QString &key) const;
 
     virtual bool toBool(const QString &key) const;
     virtual double toDouble(const QString &key) const;
@@ -76,6 +77,9 @@ public:
     virtual QString toString(const QString &key, const QString &defaultValue) const;
     virtual QMPointer<QMJsonArray> toArray(const QString &key, const QMPointer<QMJsonArray> &defaultValue) const;
     virtual QMPointer<QMJsonObject> toObject(const QString &key, const QMPointer<QMJsonObject> &defaultValue) const;
+
+    template<class T> T to(const QString &key) const;
+    template<class T> T to(const QString &key, const T &defaultValue) const;
 
     virtual const char *toChar(const QString &key) const;
     virtual short toShort(const QString &key) const;
@@ -102,6 +106,7 @@ public:
     virtual bool fromString(const QString &key, const QString &value);
     virtual bool fromArray(const QString &key, const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(const QString &key, const QMPointer<QMJsonObject> &value);
+    template <class T> bool from(const QString &key, const T &value);
 
     virtual bool fromChar(const QString &key, const char *value);
     virtual bool fromShort(const QString &key, short value);
@@ -142,6 +147,35 @@ template<class T>
 void QMJsonObject::insert(const QString &key, const T *value)
 {
     this->insert(key, QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))));
+}
+
+template<class T>
+bool QMJsonObject::is(const QString &key) const
+{
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return false;
+
+    return iter.value()->is<T>();
+}
+
+template<class T>
+T QMJsonObject::to(const QString &key) const
+{
+    return this->value(key)->to<T>();
+}
+
+template<class T>
+T QMJsonObject::to(const QString &key, const T &defaultValue) const
+{
+    return this->value(key)->to<T>(defaultValue);
+}
+
+template<class T>
+bool QMJsonObject::from(const QString &key, const T &value)
+{
+    return this->value(key)->from<T>(value);
 }
 
 #endif // QMJSONOBJECT_H
