@@ -22,7 +22,7 @@ To build the QtMark JSON Library, first make sure that Qt is installed in your
 development environment. Once installed, execute the following:
 
 ```
-qmake
+qmake -r
 make
 make install
 ```
@@ -33,14 +33,16 @@ To use this library, simply include the following:
 
 ```c
 #include <qmjson.h>
+#include <qmjsongui.h>
 ```
 
 The QtMark JSON Library uses C++11, and thus you must add this to your project
-file. You will also need to add the library itself.
+file. You will also need to add the librarys themselves. Note that the GUI
+library is optional (don't forget to remove the include if you don't use it).
 
 ```
 CONFIG += c++11
-LIBS += -lqmjson
+LIBS += -lqmjson -lqmjsongui
 ```
 
 For a more complete example, see the test application that is included with
@@ -51,3 +53,25 @@ qmake
 make
 ./test
 ```
+
+## Cleanup
+
+To cleanup your source tree after compiling, you can run the following:
+
+```
+make clean
+```
+
+If you want to completely remove all generated files, you can run the
+following:
+
+```
+make distclean
+```
+
+## License
+
+The QtMark Libraries are licensed under the GNU Lesser General Public License
+v2 (LGPL) library. Please note that this library depends on Qt which has it's
+own license.
+
