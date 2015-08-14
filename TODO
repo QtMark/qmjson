@@ -10,6 +10,10 @@ High Priority:
 - Create typeString() function
 - Provide type conversions for the basic types
 - Add isEmpty to Array and Object
+- Add replace function to Array, and make sure that we are not missing any
+  other functions
+- Add value functions to QMJsonValue so that you don't have to do
+  toObject and toArray constantly.
 
 Low Priority:
 - Add doxygen API comments

@@ -69,10 +69,20 @@ bool QMJsonObject::contains(const QString &key) const
     return mHash.contains(key);
 }
 
-void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &value)
+void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy)
 {
     if(mHash.contains(key) == true)
-        this->remove(key);
+    {
+        switch(policy)
+        {
+            case QMJsonReplace:
+                this->remove(key);
+                break;
+
+            case QMJsonIgnore:
+                return;
+        };
+    }
 
     if(value.isNull() == true)
     {
@@ -88,9 +98,9 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
     }
 }
 
-void QMJsonObject::insert(const QString &key, const char *value)
+void QMJsonObject::insert(const QString &key, const char *value, QMJsonReplacementPolicy policy)
 {
-    this->insert(key, QString(value));
+    this->insert(key, QString(value), policy);
 }
 
 void QMJsonObject::unite(const QMPointer<QMJsonObject> &object)

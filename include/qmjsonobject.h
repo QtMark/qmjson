@@ -46,10 +46,10 @@ public:
 
     virtual bool contains(const QString &key) const;
 
-    virtual void insert(const QString &key, const QMPointer<QMJsonValue> &value);
-    template<class T> void insert(const QString &key, const T &value);
-    template<class T> void insert(const QString &key, const T *value);
-    virtual void insert(const QString &key, const char *value);
+    virtual void insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplace);
+    template<class T> void insert(const QString &key, const T &value, QMJsonReplacementPolicy policy = QMJsonReplace);
+    template<class T> void insert(const QString &key, const T *value, QMJsonReplacementPolicy policy = QMJsonReplace);
+    virtual void insert(const QString &key, const char *value, QMJsonReplacementPolicy policy = QMJsonReplace);
 
     virtual void unite(const QMPointer<QMJsonObject> &object);
 
@@ -138,15 +138,15 @@ QDebug QM_JSON_EXPORT operator<<(QDebug dbg, const QMPointer<QMJsonObject> &valu
 // ============================================================================
 
 template<class T>
-void QMJsonObject::insert(const QString &key, const T &value)
+void QMJsonObject::insert(const QString &key, const T &value, QMJsonReplacementPolicy policy)
 {
-    this->insert(key, QMPointer<QMJsonValue>(new QMJsonValue(value)));
+    this->insert(key, QMPointer<QMJsonValue>(new QMJsonValue(value)), policy);
 }
 
 template<class T>
-void QMJsonObject::insert(const QString &key, const T *value)
+void QMJsonObject::insert(const QString &key, const T *value, QMJsonReplacementPolicy policy)
 {
-    this->insert(key, QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))));
+    this->insert(key, QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))), policy);
 }
 
 template<class T>
