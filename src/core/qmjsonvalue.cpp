@@ -601,11 +601,11 @@ QMPointer<QMJsonValue> QMJsonValue::fromVariant(const QVariant &value)
         case QMetaType::LongLong:
         // case QMetaType::ULong:
         case QMetaType::ULongLong:
-        // case QMetaType::Short:
-        // case QMetaType::UShort:
-        // case QMetaType::Char:
-        // case QMetaType::SChar:
-        // case QMetaType::UChar:
+            // case QMetaType::Short:
+            // case QMetaType::UShort:
+            // case QMetaType::Char:
+            // case QMetaType::SChar:
+            // case QMetaType::UChar:
             return QMPointer<QMJsonValue>(new QMJsonValue(value.value<double>()));
 
         case QMetaType::QChar:
@@ -672,13 +672,13 @@ QString QMJsonValue::typeString(void) const
 {
     auto index = (int32_t)mType;
     static auto strings = QList<QString>() << "QMJsonValueType_Null"
-                                           << "QMJsonValueType_Bool"
-                                           << "QMJsonValueType_Double"
-                                           << "QMJsonValueType_String"
-                                           << "QMJsonValueType_Array"
-                                           << "QMJsonValueType_Object"
-                                           << "QMJsonValueType_Custom"
-                                           << "QMJsonValueType_Unknown";
+                          << "QMJsonValueType_Bool"
+                          << "QMJsonValueType_Double"
+                          << "QMJsonValueType_String"
+                          << "QMJsonValueType_Array"
+                          << "QMJsonValueType_Object"
+                          << "QMJsonValueType_Custom"
+                          << "QMJsonValueType_Unknown";
 
     if(index < 0) index = 0;
     if(index >= strings.count()) index = strings.count() - 1;
@@ -961,7 +961,7 @@ QDebug operator<<(QDebug dbg, const QMJsonValue &value)
 
 QDebug operator<<(QDebug dbg, const QMPointer<QMJsonValue> &value)
 {
-    if (value.isNull() == true)
+    if(value.isNull() == true)
     {
         QDebugStateSaver saver(dbg);
 

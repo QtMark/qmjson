@@ -567,7 +567,7 @@ QDebug operator<<(QDebug dbg, const QMJsonObject &object)
 
 QDebug operator<<(QDebug dbg, const QMPointer<QMJsonObject> &value)
 {
-    if (value.isNull() == true)
+    if(value.isNull() == true)
     {
         QDebugStateSaver saver(dbg);
 
