@@ -38,6 +38,26 @@ QMJsonObject::~QMJsonObject()
 {
 }
 
+QMJsonObject::QMJsonObject(const QHash<QString, QMPointer<QMJsonValue> > &hash)
+{
+    mHash = hash;
+}
+
+void QMJsonObject::reserve(int32_t alloc)
+{
+    mHash.reserve(alloc);
+}
+
+int32_t QMJsonObject::capacity(void) const
+{
+    return mHash.capacity();
+}
+
+void QMJsonObject::squeeze(void)
+{
+    mHash.squeeze();
+}
+
 void QMJsonObject::clear(void)
 {
     for(const auto &value : mHash)
@@ -55,13 +75,18 @@ void QMJsonObject::clear(void)
         }
     }
 
-    for(const auto &key : this->keys())
+    for(const auto &key : mHash.keys())
         this->remove(key);
 }
 
 int32_t QMJsonObject::count(void) const
 {
     return mHash.count();
+}
+
+bool QMJsonObject::isEmpty(void) const
+{
+    return mHash.isEmpty();
 }
 
 bool QMJsonObject::contains(const QString &key) const
@@ -71,12 +96,17 @@ bool QMJsonObject::contains(const QString &key) const
 
 void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy)
 {
-    if(mHash.contains(key) == true)
+    if(key.isEmpty() == true)
+        return;
+
+    auto iter = mHash.find(key);
+
+    if(iter != mHash.end())
     {
         switch(policy)
         {
             case QMJsonReplace:
-                this->remove(key);
+                this->erase(iter);
                 break;
 
             case QMJsonIgnore:
@@ -98,9 +128,49 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
     }
 }
 
-void QMJsonObject::insert(const QString &key, const char *value, QMJsonReplacementPolicy policy)
+void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonArray> &value, QMJsonReplacementPolicy policy)
 {
-    this->insert(key, QString(value), policy);
+    if(value.isNull() == true)
+    {
+        auto newArray = QMPointer<QMJsonArray>(new QMJsonArray());
+        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(newArray));
+        this->insert(key, newValue, policy);
+    }
+    else
+    {
+        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(value));
+        this->insert(key, newValue, policy);
+    }
+}
+
+void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonObject> &value, QMJsonReplacementPolicy policy)
+{
+    if(value.isNull() == true)
+    {
+        auto newObject = QMPointer<QMJsonObject>(new QMJsonObject());
+        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(newObject));
+        this->insert(key, newValue, policy);
+    }
+    else
+    {
+        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(value));
+        this->insert(key, newValue, policy);
+    }
+}
+
+void QMJsonObject::insert(const QString &key, QMJsonValue *value, QMJsonReplacementPolicy policy)
+{
+    this->insert(key, QMPointer<QMJsonValue>(value), policy);
+}
+
+void QMJsonObject::insert(const QString &key, QMJsonArray *value, QMJsonReplacementPolicy policy)
+{
+    this->insert(key, QMPointer<QMJsonArray>(value), policy);
+}
+
+void QMJsonObject::insert(const QString &key, QMJsonObject *value, QMJsonReplacementPolicy policy)
+{
+    this->insert(key, QMPointer<QMJsonObject>(value), policy);
 }
 
 void QMJsonObject::unite(const QMPointer<QMJsonObject> &object)
@@ -138,20 +208,71 @@ void QMJsonObject::unite(const QMPointer<QMJsonObject> &object)
 
 void QMJsonObject::remove(const QString &key)
 {
-    emit itemRemoved(key, mHash.take(key));
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return;
+
+    this->erase(iter);
+}
+
+QMPointer<QMJsonValue> QMJsonObject::take(const QString &key)
+{
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return QMPointer<QMJsonValue>(new QMJsonValue);
+
+    this->erase(iter);
+
+    return iter.value();
+}
+
+QMPointer<QMJsonValue> QMJsonObject::take(const QString &key, const QMPointer<QMJsonValue> &defaultValue)
+{
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return defaultValue;
+
+    this->erase(iter);
+
+    return iter.value();
+}
+
+QString QMJsonObject::key(const QMPointer<QMJsonValue> &value) const
+{
+    return mHash.key(value);
+}
+
+QString QMJsonObject::key(const QMPointer<QMJsonValue> &value, const QString &defaultValue) const
+{
+    return mHash.key(value, defaultValue);
+}
+
+QMPointer<QMJsonValue> QMJsonObject::value(const QString &key) const
+{
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return QMPointer<QMJsonValue>(new QMJsonValue);
+
+    return iter.value();
+}
+
+QMPointer<QMJsonValue> QMJsonObject::value(const QString &key, const QMPointer<QMJsonValue> &defaultValue) const
+{
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return defaultValue;
+
+    return iter.value();
 }
 
 QList<QString> QMJsonObject::keys(void) const
 {
     return mHash.keys();
-}
-
-QMPointer<QMJsonValue> QMJsonObject::value(const QString &key) const
-{
-    if(mHash.contains(key) == false)
-        return QMPointer<QMJsonValue>(new QMJsonValue);
-
-    return mHash.value(key);
 }
 
 QList<QMPointer<QMJsonValue> > QMJsonObject::values(void) const
@@ -417,6 +538,12 @@ bool QMJsonObject::fromLongLong(const QString &key, long long value)
 bool QMJsonObject::fromULongLong(const QString &key, unsigned long long value)
 {
     return this->value(key)->fromULongLong(value);
+}
+
+void QMJsonObject::erase(const QHash<QString, QMPointer<QMJsonValue> >::iterator &iter)
+{
+    mHash.erase(iter);
+    emit itemRemoved(iter.key(), iter.value());
 }
 
 QDebug operator<<(QDebug dbg, const QMJsonObject &object)

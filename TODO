@@ -4,24 +4,33 @@ High Priority:
 - Add policy enum for the QMJsonArray and QMJsonObject unite functions
 - Provide ability to sort on toJson functions
 - Remove the QString return on toJsonFile
-- Provide default value for value() fucntions
-- Remove new QMJsonValue from Object and Array for defaults
 - Change type() funciton to enum
 - Create typeString() function
 - Provide type conversions for the basic types
-- Add isEmpty to Array and Object
-- Add replace function to Array, and make sure that we are not missing any
-  other functions
 - Add value functions to QMJsonValue so that you don't have to do
   toObject and toArray constantly.
-- Cleanup the pointer types for value, array and object so that they are
-  only wrapping json types, then leave the rest to the generic functions
+- Add char, unsigned char, signed char, and float to the list of overloaded
+  functions. Make sure you update the unit tests that use these types
+- Create QMJsonValue compare function that can take a template type. This
+  can then be used by the functions below
+- Add indexOf<XXX> functions for all types (includes added types)
+- Add lastIndexOf<XXX> functions for all types (includes added types)
+- Add contains<XXX> functions for all types (includes added types)
+- Add removeAll<XXX> functions for all types (includes added types)
+- Add startsWith<XXX> functions for all types (includes added types)
+- Add endsWith<XXX> functions for all types (includes added types)
+
 
 Low Priority:
 - Add doxygen API comments
-- Add key function to QMJsonObject that does a reverse lookup based on a value
-- Add index based contains function to QMJsonArray
 - Add convenince functions for QMJsonArray and QMJsonObject to provide the
   ability to save an object or array to file.
 - Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
 - Add Windows support
+- Figure out how to return "const ref" for array and object to speed things
+  up a little bit.
+- Add count(const T& value) to QMJsonArray
+- Default value functions should take a raw type, and a QMJsonValue type
+- Add iterator classes to Array and Object so that traditional style looping
+  can be done. This will also speed up code on the Object side as they can use
+  find.

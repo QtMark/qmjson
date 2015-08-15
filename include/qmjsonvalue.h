@@ -65,8 +65,12 @@ public:
     explicit QMJsonValue(bool value);
     explicit QMJsonValue(double value);
     explicit QMJsonValue(const QString &value);
+    explicit QMJsonValue(const QMPointer<QMJsonValue> &value);
     explicit QMJsonValue(const QMPointer<QMJsonArray> &value);
     explicit QMJsonValue(const QMPointer<QMJsonObject> &value);
+    explicit QMJsonValue(QMJsonValue *value);
+    explicit QMJsonValue(QMJsonArray *value);
+    explicit QMJsonValue(QMJsonObject *value);
     template<class T> explicit QMJsonValue(const T &value);
 
     explicit QMJsonValue(const char *value);
@@ -147,7 +151,8 @@ public:
     virtual QVariant toVariant(void);
     static QMPointer<QMJsonValue> fromVariant(const QVariant &value);
 
-    virtual QString type(void) const;
+    virtual QMJsonValueType type(void) const;
+    virtual QString typeString(void) const;
 
     virtual QString toJson(int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
     virtual QString toJsonFile(const QString &filename, int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
@@ -177,7 +182,7 @@ private:
 
     Q_DISABLE_COPY(QMJsonValue);
 
-    QString mType;
+    QMJsonValueType mType;
     QMPointer<QMJsonTypeBase> mValue;
 
     static QMap<QString, FromComplexJsonFunc> mFromFuncs;
@@ -199,7 +204,7 @@ QMJsonValue::QMJsonValue(const T &value)
 {
     auto type = QSharedPointer<QMJsonType<T> >(new QMJsonType<T>(value));
 
-    mType = "custom";
+    mType = QMJsonValueType_Custom;
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 

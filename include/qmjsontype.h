@@ -42,6 +42,17 @@
 // Enums
 // ============================================================================
 
+enum QMJsonValueType
+{
+    QMJsonValueType_Null = 0,
+    QMJsonValueType_Bool = 1,
+    QMJsonValueType_Double = 2,
+    QMJsonValueType_String = 3,
+    QMJsonValueType_Array = 4,
+    QMJsonValueType_Object = 5,
+    QMJsonValueType_Custom = 6
+};
+
 enum QMJsonReplacementPolicy
 {
     QMJsonReplace = 1,

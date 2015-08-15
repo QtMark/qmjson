@@ -39,37 +39,69 @@ class QM_JSON_EXPORT QMJsonArray : public QObject
 public:
 
     QMJsonArray();
+    explicit QMJsonArray(const QList<QMPointer<QMJsonValue> > &list);
     virtual ~QMJsonArray();
+
+    virtual void reserve(int32_t alloc);
 
     virtual void clear(void);
     virtual int32_t count(void) const;
+    virtual bool isEmpty(void) const;
 
     virtual bool contains(const QMPointer<QMJsonValue> &value) const;
     virtual int32_t indexOf(const QMPointer<QMJsonValue> &value) const;
-    template<class T> bool contains(const T &value) const;
-    template<class T> int32_t indexOf(const T &value) const;
+    virtual int32_t lastIndexOf(const QMPointer<QMJsonValue> &value, int32_t from = -1) const;
+
+    virtual bool endsWith(const QMPointer<QMJsonValue> &value) const;
+    virtual bool startsWith(const QMPointer<QMJsonValue> &value) const;
 
     virtual void prepend(const QMPointer<QMJsonValue> &value);
     virtual void append(const QMPointer<QMJsonValue> &value);
     virtual void insert(int32_t index, const QMPointer<QMJsonValue> &value);
+    virtual void prepend(const QMPointer<QMJsonArray> &value);
+    virtual void append(const QMPointer<QMJsonArray> &value);
+    virtual void insert(int32_t index, const QMPointer<QMJsonArray> &value);
+    virtual void prepend(const QMPointer<QMJsonObject> &value);
+    virtual void append(const QMPointer<QMJsonObject> &value);
+    virtual void insert(int32_t index, const QMPointer<QMJsonObject> &value);
+    virtual void prepend(QMJsonValue *value);
+    virtual void append(QMJsonValue *value);
+    virtual void insert(int32_t index, QMJsonValue *value);
+    virtual void prepend(QMJsonArray *value);
+    virtual void append(QMJsonArray *value);
+    virtual void insert(int32_t index, QMJsonArray *value);
+    virtual void prepend(QMJsonObject *value);
+    virtual void append(QMJsonObject *value);
+    virtual void insert(int32_t index, QMJsonObject *value);
     template<class T> void prepend(const T &value);
     template<class T> void append(const T &value);
     template<class T> void insert(int32_t index, const T &value);
-    template<class T> void prepend(const T *value);
-    template<class T> void append(const T *value);
-    template<class T> void insert(int32_t index, const T *value);
-    virtual void prepend(const char *value);
-    virtual void append(const char *value);
-    virtual void insert(int32_t index, char *value);
 
     virtual void unite(const QMPointer<QMJsonArray> &array);
 
+    virtual void removeAll(const QMPointer<QMJsonValue> &value);
+    virtual void removeOne(const QMPointer<QMJsonValue> &value);
     virtual void removeAt(int32_t index);
     virtual void removeFirst(void);
     virtual void removeLast(void);
 
+    virtual QMPointer<QMJsonValue> takeFirst(void);
+    virtual QMPointer<QMJsonValue> takeLast(void);
+    virtual QMPointer<QMJsonValue> takeAt(int32_t index);
+    virtual QMPointer<QMJsonValue> takeAt(int32_t index, const QMPointer<QMJsonValue> &defaultValue);
+    template<class T> QMPointer<QMJsonValue> takeAt(int32_t index, const T &defaultValue);
+
+    virtual QMPointer<QMJsonValue> first(void) const;
+    virtual QMPointer<QMJsonValue> last(void) const;
     virtual QMPointer<QMJsonValue> value(int32_t index) const;
+    virtual QMPointer<QMJsonValue> value(int32_t index, const QMPointer<QMJsonValue> &defaultValue) const;
+    template<class T> QMPointer<QMJsonValue> value(int32_t index, const T &defaultValue) const;
+
     virtual QList<QMPointer<QMJsonValue> > values(void) const;
+    virtual QList<QMPointer<QMJsonValue> > mid(int32_t pos, int32_t length = -1) const;
+
+    virtual void move(int32_t from, int32_t to);
+    virtual void replace(int32_t index, const QMPointer<QMJsonValue> &value);
 
     virtual bool isBool(int32_t index) const;
     virtual bool isDouble(int32_t index) const;
@@ -150,29 +182,6 @@ QDebug QM_JSON_EXPORT operator<<(QDebug dbg, const QMPointer<QMJsonArray> &value
 // ============================================================================
 
 template<class T>
-bool QMJsonArray::contains(const T &value) const
-{
-    return (this->indexOf<T>(value) != -1);
-}
-
-template<class T>
-int32_t QMJsonArray::indexOf(const T &value) const
-{
-    for(int i = 0; i < mList.count(); i++)
-    {
-        const auto &item = mList[i].data();
-
-        if(item == NULL || item->is<T>() == false)
-            continue;
-
-        if(item->to<T>() == value)
-            return i;
-    }
-
-    return -1;
-}
-
-template<class T>
 void QMJsonArray::prepend(const T &value)
 {
     this->prepend(QMPointer<QMJsonValue>(new QMJsonValue(value)));
@@ -191,21 +200,24 @@ void QMJsonArray::insert(int32_t index, const T &value)
 }
 
 template<class T>
-void QMJsonArray::prepend(const T *value)
+QMPointer<QMJsonValue> QMJsonArray::takeAt(int32_t index, const T &defaultValue)
 {
-    this->prepend(QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))));
+    if(index < 0 || index >= mList.count())
+        return QMPointer<QMJsonValue>(new QMJsonValue(defaultValue));
+
+    auto value = mList.takeAt(index);
+
+    emit itemRemoved(index, value);
+    return value;
 }
 
 template<class T>
-void QMJsonArray::append(const T *value)
+QMPointer<QMJsonValue> QMJsonArray::value(int32_t index, const T &defaultValue) const
 {
-    this->append(QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))));
-}
+    if(index < 0 || index >= mList.count())
+        return QMPointer<QMJsonValue>(new QMJsonValue(defaultValue));
 
-template<class T>
-void QMJsonArray::insert(int32_t index, const T *value)
-{
-    this->insert(index, QMPointer<QMJsonValue>(new QMJsonValue(QMPointer<T>(value))));
+    return mList.at(index);
 }
 
 template<class T>

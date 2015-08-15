@@ -48,119 +48,201 @@ QMap<QString, FromComplexJsonFunc> QMJsonValue::mFromFuncs;
 
 QMJsonValue::QMJsonValue()
 {
-    mType = "NULL";
+    mType = QMJsonValueType_Null;
 }
 
 QMJsonValue::QMJsonValue(bool value)
 {
-    auto type = QSharedPointer<QMJsonType<bool> >(new QMJsonType<bool>(value));
+    auto type = QMPointer<QMJsonType<bool> >(new QMJsonType<bool>(value));
 
-    mType = "bool";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Bool;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(double value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(const QString &value)
 {
-    auto type = QSharedPointer<QMJsonType<QString> >(new QMJsonType<QString>(value));
+    auto type = QMPointer<QMJsonType<QString> >(new QMJsonType<QString>(value));
 
-    mType = "QString";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_String;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+}
+
+QMJsonValue::QMJsonValue(const QMPointer<QMJsonValue> &value)
+{
+    if(value.isNull() == true)
+    {
+        mType = QMJsonValueType_Null;
+        mValue = QMPointer<QMJsonTypeBase>();
+    }
+    else
+    {
+        mType = value->mType;
+        mValue = value->mValue;
+    }
 }
 
 QMJsonValue::QMJsonValue(const QMPointer<QMJsonArray> &value)
 {
-    auto type = QSharedPointer<QMJsonType<QMPointer<QMJsonArray> > >(new QMJsonType<QMPointer<QMJsonArray> >(value));
+    mType = QMJsonValueType_Array;
 
-    mType = "QMPointer<QMJsonArray>";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    if(value.isNull() == true)
+    {
+        auto array = QMPointer<QMJsonArray>(new QMJsonArray());
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonArray> > >(new QMJsonType<QMPointer<QMJsonArray> >(array));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
+    else
+    {
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonArray> > >(new QMJsonType<QMPointer<QMJsonArray> >(value));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
 }
 
 QMJsonValue::QMJsonValue(const QMPointer<QMJsonObject> &value)
 {
-    auto type = QSharedPointer<QMJsonType<QMPointer<QMJsonObject> > >(new QMJsonType<QMPointer<QMJsonObject> >(value));
+    mType = QMJsonValueType_Object;
 
-    mType = "QMPointer<QMJsonObject>";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    if(value.isNull() == true)
+    {
+        auto object = QMPointer<QMJsonObject>(new QMJsonObject());
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonObject> > >(new QMJsonType<QMPointer<QMJsonObject> >(object));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
+    else
+    {
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonObject> > >(new QMJsonType<QMPointer<QMJsonObject> >(value));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
+}
+
+QMJsonValue::QMJsonValue(QMJsonValue *value)
+{
+    if(value == NULL)
+    {
+        mType = QMJsonValueType_Null;
+        mValue = QMPointer<QMJsonTypeBase>();
+    }
+    else
+    {
+        mType = value->mType;
+        mValue = value->mValue;
+    }
+}
+
+QMJsonValue::QMJsonValue(QMJsonArray *value)
+{
+    mType = QMJsonValueType_Array;
+
+    if(value == NULL)
+    {
+        auto array = QMPointer<QMJsonArray>(new QMJsonArray());
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonArray> > >(new QMJsonType<QMPointer<QMJsonArray> >(array));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
+    else
+    {
+        auto array = QMPointer<QMJsonArray>(value);
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonArray> > >(new QMJsonType<QMPointer<QMJsonArray> >(array));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
+}
+
+QMJsonValue::QMJsonValue(QMJsonObject *value)
+{
+    mType = QMJsonValueType_Object;
+
+    if(value == NULL)
+    {
+        auto object = QMPointer<QMJsonObject>(new QMJsonObject());
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonObject> > >(new QMJsonType<QMPointer<QMJsonObject> >(object));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
+    else
+    {
+        auto object = QMPointer<QMJsonObject>(value);
+        auto type = QMPointer<QMJsonType<QMPointer<QMJsonObject> > >(new QMJsonType<QMPointer<QMJsonObject> >(object));
+        mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+    }
 }
 
 QMJsonValue::QMJsonValue(const char *value)
 {
-    auto type = QSharedPointer<QMJsonType<QString> >(new QMJsonType<QString>(value));
+    auto type = QMPointer<QMJsonType<QString> >(new QMJsonType<QString>(value));
 
-    mType = "QString";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_String;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(short value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(unsigned short value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(int value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(unsigned int value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(long value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(unsigned long value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(long long value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::QMJsonValue(unsigned long long value)
 {
-    auto type = QSharedPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
-    mType = "double";
-    mValue = type.dynamicCast<QMJsonTypeBase>();
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
 QMJsonValue::~QMJsonValue()
@@ -581,9 +663,27 @@ QMPointer<QMJsonValue> QMJsonValue::fromVariant(const QVariant &value)
     return QMPointer<QMJsonValue>(new QMJsonValue());
 }
 
-QString QMJsonValue::type(void) const
+QMJsonValueType QMJsonValue::type(void) const
 {
     return mType;
+}
+
+QString QMJsonValue::typeString(void) const
+{
+    auto index = (int32_t)mType;
+    static auto strings = QList<QString>() << "QMJsonValueType_Null"
+                                           << "QMJsonValueType_Bool"
+                                           << "QMJsonValueType_Double"
+                                           << "QMJsonValueType_String"
+                                           << "QMJsonValueType_Array"
+                                           << "QMJsonValueType_Object"
+                                           << "QMJsonValueType_Custom"
+                                           << "QMJsonValueType_Unknown";
+
+    if(index < 0) index = 0;
+    if(index >= strings.count()) index = strings.count() - 1;
+
+    return strings[index];
 }
 
 QString QMJsonValue::toJson(int32_t prettyPrint) const
@@ -618,10 +718,7 @@ QString QMJsonValue::toJson(int32_t prettyPrint) const
         // custom, but we do care that at minimum, we have the type information.
         // Otherwise, bad things are going to happen.
         if(obj->contains("qmjsontype") == false)
-        {
-            qDebug() << "fdads";
             return QString();
-        }
 
         // Now all that is left, is to convert the class to the base types.
         // Note that the object might have complex types embedded in it, which
