@@ -149,11 +149,20 @@ int main(int argc, char const *argv[])
     qDebug() << "";
 
     //--------------------------------------------------------------------------
-    // Tree Example
+    // Save
     //--------------------------------------------------------------------------
 
-    auto ok = false;
-    document->toJsonFile("example.json", &ok, QMJSONVALUE_PRETTY);
+    qDebug() << "Save:";
+    qDebug() << document->toJsonFile("example.json", QMJSONVALUE_PRETTY);
+    qDebug() << "";
+
+    //--------------------------------------------------------------------------
+    // Load
+    //--------------------------------------------------------------------------
+
+    qDebug() << "Load:";
+    qDebug() << QMJsonValue::fromJsonFile("example.json");
+    qDebug() << "";
 
     //--------------------------------------------------------------------------
     // Complex Types

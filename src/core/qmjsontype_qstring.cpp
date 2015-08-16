@@ -82,9 +82,10 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
 }
 
 template <>
-QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab)
+QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab, QMJsonSort sort)
 {
-    (void) tab;
+    (void)tab;
+    (void)sort;
 
     auto result = QString();
     const auto &str = this->get();

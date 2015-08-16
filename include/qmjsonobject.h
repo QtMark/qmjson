@@ -52,13 +52,13 @@ public:
 
     virtual bool contains(const QString &key) const;
 
-    virtual void insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplace);
-    virtual void insert(const QString &key, const QMPointer<QMJsonArray> &value, QMJsonReplacementPolicy policy = QMJsonReplace);
-    virtual void insert(const QString &key, const QMPointer<QMJsonObject> &value, QMJsonReplacementPolicy policy = QMJsonReplace);
-    virtual void insert(const QString &key, QMJsonValue *value, QMJsonReplacementPolicy policy = QMJsonReplace);
-    virtual void insert(const QString &key, QMJsonArray *value, QMJsonReplacementPolicy policy = QMJsonReplace);
-    virtual void insert(const QString &key, QMJsonObject *value, QMJsonReplacementPolicy policy = QMJsonReplace);
-    template<class T> void insert(const QString &key, const T &value, QMJsonReplacementPolicy policy = QMJsonReplace);
+    virtual void insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
+    virtual void insert(const QString &key, const QMPointer<QMJsonArray> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
+    virtual void insert(const QString &key, const QMPointer<QMJsonObject> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
+    virtual void insert(const QString &key, QMJsonValue *value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
+    virtual void insert(const QString &key, QMJsonArray *value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
+    virtual void insert(const QString &key, QMJsonObject *value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
+    template<class T> void insert(const QString &key, const T &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
 
     virtual void unite(const QMPointer<QMJsonObject> &object);
 

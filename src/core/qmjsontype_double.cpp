@@ -73,9 +73,10 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<double>::fromJson(const QString
 }
 
 template <>
-QString QM_JSON_EXPORT QMJsonType<double>::toJson(int32_t tab)
+QString QM_JSON_EXPORT QMJsonType<double>::toJson(int32_t tab, QMJsonSort sort)
 {
     (void)tab;
+    (void)sort;
 
     return QString::number(this->get(), 'g', 13);
 }

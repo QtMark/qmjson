@@ -55,8 +55,21 @@ enum QMJsonValueType
 
 enum QMJsonReplacementPolicy
 {
-    QMJsonReplace = 1,
-    QMJsonIgnore = 2,
+    QMJsonReplacementPolicy_Replace = 1,
+    QMJsonReplacementPolicy_Ignore = 2,
+};
+
+enum QMJsonFormat
+{
+    QMJsonFormat_Optimized = -1,
+    QMJsonFormat_Pretty = 0
+};
+
+enum QMJsonSort
+{
+    QMJsonSort_None = 0,
+    QMJsonSort_CaseInsensitive = 1,
+    QMJsonSort_CaseSensitive = 2
 };
 
 // ============================================================================
@@ -80,7 +93,7 @@ public:
     virtual QDebug print(QDebug dbg) = 0;
     virtual bool isBaseType(void) = 0;
 
-    virtual QString toJson(int32_t tab) = 0;
+    virtual QString toJson(int32_t tab, QMJsonSort sort) = 0;
     virtual void toComplexJson(const QMPointer<QMJsonObject> &obj) = 0;
 };
 
@@ -103,7 +116,7 @@ public:
     virtual QDebug print(QDebug dbg) override;
     virtual bool isBaseType(void) override;
 
-    virtual QString toJson(int32_t tab) override;
+    virtual QString toJson(int32_t tab, QMJsonSort sort) override;
     static QMPointer<QMJsonValue> fromJson(const QString &json, int32_t &index);
 
     virtual void toComplexJson(const QMPointer<QMJsonObject> &obj) override;
@@ -148,9 +161,10 @@ QDebug QMJsonType<T>::print(QDebug dbg)
 }
 
 template <class T>
-QString QMJsonType<T>::toJson(int32_t tab)
+QString QMJsonType<T>::toJson(int32_t tab, QMJsonSort sort)
 {
     (void) tab;
+    (void) sort;
 
     return QString();
 }

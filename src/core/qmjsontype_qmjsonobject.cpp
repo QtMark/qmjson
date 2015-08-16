@@ -84,9 +84,10 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::from
 }
 
 template <>
-QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab)
+QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab, QMJsonSort sort)
 {
     auto json = QString();
+    auto keys = QStringList();
     const auto &object = this->get();
 
     if(object.isNull() == true)
@@ -95,18 +96,35 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab)
     if(object->count() == 0)
         return "{}";
 
-    if(tab == QMJSONVALUE_OPTIMIZED)
+    switch(sort)
+    {
+        case QMJsonSort_None:
+            keys = object->keys();
+            break;
+
+        case QMJsonSort_CaseInsensitive:
+            keys = object->keys();
+            keys.sort(Qt::CaseInsensitive);
+            break;
+
+        case QMJsonSort_CaseSensitive:
+            keys = object->keys();
+            keys.sort(Qt::CaseSensitive);
+            break;
+    }
+
+    if(tab == (int32_t)QMJsonFormat_Optimized)
     {
         json += '{';
 
-        for(const auto &key : object->keys())
+        for(const auto &key : keys)
         {
             const auto &value = object->value(key);
 
             json += '"';
             json += key;
             json += "\":";
-            json += value->toJson(tab);
+            json += value->toJson((QMJsonFormat)tab, sort);
             json += ',';
         }
 
@@ -118,7 +136,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab)
 
         tab += 4;
         auto space = QString(tab, ' ');
-        for(const auto &key : object->keys())
+        for(const auto &key : keys)
         {
             const auto &value = object->value(key);
 
@@ -127,7 +145,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab)
             json += '"';
             json += key;
             json += "\":";
-            json += value->toJson(tab);
+            json += value->toJson((QMJsonFormat)tab, sort);
             json += ',';
 
         }

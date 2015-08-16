@@ -105,11 +105,11 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
     {
         switch(policy)
         {
-            case QMJsonReplace:
+            case QMJsonReplacementPolicy_Replace:
                 this->erase(iter);
                 break;
 
-            case QMJsonIgnore:
+            case QMJsonReplacementPolicy_Ignore:
                 return;
         };
     }

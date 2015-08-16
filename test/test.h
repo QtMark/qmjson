@@ -10,6 +10,7 @@ class TestJson: public QObject
 private slots:
 
     virtual void QMJsonValue_create(void);
+    virtual void QMJsonValue_file(void);
 
     virtual void QMJsonArray_create(void);
     virtual void QMJsonArray_prepend(void);

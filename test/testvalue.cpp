@@ -74,3 +74,25 @@ void TestJson::QMJsonValue_create(void)
     QVERIFY(value21->typeString() == "QMJsonValueType_Array");
     QVERIFY(value22->typeString() == "QMJsonValueType_Object");
 }
+
+void TestJson::QMJsonValue_file(void)
+{
+    auto object1 = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue("Hello World"));
+    auto document1 = QMPointer<QMJsonValue>(new QMJsonValue(object1));
+
+    object1->insert("key1", value1);
+    object1->insert("key2", value2);
+    object1->insert("key3", value3);
+
+    QVERIFY(document1->toJsonFile("test.json") == true);
+
+    auto document2 = QMJsonValue::fromJsonFile("test.json");
+
+    QVERIFY(document2.isNull() == false);
+    QVERIFY(document1->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) ==
+            document2->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive));
+}
+

@@ -686,7 +686,7 @@ QString QMJsonValue::typeString(void) const
     return strings[index];
 }
 
-QString QMJsonValue::toJson(int32_t prettyPrint) const
+QString QMJsonValue::toJson(QMJsonFormat format, QMJsonSort sort) const
 {
     if(mValue.isNull() == true)
         return QString();
@@ -697,7 +697,7 @@ QString QMJsonValue::toJson(int32_t prettyPrint) const
     // which means that we use it's complex version of toJson instead
     if(mValue->isBaseType() == true)
     {
-        return mValue->toJson(prettyPrint);
+        return mValue->toJson(format, sort);
     }
     else
     {
@@ -723,33 +723,22 @@ QString QMJsonValue::toJson(int32_t prettyPrint) const
         // Now all that is left, is to convert the class to the base types.
         // Note that the object might have complex types embedded in it, which
         // means that this code will be called again.
-        return value->toJson(prettyPrint);
+        return value->toJson(format, sort);
     }
 }
 
-QString QMJsonValue::toJsonFile(const QString &filename, int32_t prettyPrint) const
-{
-    return this->toJsonFile(filename, NULL, prettyPrint);
-}
-
-QString QMJsonValue::toJsonFile(const QString &filename, bool *ok, int32_t prettyPrint) const
+bool QMJsonValue::toJsonFile(const QString &filename, QMJsonFormat format, QMJsonSort sort) const
 {
     QSaveFile file(filename);
     QTextStream stream(&file);
 
-    auto json = this->toJson(prettyPrint);
-
     if(file.open(QIODevice::WriteOnly | QIODevice::Text) == false)
-        return QString();
+        return false;
 
-    stream << json << "\r\n";
+    stream << this->toJson(format, sort) << "\r\n";
 
-    auto result = file.commit();
+    return file.commit();
 
-    if(ok != NULL)
-        *ok = result;
-
-    return json;
 }
 
 QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)

@@ -36,13 +36,6 @@ class QMJsonArray;
 class QMJsonObject;
 
 // ============================================================================
-// Macros
-// ============================================================================
-
-#define QMJSONVALUE_OPTIMIZED -1
-#define QMJSONVALUE_PRETTY 0
-
-// ============================================================================
 // Typedefs
 // ============================================================================
 
@@ -154,15 +147,10 @@ public:
     virtual QMJsonValueType type(void) const;
     virtual QString typeString(void) const;
 
-    virtual QString toJson(int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
-    virtual QString toJsonFile(const QString &filename, int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
-    virtual QString toJsonFile(const QString &filename, bool *ok, int32_t prettyPrint = QMJSONVALUE_PRETTY) const;
+    virtual QString toJson(QMJsonFormat format = QMJsonFormat_Pretty, QMJsonSort sort = QMJsonSort_None) const;
+    virtual bool toJsonFile(const QString &filename, QMJsonFormat format = QMJsonFormat_Pretty, QMJsonSort sort = QMJsonSort_None) const;
     static QMPointer<QMJsonValue> fromJson(const QString &json);
     static QMPointer<QMJsonValue> fromJsonFile(const QString &filename);
-
-    template<class T> static QString toJson(const T &value, int32_t prettyPrint = QMJSONVALUE_PRETTY);
-    template<class T> static QString toJsonFile(const T &value, const QString &filename, int32_t prettyPrint = QMJSONVALUE_PRETTY);
-    template<class T> static QString toJsonFile(const T &value, const QString &filename, bool *ok, int32_t prettyPrint = QMJSONVALUE_PRETTY);
 
     static void registerFromComplexJson(const QString &qmjsontype, FromComplexJsonFunc func);
 
@@ -248,24 +236,6 @@ bool QMJsonValue::from(const T &value)
 
     emit valueChanged();
     return true;
-}
-
-template<class T>
-QString QMJsonValue::toJson(const T &value, int32_t prettyPrint)
-{
-    return (QMPointer<QMJsonValue>(new QMJsonValue(value)))->toJson(prettyPrint);
-}
-
-template<class T>
-QString QMJsonValue::toJsonFile(const T &value, const QString &filename, int32_t prettyPrint)
-{
-    return (QMPointer<QMJsonValue>(new QMJsonValue(value)))->toJsonFile(filename, prettyPrint);
-}
-
-template<class T>
-QString QMJsonValue::toJsonFile(const T &value, const QString &filename, bool *ok, int32_t prettyPrint)
-{
-    return (QMPointer<QMJsonValue>(new QMJsonValue(value)))->toJsonFile(filename, ok, prettyPrint);
 }
 
 #endif // QMJSONVALUE_H

@@ -73,9 +73,10 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<bool>::fromJson(const QString &
 }
 
 template <>
-QString QM_JSON_EXPORT QMJsonType<bool>::toJson(int32_t tab)
+QString QM_JSON_EXPORT QMJsonType<bool>::toJson(int32_t tab, QMJsonSort sort)
 {
     (void)tab;
+    (void)sort;
 
     return this->get() ? "true" : "false";
 }

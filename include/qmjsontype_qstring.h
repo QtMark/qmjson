@@ -34,7 +34,7 @@
 // ============================================================================
 
 template <> QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QString &json, int32_t &index);
-template <> QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab);
+template <> QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab, QMJsonSort sort);
 
 template <> bool QM_JSON_EXPORT QMJsonType<QString>::isBaseType(void);
 
