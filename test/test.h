@@ -11,6 +11,12 @@ private slots:
 
     virtual void QMJsonValue_create(void);
     virtual void QMJsonValue_file(void);
+    virtual void QMJsonValue_sort(void);
+    virtual void QMJsonValue_bool(void);
+    virtual void QMJsonValue_double(void);
+    virtual void QMJsonValue_string(void);
+    virtual void QMJsonValue_array(void);
+    virtual void QMJsonValue_object(void);
 
     virtual void QMJsonArray_create(void);
     virtual void QMJsonArray_prepend(void);

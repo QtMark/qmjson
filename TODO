@@ -2,17 +2,12 @@ Version 1.0 Todo:
 
 High Priority:
 - Add policy enum for the QMJsonArray and QMJsonObject unite functions
-- Provide ability to sort on toJson functions
-- Remove the QString return on toJsonFile
-- Change type() funciton to enum
-- Create typeString() function
 - Provide type conversions for the basic types
 - Add value functions to QMJsonValue so that you don't have to do
   toObject and toArray constantly.
-- Add char, unsigned char, signed char, and float to the list of overloaded
-  functions. Make sure you update the unit tests that use these types
 - Create QMJsonValue compare function that can take a template type. This
   can then be used by the functions below
+- add from QMJsonValue function. Will need to do type conversions
 - Add indexOf<XXX> functions for all types (includes added types)
 - Add lastIndexOf<XXX> functions for all types (includes added types)
 - Add contains<XXX> functions for all types (includes added types)
@@ -23,8 +18,6 @@ High Priority:
 
 Low Priority:
 - Add doxygen API comments
-- Add convenince functions for QMJsonArray and QMJsonObject to provide the
-  ability to save an object or array to file.
 - Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
 - Add Windows support
 - Figure out how to return "const ref" for array and object to speed things
@@ -34,3 +27,4 @@ Low Priority:
 - Add iterator classes to Array and Object so that traditional style looping
   can be done. This will also speed up code on the Object side as they can use
   find.
+- Add asserts to the JSON library that can be compiled out

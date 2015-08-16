@@ -51,8 +51,8 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QRect>::fromComplexJson(const Q
     auto size = QMJsonValue::fromComplexJson(obj->value("size"));
     auto point = QMJsonValue::fromComplexJson(obj->value("point"));
 
-    rect.setSize(size->to<QSize>());
-    rect.setTopLeft(point->to<QPoint>());
+    rect.setSize(size->to<QSize>(QSize()));
+    rect.setTopLeft(point->to<QPoint>(QPoint()));
 
     return QMPointer<QMJsonValue>(new QMJsonValue(rect));
 }

@@ -128,51 +128,6 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
     }
 }
 
-void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonArray> &value, QMJsonReplacementPolicy policy)
-{
-    if(value.isNull() == true)
-    {
-        auto newArray = QMPointer<QMJsonArray>(new QMJsonArray());
-        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(newArray));
-        this->insert(key, newValue, policy);
-    }
-    else
-    {
-        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(value));
-        this->insert(key, newValue, policy);
-    }
-}
-
-void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonObject> &value, QMJsonReplacementPolicy policy)
-{
-    if(value.isNull() == true)
-    {
-        auto newObject = QMPointer<QMJsonObject>(new QMJsonObject());
-        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(newObject));
-        this->insert(key, newValue, policy);
-    }
-    else
-    {
-        auto newValue = QMPointer<QMJsonValue>(new QMJsonValue(value));
-        this->insert(key, newValue, policy);
-    }
-}
-
-void QMJsonObject::insert(const QString &key, QMJsonValue *value, QMJsonReplacementPolicy policy)
-{
-    this->insert(key, QMPointer<QMJsonValue>(value), policy);
-}
-
-void QMJsonObject::insert(const QString &key, QMJsonArray *value, QMJsonReplacementPolicy policy)
-{
-    this->insert(key, QMPointer<QMJsonArray>(value), policy);
-}
-
-void QMJsonObject::insert(const QString &key, QMJsonObject *value, QMJsonReplacementPolicy policy)
-{
-    this->insert(key, QMPointer<QMJsonObject>(value), policy);
-}
-
 void QMJsonObject::unite(const QMPointer<QMJsonObject> &object)
 {
     if(object.isNull() == true)
@@ -380,9 +335,19 @@ QMPointer<QMJsonObject> QMJsonObject::toObject(const QString &key, const QMPoint
     return this->value(key)->toObject(defaultValue);
 }
 
-const char *QMJsonObject::toChar(const QString &key) const
+float QMJsonObject::toFloat(const QString &key) const
+{
+    return this->value(key)->toFloat();
+}
+
+char QMJsonObject::toChar(const QString &key) const
 {
     return this->value(key)->toChar();
+}
+
+unsigned char QMJsonObject::toUChar(const QString &key) const
+{
+    return this->value(key)->toUChar();
 }
 
 short QMJsonObject::toShort(const QString &key) const
@@ -425,9 +390,19 @@ unsigned long long QMJsonObject::toULongLong(const QString &key) const
     return this->value(key)->toULongLong();
 }
 
-const char *QMJsonObject::toChar(const QString &key, const char *defaultValue) const
+float QMJsonObject::toFloat(const QString &key, float defaultValue) const
+{
+    return this->value(key)->toFloat(defaultValue);
+}
+
+char QMJsonObject::toChar(const QString &key, char defaultValue) const
 {
     return this->value(key)->toChar(defaultValue);
+}
+
+unsigned char QMJsonObject::toUChar(const QString &key, unsigned char defaultValue) const
+{
+    return this->value(key)->toUChar(defaultValue);
 }
 
 short QMJsonObject::toShort(const QString &key, short defaultValue) const
@@ -495,9 +470,19 @@ bool QMJsonObject::fromObject(const QString &key, const QMPointer<QMJsonObject> 
     return this->value(key)->fromObject(value);
 }
 
-bool QMJsonObject::fromChar(const QString &key, const char *value)
+bool QMJsonObject::fromFloat(const QString &key, float value)
+{
+    return this->value(key)->fromFloat(value);
+}
+
+bool QMJsonObject::fromChar(const QString &key, char value)
 {
     return this->value(key)->fromChar(value);
+}
+
+bool QMJsonObject::fromUChar(const QString &key, unsigned char value)
+{
+    return this->value(key)->fromUChar(value);
 }
 
 bool QMJsonObject::fromShort(const QString &key, short value)

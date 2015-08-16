@@ -67,6 +67,9 @@ public:
     template<class T> explicit QMJsonValue(const T &value);
 
     explicit QMJsonValue(const char *value);
+    explicit QMJsonValue(float value);
+    explicit QMJsonValue(char value);
+    explicit QMJsonValue(unsigned char value);
     explicit QMJsonValue(short value);
     explicit QMJsonValue(unsigned short value);
     explicit QMJsonValue(int value);
@@ -100,11 +103,11 @@ public:
     virtual QString toString(const QString &defaultValue) const;
     virtual QMPointer<QMJsonArray> toArray(const QMPointer<QMJsonArray> &defaultValue) const;
     virtual QMPointer<QMJsonObject> toObject(const QMPointer<QMJsonObject> &defaultValue) const;
-
-    template<class T> T to(void) const;
     template<class T> T to(const T &defaultValue) const;
 
-    virtual const char *toChar(void) const;
+    virtual float toFloat(void) const;
+    virtual char toChar(void) const;
+    virtual unsigned char toUChar(void) const;
     virtual short toShort(void) const;
     virtual unsigned short toUShort(void) const;
     virtual int toInt(void) const;
@@ -114,7 +117,9 @@ public:
     virtual long long toLongLong(void) const;
     virtual unsigned long long toULongLong(void) const;
 
-    virtual const char *toChar(const char *defaultValue) const;
+    virtual float toFloat(float defaultValue) const;
+    virtual char toChar(char defaultValue) const;
+    virtual unsigned char toUChar(unsigned char defaultValue) const;
     virtual short toShort(short defaultValue) const;
     virtual unsigned short toUShort(unsigned short defaultValue) const;
     virtual int toInt(int defaultValue) const;
@@ -131,7 +136,9 @@ public:
     virtual bool fromObject(const QMPointer<QMJsonObject> &value);
     template <class T> bool from(const T &value);
 
-    virtual bool fromChar(const char *value);
+    virtual bool fromFloat(float value);
+    virtual bool fromChar(char value);
+    virtual bool fromUChar(unsigned char value);
     virtual bool fromShort(short value);
     virtual bool fromUShort(unsigned short value);
     virtual bool fromInt(int value);
@@ -200,17 +207,6 @@ template<class T>
 bool QMJsonValue::is(void) const
 {
     return qSharedPointerDynamicCast<QMJsonType<T> >(mValue) != NULL;
-}
-
-template<class T>
-T QMJsonValue::to(void) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<T> >(mValue);
-
-    if(type == NULL)
-        return T();
-
-    return type->get();
 }
 
 template<class T>

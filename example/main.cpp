@@ -153,7 +153,7 @@ int main(int argc, char const *argv[])
     //--------------------------------------------------------------------------
 
     qDebug() << "Save:";
-    qDebug() << document->toJsonFile("example.json", QMJSONVALUE_PRETTY);
+    qDebug() << document->toJsonFile("example.json", QMJsonFormat_Pretty);
     qDebug() << "";
 
     //--------------------------------------------------------------------------
@@ -184,10 +184,10 @@ int main(int argc, char const *argv[])
     qDebug() << "";
 
     qDebug() << "To:";
-    qDebug() << complexValue1->to<QColor>();
-    qDebug() << complexValue2->to<QPoint>();
-    qDebug() << complexValue3->to<QRect>();
-    qDebug() << complexValue4->to<QSize>();
+    qDebug() << complexValue1->to<QColor>(QColor());
+    qDebug() << complexValue2->to<QPoint>(QPoint());
+    qDebug() << complexValue3->to<QRect>(QRect());
+    qDebug() << complexValue4->to<QSize>(QSize());
     qDebug() << "";
 
     qDebug() << "From:";

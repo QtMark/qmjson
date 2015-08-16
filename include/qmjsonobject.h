@@ -53,11 +53,6 @@ public:
     virtual bool contains(const QString &key) const;
 
     virtual void insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
-    virtual void insert(const QString &key, const QMPointer<QMJsonArray> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
-    virtual void insert(const QString &key, const QMPointer<QMJsonObject> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
-    virtual void insert(const QString &key, QMJsonValue *value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
-    virtual void insert(const QString &key, QMJsonArray *value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
-    virtual void insert(const QString &key, QMJsonObject *value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
     template<class T> void insert(const QString &key, const T &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
 
     virtual void unite(const QMPointer<QMJsonObject> &object);
@@ -95,11 +90,11 @@ public:
     virtual QString toString(const QString &key, const QString &defaultValue) const;
     virtual QMPointer<QMJsonArray> toArray(const QString &key, const QMPointer<QMJsonArray> &defaultValue) const;
     virtual QMPointer<QMJsonObject> toObject(const QString &key, const QMPointer<QMJsonObject> &defaultValue) const;
-
-    template<class T> T to(const QString &key) const;
     template<class T> T to(const QString &key, const T &defaultValue) const;
 
-    virtual const char *toChar(const QString &key) const;
+    virtual float toFloat(const QString &key) const;
+    virtual char toChar(const QString &key) const;
+    virtual unsigned char toUChar(const QString &key) const;
     virtual short toShort(const QString &key) const;
     virtual unsigned short toUShort(const QString &key) const;
     virtual int toInt(const QString &key) const;
@@ -109,7 +104,9 @@ public:
     virtual long long toLongLong(const QString &key) const;
     virtual unsigned long long toULongLong(const QString &key) const;
 
-    virtual const char *toChar(const QString &key, const char *defaultValue) const;
+    virtual float toFloat(const QString &key, float defaultValue) const;
+    virtual char toChar(const QString &key, char defaultValue) const;
+    virtual unsigned char toUChar(const QString &key, unsigned char defaultValue) const;
     virtual short toShort(const QString &key, short defaultValue) const;
     virtual unsigned short toUShort(const QString &key, unsigned short defaultValue) const;
     virtual int toInt(const QString &key, int defaultValue) const;
@@ -126,7 +123,9 @@ public:
     virtual bool fromObject(const QString &key, const QMPointer<QMJsonObject> &value);
     template <class T> bool from(const QString &key, const T &value);
 
-    virtual bool fromChar(const QString &key, const char *value);
+    virtual bool fromFloat(const QString &key, float value);
+    virtual bool fromChar(const QString &key, char value);
+    virtual bool fromUChar(const QString &key, unsigned char value);
     virtual bool fromShort(const QString &key, short value);
     virtual bool fromUShort(const QString &key, unsigned short value);
     virtual bool fromInt(const QString &key, int value);
@@ -198,12 +197,6 @@ bool QMJsonObject::is(const QString &key) const
         return false;
 
     return iter.value()->is<T>();
-}
-
-template<class T>
-T QMJsonObject::to(const QString &key) const
-{
-    return this->value(key)->to<T>();
 }
 
 template<class T>
