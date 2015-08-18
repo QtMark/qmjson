@@ -95,15 +95,15 @@ public:
     virtual bool toBool(void) const;
     virtual double toDouble(void) const;
     virtual QString toString(void) const;
-    virtual QMPointer<QMJsonArray> toArray(void) const;
-    virtual QMPointer<QMJsonObject> toObject(void) const;
+    virtual const QMPointer<QMJsonArray> &toArray(void) const;
+    virtual const QMPointer<QMJsonObject> &toObject(void) const;
 
     virtual bool toBool(bool defaultValue) const;
     virtual double toDouble(double defaultValue) const;
-    virtual QString toString(const QString &defaultValue) const;
-    virtual QMPointer<QMJsonArray> toArray(const QMPointer<QMJsonArray> &defaultValue) const;
-    virtual QMPointer<QMJsonObject> toObject(const QMPointer<QMJsonObject> &defaultValue) const;
-    template<class T> T to(const T &defaultValue) const;
+    virtual const QString &toString(const QString &defaultValue) const;
+    virtual const QMPointer<QMJsonArray> &toArray(const QMPointer<QMJsonArray> &defaultValue) const;
+    virtual const QMPointer<QMJsonObject> &toObject(const QMPointer<QMJsonObject> &defaultValue) const;
+    template<class T> const T &to(const T &defaultValue) const;
 
     virtual float toFloat(void) const;
     virtual char toChar(void) const;
@@ -148,14 +148,14 @@ public:
     virtual bool fromLongLong(long long value);
     virtual bool fromULongLong(unsigned long long value);
 
-    virtual QMPointer<QMJsonValue> value(int32_t index) const;
-    virtual QMPointer<QMJsonValue> value(const QString &key) const;
+    virtual const QMPointer<QMJsonValue> &value(int32_t index) const;
+    virtual const QMPointer<QMJsonValue> &value(const QString &key) const;
 
     virtual QVariant toVariant(void);
     static QMPointer<QMJsonValue> fromVariant(const QVariant &value);
 
     virtual QMJsonValueType type(void) const;
-    virtual QString typeString(void) const;
+    virtual const QString &typeString(void) const;
 
     virtual QString toJson(QMJsonFormat format = QMJsonFormat_Pretty, QMJsonSort sort = QMJsonSort_None) const;
     virtual bool toJsonFile(const QString &filename, QMJsonFormat format = QMJsonFormat_Pretty, QMJsonSort sort = QMJsonSort_None) const;
@@ -213,7 +213,7 @@ bool QMJsonValue::is(void) const
 }
 
 template<class T>
-T QMJsonValue::to(const T &defaultValue) const
+const T &QMJsonValue::to(const T &defaultValue) const
 {
     auto type = qSharedPointerDynamicCast<QMJsonType<T> >(mValue);
 

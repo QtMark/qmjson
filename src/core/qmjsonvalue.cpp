@@ -400,22 +400,24 @@ QString QMJsonValue::toString(void) const
     return QString();
 }
 
-QMPointer<QMJsonArray> QMJsonValue::toArray(void) const
+const QMPointer<QMJsonArray> &QMJsonValue::toArray(void) const
 {
+    static auto defaultValue = QMPointer<QMJsonArray>(new QMJsonArray);
     auto type = qSharedPointerDynamicCast<QMJsonType<QMPointer<QMJsonArray> > >(mValue);
 
     if(type == NULL)
-        return QMPointer<QMJsonArray>(new QMJsonArray);
+        return defaultValue;
 
     return type->get();
 }
 
-QMPointer<QMJsonObject> QMJsonValue::toObject(void) const
+const QMPointer<QMJsonObject> &QMJsonValue::toObject(void) const
 {
+    static auto defaultValue = QMPointer<QMJsonObject>(new QMJsonObject);
     auto type = qSharedPointerDynamicCast<QMJsonType<QMPointer<QMJsonObject> > >(mValue);
 
     if(type == NULL)
-        return QMPointer<QMJsonObject>(new QMJsonObject);
+        return defaultValue;
 
     return type->get();
 }
@@ -440,7 +442,7 @@ double QMJsonValue::toDouble(double defaultValue) const
     return type->get();
 }
 
-QString QMJsonValue::toString(const QString &defaultValue) const
+const QString &QMJsonValue::toString(const QString &defaultValue) const
 {
     auto type = qSharedPointerDynamicCast<QMJsonType<QString> >(mValue);
 
@@ -450,32 +452,22 @@ QString QMJsonValue::toString(const QString &defaultValue) const
     return type->get();
 }
 
-QMPointer<QMJsonArray> QMJsonValue::toArray(const QMPointer<QMJsonArray> &defaultValue) const
+const QMPointer<QMJsonArray> &QMJsonValue::toArray(const QMPointer<QMJsonArray> &defaultValue) const
 {
     auto type = qSharedPointerDynamicCast<QMJsonType<QMPointer<QMJsonArray> > >(mValue);
 
     if(type == NULL)
-    {
-        if(defaultValue.isNull() == true)
-            return QMPointer<QMJsonArray>(new QMJsonArray);
-
         return defaultValue;
-    }
 
     return type->get();
 }
 
-QMPointer<QMJsonObject> QMJsonValue::toObject(const QMPointer<QMJsonObject> &defaultValue) const
+const QMPointer<QMJsonObject> &QMJsonValue::toObject(const QMPointer<QMJsonObject> &defaultValue) const
 {
     auto type = qSharedPointerDynamicCast<QMJsonType<QMPointer<QMJsonObject> > >(mValue);
 
     if(type == NULL)
-    {
-        if(defaultValue.isNull() == true)
-            return QMPointer<QMJsonObject>(new QMJsonObject);
-
         return defaultValue;
-    }
 
     return type->get();
 }
@@ -725,12 +717,12 @@ bool QMJsonValue::fromULongLong(unsigned long long value)
     return this->fromDouble(value);
 }
 
-QMPointer<QMJsonValue> QMJsonValue::value(int32_t index) const
+const QMPointer<QMJsonValue> &QMJsonValue::value(int32_t index) const
 {
     return this->toArray()->value(index);
 }
 
-QMPointer<QMJsonValue> QMJsonValue::value(const QString &key) const
+const QMPointer<QMJsonValue> &QMJsonValue::value(const QString &key) const
 {
     return this->toObject()->value(key);
 }
@@ -888,10 +880,11 @@ QMJsonValueType QMJsonValue::type(void) const
     return mType;
 }
 
-QString QMJsonValue::typeString(void) const
+const QString &QMJsonValue::typeString(void) const
 {
     auto index = (int32_t)mType;
-    static auto strings = QList<QString>() << "QMJsonValueType_Null"
+    static auto strings = QList<QString>()
+                          << "QMJsonValueType_Null"
                           << "QMJsonValueType_Bool"
                           << "QMJsonValueType_Double"
                           << "QMJsonValueType_String"
@@ -900,10 +893,10 @@ QString QMJsonValue::typeString(void) const
                           << "QMJsonValueType_Custom"
                           << "QMJsonValueType_Unknown";
 
-    if(index < 0) index = 0;
+    if(index < 0) index = strings.count() - 1;
     if(index >= strings.count()) index = strings.count() - 1;
 
-    return strings[index];
+    return strings.at(index);
 }
 
 QString QMJsonValue::toJson(QMJsonFormat format, QMJsonSort sort) const

@@ -17,8 +17,6 @@ High Priority:
 Low Priority:
 - Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
 - Add Windows support
-- Figure out how to return "const ref" for array and object to speed things
-  up a little bit.
 - Add count(const T& value) to QMJsonArray
 - Default value functions should take a raw type, and a QMJsonValue type
 - Add iterator classes to Array and Object so that traditional style looping

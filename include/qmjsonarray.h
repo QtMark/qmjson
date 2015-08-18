@@ -76,10 +76,10 @@ public:
     virtual QMPointer<QMJsonValue> takeAt(int32_t index, const QMPointer<QMJsonValue> &defaultValue);
     template<class T> QMPointer<QMJsonValue> takeAt(int32_t index, const T &defaultValue);
 
-    virtual QMPointer<QMJsonValue> first(void) const;
-    virtual QMPointer<QMJsonValue> last(void) const;
-    virtual QMPointer<QMJsonValue> value(int32_t index) const;
-    virtual QMPointer<QMJsonValue> value(int32_t index, const QMPointer<QMJsonValue> &defaultValue) const;
+    virtual const QMPointer<QMJsonValue> &first(void) const;
+    virtual const QMPointer<QMJsonValue> &last(void) const;
+    virtual const QMPointer<QMJsonValue> &value(int32_t index) const;
+    virtual const QMPointer<QMJsonValue> &value(int32_t index, const QMPointer<QMJsonValue> &defaultValue) const;
     template<class T> QMPointer<QMJsonValue> value(int32_t index, const T &defaultValue) const;
 
     virtual QList<QMPointer<QMJsonValue> > values(void) const;
@@ -99,15 +99,15 @@ public:
     virtual bool toBool(int32_t index) const;
     virtual double toDouble(int32_t index) const;
     virtual QString toString(int32_t index) const;
-    virtual QMPointer<QMJsonArray> toArray(int32_t index) const;
-    virtual QMPointer<QMJsonObject> toObject(int32_t index) const;
+    virtual const QMPointer<QMJsonArray> &toArray(int32_t index) const;
+    virtual const QMPointer<QMJsonObject> &toObject(int32_t index) const;
 
     virtual bool toBool(int32_t index, bool defaultValue) const;
     virtual double toDouble(int32_t index, double defaultValue) const;
-    virtual QString toString(int32_t index, const QString &defaultValue) const;
-    virtual QMPointer<QMJsonArray> toArray(int32_t index, const QMPointer<QMJsonArray> &defaultValue) const;
-    virtual QMPointer<QMJsonObject> toObject(int32_t index, const QMPointer<QMJsonObject> &defaultValue) const;
-    template<class T> T to(int32_t index, const T &defaultValue) const;
+    virtual const QString &toString(int32_t index, const QString &defaultValue) const;
+    virtual const QMPointer<QMJsonArray> &toArray(int32_t index, const QMPointer<QMJsonArray> &defaultValue) const;
+    virtual const QMPointer<QMJsonObject> &toObject(int32_t index, const QMPointer<QMJsonObject> &defaultValue) const;
+    template<class T> const T &to(int32_t index, const T &defaultValue) const;
 
     virtual float toFloat(int32_t index) const;
     virtual char toChar(int32_t index) const;
@@ -220,7 +220,7 @@ bool QMJsonArray::is(int32_t index) const
 }
 
 template<class T>
-T QMJsonArray::to(int32_t index, const T &defaultValue) const
+const T &QMJsonArray::to(int32_t index, const T &defaultValue) const
 {
     return this->value(index)->to<T>(defaultValue);
 }

@@ -117,7 +117,7 @@ public:
     virtual ~QMJsonType();
 
     virtual void set(const T &value);
-    virtual T &get(void);
+    virtual const T &get(void);
 
     virtual QDebug print(QDebug dbg) override;
     virtual bool isBaseType(void) override;
@@ -155,7 +155,7 @@ void QMJsonType<T>::set(const T &value)
 }
 
 template <class T>
-T &QMJsonType<T>::get(void)
+const T &QMJsonType<T>::get(void)
 {
     return mValue;
 }

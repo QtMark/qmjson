@@ -195,27 +195,28 @@ QMPointer<QMJsonValue> QMJsonObject::take(const QString &key, const QMPointer<QM
     return iter.value();
 }
 
-QString QMJsonObject::key(const QMPointer<QMJsonValue> &value) const
+const QString QMJsonObject::key(const QMPointer<QMJsonValue> &value) const
 {
     return mHash.key(value);
 }
 
-QString QMJsonObject::key(const QMPointer<QMJsonValue> &value, const QString &defaultValue) const
+const QString QMJsonObject::key(const QMPointer<QMJsonValue> &value, const QString &defaultValue) const
 {
     return mHash.key(value, defaultValue);
 }
 
-QMPointer<QMJsonValue> QMJsonObject::value(const QString &key) const
+const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key) const
 {
     auto iter = mHash.find(key);
+    static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
     if(iter == mHash.end())
-        return QMPointer<QMJsonValue>(new QMJsonValue);
+        return defaultValue;
 
     return iter.value();
 }
 
-QMPointer<QMJsonValue> QMJsonObject::value(const QString &key, const QMPointer<QMJsonValue> &defaultValue) const
+const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key, const QMPointer<QMJsonValue> &defaultValue) const
 {
     auto iter = mHash.find(key);
 
@@ -310,12 +311,12 @@ QString QMJsonObject::toString(const QString &key) const
     return this->value(key)->toString();
 }
 
-QMPointer<QMJsonArray> QMJsonObject::toArray(const QString &key) const
+const QMPointer<QMJsonArray> &QMJsonObject::toArray(const QString &key) const
 {
     return this->value(key)->toArray();
 }
 
-QMPointer<QMJsonObject> QMJsonObject::toObject(const QString &key) const
+const QMPointer<QMJsonObject> &QMJsonObject::toObject(const QString &key) const
 {
     return this->value(key)->toObject();
 }
@@ -330,17 +331,17 @@ double QMJsonObject::toDouble(const QString &key, double defaultValue) const
     return this->value(key)->toDouble(defaultValue);
 }
 
-QString QMJsonObject::toString(const QString &key, const QString &defaultValue) const
+const QString &QMJsonObject::toString(const QString &key, const QString &defaultValue) const
 {
     return this->value(key)->toString(defaultValue);
 }
 
-QMPointer<QMJsonArray> QMJsonObject::toArray(const QString &key, const QMPointer<QMJsonArray> &defaultValue) const
+const QMPointer<QMJsonArray> &QMJsonObject::toArray(const QString &key, const QMPointer<QMJsonArray> &defaultValue) const
 {
     return this->value(key)->toArray(defaultValue);
 }
 
-QMPointer<QMJsonObject> QMJsonObject::toObject(const QString &key, const QMPointer<QMJsonObject> &defaultValue) const
+const QMPointer<QMJsonObject> &QMJsonObject::toObject(const QString &key, const QMPointer<QMJsonObject> &defaultValue) const
 {
     return this->value(key)->toObject(defaultValue);
 }
