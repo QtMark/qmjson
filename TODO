@@ -1,8 +1,8 @@
 Version 1.0 Todo:
 
 High Priority:
-- Add policy enum for the QMJsonArray and QMJsonObject unite functions
-- Provide type conversions for the basic types
+- Add doxygen API comments
+- Add remaining unit tests for existing functionaility
 - Create QMJsonValue compare function that can take a template type. This
   can then be used by the functions below
 - add from QMJsonValue function. Will need to do type conversions
@@ -15,7 +15,6 @@ High Priority:
 
 
 Low Priority:
-- Add doxygen API comments
 - Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
 - Add Windows support
 - Figure out how to return "const ref" for array and object to speed things
