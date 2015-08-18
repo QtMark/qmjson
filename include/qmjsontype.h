@@ -72,6 +72,12 @@ enum QMJsonSort
     QMJsonSort_CaseSensitive = 2
 };
 
+enum QMJsonArrayUnitePolicy
+{
+    QMJsonArrayUnitePolicy_Prepend = 0,
+    QMJsonArrayUnitePolicy_Append = 1
+};
+
 // ============================================================================
 // Class Prototypes
 // ============================================================================

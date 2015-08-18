@@ -133,13 +133,24 @@ void QMJsonArray::insert(int32_t index, const QMPointer<QMJsonValue> &value)
     }
 }
 
-void QMJsonArray::unite(const QMPointer<QMJsonArray> &array)
+void QMJsonArray::unite(const QMPointer<QMJsonArray> &array, QMJsonArrayUnitePolicy policy)
 {
     if(array.isNull() == true)
         return;
 
     for(const auto &value : array->values())
-        this->append(value);
+    {
+        switch(policy)
+        {
+            case QMJsonArrayUnitePolicy_Prepend:
+                this->prepend(value);
+                break;
+
+            case QMJsonArrayUnitePolicy_Append:
+                this->append(value);
+                break;
+        }
+    }
 }
 
 void QMJsonArray::removeAll(const QMPointer<QMJsonValue> &value)
@@ -271,6 +282,14 @@ void QMJsonArray::replace(int32_t index, const QMPointer<QMJsonValue> &value)
     if(index >= mList.count()) index = mList.count() - 1;
 
     mList.replace(index, value);
+}
+
+bool QMJsonArray::isNull(int32_t index) const
+{
+    if(index < 0 || index >= mList.count())
+        return false;
+
+    return mList[index]->isNull();
 }
 
 bool QMJsonArray::isBool(int32_t index) const

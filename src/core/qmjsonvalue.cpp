@@ -725,6 +725,16 @@ bool QMJsonValue::fromULongLong(unsigned long long value)
     return this->fromDouble(value);
 }
 
+QMPointer<QMJsonValue> QMJsonValue::value(int32_t index) const
+{
+    return this->toArray()->value(index);
+}
+
+QMPointer<QMJsonValue> QMJsonValue::value(const QString &key) const
+{
+    return this->toObject()->value(key);
+}
+
 QVariant QMJsonValue::toVariant(void)
 {
     switch(mType)

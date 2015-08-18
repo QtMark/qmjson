@@ -17,6 +17,7 @@ private slots:
     virtual void QMJsonValue_string(void);
     virtual void QMJsonValue_array(void);
     virtual void QMJsonValue_object(void);
+    virtual void QMJsonValue_value(void);
 
     virtual void QMJsonArray_create(void);
     virtual void QMJsonArray_prepend(void);
@@ -26,8 +27,10 @@ private slots:
     virtual void QMJsonArray_lastIndexOf(void);
     virtual void QMJsonArray_contains(void);
     virtual void QMJsonArray_removeAll(void);
+    virtual void QMJsonArray_unite(void);
 
     virtual void QMJsonObject_create(void);
     virtual void QMJsonObject_insert(void);
     virtual void QMJsonObject_remove(void);
+    virtual void QMJsonObject_unite(void);
 };

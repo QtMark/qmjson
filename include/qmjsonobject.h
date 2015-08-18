@@ -55,7 +55,7 @@ public:
     virtual void insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
     template<class T> void insert(const QString &key, const T &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace);
 
-    virtual void unite(const QMPointer<QMJsonObject> &object);
+    virtual void unite(const QMPointer<QMJsonObject> &object, QMJsonReplacementPolicy replacementPolicy = QMJsonReplacementPolicy_Replace, QMJsonArrayUnitePolicy unitePolicy = QMJsonArrayUnitePolicy_Append);
 
     virtual void remove(const QString &key);
     virtual QMPointer<QMJsonValue> take(const QString &key);
@@ -72,6 +72,7 @@ public:
     virtual QList<QString> keys(void) const;
     virtual QList<QMPointer<QMJsonValue> > values(void) const;
 
+    virtual bool isNull(const QString &key) const;
     virtual bool isBool(const QString &key) const;
     virtual bool isDouble(const QString &key) const;
     virtual bool isString(const QString &key) const;

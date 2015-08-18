@@ -150,3 +150,85 @@ void TestJson::QMJsonObject_remove(void)
     object1->remove("key1");
     QVERIFY(object1->count() == 0);
 }
+
+void TestJson::QMJsonObject_unite(void)
+{
+    auto value0 = QMPointer<QMJsonValue>(new QMJsonValue());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello World"));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto array1 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto array2 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto object1 = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto object2 = QMPointer<QMJsonObject>(new QMJsonObject());
+
+    array2->append(value2);
+    array2->append(value3);
+    object2->insert("key0", value2);
+    object2->insert("key2", value3);
+    object2->insert("array", array2);
+
+    object1->clear();
+    array1->append(value0);
+    array1->append(value1);
+    object1->insert("key0", value0);
+    object1->insert("key1", value1);
+    object1->insert("array", array1);
+    object1->unite(object2, QMJsonReplacementPolicy_Replace, QMJsonArrayUnitePolicy_Append);
+
+    QVERIFY(object1->isString("key0") == true);
+    QVERIFY(object1->isBool("key1") == true);
+    QVERIFY(object1->isDouble("key2") == true);
+    QVERIFY(object1->toArray("array")->isNull(0) == true);
+    QVERIFY(object1->toArray("array")->isBool(1) == true);
+    QVERIFY(object1->toArray("array")->isString(2) == true);
+    QVERIFY(object1->toArray("array")->isDouble(3) == true);
+
+    object1->clear();
+    array1->append(value0);
+    array1->append(value1);
+    object1->insert("key0", value0);
+    object1->insert("key1", value1);
+    object1->insert("array", array1);
+    object1->unite(object2, QMJsonReplacementPolicy_Replace, QMJsonArrayUnitePolicy_Prepend);
+
+    QVERIFY(object1->isString("key0") == true);
+    QVERIFY(object1->isBool("key1") == true);
+    QVERIFY(object1->isDouble("key2") == true);
+    QVERIFY(object1->toArray("array")->isDouble(0) == true);
+    QVERIFY(object1->toArray("array")->isString(1) == true);
+    QVERIFY(object1->toArray("array")->isNull(2) == true);
+    QVERIFY(object1->toArray("array")->isBool(3) == true);
+
+    object1->clear();
+    array1->append(value0);
+    array1->append(value1);
+    object1->insert("key0", value0);
+    object1->insert("key1", value1);
+    object1->insert("array", array1);
+    object1->unite(object2, QMJsonReplacementPolicy_Ignore, QMJsonArrayUnitePolicy_Append);
+
+    QVERIFY(object1->isNull("key0") == true);
+    QVERIFY(object1->isBool("key1") == true);
+    QVERIFY(object1->isDouble("key2") == true);
+    QVERIFY(object1->toArray("array")->isNull(0) == true);
+    QVERIFY(object1->toArray("array")->isBool(1) == true);
+    QVERIFY(object1->toArray("array")->isString(2) == true);
+    QVERIFY(object1->toArray("array")->isDouble(3) == true);
+
+    object1->clear();
+    array1->append(value0);
+    array1->append(value1);
+    object1->insert("key0", value0);
+    object1->insert("key1", value1);
+    object1->insert("array", array1);
+    object1->unite(object2, QMJsonReplacementPolicy_Ignore, QMJsonArrayUnitePolicy_Prepend);
+
+    QVERIFY(object1->isNull("key0") == true);
+    QVERIFY(object1->isBool("key1") == true);
+    QVERIFY(object1->isDouble("key2") == true);
+    QVERIFY(object1->toArray("array")->isDouble(0) == true);
+    QVERIFY(object1->toArray("array")->isString(1) == true);
+    QVERIFY(object1->toArray("array")->isNull(2) == true);
+    QVERIFY(object1->toArray("array")->isBool(3) == true);
+}

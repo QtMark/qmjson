@@ -62,7 +62,7 @@ public:
     template<class T> void append(const T &value);
     template<class T> void insert(int32_t index, const T &value);
 
-    virtual void unite(const QMPointer<QMJsonArray> &array);
+    virtual void unite(const QMPointer<QMJsonArray> &array, QMJsonArrayUnitePolicy policy = QMJsonArrayUnitePolicy_Append);
 
     virtual void removeAll(const QMPointer<QMJsonValue> &value);
     virtual void removeOne(const QMPointer<QMJsonValue> &value);
@@ -88,6 +88,7 @@ public:
     virtual void move(int32_t from, int32_t to);
     virtual void replace(int32_t index, const QMPointer<QMJsonValue> &value);
 
+    virtual bool isNull(int32_t index) const;
     virtual bool isBool(int32_t index) const;
     virtual bool isDouble(int32_t index) const;
     virtual bool isString(int32_t index) const;

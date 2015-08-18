@@ -469,3 +469,36 @@ void TestJson::QMJsonArray_removeAll(void)
     QVERIFY(array1->count() == 0);
     QVERIFY(array1->contains(value5) == false);
 }
+
+void TestJson::QMJsonArray_unite(void)
+{
+    auto value0 = QMPointer<QMJsonValue>(new QMJsonValue());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello World"));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto array1 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto array2 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto array3 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto array4 = QMPointer<QMJsonArray>(new QMJsonArray());
+
+    array1->append(value0);
+    array1->append(value1);
+    array2->append(value2);
+    array2->append(value3);
+
+    array3->unite(array1, QMJsonArrayUnitePolicy_Prepend);
+    array3->unite(array2, QMJsonArrayUnitePolicy_Prepend);
+
+    array4->unite(array1, QMJsonArrayUnitePolicy_Append);
+    array4->unite(array2, QMJsonArrayUnitePolicy_Append);
+
+    QVERIFY(array3->value(0)->isDouble() == true);
+    QVERIFY(array3->value(1)->isString() == true);
+    QVERIFY(array3->value(2)->isBool() == true);
+    QVERIFY(array3->value(3)->isNull() == true);
+
+    QVERIFY(array4->value(0)->isNull() == true);
+    QVERIFY(array4->value(1)->isBool() == true);
+    QVERIFY(array4->value(2)->isString() == true);
+    QVERIFY(array4->value(3)->isDouble() == true);
+}

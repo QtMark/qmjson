@@ -3,8 +3,6 @@ Version 1.0 Todo:
 High Priority:
 - Add policy enum for the QMJsonArray and QMJsonObject unite functions
 - Provide type conversions for the basic types
-- Add value functions to QMJsonValue so that you don't have to do
-  toObject and toArray constantly.
 - Create QMJsonValue compare function that can take a template type. This
   can then be used by the functions below
 - add from QMJsonValue function. Will need to do type conversions

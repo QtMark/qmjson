@@ -128,35 +128,35 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
     }
 }
 
-void QMJsonObject::unite(const QMPointer<QMJsonObject> &object)
+void QMJsonObject::unite(const QMPointer<QMJsonObject> &object, QMJsonReplacementPolicy replacementPolicy, QMJsonArrayUnitePolicy unitePolicy)
 {
     if(object.isNull() == true)
         return;
 
     for(const auto &key : object->keys())
     {
-        if(this->contains(key) == true)
+        if(mHash.contains(key) == true)
         {
             const auto &value1 = this->value(key);
             const auto &value2 = object->value(key);
 
             if(value1->isObject() && value2->isObject())
             {
-                value1->toObject()->unite(value2->toObject());
+                value1->toObject()->unite(value2->toObject(), replacementPolicy, unitePolicy);
                 continue;
             }
 
             if(value1->isArray() && value2->isArray())
             {
-                value1->toArray()->unite(value2->toArray());
+                value1->toArray()->unite(value2->toArray(), unitePolicy);
                 continue;
             }
 
-            this->insert(key, value2);
+            this->insert(key, value2, replacementPolicy);
         }
         else
         {
-            this->insert(key, object->value(key));
+            this->insert(key, object->value(key), replacementPolicy);
         }
     }
 }
@@ -233,6 +233,16 @@ QList<QString> QMJsonObject::keys(void) const
 QList<QMPointer<QMJsonValue> > QMJsonObject::values(void) const
 {
     return mHash.values();
+}
+
+bool QMJsonObject::isNull(const QString &key) const
+{
+    auto iter = mHash.find(key);
+
+    if(iter == mHash.end())
+        return false;
+
+    return iter.value()->isNull();
 }
 
 bool QMJsonObject::isBool(const QString &key) const

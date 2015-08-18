@@ -148,6 +148,9 @@ public:
     virtual bool fromLongLong(long long value);
     virtual bool fromULongLong(unsigned long long value);
 
+    virtual QMPointer<QMJsonValue> value(int32_t index) const;
+    virtual QMPointer<QMJsonValue> value(const QString &key) const;
+
     virtual QVariant toVariant(void);
     static QMPointer<QMJsonValue> fromVariant(const QVariant &value);
 
