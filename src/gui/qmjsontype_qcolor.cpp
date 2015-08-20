@@ -107,42 +107,42 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QColor>::fromComplexJson(const 
     if(obj.isNull() == true)
         return QMPointer<QMJsonValue>(new QMJsonValue(color));
 
-    switch(obj->value(COLOR_SPEC_KEY)->toInt())
+    switch((int32_t)obj->value(COLOR_SPEC_KEY)->toDouble())
     {
         case QColor::Rgb:
         {
-            color.setRgb(obj->value(RGB_RED_KEY)->toInt(),
-                         obj->value(RGB_GREEN_KEY)->toInt(),
-                         obj->value(RGB_BLUE_KEY)->toInt(),
-                         obj->value(RGB_ALPHA_KEY)->toInt());
+            color.setRgb(obj->value(RGB_RED_KEY)->toDouble(),
+                         obj->value(RGB_GREEN_KEY)->toDouble(),
+                         obj->value(RGB_BLUE_KEY)->toDouble(),
+                         obj->value(RGB_ALPHA_KEY)->toDouble());
             break;
         }
 
         case QColor::Hsv:
         {
-            color.setHsv(obj->value(HSV_HUE_KEY)->toInt(),
-                         obj->value(HSV_SAT_KEY)->toInt(),
-                         obj->value(HSV_VALUE_KEY)->toInt(),
-                         obj->value(HSV_ALPHA_KEY)->toInt());
+            color.setHsv(obj->value(HSV_HUE_KEY)->toDouble(),
+                         obj->value(HSV_SAT_KEY)->toDouble(),
+                         obj->value(HSV_VALUE_KEY)->toDouble(),
+                         obj->value(HSV_ALPHA_KEY)->toDouble());
             break;
         }
 
         case QColor::Cmyk:
         {
-            color.setCmyk(obj->value(CMYK_CYAN_KEY)->toInt(),
-                          obj->value(CMYK_MAGENTA_KEY)->toInt(),
-                          obj->value(CMYK_YELLOW_KEY)->toInt(),
-                          obj->value(CMYK_BLACK_KEY)->toInt(),
-                          obj->value(CMYK_ALPHA_KEY)->toInt());
+            color.setCmyk(obj->value(CMYK_CYAN_KEY)->toDouble(),
+                          obj->value(CMYK_MAGENTA_KEY)->toDouble(),
+                          obj->value(CMYK_YELLOW_KEY)->toDouble(),
+                          obj->value(CMYK_BLACK_KEY)->toDouble(),
+                          obj->value(CMYK_ALPHA_KEY)->toDouble());
             break;
         }
 
         case QColor::Hsl:
         {
-            color.setHsl(obj->value(HSL_HUE_KEY)->toInt(),
-                         obj->value(HSL_SAT_KEY)->toInt(),
-                         obj->value(HSL_LIGHT_KEY)->toInt(),
-                         obj->value(HSL_ALPHA_KEY)->toInt());
+            color.setHsl(obj->value(HSL_HUE_KEY)->toDouble(),
+                         obj->value(HSL_SAT_KEY)->toDouble(),
+                         obj->value(HSL_LIGHT_KEY)->toDouble(),
+                         obj->value(HSL_ALPHA_KEY)->toDouble());
             break;
         }
 

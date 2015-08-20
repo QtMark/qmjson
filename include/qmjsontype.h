@@ -74,8 +74,8 @@ enum QMJsonSort
 
 enum QMJsonArrayUnitePolicy
 {
-    QMJsonArrayUnitePolicy_Prepend = 0,
-    QMJsonArrayUnitePolicy_Append = 1
+    QMJsonArrayUnitePolicy_Prepend = 1,
+    QMJsonArrayUnitePolicy_Append = 2
 };
 
 // ============================================================================

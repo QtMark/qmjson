@@ -1,25 +1,21 @@
 Version 1.0 Todo:
-
-High Priority:
 - Add doxygen API comments
 - Add remaining unit tests for existing functionaility
-- Create QMJsonValue compare function that can take a template type. This
-  can then be used by the functions below
-- add from QMJsonValue function. Will need to do type conversions
+
+Update build instructions to include how to build doxygen and what packages
+are needed
+- flex
+- bison
+
+
+
+Version 2.0 Todo:
+- Add Windows support
+- Add comapre functions to QMJsonValue
 - Add indexOf<XXX> functions for all types (includes added types)
 - Add lastIndexOf<XXX> functions for all types (includes added types)
 - Add contains<XXX> functions for all types (includes added types)
 - Add removeAll<XXX> functions for all types (includes added types)
 - Add startsWith<XXX> functions for all types (includes added types)
 - Add endsWith<XXX> functions for all types (includes added types)
-
-
-Low Priority:
-- Provide the ability to compare QMJsonValue, QMJsonArray, QMJsonObject
-- Add Windows support
 - Add count(const T& value) to QMJsonArray
-- Default value functions should take a raw type, and a QMJsonValue type
-- Add iterator classes to Array and Object so that traditional style looping
-  can be done. This will also speed up code on the Object side as they can use
-  find.
-- Add asserts to the JSON library that can be compiled out

@@ -48,8 +48,8 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QSize>::fromComplexJson(const Q
     if(obj.isNull() == true)
         return QMPointer<QMJsonValue>(new QMJsonValue(size));
 
-    size.setWidth(obj->value("width")->toInt());
-    size.setHeight(obj->value("height")->toInt());
+    size.setWidth(obj->value("width")->toDouble());
+    size.setHeight(obj->value("height")->toDouble());
 
     return QMPointer<QMJsonValue>(new QMJsonValue(size));
 }

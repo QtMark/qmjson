@@ -45,8 +45,13 @@ public:
     virtual void reserve(int32_t alloc);
 
     virtual void clear(void);
+
     virtual int32_t count(void) const;
+    virtual int32_t length(void) const;
+    virtual int32_t size(void) const;
+
     virtual bool isEmpty(void) const;
+    virtual bool empty(void) const;
 
     virtual bool contains(const QMPointer<QMJsonValue> &value) const;
     virtual int32_t indexOf(const QMPointer<QMJsonValue> &value) const;
@@ -76,8 +81,8 @@ public:
     virtual QMPointer<QMJsonValue> takeAt(int32_t index, const QMPointer<QMJsonValue> &defaultValue);
     template<class T> QMPointer<QMJsonValue> takeAt(int32_t index, const T &defaultValue);
 
-    virtual const QMPointer<QMJsonValue> &first(void) const;
-    virtual const QMPointer<QMJsonValue> &last(void) const;
+    virtual const QMPointer<QMJsonValue> &front(void) const;
+    virtual const QMPointer<QMJsonValue> &back(void) const;
     virtual const QMPointer<QMJsonValue> &value(int32_t index) const;
     virtual const QMPointer<QMJsonValue> &value(int32_t index, const QMPointer<QMJsonValue> &defaultValue) const;
     template<class T> QMPointer<QMJsonValue> value(int32_t index, const T &defaultValue) const;
@@ -87,6 +92,7 @@ public:
 
     virtual void move(int32_t from, int32_t to);
     virtual void replace(int32_t index, const QMPointer<QMJsonValue> &value);
+    template<class T> void replace(int32_t index, const T &value);
 
     virtual bool isNull(int32_t index) const;
     virtual bool isBool(int32_t index) const;
@@ -109,48 +115,13 @@ public:
     virtual const QMPointer<QMJsonObject> &toObject(int32_t index, const QMPointer<QMJsonObject> &defaultValue) const;
     template<class T> const T &to(int32_t index, const T &defaultValue) const;
 
-    virtual float toFloat(int32_t index) const;
-    virtual char toChar(int32_t index) const;
-    virtual unsigned char toUChar(int32_t index) const;
-    virtual short toShort(int32_t index) const;
-    virtual unsigned short toUShort(int32_t index) const;
-    virtual int toInt(int32_t index) const;
-    virtual unsigned int toUInt(int32_t index) const;
-    virtual long toLong(int32_t index) const;
-    virtual unsigned long toULong(int32_t index) const;
-    virtual long long toLongLong(int32_t index) const;
-    virtual unsigned long long toULongLong(int32_t index) const;
-
-    virtual float toFloat(int32_t index, float defaultValue) const;
-    virtual char toChar(int32_t index, char defaultValue) const;
-    virtual unsigned char toUChar(int32_t index, unsigned char defaultValue) const;
-    virtual short toShort(int32_t index, short defaultValue) const;
-    virtual unsigned short toUShort(int32_t index, unsigned short defaultValue) const;
-    virtual int toInt(int32_t index, int defaultValue) const;
-    virtual unsigned int toUInt(int32_t index, unsigned int defaultValue) const;
-    virtual long toLong(int32_t index, long defaultValue) const;
-    virtual unsigned long toULong(int32_t index, unsigned long defaultValue) const;
-    virtual long long toLongLong(int32_t index, long long defaultValue) const;
-    virtual unsigned long long toULongLong(int32_t index, unsigned long long defaultValue) const;
-
     virtual bool fromBool(int32_t index, bool value);
     virtual bool fromDouble(int32_t index, double value);
     virtual bool fromString(int32_t index, const QString &value);
     virtual bool fromArray(int32_t index, const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(int32_t index, const QMPointer<QMJsonObject> &value);
+    virtual bool from(int32_t index, const QMPointer<QMJsonValue> &value);
     template <class T> bool from(int32_t index, const T &value);
-
-    virtual bool fromFloat(int32_t index, float value);
-    virtual bool fromChar(int32_t index, char value);
-    virtual bool fromUChar(int32_t index, unsigned char value);
-    virtual bool fromShort(int32_t index, short value);
-    virtual bool fromUShort(int32_t index, unsigned short value);
-    virtual bool fromInt(int32_t index, int value);
-    virtual bool fromUInt(int32_t index, unsigned int value);
-    virtual bool fromLong(int32_t index, long value);
-    virtual bool fromULong(int32_t index, unsigned long value);
-    virtual bool fromLongLong(int32_t index, long long value);
-    virtual bool fromULongLong(int32_t index, unsigned long long value);
 
 signals:
 
@@ -211,12 +182,18 @@ QMPointer<QMJsonValue> QMJsonArray::value(int32_t index, const T &defaultValue) 
 }
 
 template<class T>
+void QMJsonArray::replace(int32_t index, const T &value)
+{
+    this->replace(index, QMPointer<QMJsonValue>(new QMJsonValue(value)));
+}
+
+template<class T>
 bool QMJsonArray::is(int32_t index) const
 {
     if(index < 0 || index >= this->count())
         return false;
 
-    return mList[index]->is<T>();
+    return mList.at(index)->is<T>();
 }
 
 template<class T>
@@ -232,3 +209,11 @@ bool QMJsonArray::from(int32_t index, const T &value)
 }
 
 #endif // QMJSONARRAY_H
+
+/**
+ * @page qmjsonarray QMJsonArray
+ *
+ * Placeholder
+ *
+ *
+ */

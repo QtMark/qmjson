@@ -68,16 +68,14 @@ public:
 
     explicit QMJsonValue(const char *value);
     explicit QMJsonValue(float value);
-    explicit QMJsonValue(char value);
-    explicit QMJsonValue(unsigned char value);
-    explicit QMJsonValue(short value);
-    explicit QMJsonValue(unsigned short value);
-    explicit QMJsonValue(int value);
-    explicit QMJsonValue(unsigned int value);
-    explicit QMJsonValue(long value);
-    explicit QMJsonValue(unsigned long value);
-    explicit QMJsonValue(long long value);
-    explicit QMJsonValue(unsigned long long value);
+    explicit QMJsonValue(int8_t value);
+    explicit QMJsonValue(uint8_t value);
+    explicit QMJsonValue(int16_t value);
+    explicit QMJsonValue(uint16_t value);
+    explicit QMJsonValue(int32_t value);
+    explicit QMJsonValue(uint32_t value);
+    explicit QMJsonValue(int64_t value);
+    explicit QMJsonValue(uint64_t value);
 
     virtual ~QMJsonValue();
 
@@ -105,48 +103,13 @@ public:
     virtual const QMPointer<QMJsonObject> &toObject(const QMPointer<QMJsonObject> &defaultValue) const;
     template<class T> const T &to(const T &defaultValue) const;
 
-    virtual float toFloat(void) const;
-    virtual char toChar(void) const;
-    virtual unsigned char toUChar(void) const;
-    virtual short toShort(void) const;
-    virtual unsigned short toUShort(void) const;
-    virtual int toInt(void) const;
-    virtual unsigned int toUInt(void) const;
-    virtual long toLong(void) const;
-    virtual unsigned long toULong(void) const;
-    virtual long long toLongLong(void) const;
-    virtual unsigned long long toULongLong(void) const;
-
-    virtual float toFloat(float defaultValue) const;
-    virtual char toChar(char defaultValue) const;
-    virtual unsigned char toUChar(unsigned char defaultValue) const;
-    virtual short toShort(short defaultValue) const;
-    virtual unsigned short toUShort(unsigned short defaultValue) const;
-    virtual int toInt(int defaultValue) const;
-    virtual unsigned int toUInt(unsigned int defaultValue) const;
-    virtual long toLong(long defaultValue) const;
-    virtual unsigned long toULong(unsigned long defaultValue) const;
-    virtual long long toLongLong(long long defaultValue) const;
-    virtual unsigned long long toULongLong(unsigned long long defaultValue) const;
-
     virtual bool fromBool(bool value);
     virtual bool fromDouble(double value);
     virtual bool fromString(const QString &value);
     virtual bool fromArray(const QMPointer<QMJsonArray> &value);
     virtual bool fromObject(const QMPointer<QMJsonObject> &value);
+    virtual bool from(const QMPointer<QMJsonValue> &value);
     template <class T> bool from(const T &value);
-
-    virtual bool fromFloat(float value);
-    virtual bool fromChar(char value);
-    virtual bool fromUChar(unsigned char value);
-    virtual bool fromShort(short value);
-    virtual bool fromUShort(unsigned short value);
-    virtual bool fromInt(int value);
-    virtual bool fromUInt(unsigned int value);
-    virtual bool fromLong(long value);
-    virtual bool fromULong(unsigned long value);
-    virtual bool fromLongLong(long long value);
-    virtual bool fromULongLong(unsigned long long value);
 
     virtual const QMPointer<QMJsonValue> &value(int32_t index) const;
     virtual const QMPointer<QMJsonValue> &value(const QString &key) const;
@@ -238,3 +201,11 @@ bool QMJsonValue::from(const T &value)
 }
 
 #endif // QMJSONVALUE_H
+
+/**
+ * @page qmjsonvalue QMJsonValue
+ *
+ * Placeholder
+ *
+ *
+ */

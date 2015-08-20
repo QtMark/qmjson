@@ -33,3 +33,13 @@
 #include <qmjsontype_qmjsonobject.h>
 
 #endif
+
+/**
+ * @mainpage QtMark JSON Library
+ *
+ * Placeholder
+ *
+ * \ref qmjsonvalue \n
+ * \ref qmjsonarray \n
+ * \ref qmjsonobject \n
+ */

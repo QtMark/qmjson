@@ -84,9 +84,19 @@ int32_t QMJsonObject::count(void) const
     return mHash.count();
 }
 
+int32_t QMJsonObject::size(void) const
+{
+    return mHash.size();
+}
+
 bool QMJsonObject::isEmpty(void) const
 {
     return mHash.isEmpty();
+}
+
+bool QMJsonObject::empty(void) const
+{
+    return mHash.empty();
 }
 
 bool QMJsonObject::contains(const QString &key) const
@@ -205,12 +215,56 @@ const QString QMJsonObject::key(const QMPointer<QMJsonValue> &value, const QStri
     return mHash.key(value, defaultValue);
 }
 
+QHash<QString, QMPointer<QMJsonValue> >::iterator QMJsonObject::begin(void)
+{
+    return mHash.begin();
+}
+
+QHash<QString, QMPointer<QMJsonValue> >::iterator QMJsonObject::end(void)
+{
+    return mHash.end();
+}
+
+QHash<QString, QMPointer<QMJsonValue> >::const_iterator QMJsonObject::cbegin(void) const
+{
+    return mHash.cbegin();
+}
+
+QHash<QString, QMPointer<QMJsonValue> >::const_iterator QMJsonObject::cend(void) const
+{
+    return mHash.cend();
+}
+
+const QHash<QString, QMPointer<QMJsonValue> >::iterator QMJsonObject::erase(const QHash<QString, QMPointer<QMJsonValue> >::iterator &iter)
+{
+    if(iter == mHash.end())
+        return mHash.end();
+
+    auto key = iter.key();
+    auto value = iter.value();
+
+    auto niter = mHash.erase(iter);
+    emit itemRemoved(key, value);
+
+    return niter;
+}
+
+QHash<QString, QMPointer<QMJsonValue> >::iterator QMJsonObject::find(const QString &key)
+{
+    return mHash.find(key);
+}
+
+const QHash<QString, QMPointer<QMJsonValue> >::const_iterator QMJsonObject::cfind(const QString &key) const
+{
+    return mHash.constFind(key);
+}
+
 const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return defaultValue;
 
     return iter.value();
@@ -218,9 +272,9 @@ const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key) const
 
 const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key, const QMPointer<QMJsonValue> &defaultValue) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return defaultValue;
 
     return iter.value();
@@ -238,9 +292,9 @@ QList<QMPointer<QMJsonValue> > QMJsonObject::values(void) const
 
 bool QMJsonObject::isNull(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return false;
 
     return iter.value()->isNull();
@@ -248,9 +302,9 @@ bool QMJsonObject::isNull(const QString &key) const
 
 bool QMJsonObject::isBool(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return false;
 
     return iter.value()->isBool();
@@ -258,9 +312,9 @@ bool QMJsonObject::isBool(const QString &key) const
 
 bool QMJsonObject::isDouble(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return false;
 
     return iter.value()->isDouble();
@@ -268,9 +322,9 @@ bool QMJsonObject::isDouble(const QString &key) const
 
 bool QMJsonObject::isString(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return false;
 
     return iter.value()->isString();
@@ -278,9 +332,9 @@ bool QMJsonObject::isString(const QString &key) const
 
 bool QMJsonObject::isArray(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return false;
 
     return iter.value()->isArray();
@@ -288,9 +342,9 @@ bool QMJsonObject::isArray(const QString &key) const
 
 bool QMJsonObject::isObject(const QString &key) const
 {
-    auto iter = mHash.find(key);
+    auto iter = mHash.constFind(key);
 
-    if(iter == mHash.end())
+    if(iter == mHash.constEnd())
         return false;
 
     return iter.value()->isObject();
@@ -346,116 +400,6 @@ const QMPointer<QMJsonObject> &QMJsonObject::toObject(const QString &key, const 
     return this->value(key)->toObject(defaultValue);
 }
 
-float QMJsonObject::toFloat(const QString &key) const
-{
-    return this->value(key)->toFloat();
-}
-
-char QMJsonObject::toChar(const QString &key) const
-{
-    return this->value(key)->toChar();
-}
-
-unsigned char QMJsonObject::toUChar(const QString &key) const
-{
-    return this->value(key)->toUChar();
-}
-
-short QMJsonObject::toShort(const QString &key) const
-{
-    return this->value(key)->toShort();
-}
-
-unsigned short QMJsonObject::toUShort(const QString &key) const
-{
-    return this->value(key)->toUShort();
-}
-
-int QMJsonObject::toInt(const QString &key) const
-{
-    return this->value(key)->toInt();
-}
-
-unsigned int QMJsonObject::toUInt(const QString &key) const
-{
-    return this->value(key)->toUInt();
-}
-
-long QMJsonObject::toLong(const QString &key) const
-{
-    return this->value(key)->toLong();
-}
-
-unsigned long QMJsonObject::toULong(const QString &key) const
-{
-    return this->value(key)->toULong();
-}
-
-long long QMJsonObject::toLongLong(const QString &key) const
-{
-    return this->value(key)->toLongLong();
-}
-
-unsigned long long QMJsonObject::toULongLong(const QString &key) const
-{
-    return this->value(key)->toULongLong();
-}
-
-float QMJsonObject::toFloat(const QString &key, float defaultValue) const
-{
-    return this->value(key)->toFloat(defaultValue);
-}
-
-char QMJsonObject::toChar(const QString &key, char defaultValue) const
-{
-    return this->value(key)->toChar(defaultValue);
-}
-
-unsigned char QMJsonObject::toUChar(const QString &key, unsigned char defaultValue) const
-{
-    return this->value(key)->toUChar(defaultValue);
-}
-
-short QMJsonObject::toShort(const QString &key, short defaultValue) const
-{
-    return this->value(key)->toShort(defaultValue);
-}
-
-unsigned short QMJsonObject::toUShort(const QString &key, unsigned short defaultValue) const
-{
-    return this->value(key)->toUShort(defaultValue);
-}
-
-int QMJsonObject::toInt(const QString &key, int defaultValue) const
-{
-    return this->value(key)->toInt(defaultValue);
-}
-
-unsigned int QMJsonObject::toUInt(const QString &key, unsigned int defaultValue) const
-{
-    return this->value(key)->toUInt(defaultValue);
-}
-
-long QMJsonObject::toLong(const QString &key, long defaultValue) const
-{
-    return this->value(key)->toLong(defaultValue);
-}
-
-unsigned long QMJsonObject::toULong(const QString &key, unsigned long defaultValue) const
-{
-    return this->value(key)->toULong(defaultValue);
-}
-
-long long QMJsonObject::toLongLong(const QString &key, long long defaultValue) const
-{
-    return this->value(key)->toLongLong(defaultValue);
-}
-
-unsigned long long QMJsonObject::toULongLong(const QString &key, unsigned long long defaultValue) const
-{
-    return this->value(key)->toULongLong(defaultValue);
-}
-
 bool QMJsonObject::fromBool(const QString &key, bool value)
 {
     return this->value(key)->fromBool(value);
@@ -481,65 +425,9 @@ bool QMJsonObject::fromObject(const QString &key, const QMPointer<QMJsonObject> 
     return this->value(key)->fromObject(value);
 }
 
-bool QMJsonObject::fromFloat(const QString &key, float value)
+bool QMJsonObject::from(const QString &key, const QMPointer<QMJsonValue> &value)
 {
-    return this->value(key)->fromFloat(value);
-}
-
-bool QMJsonObject::fromChar(const QString &key, char value)
-{
-    return this->value(key)->fromChar(value);
-}
-
-bool QMJsonObject::fromUChar(const QString &key, unsigned char value)
-{
-    return this->value(key)->fromUChar(value);
-}
-
-bool QMJsonObject::fromShort(const QString &key, short value)
-{
-    return this->value(key)->fromShort(value);
-}
-
-bool QMJsonObject::fromUShort(const QString &key, unsigned short value)
-{
-    return this->value(key)->fromUShort(value);
-}
-
-bool QMJsonObject::fromInt(const QString &key, int value)
-{
-    return this->value(key)->fromInt(value);
-}
-
-bool QMJsonObject::fromUInt(const QString &key, unsigned int value)
-{
-    return this->value(key)->fromUInt(value);
-}
-
-bool QMJsonObject::fromLong(const QString &key, long value)
-{
-    return this->value(key)->fromLong(value);
-}
-
-bool QMJsonObject::fromULong(const QString &key, unsigned long value)
-{
-    return this->value(key)->fromULong(value);
-}
-
-bool QMJsonObject::fromLongLong(const QString &key, long long value)
-{
-    return this->value(key)->fromLongLong(value);
-}
-
-bool QMJsonObject::fromULongLong(const QString &key, unsigned long long value)
-{
-    return this->value(key)->fromULongLong(value);
-}
-
-void QMJsonObject::erase(const QHash<QString, QMPointer<QMJsonValue> >::iterator &iter)
-{
-    mHash.erase(iter);
-    emit itemRemoved(iter.key(), iter.value());
+    return this->value(key)->from(value);
 }
 
 QDebug operator<<(QDebug dbg, const QMJsonObject &object)

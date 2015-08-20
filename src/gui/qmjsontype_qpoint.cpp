@@ -48,8 +48,8 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QPoint>::fromComplexJson(const 
     if(obj.isNull() == true)
         return QMPointer<QMJsonValue>(new QMJsonValue(point));
 
-    point.setX(obj->value("x")->toInt());
-    point.setY(obj->value("y")->toInt());
+    point.setX(obj->value("x")->toDouble());
+    point.setY(obj->value("y")->toDouble());
 
     return QMPointer<QMJsonValue>(new QMJsonValue(point));
 }

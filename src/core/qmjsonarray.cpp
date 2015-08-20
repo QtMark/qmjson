@@ -74,9 +74,24 @@ int32_t QMJsonArray::count(void) const
     return mList.count();
 }
 
+int32_t QMJsonArray::length(void) const
+{
+    return mList.length();
+}
+
+int32_t QMJsonArray::size(void) const
+{
+    return mList.size();
+}
+
 bool QMJsonArray::isEmpty(void) const
 {
     return mList.isEmpty();
+}
+
+bool QMJsonArray::empty(void) const
+{
+    return mList.empty();
 }
 
 bool QMJsonArray::contains(const QMPointer<QMJsonValue> &value) const
@@ -214,24 +229,24 @@ QMPointer<QMJsonValue> QMJsonArray::takeAt(int32_t index, const QMPointer<QMJson
     return value;
 }
 
-const QMPointer<QMJsonValue> &QMJsonArray::first(void) const
+const QMPointer<QMJsonValue> &QMJsonArray::front(void) const
 {
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
     if(mList.isEmpty() == true)
         return defaultValue;
 
-    return mList.first();
+    return mList.front();
 }
 
-const QMPointer<QMJsonValue> &QMJsonArray::last(void) const
+const QMPointer<QMJsonValue> &QMJsonArray::back(void) const
 {
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
     if(mList.isEmpty() == true)
         return defaultValue;
 
-    return mList.last();
+    return mList.back();
 }
 
 const QMPointer<QMJsonValue> &QMJsonArray::value(int32_t index) const
@@ -262,8 +277,10 @@ QList<QMPointer<QMJsonValue> > QMJsonArray::mid(int32_t pos, int32_t length) con
     if(mList.count() == 0)
         return QList<QMPointer<QMJsonValue> >();
 
+    if(pos >= mList.count())
+        return QList<QMPointer<QMJsonValue> >();
+
     if(pos < 0) pos = 0;
-    if(pos >= mList.count()) pos = mList.count() - 1;
 
     return mList.mid(pos, length);
 }
@@ -281,13 +298,21 @@ void QMJsonArray::move(int32_t from, int32_t to)
 
 void QMJsonArray::replace(int32_t index, const QMPointer<QMJsonValue> &value)
 {
-    if(mList.count() == 0)
+    if(index < 0)
         return;
 
-    if(index < 0) index = 0;
-    if(index >= mList.count()) index = mList.count() - 1;
+    if(index >= mList.count())
+        return;
 
-    mList.replace(index, value);
+    auto removedValue = mList.at(index);
+
+    if(value.isNull() == true)
+        mList.replace(index, QMPointer<QMJsonValue>(new QMJsonValue));
+    else
+        mList.replace(index, value);
+
+    emit itemRemoved(index, removedValue);
+    emit itemAdded(index, value);
 }
 
 bool QMJsonArray::isNull(int32_t index) const
@@ -388,116 +413,6 @@ const QMPointer<QMJsonObject> &QMJsonArray::toObject(int32_t index, const QMPoin
     return this->value(index)->toObject(defaultValue);
 }
 
-float QMJsonArray::toFloat(int32_t index) const
-{
-    return this->value(index)->toFloat();
-}
-
-char QMJsonArray::toChar(int32_t index) const
-{
-    return this->value(index)->toChar();
-}
-
-unsigned char QMJsonArray::toUChar(int32_t index) const
-{
-    return this->value(index)->toUChar();
-}
-
-short QMJsonArray::toShort(int32_t index) const
-{
-    return this->value(index)->toShort();
-}
-
-unsigned short QMJsonArray::toUShort(int32_t index) const
-{
-    return this->value(index)->toUShort();
-}
-
-int QMJsonArray::toInt(int32_t index) const
-{
-    return this->value(index)->toInt();
-}
-
-unsigned int QMJsonArray::toUInt(int32_t index) const
-{
-    return this->value(index)->toUInt();
-}
-
-long QMJsonArray::toLong(int32_t index) const
-{
-    return this->value(index)->toLong();
-}
-
-unsigned long QMJsonArray::toULong(int32_t index) const
-{
-    return this->value(index)->toULong();
-}
-
-long long QMJsonArray::toLongLong(int32_t index) const
-{
-    return this->value(index)->toLongLong();
-}
-
-unsigned long long QMJsonArray::toULongLong(int32_t index) const
-{
-    return this->value(index)->toULongLong();
-}
-
-float QMJsonArray::toFloat(int32_t index, float defaultValue) const
-{
-    return this->value(index)->toFloat(defaultValue);
-}
-
-char QMJsonArray::toChar(int32_t index, char defaultValue) const
-{
-    return this->value(index)->toChar(defaultValue);
-}
-
-unsigned char QMJsonArray::toUChar(int32_t index, unsigned char defaultValue) const
-{
-    return this->value(index)->toUChar(defaultValue);
-}
-
-short QMJsonArray::toShort(int32_t index, short defaultValue) const
-{
-    return this->value(index)->toShort(defaultValue);
-}
-
-unsigned short QMJsonArray::toUShort(int32_t index, unsigned short defaultValue) const
-{
-    return this->value(index)->toUShort(defaultValue);
-}
-
-int QMJsonArray::toInt(int32_t index, int defaultValue) const
-{
-    return this->value(index)->toInt(defaultValue);
-}
-
-unsigned int QMJsonArray::toUInt(int32_t index, unsigned int defaultValue) const
-{
-    return this->value(index)->toUInt(defaultValue);
-}
-
-long QMJsonArray::toLong(int32_t index, long defaultValue) const
-{
-    return this->value(index)->toLong(defaultValue);
-}
-
-unsigned long QMJsonArray::toULong(int32_t index, unsigned long defaultValue) const
-{
-    return this->value(index)->toULong(defaultValue);
-}
-
-long long QMJsonArray::toLongLong(int32_t index, long long defaultValue) const
-{
-    return this->value(index)->toLongLong(defaultValue);
-}
-
-unsigned long long QMJsonArray::toULongLong(int32_t index, unsigned long long defaultValue) const
-{
-    return this->value(index)->toULongLong(defaultValue);
-}
-
 bool QMJsonArray::fromBool(int32_t index, bool value)
 {
     return this->value(index)->fromBool(value);
@@ -523,59 +438,9 @@ bool QMJsonArray::fromObject(int32_t index, const QMPointer<QMJsonObject> &value
     return this->value(index)->fromObject(value);
 }
 
-bool QMJsonArray::fromFloat(int32_t index, float value)
+bool QMJsonArray::from(int32_t index, const QMPointer<QMJsonValue> &value)
 {
-    return this->value(index)->fromFloat(value);
-}
-
-bool QMJsonArray::fromChar(int32_t index, char value)
-{
-    return this->value(index)->fromChar(value);
-}
-
-bool QMJsonArray::fromUChar(int32_t index, unsigned char value)
-{
-    return this->value(index)->fromUChar(value);
-}
-
-bool QMJsonArray::fromShort(int32_t index, short value)
-{
-    return this->value(index)->fromShort(value);
-}
-
-bool QMJsonArray::fromUShort(int32_t index, unsigned short value)
-{
-    return this->value(index)->fromUShort(value);
-}
-
-bool QMJsonArray::fromInt(int32_t index, int value)
-{
-    return this->value(index)->fromInt(value);
-}
-
-bool QMJsonArray::fromUInt(int32_t index, unsigned int value)
-{
-    return this->value(index)->fromUInt(value);
-}
-
-bool QMJsonArray::fromLong(int32_t index, long value)
-{
-    return this->value(index)->fromLong(value);
-}
-
-bool QMJsonArray::fromULong(int32_t index, unsigned long value)
-{
-    return this->value(index)->fromULong(value);
-}
-
-bool QMJsonArray::fromLongLong(int32_t index, long long value)
-{
-    return this->value(index)->fromLongLong(value);
-}
-
-bool QMJsonArray::fromULongLong(int32_t index, unsigned long long value)
-{
-    return this->value(index)->fromULongLong(value);
+    return this->value(index)->from(value);
 }
 
 QDebug operator<<(QDebug dbg, const QMJsonArray &array)

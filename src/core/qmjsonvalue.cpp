@@ -189,7 +189,7 @@ QMJsonValue::QMJsonValue(float value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(char value)
+QMJsonValue::QMJsonValue(int8_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -197,7 +197,7 @@ QMJsonValue::QMJsonValue(char value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(unsigned char value)
+QMJsonValue::QMJsonValue(uint8_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -205,7 +205,7 @@ QMJsonValue::QMJsonValue(unsigned char value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(short value)
+QMJsonValue::QMJsonValue(int16_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -213,7 +213,7 @@ QMJsonValue::QMJsonValue(short value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(unsigned short value)
+QMJsonValue::QMJsonValue(uint16_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -221,7 +221,7 @@ QMJsonValue::QMJsonValue(unsigned short value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(int value)
+QMJsonValue::QMJsonValue(int32_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -229,7 +229,7 @@ QMJsonValue::QMJsonValue(int value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(unsigned int value)
+QMJsonValue::QMJsonValue(uint32_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -237,7 +237,7 @@ QMJsonValue::QMJsonValue(unsigned int value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(long value)
+QMJsonValue::QMJsonValue(int64_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -245,23 +245,7 @@ QMJsonValue::QMJsonValue(long value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(unsigned long value)
-{
-    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
-
-    mType = QMJsonValueType_Double;
-    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
-}
-
-QMJsonValue::QMJsonValue(long long value)
-{
-    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
-
-    mType = QMJsonValueType_Double;
-    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
-}
-
-QMJsonValue::QMJsonValue(unsigned long long value)
+QMJsonValue::QMJsonValue(uint64_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
 
@@ -472,171 +456,6 @@ const QMPointer<QMJsonObject> &QMJsonValue::toObject(const QMPointer<QMJsonObjec
     return type->get();
 }
 
-float QMJsonValue::toFloat(void) const
-{
-    return this->toDouble();
-}
-
-char QMJsonValue::toChar(void) const
-{
-    return this->toDouble();
-}
-
-unsigned char QMJsonValue::toUChar(void) const
-{
-    return this->toDouble();
-}
-
-short QMJsonValue::toShort(void) const
-{
-    return this->toDouble();
-}
-
-unsigned short QMJsonValue::toUShort(void) const
-{
-    return this->toDouble();
-}
-
-int QMJsonValue::toInt(void) const
-{
-    return this->toDouble();
-}
-
-unsigned int QMJsonValue::toUInt(void) const
-{
-    return this->toDouble();
-}
-
-long QMJsonValue::toLong(void) const
-{
-    return this->toDouble();
-}
-
-unsigned long QMJsonValue::toULong(void) const
-{
-    return this->toDouble();
-}
-
-long long QMJsonValue::toLongLong(void) const
-{
-    return this->toDouble();
-}
-
-unsigned long long QMJsonValue::toULongLong(void) const
-{
-    return this->toDouble();
-}
-
-float QMJsonValue::toFloat(float defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-char QMJsonValue::toChar(char defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-unsigned char QMJsonValue::toUChar(unsigned char defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-short QMJsonValue::toShort(short defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-unsigned short QMJsonValue::toUShort(unsigned short defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-int QMJsonValue::toInt(int defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-unsigned int QMJsonValue::toUInt(unsigned int defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-long QMJsonValue::toLong(long defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-unsigned long QMJsonValue::toULong(unsigned long defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-long long QMJsonValue::toLongLong(long long defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
-unsigned long long QMJsonValue::toULongLong(unsigned long long defaultValue) const
-{
-    auto type = qSharedPointerDynamicCast<QMJsonType<double> >(mValue);
-
-    if(type == NULL)
-        return defaultValue;
-
-    return type->get();
-}
-
 bool QMJsonValue::fromBool(bool value)
 {
     return this->from<bool>(value);
@@ -654,67 +473,53 @@ bool QMJsonValue::fromString(const QString &value)
 
 bool QMJsonValue::fromArray(const QMPointer<QMJsonArray> &value)
 {
-    return this->from<QMPointer<QMJsonArray> >(value);
+    if(value.isNull() == true)
+        return this->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>(new QMJsonArray));
+    else
+        return this->from<QMPointer<QMJsonArray> >(value);
 }
 
 bool QMJsonValue::fromObject(const QMPointer<QMJsonObject> &value)
 {
-    return this->from<QMPointer<QMJsonObject> >(value);
+    if(value.isNull() == true)
+        return this->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>(new QMJsonObject));
+    else
+        return this->from<QMPointer<QMJsonObject> >(value);
 }
 
-bool QMJsonValue::fromFloat(float value)
+bool QMJsonValue::from(const QMPointer<QMJsonValue> &value)
 {
-    return this->fromDouble(value);
-}
+    if(value.isNull() == true)
+        return false;
 
-bool QMJsonValue::fromChar(char value)
-{
-    return this->fromDouble(value);
-}
+    if(value->type() == QMJsonValueType_Custom)
+        return false;
 
-bool QMJsonValue::fromUChar(unsigned char value)
-{
-    return this->fromDouble(value);
-}
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+            return value->isNull();
 
-bool QMJsonValue::fromShort(short value)
-{
-    return this->fromDouble(value);
-}
+        case QMJsonValueType_Bool:
+            return this->fromBool(value->toBool());
 
-bool QMJsonValue::fromUShort(unsigned short value)
-{
-    return this->fromDouble(value);
-}
+        case QMJsonValueType_Double:
+            return this->fromDouble(value->toDouble());
 
-bool QMJsonValue::fromInt(int value)
-{
-    return this->fromDouble(value);
-}
+        case QMJsonValueType_String:
+            return this->fromString(value->toString());
 
-bool QMJsonValue::fromUInt(unsigned int value)
-{
-    return this->fromDouble(value);
-}
+        case QMJsonValueType_Array:
+            return this->fromArray(value->toArray());
 
-bool QMJsonValue::fromLong(long value)
-{
-    return this->fromDouble(value);
-}
+        case QMJsonValueType_Object:
+            return this->fromObject(value->toObject());
 
-bool QMJsonValue::fromULong(unsigned long value)
-{
-    return this->fromDouble(value);
-}
+        case QMJsonValueType_Custom:
+            return false;
+    };
 
-bool QMJsonValue::fromLongLong(long long value)
-{
-    return this->fromDouble(value);
-}
-
-bool QMJsonValue::fromULongLong(unsigned long long value)
-{
-    return this->fromDouble(value);
+    return false;
 }
 
 const QMPointer<QMJsonValue> &QMJsonValue::value(int32_t index) const
