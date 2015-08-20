@@ -68,6 +68,9 @@ public:
 
     explicit QMJsonValue(const char *value);
     explicit QMJsonValue(float value);
+    explicit QMJsonValue(char value);
+    explicit QMJsonValue(long value);
+    explicit QMJsonValue(unsigned long value);
     explicit QMJsonValue(int8_t value);
     explicit QMJsonValue(uint8_t value);
     explicit QMJsonValue(int16_t value);
@@ -139,6 +142,8 @@ private:
     static QMPointer<QMJsonValue> fromComplexJson(const QMPointer<QMJsonValue> &value);
     static void throwError(const QString &json, int32_t index, QString error);
 
+    template <class T> bool set(const T &value);
+
 private:
 
     Q_DISABLE_COPY(QMJsonValue);
@@ -188,6 +193,30 @@ const T &QMJsonValue::to(const T &defaultValue) const
 
 template<class T>
 bool QMJsonValue::from(const T &value)
+{
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+            return false;
+
+        case QMJsonValueType_Bool:
+        case QMJsonValueType_Double:
+        case QMJsonValueType_String:
+            return this->set<T>(value);
+
+        case QMJsonValueType_Array:
+        case QMJsonValueType_Object:
+            return false;
+
+        case QMJsonValueType_Custom:
+            return this->set<T>(value);
+    };
+
+    return false;
+}
+
+template<class T>
+bool QMJsonValue::set(const T &value)
 {
     auto type = qSharedPointerDynamicCast<QMJsonType<T> >(mValue);
 

@@ -5,14 +5,14 @@ set -e
 if [ $# -gt 0 ]; then
     if [ $1 = "clean" ]; then
 
-        rm -Rf ./tools/doxygen/unix/src
+        rm -Rf ./tools/doxygen/linux/src
         exit
     fi
 fi
 
-if [ ! -f tools/doxygen/unix/src/build/bin/doxygen ]; then
+if [ ! -f tools/doxygen/linux/src/build/bin/doxygen ]; then
 
-	pushd tools/doxygen/unix
+	pushd tools/doxygen/linux
 	rm -Rf src
 
 	git clone https://github.com/doxygen/doxygen.git src
@@ -30,4 +30,4 @@ rm -Rf doc
 mkdir doc
 
 cd doc
-../tools/doxygen/unix/src/build/bin/doxygen ../tools/doxygen/config.txt
+../tools/doxygen/linux/src/build/bin/doxygen ../tools/doxygen/config.txt

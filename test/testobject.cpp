@@ -604,9 +604,8 @@ void TestJson::QMJsonObject_bool(void)
 
     QVERIFY(object1->from("key0", value0) == true);
     QVERIFY(object1->fromBool("key0", false) == true);
-    QVERIFY(object1->toBool("key0", true) == false);
-    QVERIFY(object1->fromDouble("key0", 4.8) == false);
-    QVERIFY(object1->fromString("key0", "false") == false);
+    QVERIFY(object1->fromDouble("key0", 4.8) == true);
+    QVERIFY(object1->fromString("key0", "false") == true);
     QVERIFY(object1->fromArray("key0", QMPointer<QMJsonArray>()) == false);
     QVERIFY(object1->fromObject("key0", QMPointer<QMJsonObject>()) == false);
     QVERIFY(object1->from<QSize>("key0", QSize(15, 16)) == false);
@@ -641,9 +640,8 @@ void TestJson::QMJsonObject_double(void)
     QVERIFY(object1->to<QRect>("key0", QRect()) == QRect());
 
     QVERIFY(object1->from("key0", value0) == true);
-    QVERIFY(object1->fromBool("key0", false) == false);
+    QVERIFY(object1->fromBool("key0", false) == true);
     QVERIFY(object1->fromDouble("key0", 15.16) == true);
-    QVERIFY(object1->toDouble("key0", 23.42) == 15.16);
     QVERIFY(object1->fromString("key0", "false") == false);
     QVERIFY(object1->fromArray("key0", QMPointer<QMJsonArray>()) == false);
     QVERIFY(object1->fromObject("key0", QMPointer<QMJsonObject>()) == false);
@@ -679,10 +677,9 @@ void TestJson::QMJsonObject_string(void)
     QVERIFY(object1->to<QRect>("key0", QRect()) == QRect());
 
     QVERIFY(object1->from("key0", value0) == true);
-    QVERIFY(object1->fromBool("key0", false) == false);
-    QVERIFY(object1->fromDouble("key0", 15.16) == false);
+    QVERIFY(object1->fromBool("key0", false) == true);
+    QVERIFY(object1->fromDouble("key0", 15.16) == true);
     QVERIFY(object1->fromString("key0", "15.16") == true);
-    QVERIFY(object1->toString("key0", "23.42") == "15.16");
     QVERIFY(object1->fromArray("key0", QMPointer<QMJsonArray>()) == false);
     QVERIFY(object1->fromObject("key0", QMPointer<QMJsonObject>()) == false);
     QVERIFY(object1->from<QSize>("key0", QSize(15, 16)) == false);
@@ -721,7 +718,6 @@ void TestJson::QMJsonObject_array(void)
     QVERIFY(object1->fromDouble("key0", 15.16) == false);
     QVERIFY(object1->fromString("key0", "15.16") == false);
     QVERIFY(object1->fromArray("key0", QMPointer<QMJsonArray>()) == true);
-    QVERIFY(object1->toArray("key0", QMPointer<QMJsonArray>()).isNull() == false);
     QVERIFY(object1->fromObject("key0", QMPointer<QMJsonObject>()) == false);
     QVERIFY(object1->from<QSize>("key0", QSize(15, 16)) == false);
 }
@@ -760,7 +756,6 @@ void TestJson::QMJsonObject_object(void)
     QVERIFY(object1->fromString("key0", "15.16") == false);
     QVERIFY(object1->fromArray("key0", QMPointer<QMJsonArray>()) == false);
     QVERIFY(object1->fromObject("key0", QMPointer<QMJsonObject>()) == true);
-    QVERIFY(object1->toObject("key0", QMPointer<QMJsonObject>()).isNull() == false);
     QVERIFY(object1->from<QSize>("key0", QSize(15, 16)) == false);
 }
 
@@ -799,7 +794,6 @@ void TestJson::QMJsonObject_custom(void)
     QVERIFY(object1->fromArray("key0", QMPointer<QMJsonArray>()) == false);
     QVERIFY(object1->fromObject("key0", QMPointer<QMJsonObject>()) == false);
     QVERIFY(object1->from<QSize>("key0", QSize(15, 16)) == true);
-    QVERIFY(object1->to<QSize>("key0", QSize(4, 8)) == QSize(15, 16));
 }
 
 void TestJson::QMJsonObject_signals(void)

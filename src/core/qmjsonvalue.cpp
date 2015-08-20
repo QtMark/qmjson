@@ -189,6 +189,30 @@ QMJsonValue::QMJsonValue(float value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
+QMJsonValue::QMJsonValue(char value)
+{
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+}
+
+QMJsonValue::QMJsonValue(long value)
+{
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+}
+
+QMJsonValue::QMJsonValue(unsigned long value)
+{
+    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
+
+    mType = QMJsonValueType_Double;
+    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
+}
+
 QMJsonValue::QMJsonValue(int8_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
@@ -458,33 +482,145 @@ const QMPointer<QMJsonObject> &QMJsonValue::toObject(const QMPointer<QMJsonObjec
 
 bool QMJsonValue::fromBool(bool value)
 {
-    return this->from<bool>(value);
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+            return false;
+
+        case QMJsonValueType_Bool:
+            return this->set<bool>(value);
+
+        case QMJsonValueType_Double:
+            if(value == true)
+                return this->set<double>(1);
+            else
+                return this->set<double>(0);
+
+        case QMJsonValueType_String:
+            if(value == true)
+                return this->set<QString>("true");
+            else
+                return this->set<QString>("false");
+
+        case QMJsonValueType_Array:
+        case QMJsonValueType_Object:
+        case QMJsonValueType_Custom:
+            return false;
+    };
+
+    return false;
 }
 
 bool QMJsonValue::fromDouble(double value)
 {
-    return this->from<double>(value);
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+            return false;
+
+        case QMJsonValueType_Bool:
+            if(value == 0)
+                return this->set<bool>(false);
+            else
+                return this->set<bool>(true);
+
+        case QMJsonValueType_Double:
+            return this->set<double>(value);
+
+        case QMJsonValueType_String:
+            return this->set<QString>(QString::number(value));
+
+        case QMJsonValueType_Array:
+        case QMJsonValueType_Object:
+        case QMJsonValueType_Custom:
+            return false;
+    };
+
+    return false;
 }
 
 bool QMJsonValue::fromString(const QString &value)
 {
-    return this->from<QString>(value);
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+            return false;
+
+        case QMJsonValueType_Bool:
+            if(value == "true")
+                return this->set<bool>(true);
+            else
+                return this->set<bool>(false);
+
+        case QMJsonValueType_Double:
+        {
+            auto ok = false;
+            auto result = value.toDouble(&ok);
+
+            if(ok == false)
+                return false;
+
+            return this->set<double>(result);
+        }
+
+        case QMJsonValueType_String:
+            return this->set<QString>(value);
+
+        case QMJsonValueType_Array:
+        case QMJsonValueType_Object:
+        case QMJsonValueType_Custom:
+            return false;
+    };
+
+    return false;
 }
 
 bool QMJsonValue::fromArray(const QMPointer<QMJsonArray> &value)
 {
-    if(value.isNull() == true)
-        return this->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>(new QMJsonArray));
-    else
-        return this->from<QMPointer<QMJsonArray> >(value);
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+        case QMJsonValueType_Bool:
+        case QMJsonValueType_Double:
+        case QMJsonValueType_String:
+            return false;
+
+        case QMJsonValueType_Array:
+            if(value.isNull() == true)
+                return this->set<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>(new QMJsonArray));
+            else
+                return this->set<QMPointer<QMJsonArray> >(value);
+
+        case QMJsonValueType_Object:
+        case QMJsonValueType_Custom:
+            return false;
+    };
+
+    return false;
 }
 
 bool QMJsonValue::fromObject(const QMPointer<QMJsonObject> &value)
 {
-    if(value.isNull() == true)
-        return this->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>(new QMJsonObject));
-    else
-        return this->from<QMPointer<QMJsonObject> >(value);
+    switch(mType)
+    {
+        case QMJsonValueType_Null:
+        case QMJsonValueType_Bool:
+        case QMJsonValueType_Double:
+        case QMJsonValueType_String:
+        case QMJsonValueType_Array:
+            return false;
+
+        case QMJsonValueType_Object:
+            if(value.isNull() == true)
+                return this->set<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>(new QMJsonObject));
+            else
+                return this->set<QMPointer<QMJsonObject> >(value);
+
+        case QMJsonValueType_Custom:
+            return false;
+    };
+
+    return false;
 }
 
 bool QMJsonValue::from(const QMPointer<QMJsonValue> &value)

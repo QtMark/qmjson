@@ -23,7 +23,7 @@ development environment. Once installed, execute the following:
 
 ```
 qmake -r
-make
+make -j
 make install
 ```
 
@@ -51,8 +51,22 @@ this source code. To run this example code, execute the following
 ```
 cd example
 qmake
-make
+make -j
 ./example
+```
+
+## Unit Tests
+
+The QtMark Json Library comes complete with a set of unit tests that can be
+used to validate that changes do not break the expected functionality of the
+API. The unit tests may also provide additional examples of how to use the
+library as most of the API is tested.
+
+```
+cd test
+qmake
+make -j
+./test -platform offscreen
 ```
 
 ## Cleanup

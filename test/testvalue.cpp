@@ -18,14 +18,17 @@ void TestJson::QMJsonValue_create(void)
     auto value13 = QMPointer<QMJsonValue>(new QMJsonValue(new QMJsonObject()));
     auto value14 = QMPointer<QMJsonValue>(new QMJsonValue(QRect()));
     auto value15 = QMPointer<QMJsonValue>(new QMJsonValue((float)4.8));
-    auto value16 = QMPointer<QMJsonValue>(new QMJsonValue((int8_t)15));
-    auto value17 = QMPointer<QMJsonValue>(new QMJsonValue((uint8_t)16));
-    auto value18 = QMPointer<QMJsonValue>(new QMJsonValue((int16_t)23));
-    auto value19 = QMPointer<QMJsonValue>(new QMJsonValue((uint16_t)42));
-    auto value20 = QMPointer<QMJsonValue>(new QMJsonValue((int32_t)4));
-    auto value21 = QMPointer<QMJsonValue>(new QMJsonValue((uint32_t)8));
-    auto value22 = QMPointer<QMJsonValue>(new QMJsonValue((int64_t)15));
-    auto value23 = QMPointer<QMJsonValue>(new QMJsonValue((uint64_t)16));
+    auto value16 = QMPointer<QMJsonValue>(new QMJsonValue((char)4.8));
+    auto value17 = QMPointer<QMJsonValue>(new QMJsonValue((long)4.8));
+    auto value18 = QMPointer<QMJsonValue>(new QMJsonValue((unsigned long)4.8));
+    auto value19 = QMPointer<QMJsonValue>(new QMJsonValue((int8_t)15));
+    auto value20 = QMPointer<QMJsonValue>(new QMJsonValue((uint8_t)16));
+    auto value21 = QMPointer<QMJsonValue>(new QMJsonValue((int16_t)23));
+    auto value22 = QMPointer<QMJsonValue>(new QMJsonValue((uint16_t)42));
+    auto value23 = QMPointer<QMJsonValue>(new QMJsonValue((int32_t)4));
+    auto value24 = QMPointer<QMJsonValue>(new QMJsonValue((uint32_t)8));
+    auto value25 = QMPointer<QMJsonValue>(new QMJsonValue((int64_t)15));
+    auto value26 = QMPointer<QMJsonValue>(new QMJsonValue((uint64_t)16));
 
     QVERIFY(value00->type() == QMJsonValueType_Null);
     QVERIFY(value01->type() == QMJsonValueType_Bool);
@@ -51,6 +54,9 @@ void TestJson::QMJsonValue_create(void)
     QVERIFY(value21->type() == QMJsonValueType_Double);
     QVERIFY(value22->type() == QMJsonValueType_Double);
     QVERIFY(value23->type() == QMJsonValueType_Double);
+    QVERIFY(value24->type() == QMJsonValueType_Double);
+    QVERIFY(value25->type() == QMJsonValueType_Double);
+    QVERIFY(value26->type() == QMJsonValueType_Double);
 
     QVERIFY(value00->typeString() == "QMJsonValueType_Null");
     QVERIFY(value01->typeString() == "QMJsonValueType_Bool");
@@ -76,6 +82,9 @@ void TestJson::QMJsonValue_create(void)
     QVERIFY(value21->typeString() == "QMJsonValueType_Double");
     QVERIFY(value22->typeString() == "QMJsonValueType_Double");
     QVERIFY(value23->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value24->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value25->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value26->typeString() == "QMJsonValueType_Double");
 }
 
 void TestJson::QMJsonValue_file(void)
@@ -206,6 +215,38 @@ void TestJson::QMJsonValue_bool(void)
     QVERIFY(value08->to<bool>(true) == true);
     QVERIFY(value09->to<bool>(true) == true);
     QVERIFY(value10->to<bool>(true) == true);
+
+    QVERIFY(value00->fromBool(true) == false);
+    QVERIFY(value01->fromBool(true) == true);
+    QVERIFY(value02->fromBool(true) == true);
+    QVERIFY(value03->fromBool(true) == true);
+    QVERIFY(value04->fromBool(true) == true);
+    QVERIFY(value05->fromBool(true) == true);
+    QVERIFY(value06->fromBool(true) == true);
+    QVERIFY(value07->fromBool(true) == true);
+    QVERIFY(value08->fromBool(true) == false);
+    QVERIFY(value09->fromBool(true) == false);
+    QVERIFY(value10->fromBool(true) == false);
+
+    QVERIFY(value01->toBool() == true);
+    QVERIFY(value02->toBool() == true);
+    QVERIFY(value03->toDouble() == 1);
+    QVERIFY(value04->toDouble() == 1);
+    QVERIFY(value05->toString() == "true");
+    QVERIFY(value06->toString() == "true");
+    QVERIFY(value07->toString() == "true");
+
+    QVERIFY(value00->from<bool>(true) == false);
+    QVERIFY(value01->from<bool>(true) == true);
+    QVERIFY(value02->from<bool>(true) == true);
+    QVERIFY(value03->from<bool>(true) == false);
+    QVERIFY(value04->from<bool>(true) == false);
+    QVERIFY(value05->from<bool>(true) == false);
+    QVERIFY(value06->from<bool>(true) == false);
+    QVERIFY(value07->from<bool>(true) == false);
+    QVERIFY(value08->from<bool>(true) == false);
+    QVERIFY(value09->from<bool>(true) == false);
+    QVERIFY(value10->from<bool>(true) == false);
 }
 
 void TestJson::QMJsonValue_double(void)
@@ -305,176 +346,49 @@ void TestJson::QMJsonValue_double(void)
     QVERIFY(value16->to<double>(15.16) == 15);
     QVERIFY(value17->to<double>(15.16) == 16);
 
-    QVERIFY(value00->is<float>() == false);
-    QVERIFY(value01->is<float>() == false);
-    QVERIFY(value02->is<float>() == false);
-    QVERIFY(value03->is<float>() == false);
-    QVERIFY(value04->is<float>() == false);
-    QVERIFY(value05->is<float>() == false);
-    QVERIFY(value06->is<float>() == false);
-    QVERIFY(value07->is<float>() == false);
-    QVERIFY(value08->is<float>() == false);
-    QVERIFY(value09->is<float>() == false);
-    QVERIFY(value10->is<float>() == false);
-    QVERIFY(value11->is<float>() == false);
-    QVERIFY(value12->is<float>() == false);
-    QVERIFY(value13->is<float>() == false);
-    QVERIFY(value14->is<float>() == false);
-    QVERIFY(value15->is<float>() == false);
-    QVERIFY(value16->is<float>() == false);
-    QVERIFY(value17->is<float>() == false);
+    QVERIFY(value00->fromDouble(4.8) == false);
+    QVERIFY(value01->fromDouble(4.8) == true);
+    QVERIFY(value02->fromDouble(4.8) == true);
+    QVERIFY(value03->fromDouble(4.8) == true);
+    QVERIFY(value04->fromDouble(4.8) == true);
+    QVERIFY(value05->fromDouble(4.8) == true);
+    QVERIFY(value06->fromDouble(4.8) == false);
+    QVERIFY(value07->fromDouble(4.8) == false);
+    QVERIFY(value08->fromDouble(4.8) == false);
+    QVERIFY(value09->fromDouble(4.8) == true);
+    QVERIFY(value10->fromDouble(4.8) == true);
+    QVERIFY(value11->fromDouble(4.8) == true);
+    QVERIFY(value12->fromDouble(4.8) == true);
+    QVERIFY(value13->fromDouble(4.8) == true);
+    QVERIFY(value14->fromDouble(4.8) == true);
+    QVERIFY(value15->fromDouble(4.8) == true);
+    QVERIFY(value16->fromDouble(4.8) == true);
+    QVERIFY(value17->fromDouble(4.8) == true);
 
-    QVERIFY(value00->is<int8_t>() == false);
-    QVERIFY(value01->is<int8_t>() == false);
-    QVERIFY(value02->is<int8_t>() == false);
-    QVERIFY(value03->is<int8_t>() == false);
-    QVERIFY(value04->is<int8_t>() == false);
-    QVERIFY(value05->is<int8_t>() == false);
-    QVERIFY(value06->is<int8_t>() == false);
-    QVERIFY(value07->is<int8_t>() == false);
-    QVERIFY(value08->is<int8_t>() == false);
-    QVERIFY(value09->is<int8_t>() == false);
-    QVERIFY(value10->is<int8_t>() == false);
-    QVERIFY(value11->is<int8_t>() == false);
-    QVERIFY(value12->is<int8_t>() == false);
-    QVERIFY(value13->is<int8_t>() == false);
-    QVERIFY(value14->is<int8_t>() == false);
-    QVERIFY(value15->is<int8_t>() == false);
-    QVERIFY(value16->is<int8_t>() == false);
-    QVERIFY(value17->is<int8_t>() == false);
+    QVERIFY(value01->toBool() == true);
+    QVERIFY(value02->toBool() == true);
+    QVERIFY(value03->toDouble() == 4.8);
+    QVERIFY(value04->toString() == "4.8");
+    QVERIFY(value05->toString() == "4.8");
 
-    QVERIFY(value00->is<uint8_t>() == false);
-    QVERIFY(value01->is<uint8_t>() == false);
-    QVERIFY(value02->is<uint8_t>() == false);
-    QVERIFY(value03->is<uint8_t>() == false);
-    QVERIFY(value04->is<uint8_t>() == false);
-    QVERIFY(value05->is<uint8_t>() == false);
-    QVERIFY(value06->is<uint8_t>() == false);
-    QVERIFY(value07->is<uint8_t>() == false);
-    QVERIFY(value08->is<uint8_t>() == false);
-    QVERIFY(value09->is<uint8_t>() == false);
-    QVERIFY(value10->is<uint8_t>() == false);
-    QVERIFY(value11->is<uint8_t>() == false);
-    QVERIFY(value12->is<uint8_t>() == false);
-    QVERIFY(value13->is<uint8_t>() == false);
-    QVERIFY(value14->is<uint8_t>() == false);
-    QVERIFY(value15->is<uint8_t>() == false);
-    QVERIFY(value16->is<uint8_t>() == false);
-    QVERIFY(value17->is<uint8_t>() == false);
-
-    QVERIFY(value00->is<int16_t>() == false);
-    QVERIFY(value01->is<int16_t>() == false);
-    QVERIFY(value02->is<int16_t>() == false);
-    QVERIFY(value03->is<int16_t>() == false);
-    QVERIFY(value04->is<int16_t>() == false);
-    QVERIFY(value05->is<int16_t>() == false);
-    QVERIFY(value06->is<int16_t>() == false);
-    QVERIFY(value07->is<int16_t>() == false);
-    QVERIFY(value08->is<int16_t>() == false);
-    QVERIFY(value09->is<int16_t>() == false);
-    QVERIFY(value10->is<int16_t>() == false);
-    QVERIFY(value11->is<int16_t>() == false);
-    QVERIFY(value12->is<int16_t>() == false);
-    QVERIFY(value13->is<int16_t>() == false);
-    QVERIFY(value14->is<int16_t>() == false);
-    QVERIFY(value15->is<int16_t>() == false);
-    QVERIFY(value16->is<int16_t>() == false);
-    QVERIFY(value17->is<int16_t>() == false);
-
-    QVERIFY(value00->is<uint16_t>() == false);
-    QVERIFY(value01->is<uint16_t>() == false);
-    QVERIFY(value02->is<uint16_t>() == false);
-    QVERIFY(value03->is<uint16_t>() == false);
-    QVERIFY(value04->is<uint16_t>() == false);
-    QVERIFY(value05->is<uint16_t>() == false);
-    QVERIFY(value06->is<uint16_t>() == false);
-    QVERIFY(value07->is<uint16_t>() == false);
-    QVERIFY(value08->is<uint16_t>() == false);
-    QVERIFY(value09->is<uint16_t>() == false);
-    QVERIFY(value10->is<uint16_t>() == false);
-    QVERIFY(value11->is<uint16_t>() == false);
-    QVERIFY(value12->is<uint16_t>() == false);
-    QVERIFY(value13->is<uint16_t>() == false);
-    QVERIFY(value14->is<uint16_t>() == false);
-    QVERIFY(value15->is<uint16_t>() == false);
-    QVERIFY(value16->is<uint16_t>() == false);
-    QVERIFY(value17->is<uint16_t>() == false);
-
-    QVERIFY(value00->is<int32_t>() == false);
-    QVERIFY(value01->is<int32_t>() == false);
-    QVERIFY(value02->is<int32_t>() == false);
-    QVERIFY(value03->is<int32_t>() == false);
-    QVERIFY(value04->is<int32_t>() == false);
-    QVERIFY(value05->is<int32_t>() == false);
-    QVERIFY(value06->is<int32_t>() == false);
-    QVERIFY(value07->is<int32_t>() == false);
-    QVERIFY(value08->is<int32_t>() == false);
-    QVERIFY(value09->is<int32_t>() == false);
-    QVERIFY(value10->is<int32_t>() == false);
-    QVERIFY(value11->is<int32_t>() == false);
-    QVERIFY(value12->is<int32_t>() == false);
-    QVERIFY(value13->is<int32_t>() == false);
-    QVERIFY(value14->is<int32_t>() == false);
-    QVERIFY(value15->is<int32_t>() == false);
-    QVERIFY(value16->is<int32_t>() == false);
-    QVERIFY(value17->is<int32_t>() == false);
-
-    QVERIFY(value00->is<uint32_t>() == false);
-    QVERIFY(value01->is<uint32_t>() == false);
-    QVERIFY(value02->is<uint32_t>() == false);
-    QVERIFY(value03->is<uint32_t>() == false);
-    QVERIFY(value04->is<uint32_t>() == false);
-    QVERIFY(value05->is<uint32_t>() == false);
-    QVERIFY(value06->is<uint32_t>() == false);
-    QVERIFY(value07->is<uint32_t>() == false);
-    QVERIFY(value08->is<uint32_t>() == false);
-    QVERIFY(value09->is<uint32_t>() == false);
-    QVERIFY(value10->is<uint32_t>() == false);
-    QVERIFY(value11->is<uint32_t>() == false);
-    QVERIFY(value12->is<uint32_t>() == false);
-    QVERIFY(value13->is<uint32_t>() == false);
-    QVERIFY(value14->is<uint32_t>() == false);
-    QVERIFY(value15->is<uint32_t>() == false);
-    QVERIFY(value16->is<uint32_t>() == false);
-    QVERIFY(value17->is<uint32_t>() == false);
-
-    QVERIFY(value00->is<int64_t>() == false);
-    QVERIFY(value01->is<int64_t>() == false);
-    QVERIFY(value02->is<int64_t>() == false);
-    QVERIFY(value03->is<int64_t>() == false);
-    QVERIFY(value04->is<int64_t>() == false);
-    QVERIFY(value05->is<int64_t>() == false);
-    QVERIFY(value06->is<int64_t>() == false);
-    QVERIFY(value07->is<int64_t>() == false);
-    QVERIFY(value08->is<int64_t>() == false);
-    QVERIFY(value09->is<int64_t>() == false);
-    QVERIFY(value10->is<int64_t>() == false);
-    QVERIFY(value11->is<int64_t>() == false);
-    QVERIFY(value12->is<int64_t>() == false);
-    QVERIFY(value13->is<int64_t>() == false);
-    QVERIFY(value14->is<int64_t>() == false);
-    QVERIFY(value15->is<int64_t>() == false);
-    QVERIFY(value16->is<int64_t>() == false);
-    QVERIFY(value17->is<int64_t>() == false);
-
-    QVERIFY(value00->is<uint64_t>() == false);
-    QVERIFY(value01->is<uint64_t>() == false);
-    QVERIFY(value02->is<uint64_t>() == false);
-    QVERIFY(value03->is<uint64_t>() == false);
-    QVERIFY(value04->is<uint64_t>() == false);
-    QVERIFY(value05->is<uint64_t>() == false);
-    QVERIFY(value06->is<uint64_t>() == false);
-    QVERIFY(value07->is<uint64_t>() == false);
-    QVERIFY(value08->is<uint64_t>() == false);
-    QVERIFY(value09->is<uint64_t>() == false);
-    QVERIFY(value10->is<uint64_t>() == false);
-    QVERIFY(value11->is<uint64_t>() == false);
-    QVERIFY(value12->is<uint64_t>() == false);
-    QVERIFY(value13->is<uint64_t>() == false);
-    QVERIFY(value14->is<uint64_t>() == false);
-    QVERIFY(value15->is<uint64_t>() == false);
-    QVERIFY(value16->is<uint64_t>() == false);
-    QVERIFY(value17->is<uint64_t>() == false);
+    QVERIFY(value00->from<double>(4.8) == false);
+    QVERIFY(value01->from<double>(4.8) == false);
+    QVERIFY(value02->from<double>(4.8) == false);
+    QVERIFY(value03->from<double>(4.8) == true);
+    QVERIFY(value04->from<double>(4.8) == false);
+    QVERIFY(value05->from<double>(4.8) == false);
+    QVERIFY(value06->from<double>(4.8) == false);
+    QVERIFY(value07->from<double>(4.8) == false);
+    QVERIFY(value08->from<double>(4.8) == false);
+    QVERIFY(value09->from<double>(4.8) == true);
+    QVERIFY(value10->from<double>(4.8) == true);
+    QVERIFY(value11->from<double>(4.8) == true);
+    QVERIFY(value12->from<double>(4.8) == true);
+    QVERIFY(value13->from<double>(4.8) == true);
+    QVERIFY(value14->from<double>(4.8) == true);
+    QVERIFY(value15->from<double>(4.8) == true);
+    QVERIFY(value16->from<double>(4.8) == true);
+    QVERIFY(value17->from<double>(4.8) == true);
 }
 
 void TestJson::QMJsonValue_string(void)
@@ -550,6 +464,38 @@ void TestJson::QMJsonValue_string(void)
     QVERIFY(value08->to<const char *>("15.16") == QString("15.16"));
     QVERIFY(value09->to<const char *>("15.16") == QString("15.16"));
     QVERIFY(value10->to<const char *>("15.16") == QString("15.16"));
+
+    QVERIFY(value00->fromString("Test") == false);
+    QVERIFY(value01->fromString("Test") == true);
+    QVERIFY(value02->fromString("Test") == true);
+    QVERIFY(value03->fromString("Test") == false);
+    QVERIFY(value04->fromString("Test") == false);
+    QVERIFY(value05->fromString("Test") == true);
+    QVERIFY(value06->fromString("Test") == true);
+    QVERIFY(value07->fromString("Test") == true);
+    QVERIFY(value08->fromString("Test") == false);
+    QVERIFY(value09->fromString("Test") == false);
+    QVERIFY(value10->fromString("Test") == false);
+
+    QVERIFY(value01->toBool() == false);
+    QVERIFY(value02->toBool() == false);
+    QVERIFY(value03->toDouble() == 4.8);
+    QVERIFY(value04->toDouble() == 0);
+    QVERIFY(value05->toString() == "Test");
+    QVERIFY(value06->toString() == "Test");
+    QVERIFY(value07->toString() == "Test");
+
+    QVERIFY(value00->from<QString>("Test") == false);
+    QVERIFY(value01->from<QString>("Test") == false);
+    QVERIFY(value02->from<QString>("Test") == false);
+    QVERIFY(value03->from<QString>("Test") == false);
+    QVERIFY(value04->from<QString>("Test") == false);
+    QVERIFY(value05->from<QString>("Test") == true);
+    QVERIFY(value06->from<QString>("Test") == true);
+    QVERIFY(value07->from<QString>("Test") == true);
+    QVERIFY(value08->from<QString>("Test") == false);
+    QVERIFY(value09->from<QString>("Test") == false);
+    QVERIFY(value10->from<QString>("Test") == false);
 }
 
 void TestJson::QMJsonValue_array(void)
@@ -621,6 +567,30 @@ void TestJson::QMJsonValue_array(void)
     QVERIFY(value08->to<QMPointer<QMJsonArray> >(array1)->count() == 3);
     QVERIFY(value09->to<QMPointer<QMJsonArray> >(array1)->count() == 2);
     QVERIFY(value10->to<QMPointer<QMJsonArray> >(array1)->count() == 2);
+
+    QVERIFY(value00->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value01->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value02->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value03->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value04->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value05->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value06->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value07->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value08->fromArray(QMPointer<QMJsonArray>()) == true);
+    QVERIFY(value09->fromArray(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value10->fromArray(QMPointer<QMJsonArray>()) == false);
+
+    QVERIFY(value00->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value01->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value02->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value03->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value04->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value05->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value06->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value07->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value08->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value09->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
+    QVERIFY(value10->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>()) == false);
 }
 
 void TestJson::QMJsonValue_object(void)
@@ -692,7 +662,83 @@ void TestJson::QMJsonValue_object(void)
     QVERIFY(value08->to<QMPointer<QMJsonObject> >(object1)->count() == 2);
     QVERIFY(value09->to<QMPointer<QMJsonObject> >(object1)->count() == 3);
     QVERIFY(value10->to<QMPointer<QMJsonObject> >(object1)->count() == 2);
+
+    QVERIFY(value00->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value01->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value02->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value03->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value04->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value05->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value06->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value07->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value08->fromObject(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value09->fromObject(QMPointer<QMJsonObject>()) == true);
+    QVERIFY(value10->fromObject(QMPointer<QMJsonObject>()) == false);
+
+    QVERIFY(value00->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value01->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value02->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value03->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value04->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value05->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value06->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value07->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value08->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value09->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
+    QVERIFY(value10->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>()) == false);
 }
+
+void TestJson::QMJsonValue_custom(void)
+{
+    auto value00 = QMPointer<QMJsonValue>(new QMJsonValue());
+    auto value01 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value02 = QMPointer<QMJsonValue>(new QMJsonValue(false));
+    auto value03 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto value04 = QMPointer<QMJsonValue>(new QMJsonValue(0));
+    auto value05 = QMPointer<QMJsonValue>(new QMJsonValue("true"));
+    auto value06 = QMPointer<QMJsonValue>(new QMJsonValue("false"));
+    auto value07 = QMPointer<QMJsonValue>(new QMJsonValue("Hello World"));
+    auto value08 = QMPointer<QMJsonValue>(new QMJsonValue(new QMJsonArray));
+    auto value09 = QMPointer<QMJsonValue>(new QMJsonValue(new QMJsonObject));
+    auto value10 = QMPointer<QMJsonValue>(new QMJsonValue(QSize()));
+
+    QVERIFY(value00->is<QSize>() == false);
+    QVERIFY(value01->is<QSize>() == false);
+    QVERIFY(value02->is<QSize>() == false);
+    QVERIFY(value03->is<QSize>() == false);
+    QVERIFY(value04->is<QSize>() == false);
+    QVERIFY(value05->is<QSize>() == false);
+    QVERIFY(value06->is<QSize>() == false);
+    QVERIFY(value07->is<QSize>() == false);
+    QVERIFY(value08->is<QSize>() == false);
+    QVERIFY(value09->is<QSize>() == false);
+    QVERIFY(value10->is<QSize>() == true);
+
+    QVERIFY(value00->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value01->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value02->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value03->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value04->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value05->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value06->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value07->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value08->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value09->to<QSize>(QSize(10, 10)) == QSize(10, 10));
+    QVERIFY(value10->to<QSize>(QSize(10, 10)) == QSize());
+
+    QVERIFY(value00->from<QSize>(QSize()) == false);
+    QVERIFY(value01->from<QSize>(QSize()) == false);
+    QVERIFY(value02->from<QSize>(QSize()) == false);
+    QVERIFY(value03->from<QSize>(QSize()) == false);
+    QVERIFY(value04->from<QSize>(QSize()) == false);
+    QVERIFY(value05->from<QSize>(QSize()) == false);
+    QVERIFY(value06->from<QSize>(QSize()) == false);
+    QVERIFY(value07->from<QSize>(QSize()) == false);
+    QVERIFY(value08->from<QSize>(QSize()) == false);
+    QVERIFY(value09->from<QSize>(QSize()) == false);
+    QVERIFY(value10->from<QSize>(QSize()) == true);
+}
+
 
 void TestJson::QMJsonValue_value(void)
 {
@@ -809,4 +855,74 @@ void TestJson::QMJsonValue_from(void)
     QVERIFY(value06->from(value14) == false);
     QVERIFY(value06->from(value15) == false);
     QVERIFY(value06->from(value16) == false);
+}
+
+void TestJson::QMJsonValue_variant(void)
+{
+    auto variant0 = QVariant();
+    auto variant1 = QVariant(true);
+    auto variant2 = QVariant(4.8);
+    auto variant3 = QVariant("Hello World");
+    auto variant4 = QVariant(QVariantList());
+    auto variant5 = QVariant(QVariantHash());
+
+    auto value0 = QMJsonValue::fromVariant(variant0);
+    auto value1 = QMJsonValue::fromVariant(variant1);
+    auto value2 = QMJsonValue::fromVariant(variant2);
+    auto value3 = QMJsonValue::fromVariant(variant3);
+    auto value4 = QMJsonValue::fromVariant(variant4);
+    auto value5 = QMJsonValue::fromVariant(variant5);
+
+    QVERIFY(value0->toVariant() == variant0);
+    QVERIFY(value1->toVariant() == variant1);
+    QVERIFY(value2->toVariant() == variant2);
+    QVERIFY(value3->toVariant() == variant3);
+    QVERIFY(value4->toVariant() == variant4);
+    QVERIFY(value5->toVariant() == variant5);
+}
+
+void TestJson::QMJsonValue_signals(void)
+{
+    auto value01 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value02 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto value03 = QMPointer<QMJsonValue>(new QMJsonValue("Hello World"));
+    auto value04 = QMPointer<QMJsonValue>(new QMJsonValue(new QMJsonArray));
+    auto value05 = QMPointer<QMJsonValue>(new QMJsonValue(new QMJsonObject));
+    auto value06 = QMPointer<QMJsonValue>(new QMJsonValue(QSize()));
+
+    connect(value01.data(), &QMJsonValue::valueChanged, this, &TestJson::signaled);
+    connect(value02.data(), &QMJsonValue::valueChanged, this, &TestJson::signaled);
+    connect(value03.data(), &QMJsonValue::valueChanged, this, &TestJson::signaled);
+    connect(value04.data(), &QMJsonValue::valueChanged, this, &TestJson::signaled);
+    connect(value05.data(), &QMJsonValue::valueChanged, this, &TestJson::signaled);
+    connect(value06.data(), &QMJsonValue::valueChanged, this, &TestJson::signaled);
+
+    mCount = 0;
+    value01->fromBool(true);
+    value01->from<bool>(true);
+    QVERIFY(mCount == 2);
+
+    mCount = 0;
+    value02->fromDouble(4.8);
+    value02->from<double>(4.8);
+    QVERIFY(mCount == 2);
+
+    mCount = 0;
+    value03->fromString("Test");
+    value03->from<QString>("Test");
+    QVERIFY(mCount == 2);
+
+    mCount = 0;
+    value04->fromArray(QMPointer<QMJsonArray>());
+    value04->from<QMPointer<QMJsonArray> >(QMPointer<QMJsonArray>());
+    QVERIFY(mCount == 1);
+
+    mCount = 0;
+    value05->fromObject(QMPointer<QMJsonObject>());
+    value05->from<QMPointer<QMJsonObject> >(QMPointer<QMJsonObject>());
+    QVERIFY(mCount == 1);
+
+    mCount = 0;
+    value06->from<QSize>(QSize());
+    QVERIFY(mCount == 1);
 }
