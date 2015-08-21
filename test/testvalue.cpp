@@ -239,22 +239,22 @@ void TestJson::QMJsonValue_bool(void)
 
     QVERIFY(value00->fromBool(true) == false);
     QVERIFY(value01->fromBool(true) == true);
-    QVERIFY(value02->fromBool(true) == true);
+    QVERIFY(value02->fromBool(false) == true);
     QVERIFY(value03->fromBool(true) == true);
-    QVERIFY(value04->fromBool(true) == true);
+    QVERIFY(value04->fromBool(false) == true);
     QVERIFY(value05->fromBool(true) == true);
-    QVERIFY(value06->fromBool(true) == true);
+    QVERIFY(value06->fromBool(false) == true);
     QVERIFY(value07->fromBool(true) == true);
     QVERIFY(value08->fromBool(true) == false);
     QVERIFY(value09->fromBool(true) == false);
     QVERIFY(value10->fromBool(true) == false);
 
     QVERIFY(value01->toBool() == true);
-    QVERIFY(value02->toBool() == true);
+    QVERIFY(value02->toBool() == false);
     QVERIFY(value03->toDouble() == 1);
-    QVERIFY(value04->toDouble() == 1);
+    QVERIFY(value04->toDouble() == 0);
     QVERIFY(value05->toString() == "true");
-    QVERIFY(value06->toString() == "true");
+    QVERIFY(value06->toString() == "false");
     QVERIFY(value07->toString() == "true");
 
     QVERIFY(value00->from<bool>(true) == false);
@@ -368,11 +368,11 @@ void TestJson::QMJsonValue_double(void)
     QVERIFY(value17->to<double>(15.16) == 16);
 
     QVERIFY(value00->fromDouble(4.8) == false);
-    QVERIFY(value01->fromDouble(4.8) == true);
-    QVERIFY(value02->fromDouble(4.8) == true);
-    QVERIFY(value03->fromDouble(4.8) == true);
+    QVERIFY(value01->fromDouble(1) == true);
+    QVERIFY(value02->fromDouble(0) == true);
+    QVERIFY(value03->fromDouble(23.42) == true);
     QVERIFY(value04->fromDouble(4.8) == true);
-    QVERIFY(value05->fromDouble(4.8) == true);
+    QVERIFY(value05->fromDouble(23.42) == true);
     QVERIFY(value06->fromDouble(4.8) == false);
     QVERIFY(value07->fromDouble(4.8) == false);
     QVERIFY(value08->fromDouble(4.8) == false);
@@ -387,10 +387,10 @@ void TestJson::QMJsonValue_double(void)
     QVERIFY(value17->fromDouble(4.8) == true);
 
     QVERIFY(value01->toBool() == true);
-    QVERIFY(value02->toBool() == true);
-    QVERIFY(value03->toDouble() == 4.8);
+    QVERIFY(value02->toBool() == false);
+    QVERIFY(value03->toDouble() == 23.42);
     QVERIFY(value04->toString() == "4.8");
-    QVERIFY(value05->toString() == "4.8");
+    QVERIFY(value05->toString() == "23.42");
 
     QVERIFY(value00->from<double>(4.8) == false);
     QVERIFY(value01->from<double>(4.8) == false);
@@ -487,24 +487,24 @@ void TestJson::QMJsonValue_string(void)
     QVERIFY(value10->to<const char *>("15.16") == QString("15.16"));
 
     QVERIFY(value00->fromString("Test") == false);
-    QVERIFY(value01->fromString("Test") == true);
-    QVERIFY(value02->fromString("Test") == true);
+    QVERIFY(value01->fromString("true") == true);
+    QVERIFY(value02->fromString("false") == true);
     QVERIFY(value03->fromString("Test") == false);
-    QVERIFY(value04->fromString("Test") == false);
-    QVERIFY(value05->fromString("Test") == true);
-    QVERIFY(value06->fromString("Test") == true);
-    QVERIFY(value07->fromString("Test") == true);
+    QVERIFY(value04->fromString("15.16") == true);
+    QVERIFY(value05->fromString("Test1") == true);
+    QVERIFY(value06->fromString("Test2") == true);
+    QVERIFY(value07->fromString("Test3") == true);
     QVERIFY(value08->fromString("Test") == false);
     QVERIFY(value09->fromString("Test") == false);
     QVERIFY(value10->fromString("Test") == false);
 
-    QVERIFY(value01->toBool() == false);
+    QVERIFY(value01->toBool() == true);
     QVERIFY(value02->toBool() == false);
     QVERIFY(value03->toDouble() == 4.8);
-    QVERIFY(value04->toDouble() == 0);
-    QVERIFY(value05->toString() == "Test");
-    QVERIFY(value06->toString() == "Test");
-    QVERIFY(value07->toString() == "Test");
+    QVERIFY(value04->toDouble() == 15.16);
+    QVERIFY(value05->toString() == "Test1");
+    QVERIFY(value06->toString() == "Test2");
+    QVERIFY(value07->toString() == "Test3");
 
     QVERIFY(value00->from<QString>("Test") == false);
     QVERIFY(value01->from<QString>("Test") == false);
