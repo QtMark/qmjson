@@ -21,6 +21,14 @@
 
 #include <test.h>
 
+void TestJson::initTestCase(void)
+{
+    QMJsonValue::registerFromComplexJson("QColor", &QMJsonType<QColor>::fromComplexJson);
+    QMJsonValue::registerFromComplexJson("QPoint", &QMJsonType<QPoint>::fromComplexJson);
+    QMJsonValue::registerFromComplexJson("QRect", &QMJsonType<QRect>::fromComplexJson);
+    QMJsonValue::registerFromComplexJson("QSize", &QMJsonType<QSize>::fromComplexJson);
+}
+
 void TestJson::signaled(void)
 {
     mCount++;

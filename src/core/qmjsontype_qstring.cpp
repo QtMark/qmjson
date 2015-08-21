@@ -98,15 +98,41 @@ QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab, QMJsonSort sort)
         switch(c)
         {
             case '\\':
-            case '\"':
-                result += '\\';
+                result += "\\\\";
+                break;
+            case '"':
+                result += "\\\"";
+                break;
+
+            case '/':
+                result += "\\/";
+                break;
+
+            case '\b':
+                result += "\\b";
+                break;
+
+            case '\f':
+                result += "\\f";
+                break;
+
+            case '\n':
+                result += "\\n";
+                break;
+
+            case '\r':
+                result += "\\r";
+                break;
+
+            case '\t':
+                result += "\\t";
                 break;
 
             default:
+                result += c;
                 break;
         }
 
-        result += c;
     }
     result += '"';
 

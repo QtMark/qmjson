@@ -30,6 +30,8 @@ class TestJson: public QObject
 
 private slots:
 
+    virtual void initTestCase(void);
+
     virtual void QMJsonValue_create(void);
     virtual void QMJsonValue_file(void);
     virtual void QMJsonValue_sort(void);
@@ -43,6 +45,12 @@ private slots:
     virtual void QMJsonValue_from(void);
     virtual void QMJsonValue_variant(void);
     virtual void QMJsonValue_signals(void);
+    virtual void QMJsonValue_tofromjson_null(void);
+    virtual void QMJsonValue_tofromjson_bool(void);
+    virtual void QMJsonValue_tofromjson_double(void);
+    virtual void QMJsonValue_tofromjson_string(void);
+    virtual void QMJsonValue_tofromjson_array(void);
+    virtual void QMJsonValue_tofromjson_object(void);
 
     virtual void QMJsonArray_create(void);
     virtual void QMJsonArray_prepend(void);
@@ -92,6 +100,11 @@ private slots:
     virtual void QMJsonObject_object(void);
     virtual void QMJsonObject_custom(void);
     virtual void QMJsonObject_signals(void);
+
+    virtual void QMJsonGui_qsize(void);
+    virtual void QMJsonGui_qpoint(void);
+    virtual void QMJsonGui_qrect(void);
+    virtual void QMJsonGui_qcolor(void);
 
     virtual void signaled(void);
 

@@ -32,6 +32,7 @@ SOURCES += test.cpp
 SOURCES += testvalue.cpp
 SOURCES += testarray.cpp
 SOURCES += testobject.cpp
+SOURCES += testgui.cpp
 
 #-------------------------------------------------------------------------------
 # QMJson Required

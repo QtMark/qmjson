@@ -87,10 +87,10 @@ void QM_JSON_EXPORT QMJsonType<QColor>::toComplexJson(const QMPointer<QMJsonObje
 
         case QColor::Hsl:
         {
-            obj->insert(HSL_HUE_KEY, mValue.hslHue());
-            obj->insert(HSL_SAT_KEY, mValue.hslSaturation());
-            obj->insert(HSL_LIGHT_KEY, mValue.lightness());
-            obj->insert(HSL_ALPHA_KEY, mValue.alpha());
+            obj->insert(HSL_HUE_KEY, mValue.hslHueF());
+            obj->insert(HSL_SAT_KEY, mValue.hslSaturationF());
+            obj->insert(HSL_LIGHT_KEY, mValue.lightnessF());
+            obj->insert(HSL_ALPHA_KEY, mValue.alphaF());
             break;
         }
 
@@ -139,10 +139,10 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QColor>::fromComplexJson(const 
 
         case QColor::Hsl:
         {
-            color.setHsl(obj->value(HSL_HUE_KEY)->toDouble(),
-                         obj->value(HSL_SAT_KEY)->toDouble(),
-                         obj->value(HSL_LIGHT_KEY)->toDouble(),
-                         obj->value(HSL_ALPHA_KEY)->toDouble());
+            color.setHslF(obj->value(HSL_HUE_KEY)->toDouble(),
+                          obj->value(HSL_SAT_KEY)->toDouble(),
+                          obj->value(HSL_LIGHT_KEY)->toDouble(),
+                          obj->value(HSL_ALPHA_KEY)->toDouble());
             break;
         }
 

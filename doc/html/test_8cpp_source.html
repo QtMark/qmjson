@@ -100,18 +100,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="test_8h.html">test.h</a>&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> TestJson::signaled(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> TestJson::initTestCase(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    mCount++;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;QTEST_MAIN(<a class="code" href="class_test_json.html">TestJson</a>)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">QMJsonValue::registerFromComplexJson</a>(<span class="stringliteral">&quot;QColor&quot;</span>, &amp;<a class="code" href="class_q_m_json_type.html">QMJsonType&lt;QColor&gt;::fromComplexJson</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">QMJsonValue::registerFromComplexJson</a>(<span class="stringliteral">&quot;QPoint&quot;</span>, &amp;<a class="code" href="class_q_m_json_type.html">QMJsonType&lt;QPoint&gt;::fromComplexJson</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">QMJsonValue::registerFromComplexJson</a>(<span class="stringliteral">&quot;QRect&quot;</span>, &amp;<a class="code" href="class_q_m_json_type.html">QMJsonType&lt;QRect&gt;::fromComplexJson</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">QMJsonValue::registerFromComplexJson</a>(<span class="stringliteral">&quot;QSize&quot;</span>, &amp;<a class="code" href="class_q_m_json_type.html">QMJsonType&lt;QSize&gt;::fromComplexJson</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> TestJson::signaled(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    mCount++;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;QTEST_MAIN(<a class="code" href="class_test_json.html">TestJson</a>)</div>
 <div class="ttc" id="test_8h_html"><div class="ttname"><a href="test_8h.html">test.h</a></div></div>
 <div class="ttc" id="class_test_json_html"><div class="ttname"><a href="class_test_json.html">TestJson</a></div><div class="ttdef"><b>Definition:</b> <a href="test_8h_source.html#l00027">test.h:27</a></div></div>
+<div class="ttc" id="class_q_m_json_type_html"><div class="ttname"><a href="class_q_m_json_type.html">QMJsonType</a></div><div class="ttdef"><b>Definition:</b> <a href="qmjsontype_8h_source.html#l00111">qmjsontype.h:111</a></div></div>
+<div class="ttc" id="class_q_m_json_value_html_a1e3b47a919634655bf10f5c4fa8622cf"><div class="ttname"><a href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">QMJsonValue::registerFromComplexJson</a></div><div class="ttdeci">static void registerFromComplexJson(const QString &amp;qmjsontype, FromComplexJsonFunc func)</div><div class="ttdef"><b>Definition:</b> <a href="qmjsonvalue_8cpp_source.html#l00952">qmjsonvalue.cpp:952</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 20 2015 20:27:26 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Aug 21 2015 17:07:39 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

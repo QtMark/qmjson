@@ -947,3 +947,383 @@ void TestJson::QMJsonValue_signals(void)
     value06->from<QSize>(QSize());
     QVERIFY(mCount == 1);
 }
+
+void TestJson::QMJsonValue_tofromjson_null(void)
+{
+    auto value00 = QMPointer<QMJsonValue>(new QMJsonValue());
+
+    auto ojson00 = value00->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto pjson00 = value00->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+
+    QVERIFY(ojson00 == "null");
+    QVERIFY(pjson00 == "null");
+
+    QVERIFY(QMJsonValue::fromJson(ojson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(pjson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+}
+
+void TestJson::QMJsonValue_tofromjson_bool(void)
+{
+    auto value00 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value01 = QMPointer<QMJsonValue>(new QMJsonValue(false));
+
+    auto ojson00 = value00->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson01 = value01->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto pjson00 = value00->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson01 = value01->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+
+    QVERIFY(ojson00 == "true");
+    QVERIFY(ojson01 == "false");
+    QVERIFY(pjson00 == "true");
+    QVERIFY(pjson01 == "false");
+
+    QVERIFY(QMJsonValue::fromJson(ojson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(ojson01)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson01);
+    QVERIFY(QMJsonValue::fromJson(pjson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(pjson01)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson01);
+}
+
+void TestJson::QMJsonValue_tofromjson_double(void)
+{
+    auto value00 = QMPointer<QMJsonValue>(new QMJsonValue(0));
+    auto value01 = QMPointer<QMJsonValue>(new QMJsonValue(-.48));
+    auto value02 = QMPointer<QMJsonValue>(new QMJsonValue(-0.48));
+    auto value03 = QMPointer<QMJsonValue>(new QMJsonValue(-4));
+    auto value04 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8));
+    auto value05 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8e2));
+    auto value06 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8e-2));
+    auto value07 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8e+2));
+    auto value08 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8e15));
+    auto value09 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8e-15));
+    auto value10 = QMPointer<QMJsonValue>(new QMJsonValue(-4.8e+15));
+    auto value11 = QMPointer<QMJsonValue>(new QMJsonValue(.48));
+    auto value12 = QMPointer<QMJsonValue>(new QMJsonValue(0.48));
+    auto value13 = QMPointer<QMJsonValue>(new QMJsonValue(4));
+    auto value14 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto value15 = QMPointer<QMJsonValue>(new QMJsonValue(4.8e2));
+    auto value16 = QMPointer<QMJsonValue>(new QMJsonValue(4.8e-2));
+    auto value17 = QMPointer<QMJsonValue>(new QMJsonValue(4.8e+2));
+    auto value18 = QMPointer<QMJsonValue>(new QMJsonValue(4.8e15));
+    auto value19 = QMPointer<QMJsonValue>(new QMJsonValue(4.8e-15));
+    auto value20 = QMPointer<QMJsonValue>(new QMJsonValue(4.8e+15));
+
+    auto ojson00 = value00->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson01 = value01->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson02 = value02->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson03 = value03->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson04 = value04->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson05 = value05->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson06 = value06->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson07 = value07->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson08 = value08->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson09 = value09->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson10 = value10->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson11 = value11->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson12 = value12->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson13 = value13->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson14 = value14->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson15 = value15->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson16 = value16->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson17 = value17->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson18 = value18->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson19 = value19->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson20 = value20->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+
+    auto pjson00 = value00->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson01 = value01->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson02 = value02->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson03 = value03->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson04 = value04->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson05 = value05->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson06 = value06->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson07 = value07->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson08 = value08->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson09 = value09->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson10 = value10->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson11 = value11->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson12 = value12->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson13 = value13->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson14 = value14->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson15 = value15->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson16 = value16->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson17 = value17->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson18 = value18->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson19 = value19->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson20 = value20->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+
+    QVERIFY(ojson00 == "0");
+    QVERIFY(ojson01 == "-0.48");
+    QVERIFY(ojson02 == "-0.48");
+    QVERIFY(ojson03 == "-4");
+    QVERIFY(ojson04 == "-4.8");
+    QVERIFY(ojson05 == "-480");
+    QVERIFY(ojson06 == "-0.048");
+    QVERIFY(ojson07 == "-480");
+    QVERIFY(ojson08 == "-4.8e+15");
+    QVERIFY(ojson09 == "-4.8e-15");
+    QVERIFY(ojson10 == "-4.8e+15");
+    QVERIFY(ojson11 == "0.48");
+    QVERIFY(ojson12 == "0.48");
+    QVERIFY(ojson13 == "4");
+    QVERIFY(ojson14 == "4.8");
+    QVERIFY(ojson15 == "480");
+    QVERIFY(ojson16 == "0.048");
+    QVERIFY(ojson17 == "480");
+    QVERIFY(ojson18 == "4.8e+15");
+    QVERIFY(ojson19 == "4.8e-15");
+    QVERIFY(ojson20 == "4.8e+15");
+
+    QVERIFY(pjson00 == "0");
+    QVERIFY(pjson01 == "-0.48");
+    QVERIFY(pjson02 == "-0.48");
+    QVERIFY(pjson03 == "-4");
+    QVERIFY(pjson04 == "-4.8");
+    QVERIFY(pjson05 == "-480");
+    QVERIFY(pjson06 == "-0.048");
+    QVERIFY(pjson07 == "-480");
+    QVERIFY(pjson08 == "-4.8e+15");
+    QVERIFY(pjson09 == "-4.8e-15");
+    QVERIFY(pjson10 == "-4.8e+15");
+    QVERIFY(pjson11 == "0.48");
+    QVERIFY(pjson12 == "0.48");
+    QVERIFY(pjson13 == "4");
+    QVERIFY(pjson14 == "4.8");
+    QVERIFY(pjson15 == "480");
+    QVERIFY(pjson16 == "0.048");
+    QVERIFY(pjson17 == "480");
+    QVERIFY(pjson18 == "4.8e+15");
+    QVERIFY(pjson19 == "4.8e-15");
+    QVERIFY(pjson20 == "4.8e+15");
+
+    QVERIFY(QMJsonValue::fromJson(ojson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(ojson01)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson01);
+    QVERIFY(QMJsonValue::fromJson(ojson02)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson02);
+    QVERIFY(QMJsonValue::fromJson(ojson03)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson03);
+    QVERIFY(QMJsonValue::fromJson(ojson04)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson04);
+    QVERIFY(QMJsonValue::fromJson(ojson05)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson05);
+    QVERIFY(QMJsonValue::fromJson(ojson06)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson06);
+    QVERIFY(QMJsonValue::fromJson(ojson07)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson07);
+    QVERIFY(QMJsonValue::fromJson(ojson08)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson08);
+    QVERIFY(QMJsonValue::fromJson(ojson09)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson09);
+    QVERIFY(QMJsonValue::fromJson(ojson10)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson10);
+    QVERIFY(QMJsonValue::fromJson(ojson11)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson11);
+    QVERIFY(QMJsonValue::fromJson(ojson12)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson12);
+    QVERIFY(QMJsonValue::fromJson(ojson13)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson13);
+    QVERIFY(QMJsonValue::fromJson(ojson14)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson14);
+    QVERIFY(QMJsonValue::fromJson(ojson15)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson15);
+    QVERIFY(QMJsonValue::fromJson(ojson16)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson16);
+    QVERIFY(QMJsonValue::fromJson(ojson17)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson17);
+    QVERIFY(QMJsonValue::fromJson(ojson18)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson18);
+    QVERIFY(QMJsonValue::fromJson(ojson19)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson19);
+    QVERIFY(QMJsonValue::fromJson(ojson20)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson20);
+
+    QVERIFY(QMJsonValue::fromJson(pjson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(pjson01)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson01);
+    QVERIFY(QMJsonValue::fromJson(pjson02)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson02);
+    QVERIFY(QMJsonValue::fromJson(pjson03)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson03);
+    QVERIFY(QMJsonValue::fromJson(pjson04)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson04);
+    QVERIFY(QMJsonValue::fromJson(pjson05)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson05);
+    QVERIFY(QMJsonValue::fromJson(pjson06)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson06);
+    QVERIFY(QMJsonValue::fromJson(pjson07)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson07);
+    QVERIFY(QMJsonValue::fromJson(pjson08)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson08);
+    QVERIFY(QMJsonValue::fromJson(pjson09)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson09);
+    QVERIFY(QMJsonValue::fromJson(pjson10)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson10);
+    QVERIFY(QMJsonValue::fromJson(pjson11)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson11);
+    QVERIFY(QMJsonValue::fromJson(pjson12)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson12);
+    QVERIFY(QMJsonValue::fromJson(pjson13)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson13);
+    QVERIFY(QMJsonValue::fromJson(pjson14)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson14);
+    QVERIFY(QMJsonValue::fromJson(pjson15)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson15);
+    QVERIFY(QMJsonValue::fromJson(pjson16)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson16);
+    QVERIFY(QMJsonValue::fromJson(pjson17)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson17);
+    QVERIFY(QMJsonValue::fromJson(pjson18)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson18);
+    QVERIFY(QMJsonValue::fromJson(pjson19)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson19);
+    QVERIFY(QMJsonValue::fromJson(pjson20)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson20);
+}
+
+void TestJson::QMJsonValue_tofromjson_string(void)
+{
+    auto value00 = QMPointer<QMJsonValue>(new QMJsonValue(""));
+    auto value01 = QMPointer<QMJsonValue>(new QMJsonValue("Test"));
+    auto value02 = QMPointer<QMJsonValue>(new QMJsonValue("\"Test\""));
+    auto value03 = QMPointer<QMJsonValue>(new QMJsonValue("\\"));
+    auto value04 = QMPointer<QMJsonValue>(new QMJsonValue("/"));
+    auto value05 = QMPointer<QMJsonValue>(new QMJsonValue("\b"));
+    auto value06 = QMPointer<QMJsonValue>(new QMJsonValue("\f"));
+    auto value07 = QMPointer<QMJsonValue>(new QMJsonValue("\n"));
+    auto value08 = QMPointer<QMJsonValue>(new QMJsonValue("\r"));
+    auto value09 = QMPointer<QMJsonValue>(new QMJsonValue("\t"));
+
+    auto ojson00 = value00->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson01 = value01->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson02 = value02->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson03 = value03->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson04 = value04->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson05 = value05->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson06 = value06->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson07 = value07->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson08 = value08->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson09 = value09->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+
+    auto pjson00 = value00->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson01 = value01->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson02 = value02->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson03 = value03->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson04 = value04->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson05 = value05->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson06 = value06->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson07 = value07->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson08 = value08->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson09 = value09->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+
+    QVERIFY(ojson00 == "\"\"");
+    QVERIFY(ojson01 == "\"Test\"");
+    QVERIFY(ojson02 == "\"\\\"Test\\\"\"");
+    QVERIFY(ojson03 == "\"\\\\\"");
+    QVERIFY(ojson04 == "\"\\/\"");
+    QVERIFY(ojson05 == "\"\\b\"");
+    QVERIFY(ojson06 == "\"\\f\"");
+    QVERIFY(ojson07 == "\"\\n\"");
+    QVERIFY(ojson08 == "\"\\r\"");
+    QVERIFY(ojson09 == "\"\\t\"");
+
+    QVERIFY(pjson00 == "\"\"");
+    QVERIFY(pjson01 == "\"Test\"");
+    QVERIFY(pjson02 == "\"\\\"Test\\\"\"");
+    QVERIFY(pjson03 == "\"\\\\\"");
+    QVERIFY(pjson04 == "\"\\/\"");
+    QVERIFY(pjson05 == "\"\\b\"");
+    QVERIFY(pjson06 == "\"\\f\"");
+    QVERIFY(pjson07 == "\"\\n\"");
+    QVERIFY(pjson08 == "\"\\r\"");
+    QVERIFY(pjson09 == "\"\\t\"");
+
+    QVERIFY(QMJsonValue::fromJson(ojson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(ojson01)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson01);
+    QVERIFY(QMJsonValue::fromJson(ojson02)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson02);
+    QVERIFY(QMJsonValue::fromJson(ojson03)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson03);
+    QVERIFY(QMJsonValue::fromJson(ojson04)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson04);
+    QVERIFY(QMJsonValue::fromJson(ojson05)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson05);
+    QVERIFY(QMJsonValue::fromJson(ojson06)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson06);
+    QVERIFY(QMJsonValue::fromJson(ojson07)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson07);
+    QVERIFY(QMJsonValue::fromJson(ojson08)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson08);
+    QVERIFY(QMJsonValue::fromJson(ojson09)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson09);
+
+    QVERIFY(QMJsonValue::fromJson(pjson00)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson00);
+    QVERIFY(QMJsonValue::fromJson(pjson01)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson01);
+    QVERIFY(QMJsonValue::fromJson(pjson02)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson02);
+    QVERIFY(QMJsonValue::fromJson(pjson03)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson03);
+    QVERIFY(QMJsonValue::fromJson(pjson04)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson04);
+    QVERIFY(QMJsonValue::fromJson(pjson05)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson05);
+    QVERIFY(QMJsonValue::fromJson(pjson06)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson06);
+    QVERIFY(QMJsonValue::fromJson(pjson07)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson07);
+    QVERIFY(QMJsonValue::fromJson(pjson08)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson08);
+    QVERIFY(QMJsonValue::fromJson(pjson09)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson09);
+}
+
+void TestJson::QMJsonValue_tofromjson_array(void)
+{
+    auto array1 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto array2 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto array3 = QMPointer<QMJsonArray>(new QMJsonArray());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(array1));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue(array2));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(array3));
+
+    array2->append(new QMJsonValue);
+    array2->append(true);
+    array2->append(4.8);
+    array2->append("test");
+
+    array3->append(array1);
+    array3->append(array2);
+
+    auto ojson1 = value1->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson2 = value2->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson3 = value3->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto pjson1 = value1->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson2 = value2->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson3 = value3->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+
+    QVERIFY(ojson1 == "[]");
+    QVERIFY(ojson2 == "[null,true,4.8,\"test\"]");
+    QVERIFY(ojson3 == "[[],[null,true,4.8,\"test\"]]");
+
+    QVERIFY(pjson1 == "[]");
+    QVERIFY(pjson2 == "[\r\n"
+            "    null,\r\n"
+            "    true,\r\n"
+            "    4.8,\r\n"
+            "    \"test\"\r\n"
+            "]");
+    QVERIFY(pjson3 == "[\r\n"
+            "    [],\r\n"
+            "    [\r\n"
+            "        null,\r\n"
+            "        true,\r\n"
+            "        4.8,\r\n"
+            "        \"test\"\r\n"
+            "    ]\r\n"
+            "]");
+
+    QVERIFY(QMJsonValue::fromJson(ojson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
+    QVERIFY(QMJsonValue::fromJson(ojson2)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson2);
+    QVERIFY(QMJsonValue::fromJson(ojson3)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson3);
+
+    QVERIFY(QMJsonValue::fromJson(pjson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
+    QVERIFY(QMJsonValue::fromJson(pjson2)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson2);
+    QVERIFY(QMJsonValue::fromJson(pjson3)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson3);
+}
+
+void TestJson::QMJsonValue_tofromjson_object(void)
+{
+    auto object1 = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto object2 = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto object3 = QMPointer<QMJsonObject>(new QMJsonObject());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(object1));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue(object2));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(object3));
+
+    object2->insert("key0", new QMJsonValue);
+    object2->insert("key1", true);
+    object2->insert("key2", 4.8);
+    object2->insert("key3", "test");
+
+    object3->insert("key4", object1);
+    object3->insert("key5", object2);
+
+    auto ojson1 = value1->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson2 = value2->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto ojson3 = value3->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive);
+    auto pjson1 = value1->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson2 = value2->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+    auto pjson3 = value3->toJson(QMJsonFormat_Pretty, QMJsonSort_CaseSensitive);
+
+    QVERIFY(ojson1 == "{}");
+    QVERIFY(ojson2 == "{\"key0\":null,\"key1\":true,\"key2\":4.8,\"key3\":\"test\"}");
+    QVERIFY(ojson3 == "{\"key4\":{},\"key5\":{\"key0\":null,\"key1\":true,\"key2\":4.8,\"key3\":\"test\"}}");
+
+    QVERIFY(pjson1 == "{}");
+    QVERIFY(pjson2 == "{\r\n"
+            "    \"key0\":null,\r\n"
+            "    \"key1\":true,\r\n"
+            "    \"key2\":4.8,\r\n"
+            "    \"key3\":\"test\"\r\n"
+            "}");
+    QVERIFY(pjson3 == "{\r\n"
+            "    \"key4\":{},\r\n"
+            "    \"key5\":{\r\n"
+            "        \"key0\":null,\r\n"
+            "        \"key1\":true,\r\n"
+            "        \"key2\":4.8,\r\n"
+            "        \"key3\":\"test\"\r\n"
+            "    }\r\n"
+            "}");
+
+    QVERIFY(QMJsonValue::fromJson(ojson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
+    QVERIFY(QMJsonValue::fromJson(ojson2)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson2);
+    QVERIFY(QMJsonValue::fromJson(ojson3)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson3);
+
+    QVERIFY(QMJsonValue::fromJson(pjson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
+    QVERIFY(QMJsonValue::fromJson(pjson2)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson2);
+    QVERIFY(QMJsonValue::fromJson(pjson3)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson3);
+}
