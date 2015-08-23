@@ -26,7 +26,7 @@ before_install:
 - sudo apt-get update -qq
 
 install:
-- if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++ gcc; export CXX="g++" CC="gcc"; $CXX --version; fi
+- if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.9 gcc-4.9; export CXX="g++-4.9" CC="gcc-4.9"; $CXX --version; fi
 - if [ "$QT_BASE" = "50" ]; then sudo apt-get install -qq qtbase; source /opt/qt5/bin/qt5-env.sh; fi
 - if [ "$QT_BASE" = "51" ]; then sudo apt-get install -qq qt51base; source /opt/qt51/bin/qt51-env.sh; fi
 - if [ "$QT_BASE" = "52" ]; then sudo apt-get install -qq qt52base; source /opt/qt52/bin/qt52-env.sh; fi
