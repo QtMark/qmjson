@@ -34,10 +34,10 @@ install:
 - if [ "$QT_BASE" = "54" ]; then sudo apt-get install -qq qt54base; source /opt/qt54/bin/qt54-env.sh; fi
 
 script:
-- qmake -r
+- qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC"
 - make
 - sudo make install
 - cd test
-- qmake -r
+- qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC"
 - make
 - ./test
