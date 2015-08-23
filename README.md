@@ -16,6 +16,11 @@ changes occur to specific portions of the tree.
 - Several convience functions for JSON values, arrays and objects providing
 a more developer friendly API.
 
+## Requirements
+
+- C++11. For GCC this means 4.9 and above
+- Qt 5.2 and above
+
 ## Building / Installation Instructions
 
 To build the QtMark JSON Library, first make sure that Qt is installed in your
