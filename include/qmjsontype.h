@@ -119,13 +119,13 @@ public:
     virtual void set(const T &value);
     virtual const T &get(void);
 
-    virtual QDebug print(QDebug dbg) override;
-    virtual bool isBaseType(void) override;
+    virtual QDebug print(QDebug dbg);
+    virtual bool isBaseType(void);
 
-    virtual QString toJson(int32_t tab, QMJsonSort sort) override;
+    virtual QString toJson(int32_t tab, QMJsonSort sort);
     static QMPointer<QMJsonValue> fromJson(const QString &json, int32_t &index);
 
-    virtual void toComplexJson(const QMPointer<QMJsonObject> &obj) override;
+    virtual void toComplexJson(const QMPointer<QMJsonObject> &obj);
     static QMPointer<QMJsonValue> fromComplexJson(const QMPointer<QMJsonObject> &obj);
 
 private:
