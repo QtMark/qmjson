@@ -40,14 +40,14 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
     {
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json[index].toLatin1())
+        switch(json.at(index).toLatin1())
         {
             case '\\':
             {
                 index++;
                 QMJsonValue::verifyIndex(json, index);
 
-                switch(json[index].toLatin1())
+                switch(json.at(index).toLatin1())
                 {
                     case '"': result += '"'; break;
                     case '\\': result += '\\'; break;
@@ -73,7 +73,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
                 return QMPointer<QMJsonValue>(new QMJsonValue(result));
 
             default:
-                result += json[index++];
+                result += json.at(index++);
                 break;
         };
     }
@@ -93,7 +93,7 @@ QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab, QMJsonSort sort)
     result += '"';
     for(int i = 0; i < str.length(); i++)
     {
-        auto c = str[i].toLatin1();
+        auto c = str.at(i).toLatin1();
 
         switch(c)
         {

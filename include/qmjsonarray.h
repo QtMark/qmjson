@@ -38,6 +38,9 @@ class QM_JSON_EXPORT QMJsonArray : public QObject
 
 public:
 
+    /**
+     * fdsafjdkfjskla
+     */
     QMJsonArray();
     explicit QMJsonArray(const QList<QMPointer<QMJsonValue> > &list);
     virtual ~QMJsonArray();

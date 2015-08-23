@@ -118,9 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a706f463818201a39a3af498ffb1110cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9b251421e6bee8227d86ee98e65ec78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_m_json_value.html#ad9b251421e6bee8227d86ee98e65ec78">QMJsonValue</a> (<a class="el" href="class_q_m_json_object.html">QMJsonObject</a> *<a class="el" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>)</td></tr>
 <tr class="separator:ad9b251421e6bee8227d86ee98e65ec78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee90af978ab8b72ceb4ff2a16500bafd"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:aee90af978ab8b72ceb4ff2a16500bafd"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_q_m_json_value.html#aee90af978ab8b72ceb4ff2a16500bafd">QMJsonValue</a> (const T &amp;<a class="el" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>)</td></tr>
-<tr class="separator:aee90af978ab8b72ceb4ff2a16500bafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6bfb951bd6f3936475c2f9491112a3"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:aeb6bfb951bd6f3936475c2f9491112a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_q_m_json_value.html#aeb6bfb951bd6f3936475c2f9491112a3">QMJsonValue</a> (const T &amp;<a class="el" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>)</td></tr>
+<tr class="separator:aeb6bfb951bd6f3936475c2f9491112a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c216bb9bfd9edc7c800c2a71b95f4b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_m_json_value.html#a8c216bb9bfd9edc7c800c2a71b95f4b8">QMJsonValue</a> (const char *<a class="el" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>)</td></tr>
 <tr class="separator:a8c216bb9bfd9edc7c800c2a71b95f4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac72afb3a2847b9f065f6c48669fbe650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_q_m_json_value.html#ac72afb3a2847b9f065f6c48669fbe650">QMJsonValue</a> (float <a class="el" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>)</td></tr>
@@ -256,6 +256,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Creates a JSON "null" value. </p>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00049">49</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -282,6 +283,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a JSON boolean value. </p>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00054">54</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -308,6 +310,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a JSON number value. </p>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00062">62</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -334,6 +337,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a JSON string value.</p>
+<dl class="section note"><dt>Note</dt><dd>QtMark JSON stores all strings internally as QStrings. </dd></dl>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00070">70</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -360,6 +365,9 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a new JSON value from an existing JSON value.</p>
+<p>Both JSON values share the same internal pointer, and thus modifying one of the values, modifies them all.</p>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>, a default, "null" JSON value will be created in it's place. </dd></dl>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00078">78</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -386,6 +394,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a JSON array, wrapped in a JSON value.</p>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, a default, JSON array will be created in it's place. </dd></dl>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00092">92</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -412,6 +422,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a JSON object, wrapped in a JSON value.</p>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, a default, JSON object will be created in it's place. </dd></dl>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00109">109</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -438,6 +450,9 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a new JSON value from an existing JSON value.</p>
+<p>Both JSON values share the same internal pointer, and thus modifying one of the values, modifies them all.</p>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>, a default, "null" JSON value will be created in it's place. </dd></dl>
 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00126">126</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
@@ -464,7 +479,12 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<p>Creates a JSON array, wrapped in a JSON value.</p>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, a default, JSON array will be created in it's place.</dd>
+<dd>
+This function wraps the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> in a QMPointer, since the QtMark JSON Library only supported managed pointers. For this reason, user's of this API should be aware that the pointer will become managed once used. The most common use for this function is when creating new JSON arrays as shown below</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00140">140</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
@@ -490,12 +510,17 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<p>Creates a JSON object, wrapped in a JSON value.</p>
+<dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, a default, JSON object will be created in it's place.</dd>
+<dd>
+This function wraps the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> in a QMPointer, since the QtMark JSON Library only supported managed pointers. For this reason, user's of this API should be aware that the pointer will become managed once used. The most common use for this function is when creating new JSON objects as shown below</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>);</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00158">158</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aee90af978ab8b72ceb4ff2a16500bafd"></a>
+<a class="anchor" id="aeb6bfb951bd6f3936475c2f9491112a3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -505,7 +530,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QMJsonValue::QMJsonValue </td>
+          <td class="memname">template&lt; class T &gt; QMJsonValue::QMJsonValue </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -518,7 +543,12 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<p>Creates a JSON value with type T.</p>
+<p>The QtMark JSON Library supports wraping almost anything in a JSON value. If you use this function, the compiler will likely require that you provide a QDebug overload for this type (if one does not already exist).</p>
+<p>If you wish to use toJson and fromJson with a non-standard type, you need to provide the Complex JSON template overloads. For an example of how to do this, see the <a class="el" href="qmjsontype__qsize_8cpp.html">qmjsontype_qsize.cpp</a> file.</p>
+<p>This library also supported nested complex types. To see an example of how this works, see the <a class="el" href="qmjsontype__qrect_8cpp.html">qmjsontype_qrect.cpp</a> file, as the QRect implementation relys on QSize and QPoint.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(QSize(4, 8));</div>
+</div><!-- fragment --> 
 <p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00169">169</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
@@ -1985,7 +2015,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 21 2015 17:07:39 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 22 2015 18:48:17 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

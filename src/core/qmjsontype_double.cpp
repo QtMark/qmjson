@@ -49,7 +49,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<double>::fromJson(const QString
     {
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json[index].toLatin1())
+        switch(json.at(index).toLatin1())
         {
             case ']':
             case '}':

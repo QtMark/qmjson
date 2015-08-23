@@ -41,7 +41,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::fromJ
         QMJsonValue::skipSpaces(json, index);
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json[index].toLatin1())
+        switch(json.at(index).toLatin1())
         {
             case ']':
                 index++;

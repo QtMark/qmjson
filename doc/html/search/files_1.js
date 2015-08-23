@@ -3,6 +3,7 @@ var searchData=
   ['qmjson_2eh',['qmjson.h',['../qmjson_8h.html',1,'']]],
   ['qmjsonarray_2ecpp',['qmjsonarray.cpp',['../qmjsonarray_8cpp.html',1,'']]],
   ['qmjsonarray_2eh',['qmjsonarray.h',['../qmjsonarray_8h.html',1,'']]],
+  ['qmjsonfeatures_2eh',['qmjsonfeatures.h',['../qmjsonfeatures_8h.html',1,'']]],
   ['qmjsongui_2eh',['qmjsongui.h',['../qmjsongui_8h.html',1,'']]],
   ['qmjsonobject_2ecpp',['qmjsonobject.cpp',['../qmjsonobject_8cpp.html',1,'']]],
   ['qmjsonobject_2eh',['qmjsonobject.h',['../qmjsonobject_8h.html',1,'']]],

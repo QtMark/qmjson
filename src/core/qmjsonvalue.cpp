@@ -286,16 +286,6 @@ bool QMJsonValue::isNull(void) const
     return mValue.isNull();
 }
 
-bool QMJsonValue::isValid(void) const
-{
-    return !this->isNull();
-}
-
-bool QMJsonValue::isEmpty(void) const
-{
-    return this->isNull();
-}
-
 bool QMJsonValue::isBool(void) const
 {
     return this->is<bool>();
@@ -962,7 +952,7 @@ void QMJsonValue::registerFromComplexJson(const QString &qmjsontype, FromComplex
 
 void QMJsonValue::skipSpaces(const QString &json, int32_t &index)
 {
-    while(index < json.length() && json[index].isSpace() == true)
+    while(index < json.length() && json.at(index).isSpace() == true)
         index++;
 }
 
@@ -1018,7 +1008,7 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json, int32_t &index
     // currently looking at. Its safe to assume that you are probably starting
     // with a JSON object or array, but other than that, all bets are off.
 
-    switch(json[index].toLatin1())
+    switch(json.at(index).toLatin1())
     {
         case '"':
             return QMJsonType<QString>::fromJson(json, index);
@@ -1042,9 +1032,9 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json, int32_t &index
 
             index++;
 
-            QMJsonValue::verifyIndex(json, index); valid &= json[index].toLower() == 'u'; index++;
-            QMJsonValue::verifyIndex(json, index); valid &= json[index].toLower() == 'l'; index++;
-            QMJsonValue::verifyIndex(json, index); valid &= json[index].toLower() == 'l'; index++;
+            QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 'u'; index++;
+            QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 'l'; index++;
+            QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 'l'; index++;
 
             if(valid == false)
                 QMJsonValue::throwError(json, index, "Unexpected token. Expected \"NULL\" while parsing JSON.");

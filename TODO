@@ -1,12 +1,5 @@
 Version 1.0 Todo:
 - Add doxygen API comments
-- Add remaining unit tests for existing functionaility
-
-Update build instructions to include how to build doxygen and what packages
-are needed
-- flex
-- bison
-
 
 
 Version 2.0 Todo:

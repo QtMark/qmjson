@@ -83,9 +83,6 @@ public:
     virtual ~QMJsonValue();
 
     virtual bool isNull(void) const;
-    virtual bool isValid(void) const;
-    virtual bool isEmpty(void) const;
-
     virtual bool isBool(void) const;
     virtual bool isDouble(void) const;
     virtual bool isString(void) const;
@@ -237,4 +234,127 @@ bool QMJsonValue::set(const T &value)
  * Placeholder
  *
  *
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue()
+ * Creates a JSON "null" value.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(bool value)
+ * Creates a JSON boolean value.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(double value)
+ * Creates a JSON number value.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(const QString &value)
+ * Creates a JSON string value.
+ *
+ * @note QtMark JSON stores all strings internally as QStrings.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(const QMPointer<QMJsonValue> &value)
+ * Creates a new JSON value from an existing JSON value.
+ *
+ * Both JSON values share the same internal pointer, and thus modifying one
+ * of the values, modifies them all.
+ *
+ * @note If the user provides a NULL QMJsonValue, a default, "null" JSON
+ * value will be created in it's place.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(const QMPointer<QMJsonArray> &value)
+ * Creates a JSON array, wrapped in a JSON value.
+ *
+ * @note If the user provides a NULL QMJsonArray, a default, JSON array
+ * will be created in it's place.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(const QMPointer<QMJsonObject> &value)
+ * Creates a JSON object, wrapped in a JSON value.
+ *
+ * @note If the user provides a NULL QMJsonObject, a default, JSON object
+ * will be created in it's place.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(QMJsonValue *value)
+ * Creates a new JSON value from an existing JSON value.
+ *
+ * Both JSON values share the same internal pointer, and thus modifying one
+ * of the values, modifies them all.
+ *
+ * @note If the user provides a NULL QMJsonValue, a default, "null" JSON
+ * value will be created in it's place.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(QMJsonArray *value)
+ * Creates a JSON array, wrapped in a JSON value.
+ *
+ * @note If the user provides a NULL QMJsonArray, a default, JSON array
+ * will be created in it's place.
+ *
+ * @note This function wraps the QMJsonArray in a QMPointer, since the
+ * QtMark JSON Library only supported managed pointers. For this reason,
+ * user's of this API should be aware that the pointer will become managed
+ * once used. The most common use for this function is when creating new
+ * JSON arrays as shown below
+ *
+ * @code
+ *
+ * auto value = QMPointer<QMJsonValue>(new QMJsonArray);
+ *
+ * @endcode
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(QMJsonObject *value)
+ * Creates a JSON object, wrapped in a JSON value.
+ *
+ * @note If the user provides a NULL QMJsonObject, a default, JSON object
+ * will be created in it's place.
+ *
+ * @note This function wraps the QMJsonObject in a QMPointer, since the
+ * QtMark JSON Library only supported managed pointers. For this reason,
+ * user's of this API should be aware that the pointer will become managed
+ * once used. The most common use for this function is when creating new
+ * JSON objects as shown below
+ *
+ * @code
+ *
+ * auto value = QMPointer<QMJsonValue>(new QMJsonObject);
+ *
+ * @endcode
+ */
+
+/**
+ * @fn template<class T> QMJsonValue::QMJsonValue(const T &value)
+ * Creates a JSON value with type T.
+ *
+ * The QtMark JSON Library supports wraping almost anything in a JSON
+ * value. If you use this function, the compiler will likely require that you
+ * provide a QDebug overload for this type (if one does not already exist).
+ *
+ * If you wish to use toJson and fromJson with a non-standard type, you need
+ * to provide the Complex JSON template overloads. For an example of how to
+ * do this, see the qmjsontype_qsize.cpp file.
+ *
+ * This library also supported nested complex types. To see an example of how
+ * this works, see the qmjsontype_qrect.cpp file, as the QRect implementation
+ * relys on QSize and QPoint.
+ *
+ * @code
+ *
+ * auto value = QMPointer<QMJsonValue>(QSize(4, 8));
+ *
+ * @endcode
  */
