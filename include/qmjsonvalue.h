@@ -69,8 +69,6 @@ public:
     explicit QMJsonValue(const char *value);
     explicit QMJsonValue(float value);
     explicit QMJsonValue(char value);
-    explicit QMJsonValue(long value);
-    explicit QMJsonValue(unsigned long value);
     explicit QMJsonValue(int8_t value);
     explicit QMJsonValue(uint8_t value);
     explicit QMJsonValue(int16_t value);

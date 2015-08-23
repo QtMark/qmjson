@@ -197,22 +197,6 @@ QMJsonValue::QMJsonValue(char value)
     mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
 }
 
-QMJsonValue::QMJsonValue(long value)
-{
-    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
-
-    mType = QMJsonValueType_Double;
-    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
-}
-
-QMJsonValue::QMJsonValue(unsigned long value)
-{
-    auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));
-
-    mType = QMJsonValueType_Double;
-    mValue = qSharedPointerDynamicCast<QMJsonTypeBase>(type);
-}
-
 QMJsonValue::QMJsonValue(int8_t value)
 {
     auto type = QMPointer<QMJsonType<double> >(new QMJsonType<double>(value));

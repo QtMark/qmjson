@@ -181,7 +181,7 @@ QMPointer<QMJsonValue> QMJsonType<T>::fromJson(const QString &json, int32_t &ind
     (void) json;
     (void) index;
 
-    return NULL;
+    return QMPointer<QMJsonValue>();
 }
 
 template <class T>
