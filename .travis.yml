@@ -30,3 +30,8 @@ script:
 - qmake -r
 - make
 - ./test -platform offscreen
+- cd ..
+- cd example
+- qmake -r
+- make
+- ./example

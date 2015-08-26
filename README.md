@@ -16,9 +16,13 @@ changes occur to specific portions of the tree.
 - Several convience functions for JSON values, arrays and objects providing
 a more developer friendly API.
 
+For more information on the API, please see the API documentation:
+
+http://qtmark.github.io/qmjson/doc/html/
+
 ## Requirements
 
-- C++11. For GCC this means 4.9 and above
+- C++11
 - Qt 5.2 and above
 
 ## Building / Installation Instructions

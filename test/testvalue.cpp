@@ -50,6 +50,14 @@ void TestJson::QMJsonValue_create(void)
     auto value24 = QMPointer<QMJsonValue>(new QMJsonValue((uint32_t)8));
     auto value25 = QMPointer<QMJsonValue>(new QMJsonValue((int64_t)15));
     auto value26 = QMPointer<QMJsonValue>(new QMJsonValue((uint64_t)16));
+    auto value27 = QMPointer<QMJsonValue>(new QMJsonValue((char)15));
+    auto value28 = QMPointer<QMJsonValue>(new QMJsonValue((unsigned char)16));
+    auto value29 = QMPointer<QMJsonValue>(new QMJsonValue((short)15));
+    auto value30 = QMPointer<QMJsonValue>(new QMJsonValue((unsigned short)16));
+    auto value31 = QMPointer<QMJsonValue>(new QMJsonValue((int)15));
+    auto value32 = QMPointer<QMJsonValue>(new QMJsonValue((unsigned int)16));
+    auto value33 = QMPointer<QMJsonValue>(new QMJsonValue((long long)15));
+    auto value34 = QMPointer<QMJsonValue>(new QMJsonValue((unsigned long long)16));
 
     QVERIFY(value00->type() == QMJsonValueType_Null);
     QVERIFY(value01->type() == QMJsonValueType_Bool);
@@ -78,6 +86,14 @@ void TestJson::QMJsonValue_create(void)
     QVERIFY(value24->type() == QMJsonValueType_Double);
     QVERIFY(value25->type() == QMJsonValueType_Double);
     QVERIFY(value26->type() == QMJsonValueType_Double);
+    QVERIFY(value27->type() == QMJsonValueType_Double);
+    QVERIFY(value28->type() == QMJsonValueType_Double);
+    QVERIFY(value29->type() == QMJsonValueType_Double);
+    QVERIFY(value30->type() == QMJsonValueType_Double);
+    QVERIFY(value31->type() == QMJsonValueType_Double);
+    QVERIFY(value32->type() == QMJsonValueType_Double);
+    QVERIFY(value33->type() == QMJsonValueType_Double);
+    QVERIFY(value34->type() == QMJsonValueType_Double);
 
     QVERIFY(value00->typeString() == "QMJsonValueType_Null");
     QVERIFY(value01->typeString() == "QMJsonValueType_Bool");
@@ -106,6 +122,14 @@ void TestJson::QMJsonValue_create(void)
     QVERIFY(value24->typeString() == "QMJsonValueType_Double");
     QVERIFY(value25->typeString() == "QMJsonValueType_Double");
     QVERIFY(value26->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value27->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value28->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value29->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value30->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value31->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value32->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value33->typeString() == "QMJsonValueType_Double");
+    QVERIFY(value34->typeString() == "QMJsonValueType_Double");
 }
 
 void TestJson::QMJsonValue_file(void)

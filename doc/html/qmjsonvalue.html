@@ -67,11 +67,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title"><a class="el" href="class_q_m_json_value.html">QMJsonValue</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Placeholder </p>
+<div class="textblock"><h1><a class="anchor" id="Overview"></a>
+Overview</h1>
+<p>With respect to JSON, there are several different basic types:</p>
+<ul>
+<li>null</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>array</li>
+<li>object</li>
+</ul>
+<p>A <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> is a wrapper that can take on any of the above types. This provides a convient mechanism in C++ to implement the JSON array and object as these data structures can take on any combintation of basic types themselves. That is, in JSON this is perfectly valid:</p>
+<div class="fragment"><div class="line">[<span class="keyword">true</span>, 4.8, <span class="stringliteral">&quot;Hello World&quot;</span>]</div>
+</div><!-- fragment --><p>In other high level languages, this can be done, but in C++, this is more difficult. To overcome this, the JSON array / object is implemented as an array / hash of QMJsonValues.</p>
+<div class="fragment"><div class="line">[<a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(<span class="keyword">true</span>), <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(4.8), <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(<span class="stringliteral">&quot;Hello World&quot;</span>)]</div>
+</div><!-- fragment --><p>Unlike other librarys, the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> takes this one step further and provides support for complex JSON types, allowing for automatic marshaling and unmarshaling of custom types to and from JSON. For more information about JSON, see the following:</p>
+<p><a href="http://www.json.org">http://www.json.org</a></p>
+<h1><a class="anchor" id="Creation"></a>
+Creation</h1>
+<p>Like all of the classes in this library, <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> must be creating using a managed QMPointer. Using pointers provides a unique way to maintain access to arbitrary portions of a JSON tree at any time.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(4.8));</div>
+</div><!-- fragment --><p>The <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> provides constructors for all of the basic types, as well as some non-JSON specific types to ease the use of this API. For example, without additional constructors, type casting would be required constantly:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>((<span class="keywordtype">double</span>)4));</div>
+</div><!-- fragment --><p>This library provides constructor overloads for all of the integer types (8bit s/u to 64bit s/u), as well as floating point and ASCII character pointers.</p>
+<h1><a class="anchor" id="getting_setting"></a>
+Getting / Setting</h1>
+<p>Once a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> is created, it's internal type cannot be changed. That is to say, it's not possible to take an existing <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> that is currently storing a double, and tell it to start storing a string. With some of the basic types, it is however possible to convert from one type to another. For example,</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(4.8));</div>
+<div class="line">qDebug() &lt;&lt; value-&gt;toString(); <span class="comment">// &quot;4.8&quot;</span></div>
+</div><!-- fragment --><p>Ideally, if the internal type is a bool, you would only use the toBool and fromBool functions. Furthermore, automatic type conversions are not provided if the user provides a default value.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(4.8));</div>
+<div class="line">qDebug() &lt;&lt; value-&gt;toString(<span class="stringliteral">&quot;test&quot;</span>); <span class="comment">// &quot;test&quot;</span></div>
+</div><!-- fragment --><p>If the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> is storing a complex type, the to&lt;T&gt; and from&lt;T&gt; functions must be used, as generics are not provided.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(QSize(4, 8)));</div>
+<div class="line">qDebug() &lt;&lt; value-&gt;to&lt;QSize&gt;(QSize(15, 16)); <span class="comment">// QSize(4, 8)</span></div>
+<div class="line">qDebug() &lt;&lt; value-&gt;from&lt;QSize&gt;(QSize(15, 16)); <span class="comment">// true</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="Testing"></a>
+Testing</h1>
+<p>There are multiple ways to determine what type a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> is if the type is basic.</p>
+<ul>
+<li>isNull, isBool, isDouble, isString, isArray, isObject</li>
+<li>type</li>
+<li>typeString</li>
+<li>is&lt;bool&gt;, is&lt;double&gt;, is&lt;QString&gt;, is&lt;QMPointer&lt;QMJsonArray&gt; &gt;, is&lt;QMPointer&lt;QMJsonObject&gt; &gt;</li>
+</ul>
+<p>Genreally speaking, the isNull, isBool, isDouble, isString, isArray, isObject are preferred as they are faster and more concise. If the type you are attempting to identify is a complex type, you need to use the is&lt;xxx&gt; function as this is the only way to identify a complex type.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(QSize(4, 8)));</div>
+<div class="line">qDebug() &lt;&lt; value-&gt;is&lt;QSize&gt;(); <span class="comment">// true</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="to_from_json"></a>
+To / From JSON</h1>
+<p>With most JSON, at some point, you will likely need to convert the JSON to and from a JSON string. This can be doen with the <a class="el" href="class_q_m_json_value.html#a21d517f02d607c282bbd0d6cc6ae1bc1">QMJsonValue::toJson</a> and <a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">QMJsonValue::fromJson</a> functions. This library also provides file operations as well, which allow for JSON to be read / written to / from a file usign <a class="el" href="class_q_m_json_value.html#a971438615af610cf5d603857bb3402b1">QMJsonValue::toJsonFile</a> and <a class="el" href="class_q_m_json_value.html#a4fa99695e5d629465bdd55d80b420148">QMJsonValue::fromJsonFile</a></p>
+<h1><a class="anchor" id="complex_types"></a>
+Complex Types</h1>
+<p><a class="el" href="class_q_m_json_value.html">QMJsonValue</a> can store any JSON type natively. There is nothing the user must do for basic support other than provide a couple of support functions for the class if they are not alreayd provided, which include:</p>
+<ul>
+<li>Default constructor</li>
+<li>Equals operator</li>
+<li>QDebug Overload</li>
+</ul>
+<p>If these are not provided, it's like the compiler will complain in an attempt to put the complex type inside the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> (as the compiler attempts to create the template type). If the user would like to use <a class="el" href="class_q_m_json_value.html#a21d517f02d607c282bbd0d6cc6ae1bc1">QMJsonValue::toJson</a> and <a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">QMJsonValue::fromJson</a>, three things must be done. First, the user must create template overloads for <a class="el" href="class_q_m_json_type.html#a133ec450fe8dc75231a4d4430c714aac">QMJsonType::toComplexJson</a> and <a class="el" href="class_q_m_json_type.html#a439dcf8413ff8e3a12dde8c0e3966301">QMJsonType::fromComplexJson</a>, and then the user must register the <a class="el" href="class_q_m_json_type.html#a439dcf8413ff8e3a12dde8c0e3966301">QMJsonType::fromComplexJson</a> function using <a class="el" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">QMJsonValue::registerFromComplexJson</a>.</p>
+<p>For a complete exmaple, see <a class="el" href="main_8cpp.html">main.cpp</a>, <a class="el" href="qmjsontype__qsize_8cpp.html">qmjsontype_qsize.cpp</a> and <a class="el" href="qmjsontype__qrect_8cpp.html">qmjsontype_qrect.cpp</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 22 2015 18:48:17 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 26 2015 19:52:31 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
