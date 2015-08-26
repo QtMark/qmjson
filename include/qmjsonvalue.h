@@ -83,6 +83,11 @@ public:
     explicit QMJsonValue(long value);
     explicit QMJsonValue(unsigned long value);
 
+#elif UINTPTR_MAX == 0xffffffffffffffff
+
+    explicit QMJsonValue(long long value);
+    explicit QMJsonValue(unsigned long long value);
+
 #endif
 
     virtual ~QMJsonValue();
@@ -603,6 +608,20 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn QMJsonValue::QMJsonValue(unsigned long value)
+ * Creates a JSON number value.
+ *
+ * @note QtMark JSON stores all numbers internally as a double.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(long long value)
+ * Creates a JSON number value.
+ *
+ * @note QtMark JSON stores all numbers internally as a double.
+ */
+
+/**
+ * @fn QMJsonValue::QMJsonValue(unsigned long long value)
  * Creates a JSON number value.
  *
  * @note QtMark JSON stores all numbers internally as a double.
