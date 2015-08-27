@@ -542,7 +542,7 @@ template&lt;class T &gt; </div>
 <p>This library also supported nested complex types. To see an example of how this works, see the <a class="el" href="qmjsontype__qrect_8cpp.html">qmjsontype_qrect.cpp</a> file, as the QRect implementation relys on QSize and QPoint.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(QSize(4, 8));</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00171">171</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00176">176</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
 </div>
@@ -875,7 +875,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00284">284</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00302">302</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -912,7 +912,7 @@ template&lt;class T &gt; </div>
 <li>else: returns false </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00620">620</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00638">638</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -938,7 +938,7 @@ template&lt;class T &gt; </div>
 <div class="line">qDebug() &lt;&lt; value1-&gt;from&lt;QSize&gt;(15, 16); <span class="comment">// false</span></div>
 <div class="line">qDebug() &lt;&lt; value2-&gt;from&lt;QSize&gt;(15, 16); <span class="comment">// true</span></div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00197">197</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00202">202</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
 </div>
@@ -966,7 +966,7 @@ template&lt;class T &gt; </div>
 <p>Unwraps the JSON value and sets the internal type to a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. If the internal type is not a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, the request is ignored</p>
 <p>Unwraps the JSON value and sets the internal type to a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. If the internal type is not a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, the request is ignored </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00572">572</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00590">590</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1000,7 +1000,7 @@ template&lt;class T &gt; </div>
 <li>else: (ignored, returns false) </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00477">477</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00495">495</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1034,7 @@ template&lt;class T &gt; </div>
 <li>else: (ignored, returns false) </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00508">508</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00526">526</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1063,7 +1063,7 @@ template&lt;class T &gt; </div>
 <p>If the provided string contains a JSON object that has a key named 'qmjsontype', <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> will attempt to convert the JSON object to it's complex type using the fromComplexJson function that was registered with registerFromComplexJson. If no fromComplexJson exists for the type defined by 'qmjsontype', or has not been registered, the JSON object will be treated as a standard JSON object.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">registerFromComplexJson</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00892">892</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00910">910</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1091,7 +1091,7 @@ template&lt;class T &gt; </div>
 <p>Read in the contents of filename, and converts the resulting sting into the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> equivlant.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">fromJson</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l01060">1060</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l01078">1078</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1117,7 +1117,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00596">596</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00614">614</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1151,7 +1151,7 @@ template&lt;class T &gt; </div>
 <li>else: (ignored, returns false) </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00536">536</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00554">554</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1178,7 +1178,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Converts a QVariant into a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. QVariants can take on a lot of different types. Types that are not supported by this library return QVariant's default constructor. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00709">709</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00727">727</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1202,7 +1202,7 @@ template&lt;class T &gt; </div>
 <div class="line"></div>
 <div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;is&lt;QSize&gt;(); <span class="comment">// true</span></div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00180">180</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00185">185</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
 </div>
@@ -1229,7 +1229,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Returns true if the wrapped JSON value is a JSON array </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00308">308</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00326">326</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1256,7 +1256,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Returns true if the wrapped JSON value is a boolean </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00293">293</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00311">311</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1284,7 +1284,7 @@ template&lt;class T &gt; </div>
 <p>Returns true if the wrapped JSON value is a double.</p>
 <dl class="section note"><dt>Note</dt><dd>All numbers are stored as doubles, including integer types. </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00298">298</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00316">316</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1312,7 +1312,7 @@ template&lt;class T &gt; </div>
 <p>Returns true if the wrapped JSON value is a "null".</p>
 <dl class="section note"><dt>Note</dt><dd>Internally, "null" QMJsonValues have no internal type pointer. </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00288">288</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00306">306</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1339,7 +1339,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Returns true if the wrapped JSON value is a JSON object </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00313">313</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00331">331</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1367,7 @@ template&lt;class T &gt; </div>
 <p>Returns true if the wrapped JSON value is a string.</p>
 <dl class="section note"><dt>Note</dt><dd>QtMark JSON stores all strings internally as QStrings. </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00303">303</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00321">321</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1405,7 +1405,7 @@ template&lt;class T &gt; </div>
 <p>Registers a fromComplexJson function with the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> class. When fromJson or fromJsonFile are called, fromComplexJson that are registered will be used to convert JSON objects that contain 'qmjsontype' into their complex equivlants.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="main_8cpp.html">main.cpp</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00946">946</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00964">964</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1431,7 +1431,7 @@ template&lt;class T &gt; </div>
 <div class="line">qDebug() &lt;&lt; value1-&gt;to&lt;QSize&gt;(15, 16); <span class="comment">// QSize(15, 16)</span></div>
 <div class="line">qDebug() &lt;&lt; value2-&gt;to&lt;QSize&gt;(15, 16); <span class="comment">// QSize(4, 8)</span></div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00186">186</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00191">191</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
 </div>
@@ -1458,7 +1458,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. If the internal type is not a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, an empty <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> is returned. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00405">405</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00423">423</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1485,7 +1485,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns the interanl type. If the interal type is not an array, the default value is returned instead. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00457">457</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00475">475</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1519,7 +1519,7 @@ template&lt;class T &gt; </div>
 <li>else: false </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00318">318</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00336">336</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1546,7 +1546,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns the interanl type. If the interal type is not a boolean, the default value is returned instead. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00427">427</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00445">445</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1580,7 +1580,7 @@ template&lt;class T &gt; </div>
 <li>else: 0 </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00349">349</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00367">367</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1607,7 +1607,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns the interanl type. If the interal type is not a double, the default value is returned instead. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00437">437</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00455">455</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1646,7 +1646,7 @@ template&lt;class T &gt; </div>
 <p>Non-standard JSON types (i.e. complex types) are converted into their JSON equivalents using the toComplexJson and fromComplexJson template overloads. To see an exmaple of how this is done, see the template overloads withing the GUI portion of this library. Specificaly the overloads for QSize and QRect which demonstration coverting a complex type into native JSON (i.e. QSize) and converting a complex type into other complex types (i.e. QRect)</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">registerFromComplexJson</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00837">837</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00855">855</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1690,7 +1690,7 @@ template&lt;class T &gt; </div>
 <p>Converts the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> to a string and saves the results to filename. If the save fails, this function returns false, otherwise true.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#a21d517f02d607c282bbd0d6cc6ae1bc1">toJson</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00878">878</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00896">896</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1717,7 +1717,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. If the internal type is not a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, an empty <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> is returned. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00416">416</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00434">434</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1744,7 +1744,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns the interanl type. If the interal type is not an object, the default value is returned instead. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00467">467</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00485">485</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1778,7 +1778,7 @@ template&lt;class T &gt; </div>
 <li>else: 0 </li>
 </ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00377">377</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00395">395</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1805,7 +1805,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Unwraps the JSON value and returns the interanl type. If the interal type is not a string, the default value is returned instead. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00447">447</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00465">465</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1832,7 +1832,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Converts the JSON value to a Variant. QMJsonArrays and QMJsonObjects are converted into QVariantLists and QVariantHashs, and wrapped in a QVariant. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00665">665</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00683">683</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1859,7 +1859,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Returns the internal type for this <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00813">813</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00831">831</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1886,7 +1886,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Returns a string representation of the internal type for this <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00818">818</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00836">836</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1915,7 +1915,7 @@ template&lt;class T &gt; </div>
 <div class="fragment"><div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;value(index); <span class="comment">// QMJsonValue()</span></div>
 <div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;toArray()-&gt;value(index); <span class="comment">// QMJsonValue()</span></div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00655">655</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00673">673</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1944,7 +1944,7 @@ template&lt;class T &gt; </div>
 <div class="fragment"><div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;value(key); <span class="comment">// QMJsonValue()</span></div>
 <div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;toObject()-&gt;value(key); <span class="comment">// QMJsonValue()</span></div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00660">660</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00678">678</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -2005,7 +2005,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l01078">1078</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l01096">1096</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -2040,7 +2040,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 26 2015 19:52:31 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 26 2015 20:08:42 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
