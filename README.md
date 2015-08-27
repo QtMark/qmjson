@@ -5,15 +5,15 @@
 The QtMark JSON Library provides an alternative implementation to Qt's native
 JSON implementation. Some notable improvements include:
 
-- All JSON values, arrays and objects are stored as gaurded pointers, providing
+- All JSON values, arrays and objects are stored as managed pointers, providing
 a simple means to externally maintain a reference to portions of a JSON tree
 - Support for custom types, providing a means to automatically marshal /
 unmarshal JSON trees into complex C++ Classes.
-- Native support for some custom types (providing convience and example)
+- Native support for some custom types (providing convenience and example)
 including QRect, QSize, QPoint and QColor.
-- Singal / Slot support for JSON values, arrays and objects to detect when
+- Signal / Slot support for JSON values, arrays and objects to detect when
 changes occur to specific portions of the tree.
-- Several convience functions for JSON values, arrays and objects providing
+- Several convenience functions for JSON values, arrays and objects providing
 a more developer friendly API.
 
 For more information on the API, please see the API documentation:
@@ -46,7 +46,7 @@ To use this library, simply include the following:
 ```
 
 The QtMark JSON Library uses C++11, and thus you must add this to your project
-file. You will also need to add the librarys themselves. Note that the GUI
+file. You will also need to add the libraries themselves. Note that the GUI
 library is optional (don't forget to remove the include if you don't use it).
 
 ```
@@ -66,7 +66,7 @@ make -j
 
 ## Unit Tests
 
-The QtMark Json Library comes complete with a set of unit tests that can be
+The QtMark JSON Library comes complete with a set of unit tests that can be
 used to validate that changes do not break the expected functionality of the
 API. The unit tests may also provide additional examples of how to use the
 library as most of the API is tested.

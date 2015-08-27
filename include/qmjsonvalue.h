@@ -600,34 +600,6 @@ bool QMJsonValue::set(const T &value)
  */
 
 /**
- * @fn QMJsonValue::QMJsonValue(long value)
- * Creates a JSON number value.
- *
- * @note QtMark JSON stores all numbers internally as a double.
- */
-
-/**
- * @fn QMJsonValue::QMJsonValue(unsigned long value)
- * Creates a JSON number value.
- *
- * @note QtMark JSON stores all numbers internally as a double.
- */
-
-/**
- * @fn QMJsonValue::QMJsonValue(long long value)
- * Creates a JSON number value.
- *
- * @note QtMark JSON stores all numbers internally as a double.
- */
-
-/**
- * @fn QMJsonValue::QMJsonValue(unsigned long long value)
- * Creates a JSON number value.
- *
- * @note QtMark JSON stores all numbers internally as a double.
- */
-
-/**
  * @fn bool QMJsonValue::isNull(void) const
  * Returns true if the wrapped JSON value is a "null".
  *
