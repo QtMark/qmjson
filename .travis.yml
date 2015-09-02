@@ -19,6 +19,7 @@ before_install:
 install:
 - sudo apt-get update
 - sudo apt-get install build-essential
+- $CXX --version
 - if [ "$QT_BASE" = "52" ]; then sudo apt-get install qt52base; source /opt/qt52/bin/qt52-env.sh; fi
 - if [ "$QT_BASE" = "53" ]; then sudo apt-get install qt53base; source /opt/qt53/bin/qt53-env.sh; fi
 - if [ "$QT_BASE" = "54" ]; then sudo apt-get install qt54base; source /opt/qt54/bin/qt54-env.sh; fi
