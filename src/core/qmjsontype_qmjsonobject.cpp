@@ -87,8 +87,13 @@ template <>
 QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab, QMJsonSort sort)
 {
     auto json = QString();
-    auto keys = QStringList();
     const auto &object = this->get();
+
+    // Note: This functions is basically written with 4 different implementaions
+    // with as much code being shared as possible. Instead of trying to create
+    // a generic way of handling all of this, the following provides better
+    // optimized paths depending on what your attempting to do. If you modify
+    // one, make sure the other three are updated as well (if needed)
 
     if(object.isNull() == true)
         return "{}";
@@ -96,36 +101,49 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
     if(object->count() == 0)
         return "{}";
 
-    switch(sort)
-    {
-        case QMJsonSort_None:
-            keys = object->keys();
-            break;
-
-        case QMJsonSort_CaseInsensitive:
-            keys = object->keys();
-            keys.sort(Qt::CaseInsensitive);
-            break;
-
-        case QMJsonSort_CaseSensitive:
-            keys = object->keys();
-            keys.sort(Qt::CaseSensitive);
-            break;
-    }
-
     if(tab == (int32_t)QMJsonFormat_Optimized)
     {
         json += '{';
 
-        for(const auto &key : keys)
+        switch(sort)
         {
-            const auto &value = object->value(key);
+            case QMJsonSort_None:
+            {
+                auto iter = object->cbegin();
 
-            json += '"';
-            json += key;
-            json += "\":";
-            json += value->toJson((QMJsonFormat)tab, sort);
-            json += ',';
+                while(iter != object->cend())
+                {
+                    if(iter.value().isNull() == true)
+                        continue;
+
+                    json += '"';
+                    json += iter.key();
+                    json += "\":";
+                    json += iter.value()->toJson((QMJsonFormat)tab, sort);
+                    json += ',';
+
+                    iter++;
+                }
+
+                break;
+            }
+
+            default:
+            {
+                QStringList keys = object->keys();
+                keys.sort(convertQMJsonSort(sort));
+
+                for(const auto &key : keys)
+                {
+                    const auto &value = object->value(key);
+
+                    json += '"';
+                    json += key;
+                    json += "\":";
+                    json += value->toJson((QMJsonFormat)tab, sort);
+                    json += ',';
+                }
+            }
         }
 
         return json.replace(json.length() - 1, 1, '}');
@@ -136,18 +154,49 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
 
         tab += 4;
         auto space = QString(tab, ' ');
-        for(const auto &key : keys)
+        switch(sort)
         {
-            const auto &value = object->value(key);
+            case QMJsonSort_None:
+            {
+                auto iter = object->cbegin();
 
-            json += "\r\n";
-            json += space;
-            json += '"';
-            json += key;
-            json += "\":";
-            json += value->toJson((QMJsonFormat)tab, sort);
-            json += ',';
+                while(iter != object->cend())
+                {
+                    if(iter.value().isNull() == true)
+                        continue;
 
+                    json += "\r\n";
+                    json += space;
+                    json += '"';
+                    json += iter.key();
+                    json += "\":";
+                    json += iter.value()->toJson((QMJsonFormat)tab, sort);
+                    json += ',';
+
+                    iter++;
+                }
+
+                break;
+            }
+
+            default:
+            {
+                QStringList keys = object->keys();
+                keys.sort(convertQMJsonSort(sort));
+
+                for(const auto &key : keys)
+                {
+                    const auto &value = object->value(key);
+
+                    json += "\r\n";
+                    json += space;
+                    json += '"';
+                    json += key;
+                    json += "\":";
+                    json += value->toJson((QMJsonFormat)tab, sort);
+                    json += ',';
+                }
+            }
         }
         tab -= 4;
 

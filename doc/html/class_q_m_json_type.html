@@ -264,7 +264,7 @@ Static Public Member Functions</h2></td></tr>
 class QMJsonType&lt; T &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00111">111</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00130">130</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a11ba4e785225937a58a289ef221ef987"></a>
 <div class="memitem">
@@ -282,7 +282,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00141">141</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00160">160</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
 
 </div>
 </div>
@@ -309,160 +309,232 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00147">147</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00166">166</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a36427be6488756d570615880db3570f8"></a>
+<a class="anchor" id="a693a41579da51f83a28380b915d1e430"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;&gt; </div>
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::fromComplexJson </td>
+          <td class="memname">void <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00171">171</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7d4d4a2470a9a4c0df2092c5fd302ee"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00177">177</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab69c5ff4eb97f8281c6326eb23b1c99f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QDebug <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::print </td>
+          <td>(</td>
+          <td class="paramtype">QDebug&#160;</td>
+          <td class="paramname"><em>dbg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a7b5ff9efd13ceff4922184df39457f4b">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00183">183</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adde2f69c8ede7f794ded805f1671edd2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00213">213</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adeb056515c0cd4f8c7f8a12ba3513e52"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::toJson </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="qmjsontype_8h.html#a98897119dc566c6909982f3fcd76d600">QMJsonSort</a>&#160;</td>
+          <td class="paramname"><em>sort</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00189">189</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ff0dbef9041ba6d71c275d02a74442c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00198">198</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a133ec450fe8dc75231a4d4430c714aac"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::toComplexJson </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>obj</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ae5abcd9120bc11d45ab219979476f6b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="af5784e36624828765a7107d6bf42062f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5ab184c10be9ac75da789c7a6d2674da"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae5abcd9120bc11d45ab219979476f6b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qpoint_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__qpoint_8cpp_source.html">qmjsontype_qpoint.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af5784e36624828765a7107d6bf42062f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qrect_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__qrect_8cpp_source.html">qmjsontype_qrect.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5ab184c10be9ac75da789c7a6d2674da"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qsize_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__qsize_8cpp_source.html">qmjsontype_qsize.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36427be6488756d570615880db3570f8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::fromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qcolor_8cpp_source.html#l00103">103</a> of file <a class="el" href="qmjsontype__qcolor_8cpp_source.html">qmjsontype_qcolor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00207">207</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
 
 </div>
 </div>
@@ -518,1012 +590,6 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="qmjsontype__bool_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__bool_8cpp_source.html">qmjsontype_bool.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1466f54c83d90a7640ccb0646e5763ca"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html">qmjsontype_qmjsonarray.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a75ad97270f06eb3c68ded6642faca86f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html">qmjsontype_qmjsonobject.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3fd220dff5c838059a077693bd1ed361"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__qstring_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qstring_8cpp_source.html">qmjsontype_qstring.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5b6451c65d6293a73179f4800857fce2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; bool &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1466f54c83d90a7640ccb0646e5763ca"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a75ad97270f06eb3c68ded6642faca86f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af5377840ccfebba7856b6ee3515f0339"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3fd220dff5c838059a077693bd1ed361"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af5377840ccfebba7856b6ee3515f0339"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype__double_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__double_8cpp_source.html">qmjsontype_double.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ff0dbef9041ba6d71c275d02a74442c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00179">179</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad7d4d4a2470a9a4c0df2092c5fd302ee"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T &amp; <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::get </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00158">158</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aae943e146cc3937b887507fc9b4021de"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a263e410fe6c180821803a83bca4ec2c7"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; bool &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1d55e8301bacc9c6befe93df7fe38e4b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1cd6714b1d28c2768f34b8afe7bef6e4"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab9c402e9a1f533c5b74d520b50f4d837"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a263e410fe6c180821803a83bca4ec2c7"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; bool &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__bool_8cpp_source.html#l00085">85</a> of file <a class="el" href="qmjsontype__bool_8cpp_source.html">qmjsontype_bool.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1cd6714b1d28c2768f34b8afe7bef6e4"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__double_8cpp_source.html#l00085">85</a> of file <a class="el" href="qmjsontype__double_8cpp_source.html">qmjsontype_double.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aae943e146cc3937b887507fc9b4021de"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html#l00112">112</a> of file <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html">qmjsontype_qmjsonarray.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adde2f69c8ede7f794ded805f1671edd2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00194">194</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab9c402e9a1f533c5b74d520b50f4d837"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qstring_8cpp_source.html#l00143">143</a> of file <a class="el" href="qmjsontype__qstring_8cpp_source.html">qmjsontype_qstring.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1d55e8301bacc9c6befe93df7fe38e4b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::isBaseType </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html#l00164">164</a> of file <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html">qmjsontype_qmjsonobject.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab69c5ff4eb97f8281c6326eb23b1c99f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QDebug <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::print </td>
-          <td>(</td>
-          <td class="paramtype">QDebug&#160;</td>
-          <td class="paramname"><em>dbg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#a7b5ff9efd13ceff4922184df39457f4b">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00164">164</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a693a41579da51f83a28380b915d1e430"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::set </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00152">152</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a75d2886372f6f34d5322a68bba1db3d5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qrect_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qrect_8cpp_source.html">qmjsontype_qrect.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a51c3242a9b2411235d59f0ddf335ef3a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qpoint_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qpoint_8cpp_source.html">qmjsontype_qpoint.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa8e66665b854352c3fdf4c420b5c0841"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qsize_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qsize_8cpp_source.html">qmjsontype_qsize.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a51c3242a9b2411235d59f0ddf335ef3a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa8e66665b854352c3fdf4c420b5c0841"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a75d2886372f6f34d5322a68bba1db3d5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa3347a1bb16d57f188b58fb8a0f3833d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa3347a1bb16d57f188b58fb8a0f3833d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype__qcolor_8cpp_source.html#l00053">53</a> of file <a class="el" href="qmjsontype__qcolor_8cpp_source.html">qmjsontype_qcolor.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a133ec450fe8dc75231a4d4430c714aac"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::toComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
-
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00188">188</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab39494e91da8d327ae31f13a816f6962"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::toJson </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>tab</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="qmjsontype_8h.html#a98897119dc566c6909982f3fcd76d600">QMJsonSort</a>&#160;</td>
-          <td class="paramname"><em>sort</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="adb643f8a442630dbcc5198b256b607f8"></a>
@@ -1561,6 +627,62 @@ template&lt;&gt; </div>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a263e410fe6c180821803a83bca4ec2c7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; bool &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5377840ccfebba7856b6ee3515f0339"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1602,6 +724,108 @@ template&lt;&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a1cd6714b1d28c2768f34b8afe7bef6e4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3347a1bb16d57f188b58fb8a0f3833d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36427be6488756d570615880db3570f8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1466f54c83d90a7640ccb0646e5763ca"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ad5650a803135a76177f82550d79b69d6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1637,6 +861,62 @@ template&lt;&gt; </div>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae943e146cc3937b887507fc9b4021de"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75ad97270f06eb3c68ded6642faca86f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1678,7 +958,7 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ad5650a803135a76177f82550d79b69d6"></a>
+<a class="anchor" id="a1d55e8301bacc9c6befe93df7fe38e4b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -1688,7 +968,201 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::toJson </td>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51c3242a9b2411235d59f0ddf335ef3a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5abcd9120bc11d45ab219979476f6b5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a75d2886372f6f34d5322a68bba1db3d5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5784e36624828765a7107d6bf42062f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa8e66665b854352c3fdf4c420b5c0841"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ab184c10be9ac75da789c7a6d2674da"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3fd220dff5c838059a077693bd1ed361"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab39494e91da8d327ae31f13a816f6962"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::toJson </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>tab</em>, </td>
@@ -1714,7 +1188,63 @@ template&lt;&gt; </div>
 
 <p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
 
-<p>Definition at line <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html#l00064">64</a> of file <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html">qmjsontype_qmjsonarray.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ab9c402e9a1f533c5b74d520b50f4d837"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b6451c65d6293a73179f4800857fce2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; bool &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__bool_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__bool_8cpp_source.html">qmjsontype_bool.cpp</a>.</p>
 
 </div>
 </div>
@@ -1758,6 +1288,66 @@ template&lt;&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a263e410fe6c180821803a83bca4ec2c7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; bool &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__bool_8cpp_source.html#l00085">85</a> of file <a class="el" href="qmjsontype__bool_8cpp_source.html">qmjsontype_bool.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5377840ccfebba7856b6ee3515f0339"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__double_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__double_8cpp_source.html">qmjsontype_double.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a403b248b71134cc612fc557dcb474de7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1798,7 +1388,7 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ab39494e91da8d327ae31f13a816f6962"></a>
+<a class="anchor" id="a1cd6714b1d28c2768f34b8afe7bef6e4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -1808,7 +1398,67 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::toJson </td>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; double &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__double_8cpp_source.html#l00085">85</a> of file <a class="el" href="qmjsontype__double_8cpp_source.html">qmjsontype_double.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1466f54c83d90a7640ccb0646e5763ca"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html">qmjsontype_qmjsonarray.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5650a803135a76177f82550d79b69d6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::toJson </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>tab</em>, </td>
@@ -1834,7 +1484,67 @@ template&lt;&gt; </div>
 
 <p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
 
-<p>Definition at line <a class="el" href="qmjsontype__qstring_8cpp_source.html#l00085">85</a> of file <a class="el" href="qmjsontype__qstring_8cpp_source.html">qmjsontype_qstring.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html#l00064">64</a> of file <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html">qmjsontype_qmjsonarray.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae943e146cc3937b887507fc9b4021de"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html#l00112">112</a> of file <a class="el" href="qmjsontype__qmjsonarray_8cpp_source.html">qmjsontype_qmjsonarray.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75ad97270f06eb3c68ded6642faca86f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html">qmjsontype_qmjsonobject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1878,17 +1588,77 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="adeb056515c0cd4f8c7f8a12ba3513e52"></a>
+<a class="anchor" id="a1d55e8301bacc9c6befe93df7fe38e4b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">QString <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; T &gt;::toJson </td>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html#l00213">213</a> of file <a class="el" href="qmjsontype__qmjsonobject_8cpp_source.html">qmjsontype_qmjsonobject.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3fd220dff5c838059a077693bd1ed361"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::fromJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qstring_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qstring_8cpp_source.html">qmjsontype_qstring.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab39494e91da8d327ae31f13a816f6962"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::toJson </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>tab</em>, </td>
@@ -1914,7 +1684,237 @@ template&lt;class T &gt; </div>
 
 <p>Implements <a class="el" href="class_q_m_json_type_base.html#af4de2ace03cc215c42d3639d1d98dab1">QMJsonTypeBase</a>.</p>
 
-<p>Definition at line <a class="el" href="qmjsontype_8h_source.html#l00170">170</a> of file <a class="el" href="qmjsontype_8h_source.html">qmjsontype.h</a>.</p>
+<p>Definition at line <a class="el" href="qmjsontype__qstring_8cpp_source.html#l00085">85</a> of file <a class="el" href="qmjsontype__qstring_8cpp_source.html">qmjsontype_qstring.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9c402e9a1f533c5b74d520b50f4d837"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QString &gt;::isBaseType </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#a61412f4275bad97054306260e52095a4">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qstring_8cpp_source.html#l00143">143</a> of file <a class="el" href="qmjsontype__qstring_8cpp_source.html">qmjsontype_qstring.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3347a1bb16d57f188b58fb8a0f3833d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qcolor_8cpp_source.html#l00053">53</a> of file <a class="el" href="qmjsontype__qcolor_8cpp_source.html">qmjsontype_qcolor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36427be6488756d570615880db3570f8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QColor &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qcolor_8cpp_source.html#l00103">103</a> of file <a class="el" href="qmjsontype__qcolor_8cpp_source.html">qmjsontype_qcolor.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51c3242a9b2411235d59f0ddf335ef3a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qpoint_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qpoint_8cpp_source.html">qmjsontype_qpoint.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5abcd9120bc11d45ab219979476f6b5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QPoint &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qpoint_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__qpoint_8cpp_source.html">qmjsontype_qpoint.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75d2886372f6f34d5322a68bba1db3d5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qrect_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qrect_8cpp_source.html">qmjsontype_qrect.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5784e36624828765a7107d6bf42062f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QRect &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qrect_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__qrect_8cpp_source.html">qmjsontype_qrect.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8e66665b854352c3fdf4c420b5c0841"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::toComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_q_m_json_type_base.html#aa5714aec79c3a3ff1551f7e2e6f6833a">QMJsonTypeBase</a>.</p>
+
+<p>Definition at line <a class="el" href="qmjsontype__qsize_8cpp_source.html#l00033">33</a> of file <a class="el" href="qmjsontype__qsize_8cpp_source.html">qmjsontype_qsize.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ab184c10be9ac75da789c7a6d2674da"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; <a class="el" href="qmjsontype_8h.html#ad4bbfe2d9fe61157eace6f80e4f0e233">QM_JSON_EXPORT</a> <a class="el" href="class_q_m_json_type.html">QMJsonType</a>&lt; QSize &gt;::fromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsontype__qsize_8cpp_source.html#l00044">44</a> of file <a class="el" href="qmjsontype__qsize_8cpp_source.html">qmjsontype_qsize.cpp</a>.</p>
 
 </div>
 </div>
@@ -1924,7 +1924,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 27 2015 10:34:30 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 2 2015 14:13:34 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

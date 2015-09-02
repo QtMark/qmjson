@@ -79,6 +79,25 @@ enum QMJsonArrayUnitePolicy
 };
 
 // ============================================================================
+// Conversions
+// ============================================================================
+
+inline Qt::CaseSensitivity convertQMJsonSort(QMJsonSort sort)
+{
+    switch(sort)
+    {
+        case QMJsonSort_None:
+        case QMJsonSort_CaseInsensitive:
+            return Qt::CaseInsensitive;
+
+        case QMJsonSort_CaseSensitive:
+            return Qt::CaseSensitive;
+    }
+
+    return Qt::CaseInsensitive;
+}
+
+// ============================================================================
 // Class Prototypes
 // ============================================================================
 

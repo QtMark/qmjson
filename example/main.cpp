@@ -198,10 +198,10 @@ int main(int argc, char const *argv[])
     qDebug() << "";
 
     qDebug() << "Complex to JSON:";
-    qDebug() << complexValue1->toJson();
-    qDebug() << complexValue2->toJson();
-    qDebug() << complexValue3->toJson();
-    qDebug() << complexValue4->toJson();
+    qDebug() << qPrintable(complexValue1->toJson());
+    qDebug() << qPrintable(complexValue2->toJson());
+    qDebug() << qPrintable(complexValue3->toJson());
+    qDebug() << qPrintable(complexValue4->toJson());
     qDebug() << "";
 
     qDebug() << "Complex from JSON:";

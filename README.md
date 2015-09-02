@@ -93,6 +93,13 @@ following:
 make distclean
 ```
 
+## Contributing
+
+If you would like to participate in the development of this library, the
+following Wiki page provides more information on how to do so:
+
+https://github.com/QtMark/qmjson/wiki/Contributing
+
 ## License
 
 The QtMark Libraries are licensed under the GNU Lesser General Public License

@@ -42,6 +42,10 @@
  *
  * ### Managed Pointers
  *
+ * @note Currently QMPointer is a redefinition of QSharedPointer as we have
+ * not yet upstreamed QMPointer. Once the upstream is complete, the only
+ * change that will be needed is to include the QtMark Pointer Library.
+ *
  * When using this library, you will notice that everything is stored using
  * managed QMPointers. This is done intentially, and you should not attempt
  * to use the Qt Mark JSON classes without storing them in a QMPointer as
@@ -65,7 +69,7 @@
  *
  * In this example, you could pass 'object3' easily to any function, and
  * manipulate it from more than one place as needed. It is also possible to
- * a JSON value in more than one place in a JSON tree at the same time:
+ * use a JSON value in more than one place in a JSON tree at the same time:
  *
  * @code
  *
@@ -100,11 +104,11 @@
  *
  * ### Complex Types
  *
- * Unlike Qt's native JSON support, the QtMark JSON Library as support for
+ * Unlike Qt's native JSON support, the QtMark JSON Library has support for
  * custom types. Actually, you can store anything in a QMJsonValue that you
  * want. This provides the ability to use QMJsonArray and QMJsonObject as
  * a set of data structures that support varying data types in C++. That is
- * with most C++ data structure, you can only store one type of data in the
+ * with most C++ data structures, you can only store one type of data in the
  * structure, but with this library, you can store anything you want, in
  * whatever combination you can think of:
  *
@@ -131,7 +135,7 @@
  * library how to marshal / unmarshal the non-JSON type into standard JSON.
  * Non-standard types are stored as JSON objects, with a special field in the
  * object called 'qmjsontype' that tells the library which
- * QMJsonType::fromComplexJson function to use when a an object with this
+ * QMJsonType::fromComplexJson function to use when an object with this
  * key is encountered. QMJsonType::fromComplexJson functions are registered
  * with the library using QMJsonValue::registerFromComplexJson.
  *

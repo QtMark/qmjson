@@ -564,6 +564,32 @@ void TestJson::QMJsonObject_values(void)
     QVERIFY(values.count() == 4);
 }
 
+void TestJson::QMJsonObject_hash(void)
+{
+    auto value0 = QMPointer<QMJsonValue>(new QMJsonValue());
+    auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(true));
+    auto value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello World"));
+    auto value3 = QMPointer<QMJsonValue>(new QMJsonValue(4.8));
+    auto object1 = QMPointer<QMJsonObject>(new QMJsonObject());
+
+    auto emptyHash = QHash<QString, QMPointer<QMJsonValue> >();
+
+    QVERIFY(object1->hash() == emptyHash);
+    QVERIFY(object1->hash().count() == 0);
+
+    object1->insert("key0", value0);
+    object1->insert("key1", value1);
+    object1->insert("key2", value2);
+    object1->insert("key3", value3);
+
+    auto hash = object1->hash();
+    QVERIFY(hash.contains("key0") == true);
+    QVERIFY(hash.contains("key1") == true);
+    QVERIFY(hash.contains("key2") == true);
+    QVERIFY(hash.contains("key3") == true);
+    QVERIFY(hash.count() == 4);
+}
+
 void TestJson::QMJsonObject_null(void)
 {
     auto value0 = QMPointer<QMJsonValue>(new QMJsonValue());

@@ -24,14 +24,19 @@ install:
 
 script:
 - qmake -r
-- make
+- make -j
 - sudo make install
+- make distclean
 - cd test
 - qmake -r
-- make
+- make -j
 - ./test -platform offscreen
+- make distclean
 - cd ..
 - cd example
 - qmake -r
-- make
+- make -j
 - ./example
+- make distclean
+- cd ..
+- if [[ -n $(./tools/astyle/linux/run.sh | grep Formatted) ]]; then echo "You must run astyle before submitting a pull request"; exit -1; fi

@@ -92,6 +92,7 @@ private slots:
     virtual void QMJsonObject_value(void);
     virtual void QMJsonObject_keys(void);
     virtual void QMJsonObject_values(void);
+    virtual void QMJsonObject_hash(void);
     virtual void QMJsonObject_null(void);
     virtual void QMJsonObject_bool(void);
     virtual void QMJsonObject_double(void);

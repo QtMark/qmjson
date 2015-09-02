@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>QMJsonArray</title>
+<title>QMJsonArray Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,14 +64,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="class_q_m_json_array.html">QMJsonArray</a> </div>  </div>
+<div class="title"><a class="el" href="class_q_m_json_array.html">QMJsonArray</a> Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Placeholder </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>The <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> implements a JSON array. Internally, the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> is a QList&lt;QMPointer&lt;QMJsonValue&gt; &gt;. Thus, all of the rules that apply to QList with respect to performance are basically the same with <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. Like the rest of the QtMark JSON Library, all of the QMJsonValues stored in the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> as stored as QMPointers.</p>
+<h3>Creation</h3>
+<p>Like all of the classes in this library, <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> must be created using a managed QMPointer.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> array = QMPointer&lt;QMJsonArray&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>());</div></div><!-- fragment --><h3>Array Manipulation</h3>
+<p>There are a number of ways to add to <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>:</p>
+<ul>
+<li><a class="el" href="class_q_m_json_array.html#a8fa681f125957b2b4d5d5ef9ab420e68">QMJsonArray::append</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a9575d60a860c18c3172ed5d146d19ae4">QMJsonArray::prepend</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a0529dc6304f041515f1297195e96a2dc">QMJsonArray::insert</a></li>
+</ul>
+<p>There is no needed to manually wrap a value in a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>, as this will be done for you:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> array = QMPointer&lt;QMJsonArray&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>());</div><div class="line">array-&gt;append(4.8);</div></div><!-- fragment --><p>There are also a number of functions to remove an item from the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. The major ones are:</p>
+<ul>
+<li><a class="el" href="class_q_m_json_array.html#a47411d150766ee6ef65335d19eff3c71">QMJsonArray::removeAt</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a01b038b5a4a7bfc2d6ca90183c45b140">QMJsonArray::takeAt</a></li>
+</ul>
+<h3>Array Information</h3>
+<p><a class="el" href="class_q_m_json_array.html#acdf60f57d8f87d99fe005c9a677aeb10">QMJsonArray::isEmpty</a> will tell you if the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> has any QMJsonValues in it. You can also call <a class="el" href="class_q_m_json_array.html#a9f451d0fa716b7c481f541e8875bab49">QMJsonArray::count</a> to get the current number of QMJsonValues in the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> array = QMPointer&lt;QMJsonArray&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>());</div><div class="line">array-&gt;append(4.8);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; array-&gt;isEmpty(); <span class="comment">// false</span></div><div class="line">qDebug() &lt;&lt; array-&gt;count(); <span class="comment">// 1</span></div></div><!-- fragment --><h3>Lookup Functions</h3>
+<p>There are number of functions that perform their operations by doing a lookup using an existing <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>.</p>
+<ul>
+<li><a class="el" href="class_q_m_json_array.html#abd2108ca2d5140fbdaaef03441568c35">QMJsonArray::contains</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a8b94c75ab7b1a12f7eed45941215b201">QMJsonArray::indexOf</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a3d4bd057e60db1d96f96e72d83e4f120">QMJsonArray::lastIndexOf</a></li>
+<li><a class="el" href="class_q_m_json_array.html#aa79907d7c0678ddacd6659cd2d41cb46">QMJsonArray::endsWith</a></li>
+<li><a class="el" href="class_q_m_json_array.html#ad110e49b83ee9cd0ce9ae60a3d6b03ef">QMJsonArray::startsWith</a></li>
+<li><a class="el" href="class_q_m_json_array.html#ae441ae77c6118b1d2d36e627f13c7e3f">QMJsonArray::removeAll</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a5d4eec899fdbeeff7bd7261f04f22cae">QMJsonArray::removeOne</a></li>
+</ul>
+<p>These functions do a pointer comparison to validate that <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> being referenced has been found. This means that currently, you cannot create a second <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> with the same wrapped value, and expect these functions to perform the intended results.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> array = QMPointer&lt;QMJsonArray&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>());</div><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(4.8));</div><div class="line">array-&gt;append(15.16);</div><div class="line">array-&gt;append(value);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; array-&gt;contains(value); <span class="comment">// true</span></div><div class="line">qDebug() &lt;&lt; array-&gt;contains(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(4.8)); <span class="comment">// false</span></div><div class="line">qDebug() &lt;&lt; array-&gt;contains(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(15.16)); <span class="comment">// false</span></div></div><!-- fragment --><h3>Convenience Functions</h3>
+<p>Both the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> and <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> classes provide the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> unwrap functions for convenience. This applies for:</p>
+<ul>
+<li><a class="el" href="class_q_m_json_array.html#a9044a2584320e2f3557b1b671a6ea0bc">QMJsonArray::is</a></li>
+<li><a class="el" href="class_q_m_json_array.html#aa603805815f703281a654ceab0c49ab0">QMJsonArray::to</a></li>
+<li><a class="el" href="class_q_m_json_array.html#a7b255decf6a3ff7ef6c9c42bcb403c16">QMJsonArray::from</a></li>
+</ul>
+<p>Allowing for shorthand conversions:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> array = QMPointer&lt;QMJsonArray&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>());</div><div class="line">array-&gt;append(4.8);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; array-&gt;toDouble(0); <span class="comment">// 4.8</span></div><div class="line">qDebug() &lt;&lt; array-&gt;toString(0); <span class="comment">// &quot;4.8&quot;</span></div><div class="line"></div><div class="line"><span class="comment">// Instead of</span></div><div class="line"></div><div class="line">qDebug() &lt;&lt; array-&gt;value(0)-&gt;toDouble(); <span class="comment">// 4.8</span></div><div class="line">qDebug() &lt;&lt; array-&gt;value(0)-&gt;toString(); <span class="comment">// &quot;4.8&quot;</span></div></div><!-- fragment --><h3>To / From JSON</h3>
+<p>To convert a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> to JSON, you must wrap the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> in a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> and use <a class="el" href="class_q_m_json_value.html#a21d517f02d607c282bbd0d6cc6ae1bc1">QMJsonValue::toJson</a> and <a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">QMJsonValue::fromJson</a></p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> array = QMPointer&lt;QMJsonArray&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>());</div><div class="line"><span class="keyword">auto</span> document = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(array));</div><div class="line">array-&gt;append(4.8);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; document-&gt;toJson(<a class="code" href="qmjsontype_8h.html#a497c80a5fccb8e63847bf518781be30da68a97f9a51fd9868a5fcc953f179c5db">QMJsonFormat_Optimized</a>); <span class="comment">// &quot;[4.8]&quot;</span></div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 27 2015 10:34:30 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 2 2015 14:13:34 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

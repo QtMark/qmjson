@@ -292,6 +292,7 @@ void QMJsonArray::move(int32_t from, int32_t to)
 
     if(to < 0 || to >= mList.count()) return;
     if(from < 0 || from >= mList.count()) return;
+    if(to == from) return;
 
     mList.move(from, to);
 }
