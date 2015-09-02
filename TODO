@@ -1,7 +1,3 @@
-Version 1.0 Todo:
-- Add doxygen API comments
-
-
 Version 2.0 Todo:
 - Add Windows support
 - Add comapre functions to QMJsonValue
