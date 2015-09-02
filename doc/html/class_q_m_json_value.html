@@ -476,8 +476,7 @@ Friends</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, a default, JSON array will be created in it's place.</dd>
 <dd>
 This function wraps the <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> in a QMPointer, since the QtMark JSON Library only supported managed pointers. For this reason, user's of this API should be aware that the pointer will become managed once used. The most common use for this function is when creating new JSON arrays as shown below</dd></dl>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>);</div>
-</div><!-- fragment --> 
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_array.html">QMJsonArray</a>);</div></div><!-- fragment --> 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00140">140</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
@@ -507,8 +506,7 @@ This function wraps the <a class="el" href="class_q_m_json_array.html">QMJsonArr
 <dl class="section note"><dt>Note</dt><dd>If the user provides a NULL <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, a default, JSON object will be created in it's place.</dd>
 <dd>
 This function wraps the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> in a QMPointer, since the QtMark JSON Library only supported managed pointers. For this reason, user's of this API should be aware that the pointer will become managed once used. The most common use for this function is when creating new JSON objects as shown below</dd></dl>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>);</div>
-</div><!-- fragment --> 
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>);</div></div><!-- fragment --> 
 <p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00158">158</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
@@ -540,8 +538,7 @@ template&lt;class T &gt; </div>
 <p>The QtMark JSON Library supports wraping almost anything in a JSON value. If you use this function, the compiler will likely require that you provide a QDebug overload for this type (if one does not already exist).</p>
 <p>If you wish to use toJson and fromJson with a non-standard type, you need to provide the Complex JSON template overloads. For an example of how to do this, see the <a class="el" href="qmjsontype__qsize_8cpp.html">qmjsontype_qsize.cpp</a> file.</p>
 <p>This library also supported nested complex types. To see an example of how this works, see the <a class="el" href="qmjsontype__qrect_8cpp.html">qmjsontype_qrect.cpp</a> file, as the QRect implementation relys on QSize and QPoint.</p>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(QSize(4, 8));</div>
-</div><!-- fragment --> 
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(QSize(4, 8));</div></div><!-- fragment --> 
 <p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00176">176</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
@@ -880,7 +877,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab8cd7afaa310ba332530f42d60c84435"></a>
+<a class="anchor" id="ae236405fcc6dea4b2dde7e4f0ccff376"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -888,11 +885,11 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool QMJsonValue::from </td>
+          <td class="memname">bool QMJsonValue::isNull </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -901,48 +898,172 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Unwraps the JSON value and sets the interanl type. Depending on what type the JSON value is, will dictate what the internal type is set to:</p>
-<ul>
-<li>null: if both values are NULL, returns true, otherwise returns false</li>
-<li>bool: <a class="el" href="class_q_m_json_value.html#a2a84a911da7b70228b65335318bef8c9">fromBool</a></li>
-<li>double: <a class="el" href="class_q_m_json_value.html#a143a8537d7bea8206f6d5e5c1a2dabfa">fromDouble</a></li>
-<li>string: <a class="el" href="class_q_m_json_value.html#ae2a44784fa65ba6b567ed029c14da64a">fromString</a></li>
-<li>array: <a class="el" href="class_q_m_json_value.html#aa522f0ad49cc79c1863e08ffbf804352">fromArray</a></li>
-<li>object: <a class="el" href="class_q_m_json_value.html#a95cb4dd1f59d2e11a5d491ea7c394a31">fromObject</a></li>
-<li>else: returns false </li>
-</ul>
+<p>Returns true if the wrapped JSON value is a "null".</p>
+<dl class="section note"><dt>Note</dt><dd>Internally, "null" QMJsonValues have no internal type pointer. </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00638">638</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00306">306</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac0892cf45325b1e0db3981dfd06285a3"></a>
+<a class="anchor" id="aa386a229c34ea8ca62e22b9d3242bf9b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::isBool </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the wrapped JSON value is a boolean </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00311">311</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08606bef843b2e49145c9703e83930d6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::isDouble </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the wrapped JSON value is a double.</p>
+<dl class="section note"><dt>Note</dt><dd>All numbers are stored as doubles, including integer types. </dd></dl>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00316">316</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21406e0e03e5b5db9b688304cb523d9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::isString </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the wrapped JSON value is a string.</p>
+<dl class="section note"><dt>Note</dt><dd>QtMark JSON stores all strings internally as QStrings. </dd></dl>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00321">321</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d0c4343bd91cc63492156c51b1b2576"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::isArray </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the wrapped JSON value is a JSON array </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00326">326</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9982fd53bb69d409921fb9470a46e418"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::isObject </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the wrapped JSON value is a JSON object </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00331">331</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a837423c7f7681f2b49c8205ae4b6bd96"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool QMJsonValue::from </td>
+          <td class="memname">bool QMJsonValue::is </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unwraps the JSON value and sets the interanl type. If the interal type is not of type T, the request is ignored. This function is ment to be used with custom, complex types as show below:</p>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> value1 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(<span class="keyword">false</span>));</div>
-<div class="line"><span class="keyword">auto</span> value2 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(QSize(4, 8)));</div>
-<div class="line"></div>
-<div class="line">qDebug() &lt;&lt; value1-&gt;from&lt;QSize&gt;(15, 16); <span class="comment">// false</span></div>
-<div class="line">qDebug() &lt;&lt; value2-&gt;from&lt;QSize&gt;(15, 16); <span class="comment">// true</span></div>
-</div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00202">202</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+<p>Returns true if the wrapped JSON value is of type T. This function is ment to be used with custom, complex types as show below:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(QSize()));</div><div class="line"></div><div class="line">qDebug() &lt;&lt; value-&gt;is&lt;QSize&gt;(); <span class="comment">// true</span></div></div><!-- fragment --> 
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00185">185</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa522f0ad49cc79c1863e08ffbf804352"></a>
+<a class="anchor" id="a34b0b30109248bd46f0b0f44a1b7d3e6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -950,11 +1071,11 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool QMJsonValue::fromArray </td>
+          <td class="memname">bool QMJsonValue::toBool </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -963,10 +1084,294 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Unwraps the JSON value and sets the internal type to a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. If the internal type is not a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, the request is ignored</p>
-<p>Unwraps the JSON value and sets the internal type to a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. If the internal type is not a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, the request is ignored </p>
+<p>Unwraps the JSON value and returns the interanl type. Depending on what type the JSON value is, will dictate what is returned:</p>
+<ul>
+<li>null: false</li>
+<li>bool: true / falue (native)</li>
+<li>double: false if the value is 0, true otherwise</li>
+<li>string: true if the value is "true", false otherwise</li>
+<li>else: false </li>
+</ul>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00590">590</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00336">336</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c3884d21b0e62269e7e2e882f63f7df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QMJsonValue::toDouble </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. Depending on what type the JSON value is, will dictate what is returned:</p>
+<ul>
+<li>null: 0</li>
+<li>bool: false = 0, true = 1</li>
+<li>double: double (native)</li>
+<li>string: string converted to double, 0 if conversion fails.</li>
+<li>else: 0 </li>
+</ul>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00367">367</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8dfc08e626aeeafc0f90fc5bd2a8330"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString QMJsonValue::toString </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. Depending on what type the JSON value is, will dictate what is returned:</p>
+<ul>
+<li>null: "null"</li>
+<li>bool: "true" if true, "false" if false</li>
+<li>double: double converted to string</li>
+<li>string: string (native)</li>
+<li>else: 0 </li>
+</ul>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00395">395</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab63571a1d2bc90db081880cebd2e91c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp; QMJsonValue::toArray </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. If the internal type is not a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, an empty <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> is returned. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00423">423</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f2703689175512960db1a955231f56e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp; QMJsonValue::toObject </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. If the internal type is not a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, an empty <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> is returned. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00434">434</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae317772a018159a4e5cc045a43fea87b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::toBool </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>defaultValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. If the interal type is not a boolean, the default value is returned instead. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00445">445</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b99a381737be32f46b80632a3fbe53f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QMJsonValue::toDouble </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>defaultValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. If the interal type is not a double, the default value is returned instead. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00455">455</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22b656f150a1e28956ca418fcb94d8a2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString &amp; QMJsonValue::toString </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>defaultValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. If the interal type is not a string, the default value is returned instead. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00465">465</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36b8f864cdafd396c5de8f7e4ea915bf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp; QMJsonValue::toArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>defaultValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. If the interal type is not an array, the default value is returned instead. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00475">475</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ecc47a6f14483ddd12af818d51efa2a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp; QMJsonValue::toObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>defaultValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. If the interal type is not an object, the default value is returned instead. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00485">485</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bd41807cd329d799964a969ec2e748b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; QMJsonValue::to </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>defaultValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and returns the interanl type. If the interal type is not of type T, the default value is returned instead. This function is ment to be used with custom, complex types as show below:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value1 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(<span class="keyword">false</span>));</div><div class="line"><span class="keyword">auto</span> value2 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(QSize(4, 8)));</div><div class="line"></div><div class="line">qDebug() &lt;&lt; value1-&gt;to&lt;QSize&gt;(15, 16); <span class="comment">// QSize(15, 16)</span></div><div class="line">qDebug() &lt;&lt; value2-&gt;to&lt;QSize&gt;(15, 16); <span class="comment">// QSize(4, 8)</span></div></div><!-- fragment --> 
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00191">191</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
 
 </div>
 </div>
@@ -1038,89 +1443,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aaf5b72ac548d085a0ef47e2eff9a7d4f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; QMJsonValue::fromJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>json</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Converts the provided sting into the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> equivlant.</p>
-<p>If the provided string contains a JSON object that has a key named 'qmjsontype', <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> will attempt to convert the JSON object to it's complex type using the fromComplexJson function that was registered with registerFromComplexJson. If no fromComplexJson exists for the type defined by 'qmjsontype', or has not been registered, the JSON object will be treated as a standard JSON object.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">registerFromComplexJson</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00910">910</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4fa99695e5d629465bdd55d80b420148"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; QMJsonValue::fromJsonFile </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Read in the contents of filename, and converts the resulting sting into the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> equivlant.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">fromJson</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l01078">1078</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a95cb4dd1f59d2e11a5d491ea7c394a31"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::fromObject </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00614">614</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ae2a44784fa65ba6b567ed029c14da64a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1155,6 +1477,198 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="aa522f0ad49cc79c1863e08ffbf804352"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::fromArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and sets the internal type to a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. If the internal type is not a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, the request is ignored </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00590">590</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a95cb4dd1f59d2e11a5d491ea7c394a31"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::fromObject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and sets the internal type to a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. If the internal type is not a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, the request is ignored </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00614">614</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8cd7afaa310ba332530f42d60c84435"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::from </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and sets the interanl type. Depending on what type the JSON value is, will dictate what the internal type is set to:</p>
+<ul>
+<li>null: if both values are NULL, returns true, otherwise returns false</li>
+<li>bool: <a class="el" href="class_q_m_json_value.html#a2a84a911da7b70228b65335318bef8c9">fromBool</a></li>
+<li>double: <a class="el" href="class_q_m_json_value.html#a143a8537d7bea8206f6d5e5c1a2dabfa">fromDouble</a></li>
+<li>string: <a class="el" href="class_q_m_json_value.html#ae2a44784fa65ba6b567ed029c14da64a">fromString</a></li>
+<li>array: <a class="el" href="class_q_m_json_value.html#aa522f0ad49cc79c1863e08ffbf804352">fromArray</a></li>
+<li>object: <a class="el" href="class_q_m_json_value.html#a95cb4dd1f59d2e11a5d491ea7c394a31">fromObject</a></li>
+<li>else: returns false </li>
+</ul>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00638">638</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0892cf45325b1e0db3981dfd06285a3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QMJsonValue::from </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Unwraps the JSON value and sets the interanl type. If the interal type is not of type T, the request is ignored. This function is ment to be used with custom, complex types as show below:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> value1 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(<span class="keyword">false</span>));</div><div class="line"><span class="keyword">auto</span> value2 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(QSize(4, 8)));</div><div class="line"></div><div class="line">qDebug() &lt;&lt; value1-&gt;from&lt;QSize&gt;(15, 16); <span class="comment">// false</span></div><div class="line">qDebug() &lt;&lt; value2-&gt;from&lt;QSize&gt;(15, 16); <span class="comment">// true</span></div></div><!-- fragment --> 
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00202">202</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85b2acac1c33d8fd53d4a5a80f5cfbee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; &amp; QMJsonValue::value </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A convenience function. The following two statements are equvilant:</p>
+<div class="fragment"><div class="line">qDebug() &lt;&lt; value-&gt;value(index); <span class="comment">// QMJsonValue()</span></div><div class="line">qDebug() &lt;&lt; value-&gt;toArray()-&gt;value(index); <span class="comment">// QMJsonValue()</span></div></div><!-- fragment --> 
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00673">673</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3fea1556109b8d9a6669064d9840ae5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; &amp; QMJsonValue::value </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A convenience function. The following two statements are equvilant:</p>
+<div class="fragment"><div class="line">qDebug() &lt;&lt; value-&gt;value(key); <span class="comment">// QMJsonValue()</span></div><div class="line">qDebug() &lt;&lt; value-&gt;toObject()-&gt;value(key); <span class="comment">// QMJsonValue()</span></div></div><!-- fragment --> 
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00678">678</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba4711ea962326b7ac0a42b0f59556da"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant QMJsonValue::toVariant </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Converts the JSON value to a Variant. QMJsonArrays and QMJsonObjects are converted into QVariantLists and QVariantHashs, and wrapped in a QVariant. </p>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00683">683</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a4a6768fbbb9a8b04e9986274d402041f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1182,31 +1696,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a837423c7f7681f2b49c8205ae4b6bd96"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::is </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is of type T. This function is ment to be used with custom, complex types as show below:</p>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a> = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(QSize()));</div>
-<div class="line"></div>
-<div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;is&lt;QSize&gt;(); <span class="comment">// true</span></div>
-</div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00185">185</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0d0c4343bd91cc63492156c51b1b2576"></a>
+<a class="anchor" id="a06be1657bd12067bf931d82667a5f282"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1214,7 +1704,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool QMJsonValue::isArray </td>
+          <td class="memname"><a class="el" href="qmjsontype_8h.html#ae2b1c4214b683b352456c1996cee477a">QMJsonValueType</a> QMJsonValue::type </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1227,13 +1717,13 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is a JSON array </p>
+<p>Returns the internal type for this <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00326">326</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00831">831</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa386a229c34ea8ca62e22b9d3242bf9b"></a>
+<a class="anchor" id="a90e8f78fffd7506a226ead29b459dc0c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1241,7 +1731,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool QMJsonValue::isBool </td>
+          <td class="memname">const QString &amp; QMJsonValue::typeString </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1254,360 +1744,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is a boolean </p>
+<p>Returns a string representation of the internal type for this <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. </p>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00311">311</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a08606bef843b2e49145c9703e83930d6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::isDouble </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is a double.</p>
-<dl class="section note"><dt>Note</dt><dd>All numbers are stored as doubles, including integer types. </dd></dl>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00316">316</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae236405fcc6dea4b2dde7e4f0ccff376"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::isNull </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is a "null".</p>
-<dl class="section note"><dt>Note</dt><dd>Internally, "null" QMJsonValues have no internal type pointer. </dd></dl>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00306">306</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9982fd53bb69d409921fb9470a46e418"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::isObject </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is a JSON object </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00331">331</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a21406e0e03e5b5db9b688304cb523d9e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::isString </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns true if the wrapped JSON value is a string.</p>
-<dl class="section note"><dt>Note</dt><dd>QtMark JSON stores all strings internally as QStrings. </dd></dl>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00321">321</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1e3b47a919634655bf10f5c4fa8622cf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void QMJsonValue::registerFromComplexJson </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>qmjsontype</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="qmjsonvalue_8h.html#a2004647f537a6a06e2bc5089023572a2">FromComplexJsonFunc</a>&#160;</td>
-          <td class="paramname"><em>func</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Registers a fromComplexJson function with the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> class. When fromJson or fromJsonFile are called, fromComplexJson that are registered will be used to convert JSON objects that contain 'qmjsontype' into their complex equivlants.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="main_8cpp.html">main.cpp</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00964">964</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8bd41807cd329d799964a969ec2e748b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">const T &amp; QMJsonValue::to </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>defaultValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. If the interal type is not of type T, the default value is returned instead. This function is ment to be used with custom, complex types as show below:</p>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> value1 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(<span class="keyword">false</span>));</div>
-<div class="line"><span class="keyword">auto</span> value2 = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html#a5ea100e18d1cfcd22659ad22118e4eea">QMJsonValue</a>(QSize(4, 8)));</div>
-<div class="line"></div>
-<div class="line">qDebug() &lt;&lt; value1-&gt;to&lt;QSize&gt;(15, 16); <span class="comment">// QSize(15, 16)</span></div>
-<div class="line">qDebug() &lt;&lt; value2-&gt;to&lt;QSize&gt;(15, 16); <span class="comment">// QSize(4, 8)</span></div>
-</div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00191">191</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab63571a1d2bc90db081880cebd2e91c1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp; QMJsonValue::toArray </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>. If the internal type is not a <a class="el" href="class_q_m_json_array.html">QMJsonArray</a>, an empty <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> is returned. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00423">423</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36b8f864cdafd396c5de8f7e4ea915bf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp; QMJsonValue::toArray </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>defaultValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. If the interal type is not an array, the default value is returned instead. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00475">475</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a34b0b30109248bd46f0b0f44a1b7d3e6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::toBool </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. Depending on what type the JSON value is, will dictate what is returned:</p>
-<ul>
-<li>null: false</li>
-<li>bool: true / falue (native)</li>
-<li>double: false if the value is 0, true otherwise</li>
-<li>string: true if the value is "true", false otherwise</li>
-<li>else: false </li>
-</ul>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00336">336</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae317772a018159a4e5cc045a43fea87b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool QMJsonValue::toBool </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>defaultValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. If the interal type is not a boolean, the default value is returned instead. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00445">445</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9c3884d21b0e62269e7e2e882f63f7df"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double QMJsonValue::toDouble </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. Depending on what type the JSON value is, will dictate what is returned:</p>
-<ul>
-<li>null: 0</li>
-<li>bool: false = 0, true = 1</li>
-<li>double: double (native)</li>
-<li>string: string converted to double, 0 if conversion fails.</li>
-<li>else: 0 </li>
-</ul>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00367">367</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0b99a381737be32f46b80632a3fbe53f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double QMJsonValue::toDouble </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>defaultValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. If the interal type is not a double, the default value is returned instead. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00455">455</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00836">836</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1694,7 +1833,7 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2f2703689175512960db1a955231f56e"></a>
+<a class="anchor" id="aaf5b72ac548d085a0ef47e2eff9a7d4f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1702,141 +1841,28 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp; QMJsonValue::toObject </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. If the internal type is not a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>, an empty <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> is returned. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00434">434</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1ecc47a6f14483ddd12af818d51efa2a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp; QMJsonValue::toObject </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>defaultValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. If the interal type is not an object, the default value is returned instead. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00485">485</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa8dfc08e626aeeafc0f90fc5bd2a8330"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QString QMJsonValue::toString </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. Depending on what type the JSON value is, will dictate what is returned:</p>
-<ul>
-<li>null: "null"</li>
-<li>bool: "true" if true, "false" if false</li>
-<li>double: double converted to string</li>
-<li>string: string (native)</li>
-<li>else: 0 </li>
-</ul>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00395">395</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a22b656f150a1e28956ca418fcb94d8a2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const QString &amp; QMJsonValue::toString </td>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; QMJsonValue::fromJson </td>
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>defaultValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Unwraps the JSON value and returns the interanl type. If the interal type is not a string, the default value is returned instead. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00465">465</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aba4711ea962326b7ac0a42b0f59556da"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QVariant QMJsonValue::toVariant </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Converts the JSON value to a Variant. QMJsonArrays and QMJsonObjects are converted into QVariantLists and QVariantHashs, and wrapped in a QVariant. </p>
+<p>Converts the provided sting into the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> equivlant.</p>
+<p>If the provided string contains a JSON object that has a key named 'qmjsontype', <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> will attempt to convert the JSON object to it's complex type using the fromComplexJson function that was registered with registerFromComplexJson. If no fromComplexJson exists for the type defined by 'qmjsontype', or has not been registered, the JSON object will be treated as a standard JSON object.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#a1e3b47a919634655bf10f5c4fa8622cf">registerFromComplexJson</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00683">683</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00910">910</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a06be1657bd12067bf931d82667a5f282"></a>
+<a class="anchor" id="a4fa99695e5d629465bdd55d80b420148"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1844,107 +1870,61 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="qmjsontype_8h.html#ae2b1c4214b683b352456c1996cee477a">QMJsonValueType</a> QMJsonValue::type </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns the internal type for this <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00831">831</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a90e8f78fffd7506a226ead29b459dc0c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const QString &amp; QMJsonValue::typeString </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns a string representation of the internal type for this <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>. </p>
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00836">836</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a85b2acac1c33d8fd53d4a5a80f5cfbee"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; &amp; QMJsonValue::value </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>A convenience function. The following two statements are equvilant:</p>
-<div class="fragment"><div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;value(index); <span class="comment">// QMJsonValue()</span></div>
-<div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;toArray()-&gt;value(index); <span class="comment">// QMJsonValue()</span></div>
-</div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00673">673</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af3fea1556109b8d9a6669064d9840ae5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; &amp; QMJsonValue::value </td>
+          <td class="memname"><a class="el" href="qmpointer_8h.html#aee6b0867efe391c5a609f8513dfc05ff">QMPointer</a>&lt; <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> &gt; QMJsonValue::fromJsonFile </td>
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>A convenience function. The following two statements are equvilant:</p>
-<div class="fragment"><div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;value(key); <span class="comment">// QMJsonValue()</span></div>
-<div class="line">qDebug() &lt;&lt; <a class="code" href="class_q_m_json_value.html#a85b2acac1c33d8fd53d4a5a80f5cfbee">value</a>-&gt;toObject()-&gt;value(key); <span class="comment">// QMJsonValue()</span></div>
-</div><!-- fragment --> 
-<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00678">678</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+<p>Read in the contents of filename, and converts the resulting sting into the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> equivlant.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">fromJson</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l01078">1078</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e3b47a919634655bf10f5c4fa8622cf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QMJsonValue::registerFromComplexJson </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>qmjsontype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="qmjsonvalue_8h.html#a2004647f537a6a06e2bc5089023572a2">FromComplexJsonFunc</a>&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Registers a fromComplexJson function with the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> class. When fromJson or fromJsonFile are called, fromComplexJson that are registered will be used to convert JSON objects that contain 'qmjsontype' into their complex equivlants.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="main_8cpp.html">main.cpp</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8cpp_source.html#l00964">964</a> of file <a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1973,6 +1953,30 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a2bbb5ab1ac90d270e5818856957b97f1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_q_m_json_type.html">QMJsonType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00052">52</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a325ab00376405e6d988ee6cbecd822e5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2009,30 +2013,6 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2bbb5ab1ac90d270e5818856957b97f1"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="class_q_m_json_type.html">QMJsonType</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="qmjsonvalue_8h_source.html#l00052">52</a> of file <a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/user/qmjson/include/<a class="el" href="qmjsonvalue_8h_source.html">qmjsonvalue.h</a></li>
 <li>/home/user/qmjson/src/core/<a class="el" href="qmjsonvalue_8cpp_source.html">qmjsonvalue.cpp</a></li>
@@ -2040,7 +2020,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 27 2015 10:34:30 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 2 2015 15:30:47 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

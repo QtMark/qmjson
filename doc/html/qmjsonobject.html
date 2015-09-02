@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>QMJsonObject</title>
+<title>QMJsonObject Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,14 +64,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="class_q_m_json_object.html">QMJsonObject</a> </div>  </div>
+<div class="title"><a class="el" href="class_q_m_json_object.html">QMJsonObject</a> Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Placeholder </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>The <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> implements a JSON object. Internally, the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> is a QHash&lt;QString, QMPointer&lt;QMJsonValue&gt; &gt;. Thus, all of the rules that apply to QHash with respect to performance are basically the same with <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. Like the rest of the QtMark JSON Library, all of the QMJsonValues stored in the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> as stored as QMPointers.</p>
+<h3>Creation</h3>
+<p>Like all of the classes in this library, <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> must be created using a managed QMPointer.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <span class="keywordtype">object</span> = QMPointer&lt;QMJsonObject&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>());</div></div><!-- fragment --><h3>Object Manipulation</h3>
+<p>There is basically one way to add items to a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>:</p>
+<ul>
+<li><a class="el" href="class_q_m_json_object.html#af7259e4738ac22022cde993ca480c005">QMJsonObject::insert</a></li>
+</ul>
+<p>There is no needed to manually wrap a value in a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a>, as this will be done for you:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <span class="keywordtype">object</span> = QMPointer&lt;QMJsonObject&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>());</div><div class="line"><span class="keywordtype">object</span>-&gt;insert(<span class="stringliteral">&quot;key0&quot;</span>, 4.8);</div></div><!-- fragment --><p>There are also a number of functions to remove an item from the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>. These are:</p>
+<ul>
+<li><a class="el" href="class_q_m_json_object.html#a400471e1a17599ed70719c9efe3ee636">QMJsonObject::remove</a></li>
+<li><a class="el" href="class_q_m_json_object.html#a34c363ba1e610032888f077c68f425c6">QMJsonObject::take</a></li>
+</ul>
+<h3>Object Information</h3>
+<p><a class="el" href="class_q_m_json_object.html#af16c635c578e334807733dafe9e8d0d7">QMJsonObject::isEmpty</a> will tell you if the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> has any QMJsonValues in it. You can also call <a class="el" href="class_q_m_json_object.html#a40c1368ba79d0597847b815724af6331">QMJsonObject::count</a> to get the current number of QMJsonValues in the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a>.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <span class="keywordtype">object</span> = QMPointer&lt;QMJsonObject&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>());</div><div class="line"><span class="keywordtype">object</span>-&gt;insert(<span class="stringliteral">&quot;key0&quot;</span>, 4.8);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; <span class="keywordtype">object</span>-&gt;isEmpty(); <span class="comment">// false</span></div><div class="line">qDebug() &lt;&lt; <span class="keywordtype">object</span>-&gt;count(); <span class="comment">// 1</span></div></div><!-- fragment --><h3>Convenience Functions</h3>
+<p>Both the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> and <a class="el" href="class_q_m_json_array.html">QMJsonArray</a> classes provide the <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> unwrap functions for convenience. This applies for:</p>
+<ul>
+<li><a class="el" href="class_q_m_json_object.html#a95ab9227571ce1a6f895811f14e5d173">QMJsonObject::is</a></li>
+<li><a class="el" href="class_q_m_json_object.html#a121627422dd4119637a59f59b1cf242a">QMJsonObject::to</a></li>
+<li><a class="el" href="class_q_m_json_object.html#a70b19ce70a7063ccb8a7f675ea0949ff">QMJsonObject::from</a></li>
+</ul>
+<p>Allowing for shorthand conversions:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <span class="keywordtype">object</span> = QMPointer&lt;QMJsonObject&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>());</div><div class="line"><span class="keywordtype">object</span>-&gt;insert(<span class="stringliteral">&quot;key0&quot;</span>, 4.8);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; <span class="keywordtype">object</span>-&gt;toDouble(<span class="stringliteral">&quot;key0&quot;</span>); <span class="comment">// 4.8</span></div><div class="line">qDebug() &lt;&lt; <span class="keywordtype">object</span>-&gt;toString(<span class="stringliteral">&quot;key0&quot;</span>); <span class="comment">// &quot;4.8&quot;</span></div><div class="line"></div><div class="line"><span class="comment">// Instead of</span></div><div class="line"></div><div class="line">qDebug() &lt;&lt; <span class="keywordtype">object</span>-&gt;value(<span class="stringliteral">&quot;key0&quot;</span>)-&gt;toDouble(); <span class="comment">// 4.8</span></div><div class="line">qDebug() &lt;&lt; <span class="keywordtype">object</span>-&gt;value(<span class="stringliteral">&quot;key0&quot;</span>)-&gt;toString(); <span class="comment">// &quot;4.8&quot;</span></div></div><!-- fragment --><h3>To / From JSON</h3>
+<p>To convert a <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> to JSON, you must wrap the <a class="el" href="class_q_m_json_object.html">QMJsonObject</a> in a <a class="el" href="class_q_m_json_value.html">QMJsonValue</a> and use <a class="el" href="class_q_m_json_value.html#a21d517f02d607c282bbd0d6cc6ae1bc1">QMJsonValue::toJson</a> and <a class="el" href="class_q_m_json_value.html#aaf5b72ac548d085a0ef47e2eff9a7d4f">QMJsonValue::fromJson</a></p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <span class="keywordtype">object</span> = QMPointer&lt;QMJsonObject&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_object.html">QMJsonObject</a>());</div><div class="line"><span class="keyword">auto</span> document = QMPointer&lt;QMJsonValue&gt;(<span class="keyword">new</span> <a class="code" href="class_q_m_json_value.html">QMJsonValue</a>(<span class="keywordtype">object</span>));</div><div class="line"><span class="keywordtype">object</span>-&gt;insert(<span class="stringliteral">&quot;key0&quot;</span>, 4.8);</div><div class="line"></div><div class="line">qDebug() &lt;&lt; document-&gt;toJson(<a class="code" href="qmjsontype_8h.html#a497c80a5fccb8e63847bf518781be30da68a97f9a51fd9868a5fcc953f179c5db">QMJsonFormat_Optimized</a>); <span class="comment">// &quot;{&quot;key0&quot;:4.8}&quot;</span></div></div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 27 2015 10:34:30 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 2 2015 15:30:47 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

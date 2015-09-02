@@ -239,9 +239,9 @@ bool QMJsonValue::set(const T &value)
 #endif // QMJSONVALUE_H
 
 /**
- * @page qmjsonvalue QMJsonValue
+ * @page qmjsonvalue QMJsonValue Overview
  *
- * @section Overview
+ * ### Overview
  *
  * With respect to JSON, there are several different basic types:
  *
@@ -280,11 +280,10 @@ bool QMJsonValue::set(const T &value)
  *
  * http://www.json.org
  *
- * @section Creation
+ * ### Creation
  *
- * Like all of the classes in this library, QMJsonValue must be creating using
- * a managed QMPointer. Using pointers provides a unique way to maintain access
- * to arbitrary portions of a JSON tree at any time.
+ * Like all of the classes in this library, QMJsonValue must be created using
+ * a managed QMPointer.
  *
  * @code
  *
@@ -306,7 +305,7 @@ bool QMJsonValue::set(const T &value)
  * (8bit s/u to 64bit s/u), as well as floating point and ASCII character
  * pointers.
  *
- * @section getting_setting Getting / Setting
+ * ### Getting / Setting
  *
  * Once a QMJsonValue is created, it's internal type cannot be changed. That is
  * to say, it's not possible to take an existing QMJsonValue that is currently
@@ -343,7 +342,7 @@ bool QMJsonValue::set(const T &value)
  *
  * @endcode
  *
- * @section Testing
+ * ### Testing
  *
  * There are multiple ways to determine what type a QMJsonValue is if the type is
  * basic.
@@ -365,7 +364,7 @@ bool QMJsonValue::set(const T &value)
  *
  * @endcode
  *
- * @section to_from_json To / From JSON
+ * ### To / From JSON
  *
  * With most JSON, at some point, you will likely need to convert the JSON
  * to and from a JSON string. This can be doen with the QMJsonValue::toJson
@@ -373,7 +372,7 @@ bool QMJsonValue::set(const T &value)
  * operations as well, which allow for JSON to be read / written to / from a
  * file usign QMJsonValue::toJsonFile and QMJsonValue::fromJsonFile
  *
- * @section complex_types Complex Types
+ * ### Complex Types
  *
  * QMJsonValue can store any JSON type natively. There is nothing the user must
  * do for basic support other than provide a couple of support functions for
@@ -787,7 +786,7 @@ bool QMJsonValue::set(const T &value)
  */
 
 /**
- * @fn bool QMJsonValue::fromArray(const QMPointer<QMJsonObject> &value);
+ * @fn bool QMJsonValue::fromObject(const QMPointer<QMJsonObject> &value);
  * Unwraps the JSON value and sets the internal type to a QMJsonObject.
  * If the internal type is not a QMJsonObject, the request is ignored
  */
