@@ -62,7 +62,7 @@ void QMJsonObject::clear(void)
 {
     auto iter = mHash.begin();
 
-    while (iter != mHash.end())
+    while(iter != mHash.end())
     {
         if(iter.value().isNull() == true)
             continue;
