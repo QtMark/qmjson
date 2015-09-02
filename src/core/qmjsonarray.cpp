@@ -50,7 +50,7 @@ void QMJsonArray::reserve(int32_t alloc)
 
 void QMJsonArray::clear(void)
 {
-    for(const auto &value : mList)
+    for (const auto &value : mList)
     {
         if(value->isObject() == true)
         {
