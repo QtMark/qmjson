@@ -26,18 +26,18 @@ install:
 - if [ "$QT_BASE" = "55" ]; then sudo apt-get install qt55base; source /opt/qt55/bin/qt55-env.sh; fi
 
 script:
-- qmake -r
+- qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC"
 - make -j
 - sudo make install
 - make distclean
 - cd test
-- qmake -r
+- qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC"
 - make -j
 - ./test -platform offscreen
 - make distclean
 - cd ..
 - cd example
-- qmake -r
+- qmake -r "QMAKE_CXX=$CXX" "QMAKE_CC=$CC"
 - make -j
 - ./example
 - make distclean
