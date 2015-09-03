@@ -50,22 +50,22 @@ void QMJsonArray::reserve(int32_t alloc)
 
 void QMJsonArray::clear(void)
 {
-    for(const auto &value : mList)
+    for (const auto &value : mList)
     {
-        if(value->isObject() == true)
+        if (value->isObject() == true)
         {
             value->toObject()->clear();
             continue;
         }
 
-        if(value->isArray() == true)
+        if (value->isArray() == true)
         {
             value->toArray()->clear();
             continue;
         }
     }
 
-    while(mList.count() > 0)
+    while (mList.count() > 0)
         this->removeFirst();
 }
 
@@ -131,10 +131,10 @@ void QMJsonArray::append(const QMPointer<QMJsonValue> &value)
 
 void QMJsonArray::insert(int32_t index, const QMPointer<QMJsonValue> &value)
 {
-    if(index < 0) index = 0;
-    if(index > mList.count()) index = mList.count();
+    if (index < 0) index = 0;
+    if (index > mList.count()) index = mList.count();
 
-    if(value.isNull() == true)
+    if (value.isNull() == true)
     {
         auto newValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
@@ -150,12 +150,12 @@ void QMJsonArray::insert(int32_t index, const QMPointer<QMJsonValue> &value)
 
 void QMJsonArray::unite(const QMPointer<QMJsonArray> &array, QMJsonArrayUnitePolicy policy)
 {
-    if(array.isNull() == true)
+    if (array.isNull() == true)
         return;
 
-    for(const auto &value : array->values())
+    for (const auto &value : array->values())
     {
-        switch(policy)
+        switch (policy)
         {
             case QMJsonArrayUnitePolicy_Prepend:
                 this->prepend(value);
@@ -170,7 +170,7 @@ void QMJsonArray::unite(const QMPointer<QMJsonArray> &array, QMJsonArrayUnitePol
 
 void QMJsonArray::removeAll(const QMPointer<QMJsonValue> &value)
 {
-    while(mList.contains(value) == true)
+    while (mList.contains(value) == true)
         this->removeAt(mList.indexOf(value));
 }
 
@@ -181,7 +181,7 @@ void QMJsonArray::removeOne(const QMPointer<QMJsonValue> &value)
 
 void QMJsonArray::removeAt(int32_t index)
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return;
 
     emit itemRemoved(index, mList.takeAt(index));
@@ -209,7 +209,7 @@ QMPointer<QMJsonValue> QMJsonArray::takeLast(void)
 
 QMPointer<QMJsonValue> QMJsonArray::takeAt(int32_t index)
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return QMPointer<QMJsonValue>(new QMJsonValue);
 
     auto value = mList.takeAt(index);
@@ -220,7 +220,7 @@ QMPointer<QMJsonValue> QMJsonArray::takeAt(int32_t index)
 
 QMPointer<QMJsonValue> QMJsonArray::takeAt(int32_t index, const QMPointer<QMJsonValue> &defaultValue)
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return defaultValue;
 
     auto value = mList.takeAt(index);
@@ -233,7 +233,7 @@ const QMPointer<QMJsonValue> &QMJsonArray::front(void) const
 {
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
-    if(mList.isEmpty() == true)
+    if (mList.isEmpty() == true)
         return defaultValue;
 
     return mList.front();
@@ -243,7 +243,7 @@ const QMPointer<QMJsonValue> &QMJsonArray::back(void) const
 {
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
-    if(mList.isEmpty() == true)
+    if (mList.isEmpty() == true)
         return defaultValue;
 
     return mList.back();
@@ -253,7 +253,7 @@ const QMPointer<QMJsonValue> &QMJsonArray::value(int32_t index) const
 {
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return defaultValue;
 
     return mList.at(index);
@@ -261,7 +261,7 @@ const QMPointer<QMJsonValue> &QMJsonArray::value(int32_t index) const
 
 const QMPointer<QMJsonValue> &QMJsonArray::value(int32_t index, const QMPointer<QMJsonValue> &defaultValue) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return defaultValue;
 
     return mList.at(index);
@@ -274,40 +274,40 @@ QList<QMPointer<QMJsonValue> > QMJsonArray::values(void) const
 
 QList<QMPointer<QMJsonValue> > QMJsonArray::mid(int32_t pos, int32_t length) const
 {
-    if(mList.count() == 0)
+    if (mList.count() == 0)
         return QList<QMPointer<QMJsonValue> >();
 
-    if(pos >= mList.count())
+    if (pos >= mList.count())
         return QList<QMPointer<QMJsonValue> >();
 
-    if(pos < 0) pos = 0;
+    if (pos < 0) pos = 0;
 
     return mList.mid(pos, length);
 }
 
 void QMJsonArray::move(int32_t from, int32_t to)
 {
-    if(mList.count() == 0)
+    if (mList.count() == 0)
         return;
 
-    if(to < 0 || to >= mList.count()) return;
-    if(from < 0 || from >= mList.count()) return;
-    if(to == from) return;
+    if (to < 0 || to >= mList.count()) return;
+    if (from < 0 || from >= mList.count()) return;
+    if (to == from) return;
 
     mList.move(from, to);
 }
 
 void QMJsonArray::replace(int32_t index, const QMPointer<QMJsonValue> &value)
 {
-    if(index < 0)
+    if (index < 0)
         return;
 
-    if(index >= mList.count())
+    if (index >= mList.count())
         return;
 
     auto removedValue = mList.at(index);
 
-    if(value.isNull() == true)
+    if (value.isNull() == true)
         mList.replace(index, QMPointer<QMJsonValue>(new QMJsonValue));
     else
         mList.replace(index, value);
@@ -318,7 +318,7 @@ void QMJsonArray::replace(int32_t index, const QMPointer<QMJsonValue> &value)
 
 bool QMJsonArray::isNull(int32_t index) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return false;
 
     return mList.at(index)->isNull();
@@ -326,7 +326,7 @@ bool QMJsonArray::isNull(int32_t index) const
 
 bool QMJsonArray::isBool(int32_t index) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return false;
 
     return mList.at(index)->isBool();
@@ -334,7 +334,7 @@ bool QMJsonArray::isBool(int32_t index) const
 
 bool QMJsonArray::isDouble(int32_t index) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return false;
 
     return mList.at(index)->isDouble();
@@ -342,7 +342,7 @@ bool QMJsonArray::isDouble(int32_t index) const
 
 bool QMJsonArray::isString(int32_t index) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return false;
 
     return mList.at(index)->isString();
@@ -350,7 +350,7 @@ bool QMJsonArray::isString(int32_t index) const
 
 bool QMJsonArray::isArray(int32_t index) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return false;
 
     return mList.at(index)->isArray();
@@ -358,7 +358,7 @@ bool QMJsonArray::isArray(int32_t index) const
 
 bool QMJsonArray::isObject(int32_t index) const
 {
-    if(index < 0 || index >= mList.count())
+    if (index < 0 || index >= mList.count())
         return false;
 
     return mList.at(index)->isObject();
@@ -451,9 +451,9 @@ QDebug operator<<(QDebug dbg, const QMJsonArray &array)
 
     dbg.nospace() << "QMJsonArray[";
 
-    for(const auto &value : array.values())
+    for (const auto &value : array.values())
     {
-        if(started == true)
+        if (started == true)
             dbg << ",";
 
         dbg << value;
@@ -465,7 +465,7 @@ QDebug operator<<(QDebug dbg, const QMJsonArray &array)
 
 QDebug operator<<(QDebug dbg, const QMPointer<QMJsonArray> &value)
 {
-    if(value.isNull() == true)
+    if (value.isNull() == true)
     {
         QDebugStateSaver saver(dbg);
 

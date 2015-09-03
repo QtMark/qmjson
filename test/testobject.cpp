@@ -274,7 +274,7 @@ void TestJson::QMJsonObject_iter(void)
     QVERIFY(const_iter5 != object1->cend());
 
     auto iter = object1->begin();
-    while(iter != object1->end())
+    while (iter != object1->end())
         iter = object1->erase(iter);
 
     QVERIFY(object1->count() == 0);

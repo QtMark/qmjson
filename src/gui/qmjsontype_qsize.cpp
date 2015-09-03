@@ -32,7 +32,7 @@
 template <>
 void QM_JSON_EXPORT QMJsonType<QSize>::toComplexJson(const QMPointer<QMJsonObject> &obj)
 {
-    if(obj.isNull() == true)
+    if (obj.isNull() == true)
         return;
 
     obj->insert("qmjsontype", "QSize");
@@ -45,7 +45,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QSize>::fromComplexJson(const Q
 {
     auto size = QSize();
 
-    if(obj.isNull() == true)
+    if (obj.isNull() == true)
         return QMPointer<QMJsonValue>(new QMJsonValue(size));
 
     size.setWidth(obj->value("width")->toDouble());
