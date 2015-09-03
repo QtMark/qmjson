@@ -41,7 +41,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::from
         QMJsonValue::skipSpaces(json, index);
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json.at(index).toLatin1())
+        switch (json.at(index).toLatin1())
         {
             case '}':
                 index++;
@@ -57,13 +57,13 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::from
 
         auto key = QMJsonValue::fromJson(json, index);
 
-        if(key == NULL || key->isString() == false)
+        if (key == NULL || key->isString() == false)
             QMJsonValue::throwError(json, index, "Key is not a string. Key's in a JSON object must be a valid JSON string");
 
         QMJsonValue::skipSpaces(json, index);
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json.at(index).toLatin1())
+        switch (json.at(index).toLatin1())
         {
             case ':':
                 index++;
@@ -78,7 +78,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::from
 
         object->insert(key->toString(), QMJsonValue::fromJson(json, index));
     }
-    while(1);
+    while (1);
 
     return QMPointer<QMJsonValue>(new QMJsonValue());
 }
@@ -95,25 +95,25 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
     // optimized paths depending on what your attempting to do. If you modify
     // one, make sure the other three are updated as well (if needed)
 
-    if(object.isNull() == true)
+    if (object.isNull() == true)
         return "{}";
 
-    if(object->count() == 0)
+    if (object->count() == 0)
         return "{}";
 
-    if(tab == (int32_t)QMJsonFormat_Optimized)
+    if (tab == (int32_t)QMJsonFormat_Optimized)
     {
         json += '{';
 
-        switch(sort)
+        switch (sort)
         {
             case QMJsonSort_None:
             {
                 auto iter = object->cbegin();
 
-                while(iter != object->cend())
+                while (iter != object->cend())
                 {
-                    if(iter.value().isNull() == true)
+                    if (iter.value().isNull() == true)
                         continue;
 
                     json += '"';
@@ -133,7 +133,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
                 QStringList keys = object->keys();
                 keys.sort(convertQMJsonSort(sort));
 
-                for(const auto &key : keys)
+                for (const auto &key : keys)
                 {
                     const auto &value = object->value(key);
 
@@ -154,15 +154,15 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
 
         tab += 4;
         auto space = QString(tab, ' ');
-        switch(sort)
+        switch (sort)
         {
             case QMJsonSort_None:
             {
                 auto iter = object->cbegin();
 
-                while(iter != object->cend())
+                while (iter != object->cend())
                 {
-                    if(iter.value().isNull() == true)
+                    if (iter.value().isNull() == true)
                         continue;
 
                     json += "\r\n";
@@ -184,7 +184,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
                 QStringList keys = object->keys();
                 keys.sort(convertQMJsonSort(sort));
 
-                for(const auto &key : keys)
+                for (const auto &key : keys)
                 {
                     const auto &value = object->value(key);
 

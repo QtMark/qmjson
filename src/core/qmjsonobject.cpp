@@ -62,15 +62,15 @@ void QMJsonObject::clear(void)
 {
     auto iter = mHash.begin();
 
-    while(iter != mHash.end())
+    while (iter != mHash.end())
     {
-        if(iter.value().isNull() == true)
+        if (iter.value().isNull() == true)
             continue;
 
-        else if(iter.value()->isObject() == true)
+        else if (iter.value()->isObject() == true)
             iter.value()->toObject()->clear();
 
-        else if(iter.value()->isArray() == true)
+        else if (iter.value()->isArray() == true)
             iter.value()->toArray()->clear();
 
         iter = this->erase(iter);
@@ -104,14 +104,14 @@ bool QMJsonObject::contains(const QString &key) const
 
 void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy)
 {
-    if(key.isEmpty() == true)
+    if (key.isEmpty() == true)
         return;
 
     auto iter = mHash.find(key);
 
-    if(iter != mHash.end())
+    if (iter != mHash.end())
     {
-        switch(policy)
+        switch (policy)
         {
             case QMJsonReplacementPolicy_Replace:
                 this->erase(iter);
@@ -122,7 +122,7 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
         };
     }
 
-    if(value.isNull() == true)
+    if (value.isNull() == true)
     {
         auto newValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
@@ -138,30 +138,30 @@ void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &valu
 
 void QMJsonObject::unite(const QMPointer<QMJsonObject> &object, QMJsonReplacementPolicy replacementPolicy, QMJsonArrayUnitePolicy unitePolicy)
 {
-    if(object.isNull() == true)
+    if (object.isNull() == true)
         return;
 
     auto iter1 = object->cbegin();
 
-    while(iter1 != object->cend())
+    while (iter1 != object->cend())
     {
         auto iter2 = mHash.constFind(iter1.key());
 
-        if(iter2 != mHash.constEnd())
+        if (iter2 != mHash.constEnd())
         {
             const auto &value1 = iter1.value();
             const auto &value2 = iter2.value();
 
-            if(value1.isNull() == true ||
-               value2.isNull() == true)
+            if (value1.isNull() == true ||
+                value2.isNull() == true)
             {
                 continue;
             }
 
-            else if(value1->isObject() && value2->isObject())
+            else if (value1->isObject() && value2->isObject())
                 value2->toObject()->unite(value1->toObject(), replacementPolicy, unitePolicy);
 
-            else if(value1->isArray() && value2->isArray())
+            else if (value1->isArray() && value2->isArray())
                 value2->toArray()->unite(value1->toArray(), unitePolicy);
 
             else
@@ -180,7 +180,7 @@ void QMJsonObject::remove(const QString &key)
 {
     auto iter = mHash.find(key);
 
-    if(iter == mHash.end())
+    if (iter == mHash.end())
         return;
 
     this->erase(iter);
@@ -190,7 +190,7 @@ QMPointer<QMJsonValue> QMJsonObject::take(const QString &key)
 {
     auto iter = mHash.find(key);
 
-    if(iter == mHash.end())
+    if (iter == mHash.end())
         return QMPointer<QMJsonValue>(new QMJsonValue);
 
     this->erase(iter);
@@ -202,7 +202,7 @@ QMPointer<QMJsonValue> QMJsonObject::take(const QString &key, const QMPointer<QM
 {
     auto iter = mHash.find(key);
 
-    if(iter == mHash.end())
+    if (iter == mHash.end())
         return defaultValue;
 
     this->erase(iter);
@@ -242,7 +242,7 @@ QHash<QString, QMPointer<QMJsonValue> >::const_iterator QMJsonObject::cend(void)
 
 const QHash<QString, QMPointer<QMJsonValue> >::iterator QMJsonObject::erase(const QHash<QString, QMPointer<QMJsonValue> >::iterator &iter)
 {
-    if(iter == mHash.end())
+    if (iter == mHash.end())
         return mHash.end();
 
     auto key = iter.key();
@@ -269,7 +269,7 @@ const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key) const
     auto iter = mHash.constFind(key);
     static auto defaultValue = QMPointer<QMJsonValue>(new QMJsonValue);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return defaultValue;
 
     return iter.value();
@@ -279,7 +279,7 @@ const QMPointer<QMJsonValue> &QMJsonObject::value(const QString &key, const QMPo
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return defaultValue;
 
     return iter.value();
@@ -304,7 +304,7 @@ bool QMJsonObject::isNull(const QString &key) const
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return false;
 
     return iter.value()->isNull();
@@ -314,7 +314,7 @@ bool QMJsonObject::isBool(const QString &key) const
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return false;
 
     return iter.value()->isBool();
@@ -324,7 +324,7 @@ bool QMJsonObject::isDouble(const QString &key) const
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return false;
 
     return iter.value()->isDouble();
@@ -334,7 +334,7 @@ bool QMJsonObject::isString(const QString &key) const
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return false;
 
     return iter.value()->isString();
@@ -344,7 +344,7 @@ bool QMJsonObject::isArray(const QString &key) const
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return false;
 
     return iter.value()->isArray();
@@ -354,7 +354,7 @@ bool QMJsonObject::isObject(const QString &key) const
 {
     auto iter = mHash.constFind(key);
 
-    if(iter == mHash.constEnd())
+    if (iter == mHash.constEnd())
         return false;
 
     return iter.value()->isObject();
@@ -447,9 +447,9 @@ QDebug operator<<(QDebug dbg, const QMJsonObject &object)
 
     dbg.nospace() << "QMJsonObject{";
 
-    for(const auto &key : object.keys())
+    for (const auto &key : object.keys())
     {
-        if(started == true)
+        if (started == true)
             dbg << ",";
 
         dbg << key << ":" << object.value(key);
@@ -461,7 +461,7 @@ QDebug operator<<(QDebug dbg, const QMJsonObject &object)
 
 QDebug operator<<(QDebug dbg, const QMPointer<QMJsonObject> &value)
 {
-    if(value.isNull() == true)
+    if (value.isNull() == true)
     {
         QDebugStateSaver saver(dbg);
 

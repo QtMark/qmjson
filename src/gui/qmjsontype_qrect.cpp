@@ -32,7 +32,7 @@
 template <>
 void QM_JSON_EXPORT QMJsonType<QRect>::toComplexJson(const QMPointer<QMJsonObject> &obj)
 {
-    if(obj.isNull() == true)
+    if (obj.isNull() == true)
         return;
 
     obj->insert("qmjsontype", "QRect");
@@ -45,7 +45,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QRect>::fromComplexJson(const Q
 {
     auto rect = QRect();
 
-    if(obj.isNull() == true)
+    if (obj.isNull() == true)
         return QMPointer<QMJsonValue>(new QMJsonValue(rect));
 
     auto size = QMJsonValue::fromComplexJson(obj->value("size"));

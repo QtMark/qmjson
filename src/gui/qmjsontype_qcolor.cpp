@@ -55,7 +55,7 @@ void QM_JSON_EXPORT QMJsonType<QColor>::toComplexJson(const QMPointer<QMJsonObje
     obj->insert("qmjsontype", "QColor");
     obj->insert(COLOR_SPEC_KEY, (int32_t)mValue.spec());
 
-    switch(mValue.spec())
+    switch (mValue.spec())
     {
         case QColor::Rgb:
         {
@@ -104,10 +104,10 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QColor>::fromComplexJson(const 
 {
     auto color = QColor();
 
-    if(obj.isNull() == true)
+    if (obj.isNull() == true)
         return QMPointer<QMJsonValue>(new QMJsonValue(color));
 
-    switch((int32_t)obj->value(COLOR_SPEC_KEY)->toDouble())
+    switch ((int32_t)obj->value(COLOR_SPEC_KEY)->toDouble())
     {
         case QColor::Rgb:
         {

@@ -41,7 +41,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::fromJ
         QMJsonValue::skipSpaces(json, index);
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json.at(index).toLatin1())
+        switch (json.at(index).toLatin1())
         {
             case ']':
                 index++;
@@ -55,7 +55,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::fromJ
                 array->append(QMJsonValue::fromJson(json, index));
         }
     }
-    while(1);
+    while (1);
 
     return QMPointer<QMJsonValue>(new QMJsonValue());
 }
@@ -66,17 +66,17 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::toJson(int32_t tab, 
     auto json = QString();
     const auto &array = this->get();
 
-    if(array.isNull() == true)
+    if (array.isNull() == true)
         return "[]";
 
-    if(array->count() == 0)
+    if (array->count() == 0)
         return "[]";
 
-    if(tab == (int32_t)QMJsonFormat_Optimized)
+    if (tab == (int32_t)QMJsonFormat_Optimized)
     {
         json += '[';
 
-        for(const auto &value : array->values())
+        for (const auto &value : array->values())
         {
             json += value->toJson((QMJsonFormat)tab, sort);
             json += ',';
@@ -90,7 +90,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::toJson(int32_t tab, 
 
         tab += 4;
         auto space = QString(tab, ' ');
-        for(const auto &value : array->values())
+        for (const auto &value : array->values())
         {
             json += "\r\n";
             json += space;

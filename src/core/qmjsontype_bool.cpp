@@ -36,7 +36,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<bool>::fromJson(const QString &
 
     QMJsonValue::verifyIndex(json, index);
 
-    switch(json.at(index++).toLatin1())
+    switch (json.at(index++).toLatin1())
     {
         case 't':
         case 'T':
@@ -45,7 +45,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<bool>::fromJson(const QString &
             QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 'u'; index++;
             QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 'e'; index++;
 
-            if(valid == false)
+            if (valid == false)
                 QMJsonValue::throwError(json, index, "Unexpected token. Expected a boolean value of \"true\" while parsing JSON.");
 
             return QMPointer<QMJsonValue>(new QMJsonValue(true));
@@ -59,7 +59,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<bool>::fromJson(const QString &
             QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 's'; index++;
             QMJsonValue::verifyIndex(json, index); valid &= json.at(index).toLower() == 'e'; index++;
 
-            if(valid == false)
+            if (valid == false)
                 QMJsonValue::throwError(json, index, "Unexpected token. Expected a boolean value of \"false\" while parsing JSON.");
 
             return QMPointer<QMJsonValue>(new QMJsonValue(false));

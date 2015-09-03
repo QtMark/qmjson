@@ -34,7 +34,7 @@ QMPointer<QMJsonValue> convert(const QString &json, int32_t &index, int32_t star
     auto ok = false;
     auto result = json.mid(start, index - start).toDouble(&ok);
 
-    if(ok == false)
+    if (ok == false)
         return QMPointer<QMJsonValue>(new QMJsonValue(0.0));
 
     return QMPointer<QMJsonValue>(new QMJsonValue(result));
@@ -45,11 +45,11 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<double>::fromJson(const QString
 {
     auto start = index;
 
-    while(1)
+    while (1)
     {
         QMJsonValue::verifyIndex(json, index);
 
-        switch(json.at(index).toLatin1())
+        switch (json.at(index).toLatin1())
         {
             case ']':
             case '}':
@@ -63,7 +63,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<double>::fromJson(const QString
 
             default:
             {
-                if(++index == json.length())
+                if (++index == json.length())
                     return convert(json, index, start);
             }
         };
