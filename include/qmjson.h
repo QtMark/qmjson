@@ -47,7 +47,7 @@
  * change that will be needed is to include the QtMark Pointer Library.
  *
  * When using this library, you will notice that everything is stored using
- * managed QMPointers. This is done intentially, and you should not attempt
+ * managed QMPointers. This was done intentionally, and you should not attempt
  * to use the QtMark JSON classes without storing them in a QMPointer as
  * each class prohibits by-value copying. Although storing these classes in
  * managed QMPointers adds an extra level of complexity, it also provides
