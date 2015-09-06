@@ -588,7 +588,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn QList<QMPointer<QMJsonValue> > QMJsonArray::mid(int32_t pos, int32_t length = -1) const;
- * Returns a section of the internal QList of QMJsonValues. If the interal
+ * Returns a section of the internal QList of QMJsonValues. If the internal
  * list is empty, an empty QList is returned. If @e pos is greater than or equal
  * to the length of the internal QList, an empty QList is returned. If the
  * @e pos is less than 0, pos is set to 0. If the @e length + @e pos is greater
@@ -672,7 +672,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 /**
  * @fn bool QMJsonArray::is(int32_t index) const
  * Returns true if the wrapped JSON value at @e index is of type T.
- * This function is ment to be used with custom, complex types as show below:
+ * This function is meant to be used with custom, complex types as shown below:
  *
  * @code
  *
@@ -685,7 +685,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn bool QMJsonArray::toBool(int32_t index) const
- * Unwraps the JSON value at @e index and returns the interanl type.
+ * Unwraps the JSON value at @e index and returns the internal type.
  * Depending on what type the JSON value is, will dictate what is returned:
  *
  * - null: false
@@ -697,7 +697,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn double QMJsonArray::toDouble(int32_t index) const
- * Unwraps the JSON value at @e index and returns the interanl type.
+ * Unwraps the JSON value at @e index and returns the internal type.
  * Depending on what type the JSON value is, will dictate what is returned:
  *
  * - null: 0
@@ -709,7 +709,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn QString QMJsonArray::toString(int32_t index) const
- * Unwraps the JSON value at @e index and returns the interanl type.
+ * Unwraps the JSON value at @e index and returns the internal type.
  * Depending on what type the JSON value is, will dictate what is returned:
  *
  * - null: "null"
@@ -734,39 +734,39 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn bool QMJsonArray::toBool(int32_t index, bool defaultValue) const
- * Unwraps the JSON value at @e index and returns the interanl type.
- * If the interal type is not a boolean, the default value is returned instead.
+ * Unwraps the JSON value at @e index and returns the internal type.
+ * If the internal type is not a boolean, the default value is returned instead.
  */
 
 /**
  * @fn double QMJsonArray::toDouble(int32_t index, double defaultValue) const
- * Unwraps the JSON value at @e index and returns the interanl type. If
- * the interal type is not a double, the default value is returned instead.
+ * Unwraps the JSON value at @e index and returns the internal type. If
+ * the internal type is not a double, the default value is returned instead.
  */
 
 /**
  * @fn const QString &QMJsonArray::toString(int32_t index, const QString &defaultValue) const
- * Unwraps the JSON value at @e index and returns the interanl type.
- * If the interal type is not a string, the default value is returned instead.
+ * Unwraps the JSON value at @e index and returns the internal type.
+ * If the internal type is not a string, the default value is returned instead.
  */
 
 /**
  * @fn virtual const QMPointer<QMJsonArray> &QMJsonArray::toArray(int32_t index, const QMPointer<QMJsonArray> &defaultValue) const
- * Unwraps the JSON value at @e index and returns the interanl type. If
- * the interal type is not an array, the default value is returned instead.
+ * Unwraps the JSON value at @e index and returns the internal type. If
+ * the internal type is not an array, the default value is returned instead.
  */
 
 /**
  * @fn virtual const QMPointer<QMJsonObject> &QMJsonArray::toObject(int32_t index, const QMPointer<QMJsonObject> &defaultValue) const
- * Unwraps the JSON value at @e index and returns the interanl type.
- * If the interal type is not an object, the default value is returned instead.
+ * Unwraps the JSON value at @e index and returns the internal type.
+ * If the internal type is not an object, the default value is returned instead.
  */
 
 /**
  * @fn const T &QMJsonArray::to(int32_t index, const T &defaultValue) const
  * Unwraps the JSON value at @e index and returns the interanl type.
  * If the interal type is not of type T, the default value is returned instead.
- * This function is ment to be used with custom, complex types as show below:
+ * This function is meant to be used with custom, complex types as shown below:
  *
  * @code
  *
@@ -849,9 +849,9 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn bool QMJsonArray::from(int32_t index, const T &value)
- * Unwraps the JSON value at @e index and sets the interanl type. If the interal
+ * Unwraps the JSON value at @e index and sets the internal type. If the internal
  * type is not of type T, the request is ignored. This function
- * is ment to be used with custom, complex types as show below:
+ * is meant to be used with custom, complex types as shown below:
  *
  * @code
  *

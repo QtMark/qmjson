@@ -253,7 +253,7 @@ bool QMJsonValue::set(const T &value)
  * - object
  *
  * A QMJsonValue is a wrapper that can take on any of the above types. This
- * provides a convient mechanism in C++ to implement the JSON array and object
+ * provides a convenient mechanism in C++ to implement the JSON array and object
  * as these data structures can take on any combintation of basic types
  * themselves. That is, in JSON this is perfectly valid:
  *
@@ -367,16 +367,16 @@ bool QMJsonValue::set(const T &value)
  * ### To / From JSON
  *
  * With most JSON, at some point, you will likely need to convert the JSON
- * to and from a JSON string. This can be doen with the QMJsonValue::toJson
+ * to and from a JSON string. This can be done with the QMJsonValue::toJson
  * and QMJsonValue::fromJson functions. This library also provides file
  * operations as well, which allow for JSON to be read / written to / from a
- * file usign QMJsonValue::toJsonFile and QMJsonValue::fromJsonFile
+ * file using QMJsonValue::toJsonFile and QMJsonValue::fromJsonFile
  *
  * ### Complex Types
  *
  * QMJsonValue can store any JSON type natively. There is nothing the user must
  * do for basic support other than provide a couple of support functions for
- * the class if they are not alreayd provided, which include:
+ * the class if they are not already provided, which include:
  *
  * - Default constructor
  * - Equals operator
@@ -428,7 +428,7 @@ bool QMJsonValue::set(const T &value)
  * of the values, modifies them all.
  *
  * @note If the user provides a NULL QMJsonValue, a default, "null" JSON
- * value will be created in it's place.
+ * value will be created in its place.
  */
 
 /**
@@ -436,7 +436,7 @@ bool QMJsonValue::set(const T &value)
  * Creates a JSON array, wrapped in a JSON value.
  *
  * @note If the user provides a NULL QMJsonArray, a default, JSON array
- * will be created in it's place.
+ * will be created in its place.
  */
 
 /**
@@ -444,7 +444,7 @@ bool QMJsonValue::set(const T &value)
  * Creates a JSON object, wrapped in a JSON value.
  *
  * @note If the user provides a NULL QMJsonObject, a default, JSON object
- * will be created in it's place.
+ * will be created in its place.
  */
 
 /**
@@ -455,7 +455,7 @@ bool QMJsonValue::set(const T &value)
  * of the values, modifies them all.
  *
  * @note If the user provides a NULL QMJsonValue, a default, "null" JSON
- * value will be created in it's place.
+ * value will be created in its place.
  */
 
 /**
@@ -467,7 +467,7 @@ bool QMJsonValue::set(const T &value)
  *
  * @note This function wraps the QMJsonArray in a QMPointer, since the
  * QtMark JSON Library only supported managed pointers. For this reason,
- * user's of this API should be aware that the pointer will become managed
+ * users of this API should be aware that the pointer will become managed
  * once used. The most common use for this function is when creating new
  * JSON arrays as shown below
  *
@@ -487,7 +487,7 @@ bool QMJsonValue::set(const T &value)
  *
  * @note This function wraps the QMJsonObject in a QMPointer, since the
  * QtMark JSON Library only supported managed pointers. For this reason,
- * user's of this API should be aware that the pointer will become managed
+ * users of this API should be aware that the pointer will become managed
  * once used. The most common use for this function is when creating new
  * JSON objects as shown below
  *
@@ -636,7 +636,7 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn bool QMJsonValue::is(void) const
- * Returns true if the wrapped JSON value is of type T. This function is ment
+ * Returns true if the wrapped JSON value is of type T. This function is meant
  * to be used with custom, complex types as show below:
  *
  * @code
@@ -650,7 +650,7 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn bool QMJsonValue::toBool(void) const
- * Unwraps the JSON value and returns the interanl type. Depending on what
+ * Unwraps the JSON value and returns the internal type. Depending on what
  * type the JSON value is, will dictate what is returned:
  *
  * - null: false
@@ -662,7 +662,7 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn double QMJsonValue::toDouble(void) const
- * Unwraps the JSON value and returns the interanl type. Depending on what
+ * Unwraps the JSON value and returns the internal type. Depending on what
  * type the JSON value is, will dictate what is returned:
  *
  * - null: 0
@@ -674,7 +674,7 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn QString QMJsonValue::toString(void) const
- * Unwraps the JSON value and returns the interanl type. Depending on what
+ * Unwraps the JSON value and returns the internal type. Depending on what
  * type the JSON value is, will dictate what is returned:
  *
  * - null: "null"
@@ -698,39 +698,39 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn bool QMJsonValue::toBool(bool defaultValue) const
- * Unwraps the JSON value and returns the interanl type. If the interal
+ * Unwraps the JSON value and returns the interanl type. If the internal
  * type is not a boolean, the default value is returned instead.
  */
 
 /**
  * @fn double QMJsonValue::toDouble(double defaultValue) const
- * Unwraps the JSON value and returns the interanl type. If the interal
+ * Unwraps the JSON value and returns the interanl type. If the internal
  * type is not a double, the default value is returned instead.
  */
 
 /**
  * @fn const QString &QMJsonValue::toString(const QString &defaultValue) const
- * Unwraps the JSON value and returns the interanl type. If the interal
+ * Unwraps the JSON value and returns the interanl type. If the internal
  * type is not a string, the default value is returned instead.
  */
 
 /**
  * @fn virtual const QMPointer<QMJsonArray> &QMJsonValue::toArray(const QMPointer<QMJsonArray> &defaultValue) const
- * Unwraps the JSON value and returns the interanl type. If the interal
+ * Unwraps the JSON value and returns the interanl type. If the internal
  * type is not an array, the default value is returned instead.
  */
 
 /**
  * @fn virtual const QMPointer<QMJsonObject> &QMJsonValue::toObject(const QMPointer<QMJsonObject> &defaultValue) const
- * Unwraps the JSON value and returns the interanl type. If the interal
+ * Unwraps the JSON value and returns the interanl type. If the internal
  * type is not an object, the default value is returned instead.
  */
 
 /**
  * @fn const T &QMJsonValue::to(const T &defaultValue) const
- * Unwraps the JSON value and returns the interanl type. If the interal
+ * Unwraps the JSON value and returns the internal type. If the internal
  * type is not of type T, the default value is returned instead. This function
- * is ment to be used with custom, complex types as show below:
+ * is meant to be used with custom, complex types as shown below:
  *
  * @code
  *
@@ -745,7 +745,7 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::fromBool(bool value)
- * Unwraps the JSON value and sets the interanl type. Depending on what
+ * Unwraps the JSON value and sets the internal type. Depending on what
  * type the JSON value is, will dictate what the internal type is set to:
  *
  * - null: (ignored, returns false)
@@ -757,7 +757,7 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::fromDouble(double value)
- * Unwraps the JSON value and sets the interanl type. Depending on what
+ * Unwraps the JSON value and sets the internal type. Depending on what
  * type the JSON value is, will dictate what the internal type is set to:
  *
  * - null: (ignored, returns false)
@@ -769,7 +769,7 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::fromString(const QString &value);
- * Unwraps the JSON value and sets the interanl type. Depending on what
+ * Unwraps the JSON value and sets the internal type. Depending on what
  * type the JSON value is, will dictate what the internal type is set to:
  *
  * - null: (ignored, returns false)
@@ -807,9 +807,9 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn bool QMJsonValue::from(const T &value)
- * Unwraps the JSON value and sets the interanl type. If the interal
+ * Unwraps the JSON value and sets the internal type. If the internal
  * type is not of type T, the request is ignored. This function
- * is ment to be used with custom, complex types as show below:
+ * is meant to be used with custom, complex types as shown below:
  *
  * @code
  *
@@ -901,7 +901,7 @@ bool QMJsonValue::set(const T &value)
  * Converts the provided sting into the QMJsonValue equivlant.
  *
  * If the provided string contains a JSON object that has a key named
- * 'qmjsontype', QMJsonValue will attempt to convert the JSON object to it's
+ * 'qmjsontype', QMJsonValue will attempt to convert the JSON object to its
  * complex type using the fromComplexJson function that was registered with
  * registerFromComplexJson. If no fromComplexJson exists for the type defined
  * by 'qmjsontype', or has not been registered, the JSON object will be treated
@@ -923,7 +923,7 @@ bool QMJsonValue::set(const T &value)
  * Registers a fromComplexJson function with the QMJsonValue class. When
  * fromJson or fromJsonFile are called, fromComplexJson that are registered will
  * be used to convert JSON objects that contain 'qmjsontype' into their
- * complex equivlants.
+ * complex equivalents.
  *
  * @see main.cpp
  */

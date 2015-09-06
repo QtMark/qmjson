@@ -215,7 +215,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
  *
  * - QMJsonObject::insert
  *
- * There is no needed to manually wrap a value in a QMJsonValue, as this
+ * There is no need to manually wrap a value in a QMJsonValue, as this
  * will be done for you:
  *
  * @code
@@ -751,9 +751,9 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn bool QMJsonObject::from(const QString &key, const T &value)
- * Unwraps the JSON value at @e key and sets the interanl type. If the interal
+ * Unwraps the JSON value at @e key and sets the interanl type. If the internal
  * type is not of type T, the request is ignored. This function
- * is ment to be used with custom, complex types as show below:
+ * is meant to be used with custom, complex types as shown below:
  *
  * @code
  *
