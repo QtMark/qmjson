@@ -283,7 +283,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
  * - QMJsonArray::removeAll
  * - QMJsonArray::removeOne
  *
- * These functions do a pointer comparison to validate that QMJsonValue being
+ * These functions do a pointer comparison to validate that the QMJsonValue being
  * referenced has been found. This means that currently, you cannot create
  * a second QMJsonValue with the same wrapped value, and expect these functions
  * to perform the intended results.
@@ -764,8 +764,8 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
 /**
  * @fn const T &QMJsonArray::to(int32_t index, const T &defaultValue) const
- * Unwraps the JSON value at @e index and returns the interanl type.
- * If the interal type is not of type T, the default value is returned instead.
+ * Unwraps the JSON value at @e index and returns the internal type.
+ * If the internal type is not of type T, the default value is returned instead.
  * This function is meant to be used with custom, complex types as shown below:
  *
  * @code
@@ -781,7 +781,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
  /**
  * @fn bool QMJsonArray::fromBool(int32_t index, bool value)
- * Unwraps the JSON value at @e index and sets the interanl type.
+ * Unwraps the JSON value at @e index and sets the internal type.
  * Depending on what type the JSON value is, will dictate what the internal
  * type is set to:
  *
@@ -794,7 +794,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
  /**
  * @fn bool QMJsonArray::fromDouble(int32_t index, double value)
- * Unwraps the JSON value at @e index and sets the interanl type.
+ * Unwraps the JSON value at @e index and sets the internal type.
  * Depending on what type the JSON value is, will dictate what the internal
  * type is set to:
  *
@@ -807,7 +807,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
  /**
  * @fn bool QMJsonArray::fromString(int32_t index, const QString &value);
- * Unwraps the JSON value at @e index and sets the interanl type.
+ * Unwraps the JSON value at @e index and sets the internal type.
  * Depending on what type the JSON value is, will dictate what the
  * internal type is set to:
  *
@@ -834,7 +834,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
  /**
  * @fn bool QMJsonArray::from(int32_t index, const QMPointer<QMJsonValue> &value);
- * Unwraps the JSON value at @e index and sets the interanl type. Depending
+ * Unwraps the JSON value at @e index and sets the internal type. Depending
  * on what type the JSON value is, will dictate what the internal type
  * is set to:
  *

@@ -254,7 +254,7 @@ bool QMJsonValue::set(const T &value)
  *
  * A QMJsonValue is a wrapper that can take on any of the above types. This
  * provides a convenient mechanism in C++ to implement the JSON array and object
- * as these data structures can take on any combintation of basic types
+ * as these data structures can take on any combination of basic types
  * themselves. That is, in JSON this is perfectly valid:
  *
  * @code
@@ -273,9 +273,9 @@ bool QMJsonValue::set(const T &value)
  *
  * @endcode
  *
- * Unlike other librarys, the QMJsonValue takes this one step further and
- * provides support for complex JSON types, allowing for automatic marshaling
- * and unmarshaling of custom types to and from JSON. For more information
+ * Unlike other libraries, the QMJsonValue takes this one step further and
+ * provides support for complex JSON types, allowing for automatic marshalling
+ * and unmarshalling of custom types to and from JSON. For more information
  * about JSON, see the following:
  *
  * http://www.json.org
@@ -307,7 +307,7 @@ bool QMJsonValue::set(const T &value)
  *
  * ### Getting / Setting
  *
- * Once a QMJsonValue is created, it's internal type cannot be changed. That is
+ * Once a QMJsonValue is created, its internal type cannot be changed. That is
  * to say, it's not possible to take an existing QMJsonValue that is currently
  * storing a double, and tell it to start storing a string. With some of the
  * basic  types, it is however possible to convert from one type to another.
@@ -352,7 +352,7 @@ bool QMJsonValue::set(const T &value)
  * - typeString
  * - is<bool>, is<double>, is<QString>, is<QMPointer<QMJsonArray> >, is<QMPointer<QMJsonObject> >
  *
- * Genreally speaking, the isNull, isBool, isDouble, isString, isArray,
+ * Generally speaking, the isNull, isBool, isDouble, isString, isArray,
  * isObject are preferred as they are faster and more concise. If the type you
  * are attempting to identify is a complex type, you need to use the is<xxx>
  * function as this is the only way to identify a complex type.
@@ -382,7 +382,7 @@ bool QMJsonValue::set(const T &value)
  * - Equals operator
  * - QDebug Overload
  *
- * If these are not provided, it's like the compiler will complain in an attempt
+ * If these are not provided, it's most likely the compiler will complain in an attempt
  * to put the complex type inside the QMJsonValue (as the compiler attempts to
  * create the template type). If the user would like to use QMJsonValue::toJson
  * and QMJsonValue::fromJson, three things must be done. First, the user must
@@ -391,7 +391,7 @@ bool QMJsonValue::set(const T &value)
  * QMJsonType::fromComplexJson function using
  * QMJsonValue::registerFromComplexJson.
  *
- * For a complete exmaple, see main.cpp, qmjsontype_qsize.cpp and
+ * For a complete example, see main.cpp, qmjsontype_qsize.cpp and
  * qmjsontype_qrect.cpp
  *
  */
@@ -466,10 +466,10 @@ bool QMJsonValue::set(const T &value)
  * will be created in it's place.
  *
  * @note This function wraps the QMJsonArray in a QMPointer, since the
- * QtMark JSON Library only supported managed pointers. For this reason,
+ * QtMark JSON Library only supports managed pointers. For this reason,
  * users of this API should be aware that the pointer will become managed
  * once used. The most common use for this function is when creating new
- * JSON arrays as shown below
+ * JSON arrays as shown below:
  *
  * @code
  *
@@ -486,10 +486,10 @@ bool QMJsonValue::set(const T &value)
  * will be created in it's place.
  *
  * @note This function wraps the QMJsonObject in a QMPointer, since the
- * QtMark JSON Library only supported managed pointers. For this reason,
+ * QtMark JSON Library only supports managed pointers. For this reason,
  * users of this API should be aware that the pointer will become managed
  * once used. The most common use for this function is when creating new
- * JSON objects as shown below
+ * JSON objects as shown below:
  *
  * @code
  *
@@ -502,7 +502,7 @@ bool QMJsonValue::set(const T &value)
  * @fn QMJsonValue::QMJsonValue(const T &value)
  * Creates a JSON value with type T.
  *
- * The QtMark JSON Library supports wraping almost anything in a JSON
+ * The QtMark JSON Library supports wrapping almost anything in a JSON
  * value. If you use this function, the compiler will likely require that you
  * provide a QDebug overload for this type (if one does not already exist).
  *
@@ -510,9 +510,9 @@ bool QMJsonValue::set(const T &value)
  * to provide the Complex JSON template overloads. For an example of how to
  * do this, see the qmjsontype_qsize.cpp file.
  *
- * This library also supported nested complex types. To see an example of how
+ * This library also supports nested complex types. To see an example of how
  * this works, see the qmjsontype_qrect.cpp file, as the QRect implementation
- * relys on QSize and QPoint.
+ * relies on QSize and QPoint.
  *
  * @code
  *
@@ -532,70 +532,70 @@ bool QMJsonValue::set(const T &value)
  * @fn QMJsonValue::QMJsonValue(float value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(char value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(int8_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(uint8_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(int16_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(uint16_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(int32_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(uint32_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(int64_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
  * @fn QMJsonValue::QMJsonValue(uint64_t value)
  * Creates a JSON number value.
  *
- * @note QtMark JSON stores all numbers internally as a double.
+ * @note QtMark JSON stores all numbers internally as doubles.
  */
 
 /**
@@ -637,7 +637,7 @@ bool QMJsonValue::set(const T &value)
 /**
  * @fn bool QMJsonValue::is(void) const
  * Returns true if the wrapped JSON value is of type T. This function is meant
- * to be used with custom, complex types as show below:
+ * to be used with custom, complex types as shown below:
  *
  * @code
  *
@@ -782,13 +782,13 @@ bool QMJsonValue::set(const T &value)
 /**
  * @fn bool QMJsonValue::fromArray(const QMPointer<QMJsonArray> &value);
  * Unwraps the JSON value and sets the internal type to a QMJsonArray.
- * If the internal type is not a QMJsonArray, the request is ignored
+ * If the internal type is not a QMJsonArray, the request is ignored.
  */
 
 /**
  * @fn bool QMJsonValue::fromObject(const QMPointer<QMJsonObject> &value);
  * Unwraps the JSON value and sets the internal type to a QMJsonObject.
- * If the internal type is not a QMJsonObject, the request is ignored
+ * If the internal type is not a QMJsonObject, the request is ignored.
  */
 
  /**
@@ -824,7 +824,7 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn const QMPointer<QMJsonValue> &QMJsonValue::value(int32_t index) const
- * A convenience function. The following two statements are equvilant:
+ * A convenience function. The following two statements are equivalent:
  *
  * @code
  *
@@ -836,7 +836,7 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn const QMPointer<QMJsonValue> &QMJsonValue::value(const QString &key) const;
- * A convenience function. The following two statements are equvilant:
+ * A convenience function. The following two statements are equivalent:
  *
  * @code
  *
@@ -879,9 +879,9 @@ bool QMJsonValue::set(const T &value)
  *
  * Non-standard JSON types (i.e. complex types) are converted into their
  * JSON equivalents using the toComplexJson and fromComplexJson template
- * overloads. To see an exmaple of how this is done, see the template overloads
- * withing the GUI portion of this library. Specificaly the overloads for
- * QSize and QRect which demonstration coverting a complex type into native
+ * overloads. To see an example of how this is done, see the template overloads
+ * within the GUI portion of this library. Specifically the overloads for
+ * QSize and QRect which demonstrate coverting a complex type into native
  * JSON (i.e. QSize) and converting a complex type into other complex types
  * (i.e. QRect)
  *
@@ -912,8 +912,8 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn static QMPointer<QMJsonValue> QMJsonValue::fromJsonFile(const QString &filename)
- * Read in the contents of filename, and converts the resulting sting into
- * the QMJsonValue equivlant.
+ * Reads in the contents of filename, and converts the resulting string into
+ * the QMJsonValue equivalent.
  *
  * @see fromJson
  */
@@ -921,8 +921,8 @@ bool QMJsonValue::set(const T &value)
 /**
  * @fn static void QMJsonValue::registerFromComplexJson(const QString &qmjsontype, FromComplexJsonFunc func)
  * Registers a fromComplexJson function with the QMJsonValue class. When
- * fromJson or fromJsonFile are called, fromComplexJson that are registered will
- * be used to convert JSON objects that contain 'qmjsontype' into their
+ * fromJson or fromJsonFile are called, the fromComplexJson that are registered
+ * will be used to convert JSON objects that contain 'qmjsontype' into their
  * complex equivalents.
  *
  * @see main.cpp
