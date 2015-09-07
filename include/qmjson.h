@@ -153,7 +153,7 @@
  * - itemAdded
  * - itemRemoved
  *
- * With signals and slots, it's possible trigger code when changes to a JSON
+ * With signals and slots, it's possible to trigger code when changes to a JSON
  * tree occur, providing a simple means for implementing MVC architectures
  * with this JSON library.
  *
@@ -162,7 +162,7 @@
  * This library comes with a lot of convenience functions designed to make
  * dealing with the API easier on developers. For example, JSON normally only
  * stores doubles for numbers. This is because most integer types can be stored
- * as a double. The problem is this leaves a lot of type casting to the
+ * as a double. The problem is that this leaves a lot of type casting up to the
  * programmer. If you wanted to add an int to a QMJsonValue, you would need
  * to first cast the int to a double:
  *
@@ -180,7 +180,7 @@
  * as standard C style strings. These type conversions also work with
  * QMJsonArray and QMJsonObject's insertion functions. QMJsonArray and
  * QMJsonObject also provide convenience functions for accessing QMJsonValues.
- * For example, the following are equivlant:
+ * For example, the following are equivalent:
  *
  * @code
  *
@@ -227,7 +227,7 @@
  *
  * @endcode
  *
- * If you want to convert a JSON string to it's QtMark JSON representation,
+ * If you want to convert a JSON string to its QtMark JSON representation,
  * you can use the fromJson function:
  *
  * @code

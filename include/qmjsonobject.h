@@ -297,7 +297,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn QMJsonObject::QMJsonObject(const QHash<QString, QMPointer<QMJsonValue> > &hash);
- * Overloaded constructor, create a QMJsonObject and fills it with the
+ * Overloaded constructor, creates a QMJsonObject and fills it with the
  * QMJsonValues provided in @e hash
  */
 
@@ -335,7 +335,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 /**
  * @fn void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace)
  * Inserts @e value into the QMJsonObject with @e key. If the QMJsonObject
- * alreday contains @e key, and @e policy is set to
+ * already contains @e key, and @e policy is set to
  * QMJsonReplacementPolicy_Replace, the existing QMJsonValue is replaced. If
  * @e policy is set to QMJsonReplacementPolicy_Ignore, this operation is
  * ignored.
@@ -344,7 +344,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 /**
  * @fn void QMJsonObject::insert(const QString &key, const QMPointer<QMJsonValue> &value, QMJsonReplacementPolicy policy = QMJsonReplacementPolicy_Replace)
  * Wraps @e value in a QMJsonValue and inserts it into the QMJsonObject with
- * @e key. If the QMJsonObject alreday contains @e key, and @e policy is set to
+ * @e key. If the QMJsonObject already contains @e key, and @e policy is set to
  * QMJsonReplacementPolicy_Replace, the existing QMJsonValue is replaced. If
  * @e policy is set to QMJsonReplacementPolicy_Ignore, this operation is
  * ignored.
@@ -353,7 +353,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 /**
  * @fn void QMJsonObject::unite(const QMPointer<QMJsonObject> &object, QMJsonReplacementPolicy replacementPolicy = QMJsonReplacementPolicy_Replace, QMJsonArrayUnitePolicy unitePolicy = QMJsonArrayUnitePolicy_Append);
  * Unites this QMJsonObject with @e object by inserting all the QMJsonValues in
- * @e object into this QMJsonObject. If the QMJsonObject alreday contains a
+ * @e object into this QMJsonObject. If the QMJsonObject already contains a
  * QMJsonValue with the same key and @e replacementPolicy is set to
  * QMJsonReplacementPolicy_Replace, the existing QMJsonValue is replaced. If
  * @e replacementPolicy is set to QMJsonReplacementPolicy_Ignore,
@@ -409,10 +409,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * QMJsonObject.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -423,10 +423,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * QMJsonObject.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -437,10 +437,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * QMJsonObject.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -451,10 +451,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * QMJsonObject.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -466,10 +466,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * returns an iterator to the next item in the QMJsonObject.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -480,10 +480,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * iterator is found, QMJsonObject::end is returned.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -494,10 +494,10 @@ bool QMJsonObject::from(const QString &key, const T &value)
  * iterator is found, QMJsonObject::cend is returned.
  *
  * @note The use of iterators can speed up the performance of some operations on
- * QMJsonObjects as it can remove a second lookup (i.e. the user of
+ * QMJsonObjects as it can remove a second lookup (i.e. the use of
  * QMJsonObject::contains and then QMJsonObject::value). QMJsonObject provides
  * these iterators by simply exposing the QHash iterators that already exist.
- * The problem with Qt's iterators is they can be unsafe. Unlike the rest of
+ * The problem with Qt's iterators is that they can be unsafe. Unlike the rest of
  * this library, you must do bounds checking on your own when using iterators,
  * otherwise segmentation faults could occur.
  */
@@ -574,7 +574,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 /**
  * @fn bool QMJsonObject::is(const QString &key) const
  * Returns true if the wrapped JSON value at @e key is of type T.
- * This function is ment to be used with custom, complex types as show below:
+ * This function is meant to be used with custom, complex types as show below:
  *
  * @code
  *
@@ -587,7 +587,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn bool QMJsonObject::toBool(const QString &key) const
- * Unwraps the JSON value at @e key and returns the interanl type.
+ * Unwraps the JSON value at @e key and returns the internal type.
  * Depending on what type the JSON value is, will dictate what is returned:
  *
  * - null: false
@@ -599,7 +599,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn double QMJsonObject::toDouble(const QString &key) const
- * Unwraps the JSON value at @e key and returns the interanl type.
+ * Unwraps the JSON value at @e key and returns the internal type.
  * Depending on what type the JSON value is, will dictate what is returned:
  *
  * - null: 0
@@ -611,7 +611,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn QString QMJsonObject::toString(const QString &key) const
- * Unwraps the JSON value at @e key and returns the interanl type.
+ * Unwraps the JSON value at @e key and returns the internal type.
  * Depending on what type the JSON value is, will dictate what is returned:
  *
  * - null: "null"
@@ -636,39 +636,39 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn bool QMJsonObject::toBool(const QString &key, bool defaultValue) const
- * Unwraps the JSON value at @e key and returns the interanl type.
- * If the interal type is not a boolean, the default value is returned instead.
+ * Unwraps the JSON value at @e key and returns the internal type.
+ * If the internal type is not a boolean, the default value is returned instead.
  */
 
 /**
  * @fn double QMJsonObject::toDouble(const QString &key, double defaultValue) const
- * Unwraps the JSON value at @e key and returns the interanl type. If
- * the interal type is not a double, the default value is returned instead.
+ * Unwraps the JSON value at @e key and returns the internal type. If
+ * the internal type is not a double, the default value is returned instead.
  */
 
 /**
  * @fn const QString &QMJsonObject::toString(const QString &key, const QString &defaultValue) const
- * Unwraps the JSON value at @e key and returns the interanl type.
- * If the interal type is not a string, the default value is returned instead.
+ * Unwraps the JSON value at @e key and returns the internal type.
+ * If the internal type is not a string, the default value is returned instead.
  */
 
 /**
  * @fn virtual const QMPointer<QMJsonArray> &QMJsonObject::toArray(const QString &key, const QMPointer<QMJsonArray> &defaultValue) const
- * Unwraps the JSON value at @e key and returns the interanl type. If
- * the interal type is not an array, the default value is returned instead.
+ * Unwraps the JSON value at @e key and returns the internal type. If
+ * the internal type is not an array, the default value is returned instead.
  */
 
 /**
  * @fn virtual const QMPointer<QMJsonObject> &QMJsonObject::toObject(const QString &key, const QMPointer<QMJsonObject> &defaultValue) const
- * Unwraps the JSON value at @e key and returns the interanl type.
- * If the interal type is not an object, the default value is returned instead.
+ * Unwraps the JSON value at @e key and returns the internal type.
+ * If the internal type is not an object, the default value is returned instead.
  */
 
 /**
  * @fn const T &QMJsonObject::to(const QString &key, const T &defaultValue) const
- * Unwraps the JSON value at @e key and returns the interanl type.
- * If the interal type is not of type T, the default value is returned instead.
- * This function is ment to be used with custom, complex types as show below:
+ * Unwraps the JSON value at @e key and returns the internal type.
+ * If the internal type is not of type T, the default value is returned instead.
+ * This function is meant to be used with custom, complex types as show below:
  *
  * @code
  *
@@ -683,7 +683,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
  /**
  * @fn bool QMJsonObject::fromBool(const QString &key, bool value)
- * Unwraps the JSON value at @e key and sets the interanl type.
+ * Unwraps the JSON value at @e key and sets the internal type.
  * Depending on what type the JSON value is, will dictate what the internal
  * type is set to:
  *
@@ -696,7 +696,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
  /**
  * @fn bool QMJsonObject::fromDouble(const QString &key, double value)
- * Unwraps the JSON value at @e key and sets the interanl type.
+ * Unwraps the JSON value at @e key and sets the internal type.
  * Depending on what type the JSON value is, will dictate what the internal
  * type is set to:
  *
@@ -709,7 +709,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
  /**
  * @fn bool QMJsonObject::fromString(const QString &key, const QString &value);
- * Unwraps the JSON value at @e key and sets the interanl type.
+ * Unwraps the JSON value at @e key and sets the internal type.
  * Depending on what type the JSON value is, will dictate what the
  * internal type is set to:
  *
@@ -736,7 +736,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
  /**
  * @fn bool QMJsonObject::from(const QString &key, const QMPointer<QMJsonValue> &value);
- * Unwraps the JSON value at @e key and sets the interanl type. Depending
+ * Unwraps the JSON value at @e key and sets the internal type. Depending
  * on what type the JSON value is, will dictate what the internal type
  * is set to:
  *
@@ -751,7 +751,7 @@ bool QMJsonObject::from(const QString &key, const T &value)
 
 /**
  * @fn bool QMJsonObject::from(const QString &key, const T &value)
- * Unwraps the JSON value at @e key and sets the interanl type. If the internal
+ * Unwraps the JSON value at @e key and sets the internal type. If the internal
  * type is not of type T, the request is ignored. This function
  * is meant to be used with custom, complex types as shown below:
  *
