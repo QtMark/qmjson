@@ -47,8 +47,8 @@
  * change that will be needed is to include the QtMark Pointer Library.
  *
  * When using this library, you will notice that everything is stored using
- * managed QMPointers. This is done intentially, and you should not attempt
- * to use the Qt Mark JSON classes without storing them in a QMPointer as
+ * managed QMPointers. This was done intentionally, and you should not attempt
+ * to use the QtMark JSON classes without storing them in a QMPointer as
  * each class prohibits by-value copying. Although storing these classes in
  * managed QMPointers adds an extra level of complexity, it also provides
  * a lot of benefits. The most notible being the following:
@@ -139,7 +139,7 @@
  * key is encountered. QMJsonType::fromComplexJson functions are registered
  * with the library using QMJsonValue::registerFromComplexJson.
  *
- * For a complete exmaple, see main.cpp, qmjsontype_qsize.cpp and
+ * For a complete example, see main.cpp, qmjsontype_qsize.cpp and
  * qmjsontype_qrect.cpp
  *
  * ### Signals / Slots
@@ -164,7 +164,7 @@
  * stores doubles for numbers. This is because most integer types can be stored
  * as a double. The problem is this leaves a lot of type casting to the
  * programmer. If you wanted to add an int to a QMJsonValue, you would need
- * to first case the int to a double:
+ * to first cast the int to a double:
  *
  * @code
  *
