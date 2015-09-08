@@ -686,7 +686,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 /**
  * @fn bool QMJsonArray::toBool(int32_t index) const
  * Unwraps the JSON value at @e index and returns the internal type.
- * Depending on what type the JSON value is, will dictate what is returned:
+ * The type of the JSON value, will dictate what is returned:
  *
  * - null: false
  * - bool: true / falue (native)
@@ -698,7 +698,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 /**
  * @fn double QMJsonArray::toDouble(int32_t index) const
  * Unwraps the JSON value at @e index and returns the internal type.
- * Depending on what type the JSON value is, will dictate what is returned:
+ * The type of the JSON value, will dictate what is returned:
  *
  * - null: 0
  * - bool: false = 0, true = 1
@@ -710,7 +710,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
 /**
  * @fn QString QMJsonArray::toString(int32_t index) const
  * Unwraps the JSON value at @e index and returns the internal type.
- * Depending on what type the JSON value is, will dictate what is returned:
+ * The type of the JSON value, will dictate what is returned:
  *
  * - null: "null"
  * - bool: "true" if true, "false" if false
@@ -782,7 +782,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
  /**
  * @fn bool QMJsonArray::fromBool(int32_t index, bool value)
  * Unwraps the JSON value at @e index and sets the internal type.
- * Depending on what type the JSON value is, will dictate what the internal
+ * The type of the JSON value, will dictate what the internal
  * type is set to:
  *
  * - null: (ignored, returns false)
@@ -795,7 +795,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
  /**
  * @fn bool QMJsonArray::fromDouble(int32_t index, double value)
  * Unwraps the JSON value at @e index and sets the internal type.
- * Depending on what type the JSON value is, will dictate what the internal
+ * The type of the JSON value, will dictate what the internal
  * type is set to:
  *
  * - null: (ignored, returns false)
@@ -808,7 +808,7 @@ bool QMJsonArray::from(int32_t index, const T &value)
  /**
  * @fn bool QMJsonArray::fromString(int32_t index, const QString &value);
  * Unwraps the JSON value at @e index and sets the internal type.
- * Depending on what type the JSON value is, will dictate what the
+ * The type of the JSON value, will dictate what the
  * internal type is set to:
  *
  * - null: (ignored, returns false)
@@ -834,9 +834,8 @@ bool QMJsonArray::from(int32_t index, const T &value)
 
  /**
  * @fn bool QMJsonArray::from(int32_t index, const QMPointer<QMJsonValue> &value);
- * Unwraps the JSON value at @e index and sets the internal type. Depending
- * on what type the JSON value is, will dictate what the internal type
- * is set to:
+ * Unwraps the JSON value at @e index and sets the internal type. The type of
+ * the JSON value, will dictate what the internal type is set to:
  *
  * - null: if both values are NULL, returns true, otherwise returns false
  * - bool: @ref fromBool
