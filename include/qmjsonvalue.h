@@ -650,8 +650,8 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn bool QMJsonValue::toBool(void) const
- * Unwraps the JSON value and returns the internal type. Depending on what
- * type the JSON value is, will dictate what is returned:
+ * Unwraps the JSON value and returns the internal type. The type of the JSON
+ * value, will dictate what is returned:
  *
  * - null: false
  * - bool: true / falue (native)
@@ -662,8 +662,8 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn double QMJsonValue::toDouble(void) const
- * Unwraps the JSON value and returns the internal type. Depending on what
- * type the JSON value is, will dictate what is returned:
+ * Unwraps the JSON value and returns the internal type. The type of the JSON
+ * value, will dictate what is returned:
  *
  * - null: 0
  * - bool: false = 0, true = 1
@@ -674,8 +674,8 @@ bool QMJsonValue::set(const T &value)
 
 /**
  * @fn QString QMJsonValue::toString(void) const
- * Unwraps the JSON value and returns the internal type. Depending on what
- * type the JSON value is, will dictate what is returned:
+ * Unwraps the JSON value and returns the internal type. The type of the JSON
+ * value, will dictate what is returned:
  *
  * - null: "null"
  * - bool: "true" if true, "false" if false
@@ -745,8 +745,8 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::fromBool(bool value)
- * Unwraps the JSON value and sets the internal type. Depending on what
- * type the JSON value is, will dictate what the internal type is set to:
+ * Unwraps the JSON value and sets the internal type. The type of the JSON value,
+ * will dictate what the internal type is set to:
  *
  * - null: (ignored, returns false)
  * - bool: true / falue (native)
@@ -757,8 +757,8 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::fromDouble(double value)
- * Unwraps the JSON value and sets the internal type. Depending on what
- * type the JSON value is, will dictate what the internal type is set to:
+ * Unwraps the JSON value and sets the internal type. The type of the JSON value,
+ * will dictate what the internal type is set to:
  *
  * - null: (ignored, returns false)
  * - bool: false if 0, true otherwise
@@ -769,8 +769,8 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::fromString(const QString &value);
- * Unwraps the JSON value and sets the internal type. Depending on what
- * type the JSON value is, will dictate what the internal type is set to:
+ * Unwraps the JSON value and sets the internal type. The type of the JSON value,
+ * will dictate what the internal type is set to:
  *
  * - null: (ignored, returns false)
  * - bool: true if "true", false otherwise
@@ -793,8 +793,8 @@ bool QMJsonValue::set(const T &value)
 
  /**
  * @fn bool QMJsonValue::from(const QMPointer<QMJsonValue> &value);
- * Unwraps the JSON value and sets the interanl type. Depending on what
- * type the JSON value is, will dictate what the internal type is set to:
+ * Unwraps the JSON value and sets the interanl type. The type of the JSON value,
+ * will dictate what the internal type is set to:
  *
  * - null: if both values are NULL, returns true, otherwise returns false
  * - bool: @ref fromBool

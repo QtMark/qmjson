@@ -51,7 +51,7 @@
  * to use the QtMark JSON classes without storing them in a QMPointer as
  * each class prohibits by-value copying. Although storing these classes in
  * managed QMPointers adds an extra level of complexity, it also provides
- * a lot of benefits. The most notible being the following:
+ * a lot of benefits. The most notable being the following:
  *
  * @code
  *
