@@ -18,7 +18,7 @@ a more developer friendly API.
 
 For more information on the API, please see the API documentation:
 
-https://qtmark.github.io/qmjson/doc/html/
+http://qtmark.github.io/qmjson/doc/html/
 
 ## Requirements
 
