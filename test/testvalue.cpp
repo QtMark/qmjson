@@ -1275,20 +1275,20 @@ void TestJson::QMJsonValue_tofromjson_array(void)
     QVERIFY(ojson3 == "[[],[null,true,4.8,\"test\"]]");
 
     QVERIFY(pjson1 == "[]");
-    QVERIFY(pjson2 == "[\r\n"
-            "    null,\r\n"
-            "    true,\r\n"
-            "    4.8,\r\n"
-            "    \"test\"\r\n"
+    QVERIFY(pjson2 == "[\n"
+            "    null,\n"
+            "    true,\n"
+            "    4.8,\n"
+            "    \"test\"\n"
             "]");
-    QVERIFY(pjson3 == "[\r\n"
-            "    [],\r\n"
-            "    [\r\n"
-            "        null,\r\n"
-            "        true,\r\n"
-            "        4.8,\r\n"
-            "        \"test\"\r\n"
-            "    ]\r\n"
+    QVERIFY(pjson3 == "[\n"
+            "    [],\n"
+            "    [\n"
+            "        null,\n"
+            "        true,\n"
+            "        4.8,\n"
+            "        \"test\"\n"
+            "    ]\n"
             "]");
 
     QVERIFY(QMJsonValue::fromJson(ojson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
@@ -1329,20 +1329,20 @@ void TestJson::QMJsonValue_tofromjson_object(void)
     QVERIFY(ojson3 == "{\"key4\":{},\"key5\":{\"key0\":null,\"key1\":true,\"key2\":4.8,\"key3\":\"test\"}}");
 
     QVERIFY(pjson1 == "{}");
-    QVERIFY(pjson2 == "{\r\n"
-            "    \"key0\":null,\r\n"
-            "    \"key1\":true,\r\n"
-            "    \"key2\":4.8,\r\n"
-            "    \"key3\":\"test\"\r\n"
+    QVERIFY(pjson2 == "{\n"
+            "    \"key0\":null,\n"
+            "    \"key1\":true,\n"
+            "    \"key2\":4.8,\n"
+            "    \"key3\":\"test\"\n"
             "}");
-    QVERIFY(pjson3 == "{\r\n"
-            "    \"key4\":{},\r\n"
-            "    \"key5\":{\r\n"
-            "        \"key0\":null,\r\n"
-            "        \"key1\":true,\r\n"
-            "        \"key2\":4.8,\r\n"
-            "        \"key3\":\"test\"\r\n"
-            "    }\r\n"
+    QVERIFY(pjson3 == "{\n"
+            "    \"key4\":{},\n"
+            "    \"key5\":{\n"
+            "        \"key0\":null,\n"
+            "        \"key1\":true,\n"
+            "        \"key2\":4.8,\n"
+            "        \"key3\":\"test\"\n"
+            "    }\n"
             "}");
 
     QVERIFY(QMJsonValue::fromJson(ojson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
