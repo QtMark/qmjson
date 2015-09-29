@@ -932,7 +932,7 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)
 QMPointer<QMJsonValue> QMJsonValue::fromComplexJson(const QMPointer<QMJsonValue> &value)
 {
     if (value.isNull() == true)
-        return QMPointer<QMJsonValue>(new QMJsonValue());
+        return QMPointer<QMJsonValue>();
 
     if (value->isObject() == true)
     {
@@ -1068,7 +1068,7 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json, int32_t &index
             return QMJsonType<double>::fromJson(json, index);
     }
 
-    return QMPointer<QMJsonValue>(new QMJsonValue());
+    return QMPointer<QMJsonValue>();
 }
 
 QMPointer<QMJsonValue> QMJsonValue::fromJsonFile(const QString &filename)

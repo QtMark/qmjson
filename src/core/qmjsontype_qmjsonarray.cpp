@@ -57,7 +57,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::fromJ
     }
     while (1);
 
-    return QMPointer<QMJsonValue>(new QMJsonValue());
+    return QMPointer<QMJsonValue>();
 }
 
 template <>

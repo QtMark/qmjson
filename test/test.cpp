@@ -20,9 +20,15 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include <test.h>
+#include <QtCore/QDebug>
+
+void noMessageOutput(QtMsgType, const QMessageLogContext &, const QString &)
+{}
 
 void TestJson::initTestCase(void)
 {
+    qInstallMessageHandler(noMessageOutput);
+
     QMJsonValue::registerFromComplexJson("QColor", &QMJsonType<QColor>::fromComplexJson);
     QMJsonValue::registerFromComplexJson("QPoint", &QMJsonType<QPoint>::fromComplexJson);
     QMJsonValue::registerFromComplexJson("QRect", &QMJsonType<QRect>::fromComplexJson);

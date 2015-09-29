@@ -69,7 +69,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<bool>::fromJson(const QString &
             QMJsonValue::throwError(json, index, "Parse Error in QMJsonType<bool>::fromJson");
     }
 
-    return QMPointer<QMJsonValue>(new QMJsonValue());
+    return QMPointer<QMJsonValue>();
 }
 
 template <>

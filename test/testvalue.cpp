@@ -159,7 +159,13 @@ void TestJson::QMJsonValue_file(void)
 
     QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text) == true);
 
-    stream << "{ this is a bad json file";
+    stream << "booltrue\": true,\r\n";
+    stream << "\"boolfalse\": false,\r\n";
+    stream << "}\r\n";
+    stream << "}\r\n";
+    stream << "}\r\n";
+
+    // stream << "{ this is a bad json file";
     file.commit();
 
     QVERIFY(QMJsonValue::fromJsonFile("test.json").isNull() == true);
@@ -1362,4 +1368,13 @@ void TestJson::QMJsonValue_tofromjson_object(void)
     QVERIFY(QMJsonValue::fromJson(pjson1)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson1);
     QVERIFY(QMJsonValue::fromJson(pjson2)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson2);
     QVERIFY(QMJsonValue::fromJson(pjson3)->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) == ojson3);
+}
+
+void TestJson::QMJsonValue_fromjson(void)
+{
+    QVERIFY(QMJsonValue::fromJson("").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("nil").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("talse").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("frue").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("000pppsssss").isNull() == true);
 }
