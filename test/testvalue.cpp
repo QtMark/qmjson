@@ -151,6 +151,18 @@ void TestJson::QMJsonValue_file(void)
     QVERIFY(document2.isNull() == false);
     QVERIFY(document1->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive) ==
             document2->toJson(QMJsonFormat_Optimized, QMJsonSort_CaseSensitive));
+
+    QVERIFY(QMJsonValue::fromJsonFile("blah.json").isNull() == true);
+
+    QSaveFile file("test.json");
+    QTextStream stream(&file);
+
+    QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Text) == true);
+
+    stream << "{ this is a bad json file";
+    file.commit();
+
+    QVERIFY(QMJsonValue::fromJsonFile("test.json").isNull() == true);
 }
 
 void TestJson::QMJsonValue_sort(void)

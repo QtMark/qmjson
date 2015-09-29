@@ -904,7 +904,6 @@ bool QMJsonValue::toJsonFile(const QString &filename, QMJsonFormat format, QMJso
     stream << this->toJson(format, sort) << "\r\n";
 
     return file.commit();
-
 }
 
 QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)
@@ -917,12 +916,9 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)
         QMJsonValue::skipSpaces(json, index);
 
         if (index >= json.length())
-            return QMPointer<QMJsonValue>(new QMJsonValue());
+            return QMPointer<QMJsonValue>();
 
-        value = QMJsonValue::fromJson(json, index);
-
-        if (value.isNull() == false)
-            return value;
+        return QMJsonValue::fromJson(json, index);
     }
 
     catch (const QString &str)
@@ -930,7 +926,7 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)
         qDebug() << "QMJsonValue::fromJson Failed -" + str;
     }
 
-    return QMPointer<QMJsonValue>(new QMJsonValue());
+    return QMPointer<QMJsonValue>();
 }
 
 QMPointer<QMJsonValue> QMJsonValue::fromComplexJson(const QMPointer<QMJsonValue> &value)
