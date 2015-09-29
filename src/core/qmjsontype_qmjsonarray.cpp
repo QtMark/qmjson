@@ -92,7 +92,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::toJson(int32_t tab, 
         auto space = QString(tab, ' ');
         for (const auto &value : array->values())
         {
-            json += "\r\n";
+            json += "\n";
             json += space;
             json += value->toJson((QMJsonFormat)tab, sort);
             json += ',';
@@ -100,7 +100,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonArray> >::toJson(int32_t tab, 
         tab -= 4;
 
         json.remove(json.length() - 1, 1);
-        json += "\r\n";
+        json += "\n";
         json += QString(tab, ' ');
         json += ']';
 

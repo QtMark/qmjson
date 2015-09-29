@@ -165,7 +165,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
                     if (iter.value().isNull() == true)
                         continue;
 
-                    json += "\r\n";
+                    json += "\n";
                     json += space;
                     json += '"';
                     json += iter.key();
@@ -188,7 +188,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
                 {
                     const auto &value = object->value(key);
 
-                    json += "\r\n";
+                    json += "\n";
                     json += space;
                     json += '"';
                     json += key;
@@ -201,7 +201,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
         tab -= 4;
 
         json.remove(json.length() - 1, 1);
-        json += "\r\n";
+        json += "\n";
         json += QString(tab, ' ');
         json += '}';
 

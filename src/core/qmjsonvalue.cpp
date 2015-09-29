@@ -901,7 +901,7 @@ bool QMJsonValue::toJsonFile(const QString &filename, QMJsonFormat format, QMJso
     if (file.open(QIODevice::WriteOnly | QIODevice::Text) == false)
         return false;
 
-    stream << this->toJson(format, sort) << "\r\n";
+    stream << this->toJson(format, sort) << "\n";
 
     return file.commit();
 }
