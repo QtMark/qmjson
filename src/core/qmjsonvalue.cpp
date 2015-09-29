@@ -904,7 +904,6 @@ bool QMJsonValue::toJsonFile(const QString &filename, QMJsonFormat format, QMJso
     stream << this->toJson(format, sort) << "\r\n";
 
     return file.commit();
-
 }
 
 QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)
