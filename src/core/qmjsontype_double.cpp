@@ -35,7 +35,7 @@ QMPointer<QMJsonValue> convert(const QString &json, int32_t &index, int32_t star
     auto result = json.mid(start, index - start).toDouble(&ok);
 
     if (ok == false)
-        return QMPointer<QMJsonValue>(new QMJsonValue(0.0));
+        return QMPointer<QMJsonValue>();
 
     return QMPointer<QMJsonValue>(new QMJsonValue(result));
 }
@@ -69,7 +69,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<double>::fromJson(const QString
         };
     }
 
-    return QMPointer<QMJsonValue>(new QMJsonValue());
+    return QMPointer<QMJsonValue>();
 }
 
 template <>

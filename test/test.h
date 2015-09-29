@@ -51,6 +51,7 @@ private slots:
     virtual void QMJsonValue_tofromjson_string(void);
     virtual void QMJsonValue_tofromjson_array(void);
     virtual void QMJsonValue_tofromjson_object(void);
+    virtual void QMJsonValue_fromjson(void);
 
     virtual void QMJsonArray_create(void);
     virtual void QMJsonArray_prepend(void);

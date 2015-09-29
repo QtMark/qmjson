@@ -78,7 +78,7 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
         };
     }
 
-    return QMPointer<QMJsonValue>(new QMJsonValue());
+    return QMPointer<QMJsonValue>();
 }
 
 template <>
