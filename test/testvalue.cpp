@@ -1361,4 +1361,7 @@ void TestJson::QMJsonValue_fromjson(void)
     QVERIFY(QMJsonValue::fromJson("talse").isNull() == true);
     QVERIFY(QMJsonValue::fromJson("frue").isNull() == true);
     QVERIFY(QMJsonValue::fromJson("000pppsssss").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("\"\"invalid").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("[]invalid").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("{}invalid").isNull() == true);
 }

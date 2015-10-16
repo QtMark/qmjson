@@ -918,7 +918,14 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json)
         if (index >= json.length())
             return QMPointer<QMJsonValue>();
 
-        return QMJsonValue::fromJson(json, index);
+        value = QMJsonValue::fromJson(json, index);
+
+        QMJsonValue::skipSpaces(json, index);
+
+        if (index != json.length())
+            return QMPointer<QMJsonValue>();
+
+        return value;
     }
 
     catch (const QString &str)
