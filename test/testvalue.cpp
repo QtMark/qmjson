@@ -1330,18 +1330,18 @@ void TestJson::QMJsonValue_tofromjson_object(void)
 
     QVERIFY(pjson1 == "{}");
     QVERIFY(pjson2 == "{\n"
-            "    \"key0\":null,\n"
-            "    \"key1\":true,\n"
-            "    \"key2\":4.8,\n"
-            "    \"key3\":\"test\"\n"
+            "    \"key0\" : null,\n"
+            "    \"key1\" : true,\n"
+            "    \"key2\" : 4.8,\n"
+            "    \"key3\" : \"test\"\n"
             "}");
     QVERIFY(pjson3 == "{\n"
-            "    \"key4\":{},\n"
-            "    \"key5\":{\n"
-            "        \"key0\":null,\n"
-            "        \"key1\":true,\n"
-            "        \"key2\":4.8,\n"
-            "        \"key3\":\"test\"\n"
+            "    \"key4\" : {},\n"
+            "    \"key5\" : {\n"
+            "        \"key0\" : null,\n"
+            "        \"key1\" : true,\n"
+            "        \"key2\" : 4.8,\n"
+            "        \"key3\" : \"test\"\n"
             "    }\n"
             "}");
 
@@ -1361,4 +1361,7 @@ void TestJson::QMJsonValue_fromjson(void)
     QVERIFY(QMJsonValue::fromJson("talse").isNull() == true);
     QVERIFY(QMJsonValue::fromJson("frue").isNull() == true);
     QVERIFY(QMJsonValue::fromJson("000pppsssss").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("\"\"invalid").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("[]invalid").isNull() == true);
+    QVERIFY(QMJsonValue::fromJson("{}invalid").isNull() == true);
 }
