@@ -32,6 +32,12 @@ TARGET = qmjson
 FEATURES = ../../include/qmjsonfeatures.h
 write_file($$FEATURES);
 
+!contains(QT_MODULES, gui) {
+
+    QT -= gui
+    DEFINES += DISABLE_QMJSON_GUI
+}
+
 contains(QT_MODULES, dbus) {
 
     QT += dbus

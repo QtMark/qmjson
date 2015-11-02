@@ -21,8 +21,18 @@
 
 #include <QtTest/QtTest>
 
+#ifndef DISABLE_QMJSON_GUI
+
+#include <QtGui>
 #include <qmjson.h>
 #include <qmjsongui.h>
+
+#else
+
+#include <QtCore>
+#include <qmjson.h>
+
+#endif
 
 class TestJson: public QObject
 {
@@ -103,10 +113,14 @@ private slots:
     virtual void QMJsonObject_custom(void);
     virtual void QMJsonObject_signals(void);
 
+#ifndef DISABLE_QMJSON_GUI
+
     virtual void QMJsonGui_qsize(void);
     virtual void QMJsonGui_qpoint(void);
     virtual void QMJsonGui_qrect(void);
     virtual void QMJsonGui_qcolor(void);
+
+#endif
 
     virtual void signaled(void);
 

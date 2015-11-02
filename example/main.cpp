@@ -19,10 +19,18 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
-#include <QtGui>
+#ifndef DISABLE_QMJSON_GUI
 
+#include <QtGui>
 #include <qmjson.h>
 #include <qmjsongui.h>
+
+#else
+
+#include <QtCore>
+#include <qmjson.h>
+
+#endif
 
 int main(int argc, char const *argv[])
 {
@@ -33,10 +41,14 @@ int main(int argc, char const *argv[])
     // Setup
     //--------------------------------------------------------------------------
 
+#ifndef DISABLE_QMJSON_GUI
+
     QMJsonValue::registerFromComplexJson("QColor", &QMJsonType<QColor>::fromComplexJson);
     QMJsonValue::registerFromComplexJson("QPoint", &QMJsonType<QPoint>::fromComplexJson);
     QMJsonValue::registerFromComplexJson("QRect", &QMJsonType<QRect>::fromComplexJson);
     QMJsonValue::registerFromComplexJson("QSize", &QMJsonType<QSize>::fromComplexJson);
+
+#endif
 
     auto value1 = QMPointer<QMJsonValue>(new QMJsonValue(5.5));
     auto value2 = QMPointer<QMJsonValue>(new QMJsonValue("Hello"));
@@ -57,10 +69,14 @@ int main(int argc, char const *argv[])
     tree->insert("array", array);
     tree->insert("object", object);
 
+#ifndef DISABLE_QMJSON_GUI
+
     auto complexValue1 = QMPointer<QMJsonValue>(new QMJsonValue(QColor("red")));
     auto complexValue2 = QMPointer<QMJsonValue>(new QMJsonValue(QPoint(2, 2)));
     auto complexValue3 = QMPointer<QMJsonValue>(new QMJsonValue(QRect(5, 5, 3, 3)));
     auto complexValue4 = QMPointer<QMJsonValue>(new QMJsonValue(QSize(10, 10)));
+
+#endif
 
     //--------------------------------------------------------------------------
     // Valid
@@ -168,6 +184,7 @@ int main(int argc, char const *argv[])
     // Complex Types
     //--------------------------------------------------------------------------
 
+#ifndef DISABLE_QMJSON_GUI
 
     qDebug() << "Complex Values:";
     qDebug() << complexValue1;
@@ -210,6 +227,8 @@ int main(int argc, char const *argv[])
     qDebug() << QMJsonValue::fromJson(complexValue3->toJson());
     qDebug() << QMJsonValue::fromJson(complexValue4->toJson());
     qDebug() << "";
+
+#endif
 
     return 0;
 }
