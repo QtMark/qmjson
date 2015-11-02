@@ -38,8 +38,19 @@ SOURCES += testgui.cpp
 # QMJson Required
 #-------------------------------------------------------------------------------
 
+!contains(QT_MODULES, gui) {
+
+    QT -= gui
+    DEFINES += DISABLE_QMJSON_GUI
+
+    LIBS += -lqmjson
+
+} else {
+
+    LIBS += -lqmjson -lqmjsongui
+}
+
 CONFIG += c++11
-LIBS += -lqmjson -lqmjsongui
 
 #-------------------------------------------------------------------------------
 # Clean

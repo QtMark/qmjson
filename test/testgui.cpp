@@ -21,6 +21,8 @@
 
 #include <test.h>
 
+#ifndef DISABLE_QMJSON_GUI
+
 void TestJson::QMJsonGui_qsize(void)
 {
     auto value00 = QMPointer<QMJsonValue>(new QMJsonValue(QSize()));
@@ -120,3 +122,4 @@ void TestJson::QMJsonGui_qcolor(void)
     QVERIFY(QMJsonValue::fromJson(pjson04)->to<QColor>(QColor()) == color04);
 }
 
+#endif
