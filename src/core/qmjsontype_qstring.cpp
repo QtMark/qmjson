@@ -47,6 +47,8 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
                 index++;
                 QMJsonValue::verifyIndex(json, index);
 
+                const int32_t CHARS_IN_UNICODE_ESCAPE = 4;
+                const int32_t HEX_BASE = 16;
                 switch (json.at(index).toLatin1())
                 {
                     case '"': result += '"'; break;
@@ -57,8 +59,11 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
                     case 'n': result += '\n'; break;
                     case 'r': result += '\r'; break;
                     case 't': result += '\t'; break;
-
-                    // TODO: Need to add support for \u [number]
+                    case 'u':
+                        QMJsonValue::verifyIndex(json, index + CHARS_IN_UNICODE_ESCAPE);
+                        result += json.mid(index + 1, CHARS_IN_UNICODE_ESCAPE).toUShort(Q_NULLPTR, HEX_BASE);
+                        index += CHARS_IN_UNICODE_ESCAPE;
+                        break;
 
                     default:
                         break;
