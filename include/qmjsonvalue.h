@@ -144,7 +144,7 @@ signals:
 private:
 
     static void skipSpaces(const QString &json, int32_t &index);
-    static void verifyIndex(const QString &json, int32_t &index);
+    static void verifyIndex(const QString &json, int32_t index);
     static QMPointer<QMJsonValue> fromJson(const QString &json, int32_t &index);
     static QMPointer<QMJsonValue> fromComplexJson(const QMPointer<QMJsonValue> &value);
     static void throwError(const QString &json, int32_t index, QString error);
