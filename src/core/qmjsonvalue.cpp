@@ -981,7 +981,7 @@ void QMJsonValue::skipSpaces(const QString &json, int32_t &index)
         index++;
 }
 
-void QMJsonValue::verifyIndex(const QString &json, int32_t &index)
+void QMJsonValue::verifyIndex(const QString &json, int32_t index)
 {
     if (index >= json.length())
         QMJsonValue::throwError(json, index, "Incomplete JSON");
