@@ -1070,6 +1070,7 @@ QMPointer<QMJsonValue> QMJsonValue::fromJson(const QString &json, int32_t &index
         case ']':
         case '}':
             QMJsonValue::throwError(json, index, "Unexpected closing bracket. Are there too many commas?");
+        break;
 
         default:
             return QMJsonType<double>::fromJson(json, index);
