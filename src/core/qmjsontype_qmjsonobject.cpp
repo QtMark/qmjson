@@ -133,7 +133,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
                 QStringList keys = object->keys();
                 keys.sort(convertQMJsonSort(sort));
 
-                for (const auto &key : keys)
+                foreach (const auto &key, keys)
                 {
                     const auto &value = object->value(key);
 
@@ -184,7 +184,7 @@ QString QM_JSON_EXPORT QMJsonType<QMPointer<QMJsonObject> >::toJson(int32_t tab,
                 QStringList keys = object->keys();
                 keys.sort(convertQMJsonSort(sort));
 
-                for (const auto &key : keys)
+                foreach (const auto &key, keys)
                 {
                     const auto &value = object->value(key);
 

@@ -700,7 +700,7 @@ QVariant QMJsonValue::toVariant(void)
         {
             auto list = QVariantList();
 
-            for (const auto &value : this->toArray()->values())
+            foreach (const auto &value, this->toArray()->values())
                 list.append(value->toVariant());
 
             return QVariant::fromValue(list);
@@ -711,7 +711,7 @@ QVariant QMJsonValue::toVariant(void)
             auto hash = QVariantHash();
             const auto &object = this->toObject();
 
-            for (const auto &key : object->keys())
+            foreach (const auto &key, object->keys())
                 hash[key] = object->value(key)->toVariant();
 
             return QVariant::fromValue(hash);
@@ -746,7 +746,7 @@ QMPointer<QMJsonValue> QMJsonValue::fromVariant(const QVariant &value)
         {
             auto array = QMPointer<QMJsonArray>(new QMJsonArray);
 
-            for (const auto &variant : value.value<QSequentialIterable>())
+            foreach (const auto &variant, value.value<QSequentialIterable>())
                 array->append(QMJsonValue::fromVariant(variant));
 
             return QMPointer<QMJsonValue>(new QMJsonValue(array));

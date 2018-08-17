@@ -50,7 +50,7 @@ void QMJsonArray::reserve(int32_t alloc)
 
 void QMJsonArray::clear(void)
 {
-    for (const auto &value : mList)
+    foreach (const auto &value, mList)
     {
         if (value->isObject() == true)
         {
@@ -153,7 +153,7 @@ void QMJsonArray::unite(const QMPointer<QMJsonArray> &array, QMJsonArrayUnitePol
     if (array.isNull() == true)
         return;
 
-    for (const auto &value : array->values())
+    foreach (const auto &value, array->values())
     {
         switch (policy)
         {
@@ -451,7 +451,7 @@ QDebug operator<<(QDebug dbg, const QMJsonArray &array)
 
     dbg.nospace() << "QMJsonArray[";
 
-    for (const auto &value : array.values())
+    foreach (const auto &value, array.values())
     {
         if (started == true)
             dbg << ",";
