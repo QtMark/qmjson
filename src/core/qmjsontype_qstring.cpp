@@ -40,47 +40,46 @@ QMPointer<QMJsonValue> QM_JSON_EXPORT QMJsonType<QString>::fromJson(const QStrin
     {
         QMJsonValue::verifyIndex(json, index);
 
-        switch (json.at(index).toLatin1())
+        auto c = json.at(index);
+        if (c == '\\')
         {
-            case '\\':
+            index++;
+            QMJsonValue::verifyIndex(json, index);
+
+            const int32_t CHARS_IN_UNICODE_ESCAPE = 4;
+            const int32_t HEX_BASE = 16;
+            auto cc = json.at(index);
+            if (cc == '"')
+                result += '"';
+            else if (cc == '\\')
+                result += '\\';
+            else if (cc == '/')
+                result += '/';
+            else if (cc == 'b')
+                result += '\b';
+            else if (cc == 'f')
+                result += '\f';
+            else if (cc == 'n')
+                result += '\n';
+            else if (cc == 'r')
+                result += '\r';
+            else if (cc == 't')
+                result += '\t';
+            else if (cc == 'u')
             {
-                index++;
-                QMJsonValue::verifyIndex(json, index);
-
-                const int32_t CHARS_IN_UNICODE_ESCAPE = 4;
-                const int32_t HEX_BASE = 16;
-                switch (json.at(index).toLatin1())
-                {
-                    case '"': result += '"'; break;
-                    case '\\': result += '\\'; break;
-                    case '/': result += '/'; break;
-                    case 'b': result += '\b'; break;
-                    case 'f': result += '\f'; break;
-                    case 'n': result += '\n'; break;
-                    case 'r': result += '\r'; break;
-                    case 't': result += '\t'; break;
-                    case 'u':
-                        QMJsonValue::verifyIndex(json, index + CHARS_IN_UNICODE_ESCAPE);
-                        result += json.mid(index + 1, CHARS_IN_UNICODE_ESCAPE).toUShort(Q_NULLPTR, HEX_BASE);
-                        index += CHARS_IN_UNICODE_ESCAPE;
-                        break;
-
-                    default:
-                        break;
-                };
-
-                index++;
-                break;
+                QMJsonValue::verifyIndex(json, index + CHARS_IN_UNICODE_ESCAPE);
+                result += json.mid(index + 1, CHARS_IN_UNICODE_ESCAPE).toUShort(Q_NULLPTR, HEX_BASE);
+                index += CHARS_IN_UNICODE_ESCAPE;
             }
 
-            case '"':
-                index++;
-                return QMPointer<QMJsonValue>(new QMJsonValue(result));
-
-            default:
-                result += json.at(index++);
-                break;
-        };
+            index++;
+        } else if (c == '"')
+        {
+            index++;
+            return QMPointer<QMJsonValue>(new QMJsonValue(result));
+        }
+        else
+            result += json.at(index++);
     }
 
     return QMPointer<QMJsonValue>();
@@ -98,45 +97,28 @@ QString QM_JSON_EXPORT QMJsonType<QString>::toJson(int32_t tab, QMJsonSort sort)
     result += '"';
     for (int i = 0; i < str.length(); i++)
     {
-        auto c = str.at(i).toLatin1();
+        auto c = str.at(i);
 
-        switch (c)
-        {
-            case '\\':
-                result += "\\\\";
-                break;
-            case '"':
-                result += "\\\"";
-                break;
-
-            case '/':
-                result += "\\/";
-                break;
-
-            case '\b':
-                result += "\\b";
-                break;
-
-            case '\f':
-                result += "\\f";
-                break;
-
-            case '\n':
-                result += "\\n";
-                break;
-
-            case '\r':
-                result += "\\r";
-                break;
-
-            case '\t':
-                result += "\\t";
-                break;
-
-            default:
-                result += c;
-                break;
-        }
+        if (c =='\\')
+            result += "\\\\";
+        else if (c =='"')
+            result += "\\\"";
+#ifdef QMJSON_ESCAPE_SLASH
+        else if (c =='/')
+            result += "\\/";
+#endif
+        else if (c =='\b')
+            result += "\\b";
+        else if (c =='\f')
+            result += "\\f";
+        else if (c =='\n')
+            result += "\\n";
+        else if (c =='\r')
+            result += "\\r";
+        else if (c =='\t')
+            result += "\\t";
+        else
+            result += c;
 
     }
     result += '"';
