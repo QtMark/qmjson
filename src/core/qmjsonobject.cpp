@@ -447,7 +447,7 @@ QDebug operator<<(QDebug dbg, const QMJsonObject &object)
 
     dbg.nospace() << "QMJsonObject{";
 
-    for (const auto &key : object.keys())
+    foreach (const auto &key, object.keys())
     {
         if (started == true)
             dbg << ",";
